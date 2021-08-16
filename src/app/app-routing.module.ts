@@ -4,10 +4,11 @@ import {HomeComponent} from "./home/home.component";
 import {ConfigurationComponent} from "./home/configuration/configuration.component";
 
 const routes: Routes = [
-  {path: 'home', component: HomeComponent,
-    children: [
-      {path: 'configuracion', component: ConfigurationComponent}
-    ]
+  {
+    path: '', redirectTo: 'home/configuracion', pathMatch: 'full'
+  },
+  {
+    path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
   }
 ];
 

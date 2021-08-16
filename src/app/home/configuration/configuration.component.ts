@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-configuration',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfigurationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
+
+  public redirectLimitOp(){
+    this.router.navigateByUrl('/home/limitOp')
+  }
 
   ngOnInit(): void {
   }

@@ -1,0 +1,277 @@
+<div class="lg:flex block justify-start bg-white px-2 lg:px-0">
+  <div class="monset items-center lg:ml-4 lg:w-3/5 xl:w-4/6 h-full">
+    <div class="lg:mt-4 mt-4">
+      <div class="w-full block h-auto py-1 monset space-x-4 flex">
+        <div class="w-full">
+          <div class="flex justify-center text-lg mb-7">
+            <div class="mr-3 monsetb text-xl text-[#1A3184] pb-3 text-center mt-1 border-b-2 border-green-300">
+              Configura tus límites de operaciones
+            </div>
+          </div>
+          <div class="space-y-4">
+            <div class="card monset text-[1rem] w-[31.875rem] h-[8.75rem] mx-auto py-2 px-4 flex justify-between">
+              <div>
+                <div class="text-[#1A3184] monsetb">Tranferencias a terceros</div>
+                <button class="py-1 px-1 mt-16 card inline-flex text-[0.75rem] items-center">
+                  <span>Modificar límite</span>
+                  <mat-icon class="fill-current w-2 h-2 mr-2">edit</mat-icon>
+                  <!--                <svg class="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>-->
+                </button>
+              </div>
+              <div>
+                <div>Monto actual diario:</div>
+                <div class="text-[1.5rem] monsetb mt-16">S/ 150.00</div>
+              </div>
+            </div>
+            <div class="card monset text-[1rem] w-[31.875rem] h-[8.75rem] mx-auto py-2 px-4 flex justify-between">
+              <div>
+                <div class="text-[#1A3184] monsetb">Tranferencias a terceros</div>
+                <button class="py-1 px-1 mt-16 card inline-flex text-[0.75rem] items-center">
+                  <span>Modificar límite</span>
+                  <mat-icon class="fill-current w-2 h-2 mr-2">edit</mat-icon>
+                  <!--                <svg class="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>-->
+                </button>
+              </div>
+              <div>
+                <div>Monto actual diario:</div>
+                <div class="text-[1.5rem] monsetb mt-16">S/ 150.00</div>
+              </div>
+            </div>
+            <div class="mt-4 text-[0.75rem] mx-auto text-center px-12 warning -pb-1 w-[31.875rem] bg-[#ECFEFB]">
+              <div class="flex pt-1 justify-between text-[#1A3184]">
+                <mat-icon>attach_money</mat-icon>
+                <p class="pt-1 monset">Aplica el equivalente en dólares según el tipo de cambio del día.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="block lg:mt-8 lg:-mt-0 monset lg:ml-4 xl:ml-6 2xl:ml-20 lg:w-2/6 h-full lg:pt-5 lg:pr-1 xl:pr-6">
+    <div class="block pt-1 mt-10 lg:border-t-2 border-green-300">
+      <div class="justify-start">
+        <div class=" mt-1 lg:flex hidden">
+          <div class="text-[0.875rem] monset">Incrementa o disminuye el límite diario para las transferencias que hagas desde tu Banca por Internet  o por el APP.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mt-4 lg:ml-4 xl:pr-10 text-base monsetb lg:w-3/5 xl:w-4/6 pb-20 px-2 lg:px-0">
+
+<!--  <mat-tab-group class="monset">-->
+<!--    <mat-tab class="monsetb">-->
+<!--      <ng-template mat-tab-label>{{labeltab}}</ng-template>-->
+<!--      <div class="lg:w-full" [hidden]="this.cargaData===0">-->
+<!--        <div [hidden]="datasource.data.length === 0" [hidden]="this.cargaData===0" class="mx-2">-->
+<!--          <button class="bg-white text-black text-base justify-between download h-10 w-full lg:w-44 mt-3 mb-4" mat-raised-button-->
+<!--                  [matMenuTriggerFor]="menuTwo">-->
+<!--            <span class="mr- lg:mr-0">Descargar</span>-->
+<!--            <mat-icon class="ml-16 lg:ml-0">download</mat-icon>-->
+<!--          </button>-->
+<!--          <mat-menu #menuTwo="matMenu">-->
+<!--            <button (click)="DownloadDesembolsoPrestamoBancarioPDF()" mat-menu-item class="text-black ">PDF-->
+<!--              <mat-icon class="-ml-1 pl-20 w-6 text-right text-black">picture_as_pdf</mat-icon>-->
+<!--            </button>-->
+<!--            <button mat-menu-item class="inline-flex items-center" (click)="DownloadDesembolsoPrestamoBancarioEX()">EXCEL-->
+<!--              <img class="ml-16 w-6 h-6 mr-2" src="assets/images/excel.svg"></button>-->
+<!--          </mat-menu>-->
+<!--        </div>-->
+<!--        <div class="mat-elevation-z8 rounded-t-2xl" [hidden]="this.cargaData===0">-->
+<!--          <table mat-table-->
+<!--                 [dataSource]="datasource" [hidden]="datasource.data.length === 0"-->
+<!--                 class="rounded-t-2xl monset">-->
+
+<!--            <ng-container matColumnDef="nro">-->
+<!--              <th mat-header-cell *matHeaderCellDef class="monsetb text-blue-900 text-[1rem] text-left pr-2 rounded-tl-2xl">Nro</th>-->
+<!--              <td mat-cell *matCellDef="let element; let i = index" class="text-left"> {{i + 1}} </td>-->
+<!--            </ng-container>-->
+
+<!--            <ng-container matColumnDef="fecha">-->
+<!--              <th mat-header-cell *matHeaderCellDef class="text-blue-900 pl-2 text-xs lg:table-cell monsetb lg:rounded-none lg:text-xs text-left"> Fecha </th>-->
+<!--              <td mat-cell *matCellDef="let element" class="text-left text-[0.688rem] lg:text-xs items-start pb-10 lg:pb-1"> {{element.FECHA}} </td>-->
+<!--            </ng-container>-->
+
+<!--            <ng-container matColumnDef="responsive">-->
+<!--              <th mat-header-cell *matHeaderCellDef class="text-blue-900 text-xs pr-2 text-right rounded-tr-2xl lg:text-left monsetb lg:hidden">-->
+<!--                DESCRIPCIÓN/MONTO </th>-->
+<!--              <td mat-cell *matCellDef="let element" class="text-right lg:text-left text-[0.625rem] lg:text-xs pr-2  monset lg:hidden ">-->
+<!--                {{element.DESCRIPCION}} <br>-->
+<!--                {{element.MONEDA +' '+ (element.MONTO | number: '.2')}}-->
+<!--                &lt;!&ndash;                <div class="inline-flex content-center" [ngClass]="{'text1': element.DESCRIPCION == 'Desembolso Credito Pigno'}">&ndash;&gt;-->
+<!--                &lt;!&ndash;                  <div class="">demo</div>&ndash;&gt;-->
+<!--                &lt;!&ndash;                  <div class="w-[0.625rem] ml-2 h-[0.625rem] rounded-full bg-[#00AF91]"></div>&ndash;&gt;-->
+<!--                &lt;!&ndash;                </div>&ndash;&gt;-->
+<!--              </td>-->
+<!--            </ng-container>-->
+
+<!--            <ng-container matColumnDef="descripcion">-->
+<!--              <th mat-header-cell *matHeaderCellDef class="monsetb text-blue-900 text-[1rem] text-left hidden lg:table-cell"> Descripción </th>-->
+<!--              <td mat-cell *matCellDef="let element" class="text-left hidden lg:table-cell"> {{element.DESCRIPCION}} </td>-->
+<!--            </ng-container>-->
+
+<!--            <ng-container matColumnDef="monto">-->
+<!--              <th mat-header-cell *matHeaderCellDef class="monsetb text-blue-900 text-[1rem] text-center rounded-tr-2xl hidden lg:table-cell"> Monto </th>-->
+<!--              <td mat-cell *matCellDef="let element" class="text-center hidden lg:table-cell"> {{element.MONEDA +' '+ (element.MONTO | number: '.2')}}</td>-->
+<!--            </ng-container>-->
+
+<!--            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
+<!--            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>-->
+<!--          </table>-->
+<!--          <div [hidden]="datasource.data.length === 0">-->
+<!--            <mat-paginator #MatPaginator class="hidden" [length]="100" [pageSize]="pageSizeP" [pageSizeOptions]="[10]">-->
+<!--            </mat-paginator>-->
+<!--          </div>-->
+<!--          <div *ngIf="datasource.data.length === 0" [hidden]="!this.cargaData>0">-->
+<!--            <div style="background: #F6F6F6"-->
+<!--                 class="w-full rounded-xl flex flex-col justify-center items-center py-10 lg:py-40 px-5 lg:px-10 mt-4 ">-->
+<!--              <mat-icon class="text-yellow-500 text-xl lg:text-3xl lg:mb-6">warning</mat-icon>-->
+<!--              <h4 class="text-[#00AF91] text-xl lg:text-3xl monsetb font-bold p-5 text-center">No existen movimientos en-->
+<!--                la cuenta en-->
+<!--                los últimos 90 días.</h4>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </mat-tab>-->
+<!--    <mat-tab label="{{this.TipoPago}}">-->
+
+<!--      <div>-->
+<!--        <div [hidden]="datasource.data.length === 0">-->
+<!--          <button class="bg-white text-black text-base justify-between download h-10 w-full lg:w-44 mt-3 mb-4" mat-raised-button-->
+<!--                  [matMenuTriggerFor]="menuTwo">-->
+<!--            <span class="mr-10 lg:mr-0">Descargar</span>-->
+<!--            <mat-icon class="ml-16 lg:ml-0">download</mat-icon>-->
+<!--          </button>-->
+<!--          <mat-menu #menuTwo="matMenu">-->
+<!--            <button (click)="DownloadCronogramaPrestamoBancarioPDF()" mat-menu-item class="text-black">PDF-->
+<!--              <mat-icon class="-ml-1 pl-20 w-6 text-right text-black">picture_as_pdf</mat-icon>-->
+<!--            </button>-->
+<!--            <button (click)="DownloadCronogramaPrestamoBancarioEX()" mat-menu-item class="inline-flex items-center">EXCEL-->
+<!--              <img class="ml-16 w-6 h-6 mr-2" src="assets/images/excel.svg"></button>-->
+<!--          </mat-menu>-->
+<!--        </div>-->
+<!--        <div class="block overflow-auto max-h-[32rem]">-->
+<!--          <table mat-table matSort matSortActive="fechav" matSortDirection="desc" [dataSource]="secutable"-->
+<!--                 multiTemplateDataRows [hidden]="secutable.data.length === 0" class="mt-4 rounded-t-2xl demo-table">-->
+
+<!--            <ng-container matColumnDef="nro">-->
+<!--              <th mat-header-cell mat-sort-header *matHeaderCellDef-->
+<!--                  class="text-blue-900 text-xs lg:text-sm rounded-tl-2xl text-left monsetb px-2">Nro</th>-->
+<!--              <td mat-cell *matCellDef="let element" class="text-left text-xs lg:text-sm monset"> {{element.nro}} </td>-->
+<!--            </ng-container>-->
+
+<!--            <ng-container matColumnDef="fechaV">-->
+<!--              <th mat-header-cell *matHeaderCellDef class="text-blue-900 text-left monsetb"> Fecha de Pago-->
+<!--              </th>-->
+<!--              <td mat-cell *matCellDef="let element" class="text-left monset"> {{element.fechaV  | date: 'dd/MM/yyyy'}}-->
+<!--              </td>-->
+<!--            </ng-container>-->
+
+<!--            <ng-container matColumnDef="fechaP">-->
+<!--              <th mat-header-cell *matHeaderCellDef class="text-blue-900 text-left monsetb"> Fecha de pago-->
+<!--              </th>-->
+<!--              <td mat-cell *matCellDef="let element" class="text-left monset"> {{element.fechaP  | date: 'dd/MM/yyyy'}}-->
+<!--              </td>-->
+<!--            </ng-container>-->
+
+<!--            <ng-container matColumnDef="nroC">-->
+<!--              <th mat-header-cell *matHeaderCellDef class="text-blue-900 text-left monsetb hidden lg:table-cell"> Nro. de cuota </th>-->
+<!--              <td mat-cell *matCellDef="let element" class="text-left monset hidden lg:table-cell"> {{element.nroC}} </td>-->
+<!--            </ng-container>-->
+
+<!--            <ng-container matColumnDef="diasA">-->
+<!--              <th mat-header-cell *matHeaderCellDef class="text-blue-900 text-left monsetb hidden lg:table-cell"> D&iacute;as de atraso </th>-->
+<!--              <td mat-cell *matCellDef="let element" class="text-left monset hidden lg:table-cell"> {{element.diasA}} </td>-->
+<!--            </ng-container>-->
+
+<!--            <ng-container matColumnDef="estado">-->
+<!--              <th mat-header-cell *matHeaderCellDef class="text-blue-900 text-right monsetb hidden lg:table-cell"> Estado </th>-->
+<!--              <td mat-cell *matCellDef="let element" class="text-right monset hidden lg:table-cell"> {{element.estado}} </td>-->
+<!--            </ng-container>-->
+
+<!--            <ng-container matColumnDef="cuota">-->
+<!--              <th mat-header-cell *matHeaderCellDef class="text-blue-900 text-right monsetb hidden lg:table-cell pr-2"> Cuota </th>-->
+<!--              <td mat-cell *matCellDef="let element" class="text-right monset hidden lg:table-cell pr-2"><mat-icon class="text-blue-900" matTooltip="{{element.tooltip}}">info</mat-icon> S/ {{element.cuota | number: '.2'}} </td>-->
+<!--            </ng-container>-->
+
+<!--            <ng-container matColumnDef="totalP">-->
+<!--              <th mat-header-cell *matHeaderCellDef class="text-blue-900 text-right monsetb hidden lg:table-cell pr-2"> Total pagado </th>-->
+<!--              <td mat-cell *matCellDef="let element" class="text-right monset hidden lg:table-cell pr-2">-->
+<!--                <div class="flex justify-between">-->
+<!--                  <mat-icon class="text-blue-900" matTooltip="{{element.tooltip}}">info</mat-icon>-->
+<!--                  <div>S/ {{element.totalP | number: '.2'}}</div>-->
+<!--                </div>-->
+<!--              </td>-->
+<!--            </ng-container>-->
+
+
+<!--            <ng-container matColumnDef="responsive">-->
+<!--              <th mat-header-cell *matHeaderCellDef class="text-blue-900 text-xs text-right lg:text-left monsetb lg:hidden">-->
+<!--                DESCRIPCIÓN/MONTO </th>-->
+<!--              <td mat-cell *matCellDef="let element" class="text-right lg:text-left text-xs monset lg:hidden ">-->
+<!--                <div>{{element.nroC}}</div>-->
+<!--                <div>{{element.cuota | number: '.2'}}</div>-->
+<!--                <div *ngIf="TipoPago == 'Cronograma de pagos'" [ngClass]="{'text1': element.estado == 'Pendiente', 'text2': element.estado == 'Pagado'}">-->
+<!--                  <div>{{element.estado}}</div>-->
+<!--                  <div class="w-[0.625rem] ml-2 h-[0.625rem] rounded-full bg-[#00AF91]"></div>-->
+<!--                </div>-->
+<!--              </td>-->
+<!--            </ng-container>-->
+
+<!--            <ng-container matColumnDef="icon">-->
+<!--              <th mat-header-cell *matHeaderCellDef class="text-blue-900 rounded-tr-2xl text-right monsetb"> </th>-->
+<!--              <td mat-cell *matCellDef="let element" class="text-right monset">-->
+<!--                <button mat-icon-button>-->
+<!--                  <mat-icon>expand_more</mat-icon>-->
+<!--                </button>-->
+<!--              </td>-->
+<!--            </ng-container>-->
+
+<!--            &lt;!&ndash; Expanded Content Column - The detail row is made up of this one column that spans across all columns &ndash;&gt;-->
+<!--            <ng-container matColumnDef="expandedDetail" class="w-full">-->
+<!--              <td mat-cell *matCellDef="let element" [attr.colspan]="segundatabla.length" class="w-full bg-[#E8F5FF]">-->
+<!--                <div class="example-element-detail w-full"-->
+<!--                     [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">-->
+<!--                  <div class="h-auto mt-4 text-left py-4 w-full monset text-[0.563rem] lg:text-[0.688rem]">-->
+<!--                    <div class="text-[1rem] -pl-8 monsetb">Informacion</div>-->
+<!--                    <div class="flex -pl-8 mt-4 space-x-2 lg:space-x-8">-->
+<!--                      <div class="w-auto">-->
+<!--                        <div>Hora</div>-->
+<!--                        <div class="monsetb">{{element.hora}}</div>-->
+<!--                      </div>-->
+<!--                      <div class="w-auto">-->
+<!--                        <div>N° Operación</div>-->
+<!--                        <div class="monsetb">{{element.nroO}}</div>-->
+<!--                      </div>-->
+<!--                      <div class="w-auto">-->
+<!--                        <div>Descripción</div>-->
+<!--                        <div class="monsetb">{{element.descp}}</div>-->
+<!--                      </div>-->
+<!--                      <div class="w-auto">-->
+<!--                        <div>Agencia</div>-->
+<!--                        <div class="monsetb">{{element.agen}}</div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </td>-->
+<!--            </ng-container>-->
+<!--            <tr mat-header-row *matHeaderRowDef="segundatabla"></tr>-->
+<!--            <tr mat-row *matRowDef="let element; columns: segundatabla;" class="example-element-row"-->
+<!--                [class.example-expanded-row]="expandedElement === element"-->
+<!--                (click)="expandedElement = expandedElement === element ? null : element">-->
+<!--            </tr>-->
+<!--            <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>-->
+<!--          </table>-->
+<!--        </div>-->
+<!--        <button (click)="incrementar()" mat-stroked-button class="bg-[#FFFFFF] text-green-400 mt-5 w-full monsetb h-[3.125rem] py-2 px-4 rounded">-->
+<!--          <mat-icon class="">add_circle_outline</mat-icon>-->
+<!--          <span class="text-[0.844rem] ml-10">Cargar más movimientos</span>-->
+<!--        </button>-->
+<!--      </div>-->
+<!--    </mat-tab>-->
+<!--  </mat-tab-group>-->
+  <!--SideNav-->
+</div>
