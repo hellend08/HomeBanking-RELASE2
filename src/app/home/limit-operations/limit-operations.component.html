@@ -12,7 +12,7 @@
             <div class="card monset text-[1rem] w-[31.875rem] h-[8.75rem] mx-auto py-2 px-4 flex justify-between">
               <div>
                 <div class="text-[#1A3184] monsetb">Tranferencias a terceros</div>
-                <button class="py-1 px-1 mt-16 card inline-flex text-[0.75rem] items-center">
+                <button (click)="openDialog()" class="py-1 px-1 mt-16 card inline-flex text-[0.75rem] items-center">
                   <span>Modificar límite</span>
                   <mat-icon class="fill-current w-2 h-2 mr-2">edit</mat-icon>
                   <!--                <svg class="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>-->
@@ -20,13 +20,13 @@
               </div>
               <div>
                 <div>Monto actual diario:</div>
-                <div class="text-[1.5rem] monsetb mt-16">S/ 150.00</div>
+                <div class="text-[1.5rem] monsetb mt-16 text-right">S/ 150.00</div>
               </div>
             </div>
             <div class="card monset text-[1rem] w-[31.875rem] h-[8.75rem] mx-auto py-2 px-4 flex justify-between">
               <div>
-                <div class="text-[#1A3184] monsetb">Tranferencias a terceros</div>
-                <button class="py-1 px-1 mt-16 card inline-flex text-[0.75rem] items-center">
+                <div class="text-[#1A3184] monsetb">Tranferencias a otros bancos</div>
+                <button (click)="openDialog()" class="py-1 px-1 mt-16 card inline-flex text-[0.75rem] items-center">
                   <span>Modificar límite</span>
                   <mat-icon class="fill-current w-2 h-2 mr-2">edit</mat-icon>
                   <!--                <svg class="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>-->
@@ -34,7 +34,7 @@
               </div>
               <div>
                 <div>Monto actual diario:</div>
-                <div class="text-[1.5rem] monsetb mt-16">S/ 150.00</div>
+                <div class="text-[1.5rem] monsetb mt-16 text-right">S/ 150.00</div>
               </div>
             </div>
             <div class="mt-4 text-[0.75rem] mx-auto text-center px-12 warning -pb-1 w-[31.875rem] bg-[#ECFEFB]">

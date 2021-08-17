@@ -6,3 +6,7 @@
 .warning{
   border-radius: 12px;
 }
+
+::ng-deep .mat-dialog-container{
+  border-radius: 20px !important;
+}

@@ -1,0 +1,25 @@
+<div class="w-[20.813rem] h-[22.688rem]">
+  <h2 class="monset flex justify-center text-[1rem]">Tranferencias a otros bancos</h2>
+  <div class="justify-center mt-10 text-center">
+    <div class="monset text-[1rem] text-[#7B7B7B]">Ingresa entre S/ 0 y S/ 1,500</div>
+    <mat-form-field appearance="outline" class="mt-2 w-[17.938rem]">
+      <mat-label>Ingresa tu monto máximo diario</mat-label>
+      <input matInput [formControl]="inputNum" type="number" class="monsetb" required>
+      <mat-error *ngIf="inputNum.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="justify-center text-center">
+    <div class="monset text-[1rem] text-[#7B7B7B]">Ingresa tu Token Digital</div>
+    <mat-form-field appearance="outline" class="mt-2 w-[17.938rem]">
+      <mat-label>Ingresa el Token Digital</mat-label>
+      <input [maxLength]="selected" [formControl]="inputToken" type="password" matInput required>
+      <mat-error *ngIf="inputToken.invalid">{{getErrorMessage()}}</mat-error>
+      <mat-icon  *ngIf="inputToken.valid && (inputToken.dirty || inputToken.touched)" matSuffix class="w-[1.25rem] h-[1.25rem] text-[#00AF91]">check_circle</mat-icon>
+    </mat-form-field>
+  </div>
+  <mat-dialog-actions align="center" class="space-x-2">
+    <button class="text-[#00AF91] h-[2.5rem] w-[8.625rem] monsetb text-[0.844rem] btn" mat-dialog-close>Cancelar</button>
+    <button class="text-[#00AF91] h-[2.5rem] w-[8.625rem] monsetb text-[0.844rem] btn" [mat-dialog-close]="true">Confirmar</button>
+  </mat-dialog-actions>
+</div>
+

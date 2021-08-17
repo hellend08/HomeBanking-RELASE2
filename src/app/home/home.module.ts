@@ -5,19 +5,34 @@ import { LimitOperationsComponent } from './limit-operations/limit-operations.co
 import {MatIconModule} from "@angular/material/icon";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatCardModule} from "@angular/material/card";
+import { DialogLimitOpComponent } from './limit-operations/dialog-limit-op/dialog-limit-op.component';
+
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatButtonModule} from "@angular/material/button";
+import { DialogSuccessComponent } from './limit-operations/dialog-success/dialog-success.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 
 @NgModule({
   declarations: [
-    LimitOperationsComponent
+    LimitOperationsComponent,
+    DialogLimitOpComponent,
+    DialogSuccessComponent,
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
     MatIconModule,
     MatMenuModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    ReactiveFormsModule
   ]
 })
 export class HomeModule { }
