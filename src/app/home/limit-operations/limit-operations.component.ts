@@ -18,9 +18,9 @@ export class LimitOperationsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
-      if (result = true){
-        const dialogRef = this.dialog.open(DialogSuccessComponent);
-      }
+      // if (result = 1){
+      //   const dialogRef = this.dialog.open(DialogSuccessComponent);
+      // }
     });
   }
   ngOnInit(): void {
