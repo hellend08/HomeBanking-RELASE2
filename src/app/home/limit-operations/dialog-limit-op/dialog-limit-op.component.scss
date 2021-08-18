@@ -1,6 +1,8 @@
 .btn{
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.14);
   border-radius: 12px;
+}
+.active:hover{
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.14);
 }
 
 ::placeholder{
@@ -24,13 +26,28 @@ input[type=number]::-webkit-inner-spin-button {
   display: none !important;
 }
 
-input{
+input.inpW{
+  /* CAP */
   font-family: Montserrat;
   font-style: normal;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 29px;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
   display: flex;
   align-items: center;
   text-align: center;
+  letter-spacing: 0.005em;
+}
+
+@media (min-width: 1024px) {
+  input.inpW{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
 }
