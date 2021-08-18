@@ -12,6 +12,18 @@
       <app-menu></app-menu>
   </mat-drawer> -->
   <mat-sidenav-content autosize class="bg-white">
+    <mat-toolbar class="lg:hidden pb-1 flex justify-between">
+      <div class="flex">
+        <button mat-icon-button (click)="drawer.toggle();" class="focus:outline-none">
+          <mat-icon class="text-[#1A3184]">menu</mat-icon>
+        </button>
+        <img class="h-8 w-9 ml-2 mt-1" src="assets/images/logo1.svg">
+      </div>
+      <div class="rounded-full bg-white h-10 w-10 text-center mt-2 pr-1.5" matBadge="0" matBadgeColor="accent"
+           matBadgeSize="small">
+        <mat-icon class="text-3xl text-[#1A3184]">notifications</mat-icon>
+      </div>
+    </mat-toolbar>
     <app-toolbar></app-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>

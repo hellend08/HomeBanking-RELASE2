@@ -16,6 +16,8 @@ import {MatMenuModule} from "@angular/material/menu";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
+import {MatBadgeModule} from "@angular/material/badge";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 @NgModule({
   declarations: [
@@ -25,19 +27,21 @@ import {MatCardModule} from "@angular/material/card";
     MenuComponent,
     ToolbarComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        HomeRoutingModule,
-        MatSidenavModule,
-        MatIconModule,
-        MatDividerModule,
-        MatMenuModule,
-        MatToolbarModule,
-        MatButtonModule,
-        MatCardModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HomeRoutingModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatDividerModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatCardModule,
+    MatBadgeModule,
+    MatTooltipModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
