@@ -11,6 +11,8 @@ import {DialogSuccessComponent} from "../dialog-success/dialog-success.component
 })
 export class DialogLimitOpComponent implements OnInit {
 
+  disable = true;
+
   check = false;
   selected = "8";
   xd = 1;
@@ -38,7 +40,9 @@ export class DialogLimitOpComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogSuccessComponent);
   }
 
-  ngOnInit(): void {
+
+  ngOnInit(){
+
   }
 
 }

@@ -2,9 +2,9 @@
   <div class="monsetb flex justify-center text-[0.850rem] lg:text-[1rem]">Tranferencias a otros bancos</div>
   <div class="justify-center mt-4 lg:mt-10 text-center">
     <div class="monset text-[0.875rem] lg:text-[1rem] text-[#7B7B7B]">Ingresa entre S/ 0 y S/ 1,500</div>
-    <mat-form-field appearance="outline" class="mt-2 w-full lg:w-[17.938rem]">
+    <mat-form-field appearance="outline" [attr.disabled]="disable" class="mt-2 w-full lg:w-[17.938rem]">
       <mat-label>Ingresa tu monto máximo diario</mat-label>
-      <input matInput [formControl]="inputNum" type="number" class="monsetb inpW" required>
+      <input [disabled]="inputToken.invalid" [attr.disabled]="disable" [maxLength]="selected" matInput [formControl]="inputNum" type="number" class="monsetb inpW" required>
       <mat-error *ngIf="inputNum.invalid">{{getErrorMessage()}}</mat-error>
     </mat-form-field>
   </div>
@@ -19,7 +19,7 @@
   </div>
   <mat-dialog-actions align="center" class="space-x-2">
     <button class="lg:block hidden text-[#00AF91] h-[2.5rem] w-[6.625rem] lg:w-[8.625rem] monsetb text-[0.844rem] active btn" mat-dialog-close>Cancelar</button>
-    <button class="lg:block hidden text-[#00AF91] h-[2.5rem] w-[6.625rem] lg:w-[8.625rem] monsetb text-[0.844rem] active btn" style="box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.14);" [mat-dialog-close]="true" (click)="openDialog()">Confirmar</button>
+    <button [disabled]="inputToken.invalid" class="lg:block hidden text-[#00AF91] h-[2.5rem] w-[6.625rem] lg:w-[8.625rem] monsetb text-[0.844rem] active btn" style="box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.14);" [mat-dialog-close]="true" (click)="openDialog()">Confirmar</button>
     <div class="lg:hidden flex">
       <button class="text-[#00AF91] h-[2.5rem] w-[6.625rem] lg:w-[8.625rem] monsetb text-[0.844rem] btn active" mat-dialog-close>Cancelar</button>
       <button class="text-[#00AF91] h-[2.5rem] w-[6.625rem] lg:w-[8.625rem] monsetb text-[0.844rem] btn active" style="box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.14);" [mat-dialog-close]="true" (click)="openDialog()">Confirmar</button></div>
