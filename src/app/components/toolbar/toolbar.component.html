@@ -1,7 +1,7 @@
 <mat-toolbar class="bg-white lg:bg-[#00AF91] h-auto">
   <div class="lg:block hidden w-full pt-5 pb-3">
     <div class="flex justify-between w-full">
-      <div class="flex cursor-pointer justify-start text-white">
+      <div (click)="redirectConfig()" class="flex cursor-pointer justify-start text-white">
         <button mat-icon-button ><mat-icon>arrow_back</mat-icon></button>
         <div class="mt-2 ml-1 text-base monsetb">Volver</div>
       </div>
@@ -25,7 +25,7 @@
     </div>
   </div>
   <div class="lg:hidden block w-full pt-4 pb-2">
-    <div class="text-lg flex space-x-2 justify-center font-semibold mb-2">
+    <div class="text-lg flex space-x-2 justify-center font-semibold mb-2" (click)="redirectConfig()">
       <mat-icon matTooltipClass="bg-gray-100 text-gray-600 w-48"
                 matTooltip="amet mali amet mali amet mali amet mali amet mali amet mali  amerella jiuyg gagajkkjja"
                 class=" text-white text-[1.063rem]">arrow_back</mat-icon>
