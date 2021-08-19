@@ -4,7 +4,7 @@
     <div class="monset text-[0.875rem] lg:text-[1rem] text-[#7B7B7B]">Ingresa entre S/ 0 y S/ 1,500</div>
     <mat-form-field appearance="outline" [attr.disabled]="disable" class="mt-2 w-full lg:w-[17.938rem]">
       <mat-label>Ingresa tu monto máximo diario</mat-label>
-      <input [maxlength]="6" (keypress)="onKeyPress($event)" placeholder="{{saldo | number: '.2'}}" [maxLength]="selected" matInput [formControl]="inputNum" class="monsetb inpW" required>
+      <input [maxlength]="6" (keypress)="onKeyPress($event)" [maxLength]="selected" matInput [formControl]="inputNum" class="monsetb inpW" required>
       <mat-error *ngIf="inputNum.invalid">{{getErrorMessage()}}</mat-error>
     </mat-form-field>
   </div>
