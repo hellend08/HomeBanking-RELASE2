@@ -13,6 +13,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import { DialogSuccessComponent } from './limit-operations/dialog-success/dialog-success.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {NgxMaskModule} from "ngx-mask";
 
 
 
@@ -33,7 +34,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
         MatInputModule,
         MatButtonModule,
         ReactiveFormsModule,
-        FormsModule
+        FormsModule,
+      NgxMaskModule.forRoot(),
     ]
 })
 export class HomeModule { }

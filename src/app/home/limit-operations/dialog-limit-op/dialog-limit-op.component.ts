@@ -1,26 +1,34 @@
-import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {MatDialog} from "@angular/material/dialog";
+import {AfterViewInit, Component, Inject, OnInit} from '@angular/core';
+import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {Router} from "@angular/router";
 import {DialogSuccessComponent} from "../dialog-success/dialog-success.component";
+
+export interface DialogData {
+  animal: 1 | 2 ;
+}
 
 @Component({
   selector: 'app-dialog-limit-op',
   templateUrl: './dialog-limit-op.component.html',
   styleUrls: ['./dialog-limit-op.component.scss']
 })
-export class DialogLimitOpComponent implements OnInit {
+export class DialogLimitOpComponent implements OnInit, AfterViewInit {
   disable = true;
 
   check = false;
   selected = "8";
   tamaño = 8;
-  saldo = 1600;
+  saldo!: number;
+  saldoM = 13;
 
   inputNum = new FormControl('', [Validators.required])
   inputToken = new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(6)])
 
-  constructor(public dialog: MatDialog, private router: Router) {
+  constructor(
+    public dialog: MatDialog, private router: Router,
+    dialogRef: MatDialogRef<DialogLimitOpComponent> ,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
   }
 
   onKeyPress(event: any) {
@@ -38,6 +46,12 @@ export class DialogLimitOpComponent implements OnInit {
     return this.inputNum.hasError('result') ? 'El monto ingresado supera el permitido': '';
   }
 
+  validacion(){
+    if (this.saldo > this.saldoM){
+      console.log('es mayor')
+    }
+  }
+
   getErrorMessageToken() {
     if (this.inputToken.hasError('required')){
       return 'Este campo es obligatorio';
@@ -49,8 +63,20 @@ export class DialogLimitOpComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogSuccessComponent);
   }
 
-
   ngOnInit(){
   }
+
+
+  // processMyValue(): void {
+  //   let numberVal = parseInt(this.saldo).toLocaleString();
+  //   this.saldo = numberVal;
+  //   this.validacion();
+  // }
+
+  ngAfterViewInit(){
+  }
+
+
+
 
 }

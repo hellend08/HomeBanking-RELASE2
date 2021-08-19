@@ -11,10 +11,29 @@ import {DialogSuccessComponent} from "./dialog-success/dialog-success.component"
 })
 export class LimitOperationsComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, private router: Router) { }
+  name!: string;
+
+  num!: number;
+
+  constructor(public dialog: MatDialog, private router: Router) {
+  }
+
+  click(){
+    this.num = 1
+    this.openDialog()
+  }
+
+  click1(){
+    this.num = 2
+    this.openDialog()
+  }
 
   openDialog(){
-    const dialogRef = this.dialog.open(DialogLimitOpComponent);
+    const dialogRef = this.dialog.open(DialogLimitOpComponent,{
+      data: {
+        animal: this.num
+      }
+    });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
@@ -24,6 +43,7 @@ export class LimitOperationsComponent implements OnInit {
     });
   }
   ngOnInit(): void {
+
   }
 
 }
