@@ -8,35 +8,35 @@
       <img class="h-10 w-10" src="assets/images/avatar.svg">
     </div>
     <div class="block pt-4 lg:mx-1 2xl:px-2">
-      <button mat-button [ngClass]="{'isActive': inicio == true, 'isInactive': inicio == false}"
+      <button mat-button style="text-align: left" [ngClass]="{'isActive': inicio == true, 'isInactive': inicio == false}"
               class="monsetb text-xxs xl:text-sm w-full text-left mb-1 h-11 focus:outline-none"
               (click)="clickinicio(); closeSideNav.emit();">
-        <mat-icon class="mr-5 lg:mr-2 xl:mr-4 2xl:mr-5">home</mat-icon>Inicio
+        <mat-icon class=" mr-5 lg:mr-2 xl:mr-4 2xl:mr-5">home</mat-icon>Inicio
       </button>
-<!--      <button mat-button-->
-<!--              class="monsetb text-xxs xl:text-sm w-full text-left text-gray-500 mb-1 h-11 focus:outline-none">-->
-<!--        <mat-icon class="mr-5 lg:mr-2 xl:mr-4 2xl:mr-5">swap_horiz</mat-icon>Transferencias-->
-<!--      </button>-->
-<!--      <button mat-button-->
-<!--              class="monsetb text-xxs xl:text-sm w-full text-left text-gray-500 mb-1 h-11 focus:outline-none">-->
-<!--        <mat-icon class="mr-5 lg:mr-2 xl:mr-4 2xl:mr-5" fontSet="material-icons-outlined">local_atm</mat-icon>-->
-<!--        Pagos-->
-<!--      </button>-->
-<!--      <button mat-button-->
-<!--              class="monsetb text-xxs xl:text-sm w-full text-left text-gray-500 mb-1 h-11 focus:outline-none">-->
-<!--        <mat-icon class="mr-5 lg:mr-2 xl:mr-4 2xl:mr-5">account_balance_wallet</mat-icon>Más Operaciones-->
-<!--      </button>-->
-<!--      &lt;!&ndash;        <button *ngFor="let profile of profileUI" mat-button class="{{profile.nOrden == 1 ? 'monsetb text-sm w-full text-left text-blue-800 bg-green-200 my-1 py-2 focus:outline-none' : 'monsetb text-sm w-full text-left text-gray-500 my-1 py-2 focus:outline-none'}}">&ndash;&gt;-->
-<!--      &lt;!&ndash;            <mat-icon class="mr-5">{{profile.nIcono}}</mat-icon>{{profile.nNombre}}</button>&ndash;&gt;-->
-<!--      <button mat-button-->
-<!--              class="monsetb text-xxs xl:text-sm w-full text-justify text-gray-500 mb-1 h-11 focus:outline-none">-->
-<!--        <mat-icon class="mr-5 lg:mr-2 xl:mr-4 2xl:mr-5">add_circle</mat-icon>Compra y venta de M.E.-->
-<!--      </button>-->
-<!--      <button mat-button [ngClass]="{'isActive': productos == true, 'isInactive': productos == false}"-->
-<!--              class="monsetb text-xxs xl:text-sm w-full text-left mb-1 h-11 focus:outline-none"-->
-<!--              (click)="clickproducto(); closeSideNav.emit();">-->
-<!--        <mat-icon class="mr-5 lg:mr-2 xl:mr-4 2xl:mr-5">archive</mat-icon>Productos-->
-<!--      </button>-->
+      <button mat-button style="text-align: left"
+              class="monsetb text-xxs xl:text-sm w-full text-left text-gray-500 mb-1 h-11 focus:outline-none">
+        <mat-icon class="mr-5 lg:mr-2 xl:mr-4 2xl:mr-5">swap_horiz</mat-icon>Transferencias
+      </button>
+      <button mat-button style="text-align: left"
+              class="monsetb text-xxs xl:text-sm w-full text-left text-gray-500 mb-1 h-11 focus:outline-none">
+        <mat-icon class="mr-5 lg:mr-2 xl:mr-4 2xl:mr-5">local_atm</mat-icon>
+        Pagos
+      </button>
+      <button mat-button style="text-align: left"
+              class="monsetb text-xxs xl:text-sm w-full text-left text-gray-500 mb-1 h-11 focus:outline-none">
+        <mat-icon class="mr-5 lg:mr-2 xl:mr-4 2xl:mr-5">account_balance_wallet</mat-icon>Más Operaciones
+      </button>
+      <!--        <button *ngFor="let profile of profileUI" mat-button class="{{profile.nOrden == 1 ? 'monsetb text-sm w-full text-left text-blue-800 bg-green-200 my-1 py-2 focus:outline-none' : 'monsetb text-sm w-full text-left text-gray-500 my-1 py-2 focus:outline-none'}}">-->
+      <!--            <mat-icon class="mr-5">{{profile.nIcono}}</mat-icon>{{profile.nNombre}}</button>-->
+      <button mat-button style="text-align: left"
+              class="monsetb text-xxs xl:text-sm w-full text-justify text-gray-500 mb-1 h-11 focus:outline-none">
+        <mat-icon class="mr-5 lg:mr-2 xl:mr-4 2xl:mr-5">add_circle</mat-icon>Compra y venta de M.E.
+      </button>
+      <button mat-button style="text-align: left" [ngClass]="{'isActive': productos == true, 'isInactive': productos == false}"
+              class="monsetb text-xxs xl:text-sm w-full text-left mb-1 h-11 focus:outline-none"
+              (click)="clickproducto(); closeSideNav.emit();">
+        <mat-icon class="mr-5 lg:mr-2 xl:mr-4 2xl:mr-5">archive</mat-icon>Productos
+      </button>
     </div>
   </div>
   <div>

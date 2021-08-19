@@ -1,4 +1,5 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-menu',
@@ -6,7 +7,7 @@ import {Component, OnInit, Output, EventEmitter} from '@angular/core';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-
+  ocultarSaldos = false;
   inicio = false;
   productos = false;
   perfil = false;
@@ -15,7 +16,13 @@ export class MenuComponent implements OnInit {
 
   @Output() closeSideNav = new EventEmitter<any>();
 
-  constructor() { }
+  public name!: string;
+
+  constructor(private router: Router) { }
+
+  public redirectGeneral() {
+    this.router.navigateByUrl('/dashboard/general');
+  }
 
   clickinicio(){
     this.inicio = true;
@@ -55,6 +62,23 @@ export class MenuComponent implements OnInit {
     this.perfil = false;
     this.configuracion = false;
     this.seguridad = true;
+  }
+
+
+  public redirectProduct() {
+    this.router.navigateByUrl('/dashboard/productos');
+  }
+
+  public redirectConfiguracion() {
+    this.router.navigateByUrl('/dashboard/configuracion');
+  }
+
+  public redirectPerfil() {
+    this.router.navigateByUrl('/dashboard/perfil');
+  }
+
+  public redirectCreateAccount() {
+    this.router.navigateByUrl('/dashboard/create-account');
   }
 
   ngOnInit(): void {

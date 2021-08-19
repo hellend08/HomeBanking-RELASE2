@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {MatDialog} from "@angular/material/dialog";
 import {Router} from "@angular/router";
 import {DialogSuccessComponent} from "../dialog-success/dialog-success.component";
@@ -10,17 +10,25 @@ import {DialogSuccessComponent} from "../dialog-success/dialog-success.component
   styleUrls: ['./dialog-limit-op.component.scss']
 })
 export class DialogLimitOpComponent implements OnInit {
-
   disable = true;
 
   check = false;
   selected = "8";
-  xd = 1;
+  tamaño = 8;
+  saldo = 1600;
 
   inputNum = new FormControl('', [Validators.required])
   inputToken = new FormControl('', [Validators.required])
 
   constructor(public dialog: MatDialog, private router: Router) { }
+
+  onKeyPress(event: any) {
+    const regexpNumber = /[0-9]/;
+    let inputCharacter = String.fromCharCode(event.charCode);
+    if (event.keyCode != 8 && !regexpNumber.test(inputCharacter)) {
+      event.preventDefault();
+    }
+  }
 
   getErrorMessage() {
     if (this.inputNum.hasError('required')){

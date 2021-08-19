@@ -12,7 +12,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import { DialogSuccessComponent } from './limit-operations/dialog-success/dialog-success.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 
@@ -22,17 +22,18 @@ import {ReactiveFormsModule} from "@angular/forms";
     DialogLimitOpComponent,
     DialogSuccessComponent,
   ],
-  imports: [
-    CommonModule,
-    HomeRoutingModule,
-    MatIconModule,
-    MatMenuModule,
-    MatCardModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    ReactiveFormsModule
-  ]
+    imports: [
+        CommonModule,
+        HomeRoutingModule,
+        MatIconModule,
+        MatMenuModule,
+        MatCardModule,
+        MatDialogModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        ReactiveFormsModule,
+        FormsModule
+    ]
 })
 export class HomeModule { }
