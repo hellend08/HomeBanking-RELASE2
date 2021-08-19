@@ -18,9 +18,10 @@ export class DialogLimitOpComponent implements OnInit {
   saldo = 1600;
 
   inputNum = new FormControl('', [Validators.required])
-  inputToken = new FormControl('', [Validators.required])
+  inputToken = new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(6)])
 
-  constructor(public dialog: MatDialog, private router: Router) { }
+  constructor(public dialog: MatDialog, private router: Router) {
+  }
 
   onKeyPress(event: any) {
     const regexpNumber = /[0-9]/;
@@ -50,7 +51,6 @@ export class DialogLimitOpComponent implements OnInit {
 
 
   ngOnInit(){
-
   }
 
 }
