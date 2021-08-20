@@ -46,10 +46,6 @@ export class DialogLimitOpComponent implements OnInit {
   getErrorMessage() {
     if (this.inputNum.hasError('required')){
       return 'Este campo es obligatorio';
-    }else {
-      if (this.saldo > this.saldoM){
-        return 'demito';
-      }
     }
     return this.inputNum.hasError('result') ? 'El monto ingresado supera el permitido': '';
   }
@@ -72,6 +68,7 @@ export class DialogLimitOpComponent implements OnInit {
   }
 
   ngOnInit(){
+    this.saldo = 0
   }
 
 
