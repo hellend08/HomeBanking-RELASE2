@@ -22,14 +22,13 @@ export class DialogLimitOpComponent implements OnInit {
   saldo!: string | number;
   saldoM = 13;
 
-  inputNum = new FormControl('', [Validators.required])
+  inputNum = new FormControl('', [Validators.required, Validators.maxLength(3)])
   inputToken = new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(6)])
 
-  constructor(
-    public dialog: MatDialog, private router: Router,
-    dialogRef: MatDialogRef<DialogLimitOpComponent> ,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    private FB: FormBuilder) {
+  constructor(public dialog: MatDialog, private router: Router,
+    dialogRef: MatDialogRef<DialogLimitOpComponent> , @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    private FB: FormBuilder,
+  ) {
   }
 
 
@@ -47,13 +46,7 @@ export class DialogLimitOpComponent implements OnInit {
     if (this.inputNum.hasError('required')){
       return 'Este campo es obligatorio';
     }
-    return this.inputNum.hasError('result') ? 'El monto ingresado supera el permitido': '';
-  }
-
-  validacion(){
-    if (this.saldo > this.saldoM){
-      console.log('es mayor')
-    }
+    return this.inputToken.hasError('result') ? 'El monto ingresado supera el permitido': '';
   }
 
   getErrorMessageToken() {

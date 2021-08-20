@@ -1,10 +1,9 @@
 import {Directive, HostListener, ElementRef, OnInit, Input, Output, EventEmitter} from "@angular/core";
 import { CurrencyPipe } from '@angular/common';
 
+
 @Directive({ selector: "[currencyInput]" })
 export class CurrencyInputDirective implements OnInit {
-
-
 
   // build the regex based on max pre decimal digits allowed
   private regexString(max?: number) {
@@ -46,8 +45,7 @@ export class CurrencyInputDirective implements OnInit {
     // on blur, add currency formatting
     this.el.value = <string>this.currencyPipe.transform(value, 'S/ ');
     if (value > 15) {
-      alert('error')
-
+      // alert('error')
     }
   }
 

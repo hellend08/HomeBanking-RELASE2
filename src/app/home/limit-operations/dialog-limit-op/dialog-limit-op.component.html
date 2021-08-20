@@ -6,8 +6,9 @@
     <mat-form-field appearance="outline" [attr.disabled]="disable" class="mt-2 w-full lg:w-[17.938rem]">
       <mat-label>Ingresa tu monto máximo diario</mat-label>
       <input [ngModel]="saldo" prefix="S/ " currencyInput [formControl]="inputNum"
-             (keypress)="onKeyPress($event)" [maxLength]="10" matInput class="monsetb inpW" required>
+             (keypress)="onKeyPress($event)" [maxlength]="saldoM" matInput class="monsetb inpW" required>
       <mat-error *ngIf="inputNum.invalid">{{getErrorMessage()}}</mat-error>
+      <mat-error>El monto supera lo permitido</mat-error>
     </mat-form-field>
   </div>
   <div class="justify-center text-center -mb-4">
