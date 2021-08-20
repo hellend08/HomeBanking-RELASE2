@@ -5,7 +5,7 @@
     <div class="monset text-[0.875rem] lg:text-[1rem] text-[#7B7B7B]">Ingresa entre S/ 0 y S/ 1,500</div>
     <mat-form-field appearance="outline" [attr.disabled]="disable" class="mt-2 w-full lg:w-[17.938rem]">
       <mat-label>Ingresa tu monto máximo diario</mat-label>
-      <input [(ngModel)]="saldo" prefix="S/ " [mask]="'separator.4'" thousandSeparator="," [formControl]="inputNum"
+      <input [ngModel]="saldo" prefix="S/ " currencyInput [formControl]="inputNum"
              (keypress)="onKeyPress($event)" [maxLength]="10" matInput class="monsetb inpW" required>
       <mat-error *ngIf="inputNum.invalid">{{getErrorMessage()}}</mat-error>
     </mat-form-field>
@@ -15,21 +15,21 @@
     <mat-form-field *ngIf="inputNum.valid" appearance="outline" class="mt-2 w-full lg:w-[17.938rem]">
       <mat-label>Ingresa el Token Digital</mat-label>
       <input (keypress)="onKeyPress($event)" [formControl]="inputToken" class="inpW" type="password" matInput required>
-      <mat-error *ngIf="inputToken.invalid">{{getErrorMessage()}}</mat-error>
+      <mat-error *ngIf="inputToken.invalid">{{getErrorMessageToken()}}</mat-error>
       <mat-icon *ngIf="inputToken.valid && (inputToken.dirty || inputToken.touched)" matSuffix class="w-[1.25rem] h-[1.25rem] text-[#00AF91]">check_circle</mat-icon>
     </mat-form-field>
     <mat-form-field *ngIf="inputNum.invalid" disabled="true" appearance="outline" class="mt-2 w-full lg:w-[17.938rem]">
       <mat-label>Ingresa el Token Digital</mat-label>
       <input disabled="true" class="inpW" type="password" matInput required>
-      <mat-error *ngIf="inputToken.invalid">{{getErrorMessage()}}</mat-error>
+      <mat-error *ngIf="inputToken.invalid">{{getErrorMessageToken()}}</mat-error>
       <mat-icon  *ngIf="inputToken.valid && (inputToken.dirty || inputToken.touched)" matSuffix class="w-[1.25rem] h-[1.25rem] text-[#00AF91]">check_circle</mat-icon>
     </mat-form-field>
   </div>
   <mat-dialog-actions align="center" class="space-x-2">
     <button class="lg:block hidden text-[#00AF91] h-[2.5rem] w-[6.625rem] lg:w-[8.625rem] monsetb text-[0.844rem] btn" mat-dialog-close>Cancelar</button>
-    <button [ngClass]="{'active': inputToken.valid}" [disabled]="inputToken.invalid" class="lg:block hidden text-[#00AF91] h-[2.5rem] w-[6.625rem] lg:w-[8.625rem] monsetb text-[0.844rem] btn" [mat-dialog-close]="true" (click)="openDialog()">Confirmar</button>
+    <button class="lg:block hidden text-[#00AF91] h-[2.5rem] w-[6.625rem] lg:w-[8.625rem] monsetb text-[0.844rem] btn active" [mat-dialog-close]="true" (click)="openDialog()">Confirmar</button>
     <div class="lg:hidden flex">
       <button class="text-[#00AF91] h-[2.5rem] w-[6.625rem] lg:w-[8.625rem] monsetb text-[0.844rem] btn" mat-dialog-close>Cancelar</button>
-      <button [ngClass]="{'active': inputToken.valid}" [disabled]="inputToken.invalid" class="text-[#00AF91] h-[2.5rem] w-[6.625rem] lg:w-[8.625rem] monsetb text-[0.844rem] btn active" style="box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.14);" [mat-dialog-close]="true" (click)="openDialog()">Confirmar</button></div>
+      <button class="text-[#00AF91] h-[2.5rem] w-[6.625rem] lg:w-[8.625rem] monsetb text-[0.844rem] btn active" style="box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.14);" [mat-dialog-close]="true" (click)="openDialog()">Confirmar</button></div>
   </mat-dialog-actions>
 </div>

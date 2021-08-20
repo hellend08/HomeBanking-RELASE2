@@ -11,15 +11,15 @@ export interface DialogData {
 @Component({
   selector: 'app-dialog-limit-op',
   templateUrl: './dialog-limit-op.component.html',
-  styleUrls: ['./dialog-limit-op.component.scss']
+  styleUrls: ['./dialog-limit-op.component.scss'],
 })
-export class DialogLimitOpComponent implements OnInit, AfterViewInit {
+export class DialogLimitOpComponent implements OnInit {
   disable = true;
 
   check = false;
   selected = "8";
   tamaño = 8;
-  saldo!: number;
+  saldo!: string | number;
   saldoM = 13;
 
   inputNum = new FormControl('', [Validators.required])
@@ -28,8 +28,10 @@ export class DialogLimitOpComponent implements OnInit, AfterViewInit {
   constructor(
     public dialog: MatDialog, private router: Router,
     dialogRef: MatDialogRef<DialogLimitOpComponent> ,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    private FB: FormBuilder) {
   }
+
 
   onKeyPress(event: any) {
     const regexpNumber = /[0-9]/;
@@ -39,9 +41,15 @@ export class DialogLimitOpComponent implements OnInit, AfterViewInit {
     }
   }
 
+
+
   getErrorMessage() {
     if (this.inputNum.hasError('required')){
       return 'Este campo es obligatorio';
+    }else {
+      if (this.saldo > this.saldoM){
+        return 'demito';
+      }
     }
     return this.inputNum.hasError('result') ? 'El monto ingresado supera el permitido': '';
   }
@@ -72,11 +80,6 @@ export class DialogLimitOpComponent implements OnInit, AfterViewInit {
   //   this.saldo = numberVal;
   //   this.validacion();
   // }
-
-  ngAfterViewInit(){
-  }
-
-
 
 
 }
