@@ -20,9 +20,9 @@ export class DialogLimitOpComponent implements OnInit {
   selected = "8";
   tamaño = 8;
   saldo!: string | number;
-  saldoM = 13;
+  saldoM = 1500;
 
-  inputNum = new FormControl('', [Validators.required, Validators.maxLength(3)])
+  inputNum = new FormControl('', [Validators.required, Validators.max(this.saldoM)])
   inputToken = new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(6)])
 
   constructor(public dialog: MatDialog, private router: Router,
@@ -61,7 +61,6 @@ export class DialogLimitOpComponent implements OnInit {
   }
 
   ngOnInit(){
-    this.saldo = 0
   }
 
 
