@@ -22,6 +22,7 @@ export class DialogLimitOpComponent implements OnInit {
   saldo!: string | number;
   saldoM = 1500;
 
+  groupForm!: FormGroup;
   inputNum = new FormControl('', [Validators.required, Validators.max(this.saldoM)])
   inputToken = new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(6)])
 
@@ -29,6 +30,10 @@ export class DialogLimitOpComponent implements OnInit {
     dialogRef: MatDialogRef<DialogLimitOpComponent> , @Inject(MAT_DIALOG_DATA) public data: DialogData,
     private FB: FormBuilder,
   ) {
+    this.groupForm = new FormGroup({
+      inputNum: this.inputNum,
+      inputToken: this.inputToken
+    })
   }
 
 
