@@ -35,6 +35,6 @@
     <button [disabled]="groupForm.invalid" class="lg:block hidden text-[#00AF91] h-[2.5rem] w-[6.625rem] lg:w-[8.625rem] monsetb text-[0.844rem] btn active" [mat-dialog-close]="true" (click)="openDialog()">Confirmar</button>
     <div class="lg:hidden flex">
       <button class="text-[#00AF91] h-[2.5rem] w-[6.625rem] lg:w-[8.625rem] monsetb text-[0.844rem] btn active" mat-dialog-close>Cancelar</button>
-      <button class="text-[#00AF91] h-[2.5rem] w-[6.625rem] lg:w-[8.625rem] monsetb text-[0.844rem] btn active" style="box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.14);" [mat-dialog-close]="true" (click)="openDialog()">Confirmar</button></div>
+      <button [disabled]="groupForm.invalid" class="text-[#00AF91] h-[2.5rem] w-[6.625rem] lg:w-[8.625rem] monsetb text-[0.844rem] btn active" style="box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.14);" [mat-dialog-close]="true" (click)="openDialog()">Confirmar</button></div>
   </mat-dialog-actions>
 </div>
