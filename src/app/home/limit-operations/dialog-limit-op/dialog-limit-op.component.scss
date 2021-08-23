@@ -16,17 +16,17 @@
   letter-spacing: 0.005em;
 }
 
-::placeholder{
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 15px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  letter-spacing: 0.005em;
-}
+//::placeholder{
+//  font-family: Montserrat;
+//  font-style: normal;
+//  font-weight: normal;
+//  font-size: 12px;
+//  line-height: 15px;
+//  display: flex;
+//  align-items: center;
+//  text-align: center;
+//  letter-spacing: 0.005em;
+//}
 
 input[type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -49,18 +49,18 @@ input.inpW{
   letter-spacing: 0.005em;
 }
 
-::placeholder{
-  /* CAP */
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 15px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  letter-spacing: 0.005em;
-}
+//::placeholder{
+//  /* CAP */
+//  font-family: Montserrat;
+//  font-style: normal;
+//  font-weight: normal;
+//  font-size: 12px;
+//  line-height: 15px;
+//  display: flex;
+//  align-items: center;
+//  text-align: center;
+//  letter-spacing: 0.005em;
+//}
 
 @media (min-width: 1024px) {
   ::placeholder{
