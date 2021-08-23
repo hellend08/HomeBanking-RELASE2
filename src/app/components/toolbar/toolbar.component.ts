@@ -14,6 +14,7 @@ export class ToolbarComponent implements OnInit {
     this.router.navigateByUrl('/home/configuracion')
   }
 
+
   ngOnInit(): void {
   }
 

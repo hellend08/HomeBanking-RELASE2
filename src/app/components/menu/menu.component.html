@@ -46,7 +46,7 @@
               class="monsetb text-xxs xl:text-sm w-full text-left my-1 h-11 focus:outline-none">
         <mat-icon [ngClass]="{'isActive': perfil == true, 'isInactive': perfil == false}">account_circle</mat-icon> Mi perfil
       </button>
-      <button mat-menu-item [ngClass]="{'isActive': configuracion == true, 'isInactive': configuracion == false}" (click)="closeSideNav.emit();clickconfiguracion()"
+      <button mat-menu-item [ngClass]="{'isActive': configuracion == true, 'isInactive': configuracion == false}" (click)="closeSideNav.emit();clickconfiguracion();redirectConfig()"
               class="monsetb text-xxs xl:text-sm w-full text-left mb-1 h-11 focus:outline-none">
         <mat-icon [ngClass]="{'isActive': configuracion == true, 'isInactive': configuracion == false}">settings</mat-icon>Configuración
       </button>

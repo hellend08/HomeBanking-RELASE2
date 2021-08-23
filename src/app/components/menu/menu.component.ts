@@ -32,6 +32,10 @@ export class MenuComponent implements OnInit {
     this.seguridad = false;
   }
 
+  public redirectConfig(){
+    this.router.navigateByUrl('/home/configuracion')
+  }
+
   clickproducto(){
     this.inicio = false;
     this.productos = true;
