@@ -1,0 +1,120 @@
+<div class="lg:flex block justify-start bg-white px-2 lg:px-0">
+  <div class="monset items-center lg:ml-4 lg:w-3/5 xl:w-4/6 h-full">
+    <div class="lg:mt-4 flex justify-end">
+      <div class="w-full block h-auto monset space-x-4 flex">
+        <div class="w-full flex justify-end">
+          <div>
+            <div class="text-lg flex justify-center font-semibold w-full lg:mb-7">
+              <div class="mr-3 lg:pb-3 monsetb lg:text-xl text-[0.775rem] text-center mt-1 border-b-2 text-[#1A3184] border-green-300 w-full lg:px-14">Configura tus límites de operaciones</div>
+            </div>
+            <div class="lg:my-4 mx-2 lg:hidden">
+              <div class="lg:text-[0.875rem] text-[0.75rem] monset">Incrementa o disminuye el límite diario para las transferencias que hagas desde tu Banca por Internet  o por el APP.</div>
+            </div>
+            <div class="space-y-4 mx-auto p-1 w-full">
+              <div class="px-4 lg:flex hidden card monset text-[1rem] w-[31.875rem] lg:h-[8.75rem] mx-auto py-2 px-4 flex lg:justify-between">
+                <div>
+                  <div class="text-[#1A3184] letra w-full">Transferencias a terceros</div>
+                  <button (click)="click1()" class="py-1 px-1 mt-16 card inline-flex text-[0.75rem] items-center">
+                    <span>Modificar límite</span>
+                    <mat-icon class="fill-current w-2 h-2 mr-2">edit</mat-icon>
+                  </button>
+                </div>
+                <div>
+                  <div>Monto actual diario:</div>
+                  <div class="text-[1.5rem] monsetb mt-16 text-right">S/ 150.00</div>
+                </div>
+              </div>
+
+              <div class="card lg:flex hidden monset text-[1rem] w-[31.875rem] lg:h-[8.75rem] mx-auto py-2 px-4 flex justify-between">
+                <div>
+                  <div class="text-[#1A3184] letra">Transferencias a otros bancos</div>
+                  <button (click)="click()" class="py-1 px-1 mt-16 card inline-flex lg:text-[0.75rem] items-center">
+                    <span>Modificar límite</span>
+                    <mat-icon class="fill-current w-2 h-2 mr-2">edit</mat-icon>
+                    <!--                <svg class="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>-->
+                  </button>
+                </div>
+                <div>
+                  <div>Monto actual diario:</div>
+                  <div class="text-[1.5rem] monsetb mt-16 text-right">S/ 150.00</div>
+                </div>
+              </div>
+              <!--Responsive-->
+              <div class="space-y-4 lg:hidden mx-auto p-1 w-full">
+                <div class="px-4 card monset text-[1rem] w-full mx-auto py-2 px-4">
+                  <div class="text-[#1A3184] letra w-full">Tranferencias a terceros</div>
+                  <div class="flex justify-between mt-4">
+                    <div>
+                      <div class="text-[0.563rem]">Monto actual diario:</div>
+                      <div class="text-[1.125rem] lg:text-[1.5rem] monsetb text-left">S/ 150.00</div>
+                    </div>
+                    <div>
+                      <button (click)="click1()" class="py-1 px-1 card inline-flex text-[0.563rem] lg:text-[0.75rem] items-center">
+                        <span>Modificar límite</span>
+                        <mat-icon class="fill-current w-2 h-2 mr-2">edit</mat-icon>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="px-4 card monset text-[1rem] w-full mx-auto py-2 px-4">
+                  <div class="text-[#1A3184] letra w-full">Tranferencias a otros bancos</div>
+                  <div class="flex justify-between mt-4">
+                    <div>
+                      <div class="text-[0.563rem]">Monto actual diario:</div>
+                      <div class="text-[1.125rem] lg:text-[1.5rem] monsetb text-left">S/ 150.00</div>
+                    </div>
+                    <div>
+                      <button (click)="click()" class="py-1 px-1 card inline-flex text-[0.563rem] lg:text-[0.75rem] items-center">
+                        <span>Modificar límite</span>
+                        <mat-icon class="fill-current w-2 h-2 mr-2">edit</mat-icon>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-4 mx-auto warning w-full flex items-center lg:w-[31.875rem] bg-[#ECFEFB]">
+                <div class="flex justify-center text-[#1A3184]">
+                  <mat-icon class="py-2">attach_money</mat-icon>
+                  <div class="monset py-3 inline-block align-bottom lg:text-[0.75rem] leading-none text-[0.625rem]">Aplica el equivalente en dólares según el tipo de cambio del día.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="lg:block hidden monset lg:ml-4 xl:ml-6 2xl:ml-20 lg:w-2/6 h-full mt-14 lg:pr-1 xl:pr-6">
+    <div class="block pt-1 mt-1 border-t-2 w-[18.563rem] border-green-300">
+      <div class="justify-start">
+        <div class="flex justify-between mt-1">
+          <div class="text-[0.875rem] monset">Incrementa o disminuye el límite diario para las transferencias que hagas desde tu Banca por Internet  o por el APP.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--<div class="mt-4 lg:ml-4 xl:pr-10 text-base monsetb lg:w-3/5 xl:w-4/6 pb-20 px-2 lg:px-0" >-->
+<!--  <div class="lg:hidden flex space-x-4 inline-flex items-center">-->
+<!--    <div>Mis movimientos</div>-->
+<!--    <div>-->
+<!--      <button class="bg-white text-black text-base h-10 w-auto lg:w-44 justify-between mt-3 mb-4" mat-raised-button-->
+<!--              [matMenuTriggerFor]="menuTwo">-->
+<!--        Descargar <mat-icon class="lg:ml-8">-->
+<!--        download-->
+<!--      </mat-icon>-->
+<!--      </button>-->
+<!--      <mat-menu #menuTwo="matMenu">-->
+<!--        <button mat-menu-item class="text-black">-->
+<!--          PDF-->
+<!--          <mat-icon class="-ml-1 pl-20 w-6 text-right text-black">picture_as_pdf</mat-icon>-->
+<!--        </button>-->
+<!--        <button mat-menu-item class="inline-flex items-center">-->
+<!--          EXCEL-->
+<!--          <img class="ml-16 w-6 h-6 mr-2" src="assets/images/excel.svg">-->
+<!--        </button>-->
+<!--      </mat-menu>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+

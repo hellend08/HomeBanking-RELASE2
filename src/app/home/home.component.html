@@ -1,0 +1,30 @@
+<mat-sidenav-container class="w-full h-full">
+  <mat-sidenav #drawer fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)" class="lg:w-[19%]">
+    <!-- mode="side" [(opened)]="opened" class="hidden lg:w-[18%] lg:block" md:w-[19%] -->
+    <button mat-icon-button (click)="drawer.toggle()" class="lg:hidden focus:outline-none ml-2 mt-1">
+      <mat-icon>close</mat-icon>
+    </button>
+    <app-menu (closeSideNav)="closeSideNav()"></app-menu>
+  </mat-sidenav>
+  <!-- <mat-drawer #drawer="matDrawer" mode="side" [(opened)]="openedTwo" class="lg:hidden">
+      <button mat-button (click)="drawer.toggle()" class="lg:hidden focus:outline-none ml-2 mt-1"><mat-icon>close</mat-icon></button>
+      <app-menu></app-menu>
+  </mat-drawer> -->
+  <mat-sidenav-content autosize class="bg-white">
+    <mat-toolbar class="lg:hidden pb-1 flex justify-between">
+      <div class="flex">
+        <button mat-icon-button (click)="drawer.toggle();" class="focus:outline-none">
+          <mat-icon class="text-[#1A3184]">menu</mat-icon>
+        </button>
+        <img class="h-8 w-9 ml-2 mt-1" src="assets/images/logo1.svg">
+      </div>
+      <div class="rounded-full bg-white h-10 w-10 text-center mt-2 pr-1.5">
+        <mat-icon class="text-3xl text-[#1A3184]">notifications</mat-icon>
+      </div>
+    </mat-toolbar>
+    <app-toolbar></app-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

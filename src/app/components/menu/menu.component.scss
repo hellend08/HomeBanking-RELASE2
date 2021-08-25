@@ -1,0 +1,14 @@
+.isActive{
+  color: #1A3184;
+  background: #BBEEE5;
+}
+
+.isInactive{
+  color: #7B7B7B;
+}
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .text-xxs {
+    font-size: 11px;
+  }
+}

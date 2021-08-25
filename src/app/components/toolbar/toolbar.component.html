@@ -1,0 +1,32 @@
+<mat-toolbar class="bg-white lg:bg-[#00AF91] h-auto">
+  <div class="lg:block hidden w-full pt-5 pb-3">
+    <div class="flex justify-between w-full">
+      <div (click)="redirectConfig()" class="flex cursor-pointer justify-start text-white">
+        <button mat-icon-button ><mat-icon>arrow_back</mat-icon></button>
+        <div class="mt-2 ml-1 text-base monsetb">Volver</div>
+      </div>
+      <div class="flex justify-start mr-14">
+        <div class="rounded-full bg-white h-8 w-8 text-center mr-8 mt-2">
+          <mat-icon class="text-xl">notifications</mat-icon>
+        </div>
+        <img class="h-10 w-10" src="assets/images/avatar.svg">
+        <button [matMenuTriggerFor]="beforeMenu" mat-icon-button class="mt-1 ml-2 focus:outline-none">
+          <mat-icon>keyboard_arrow_down</mat-icon>
+        </button>
+        <mat-menu #beforeMenu="matMenu" xPosition="before">
+          <button mat-menu-item><mat-icon class="text-blue-900">account_circle</mat-icon> Mi perfil</button>
+          <button mat-menu-item (click)="redirectConfig()"><mat-icon class="text-blue-900">settings</mat-icon>Configuración</button>
+          <button mat-menu-item><mat-icon class="text-blue-900">verified_user</mat-icon>Seguridad</button>
+          <mat-divider></mat-divider>
+          <button mat-menu-item><mat-icon>logout</mat-icon>Salir</button>
+        </mat-menu>
+      </div>
+    </div>
+  </div>
+  <div class="lg:hidden block w-full pt-4 pb-2">
+    <div class="text-lg flex space-x-2 justify-center font-semibold mb-2" (click)="redirectConfig()">
+      <mat-icon class="text-[1.063rem]">arrow_back</mat-icon>
+      <div class="w-11/12 -mt-1 monsetb text-[0.844rem] text-black lg:text-white text-left">Volver</div>
+    </div>
+  </div>
+</mat-toolbar>

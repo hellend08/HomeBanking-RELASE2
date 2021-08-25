@@ -1,0 +1,73 @@
+<div class="w-full h-[95%] flex flex-col justify-between">
+  <div>
+    <div class="lg:block hidden px-6 pt-5">
+      <img width="h-auto w-full" src="assets/images/cmllogotipo.svg">
+    </div>
+    <div class="lg:hidden block flex justify-between px-6 pt-4 lg:pt-6">
+      <div class="monset text-base text-blue-600 pt-2">Deivy Sanchez</div>
+      <img class="h-10 w-10" src="assets/images/avatar.svg">
+    </div>
+    <div class="block pt-4 lg:mx-1 2xl:px-2">
+      <button mat-button style="text-align: left" [ngClass]="{'isActive': inicio == true, 'isInactive': inicio == false}"
+              class="monsetb text-xxs xl:text-sm w-full text-left mb-1 h-11 focus:outline-none"
+              (click)="clickinicio(); closeSideNav.emit();">
+        <mat-icon class=" mr-5 lg:mr-2 xl:mr-4 2xl:mr-5">home</mat-icon>Inicio
+      </button>
+      <button mat-button style="text-align: left"
+              class="monsetb text-xxs xl:text-sm w-full text-left text-gray-500 mb-1 h-11 focus:outline-none">
+        <mat-icon class="mr-5 lg:mr-2 xl:mr-4 2xl:mr-5">swap_horiz</mat-icon>Transferencias
+      </button>
+      <button mat-button style="text-align: left"
+              class="monsetb text-xxs xl:text-sm w-full text-left text-gray-500 mb-1 h-11 focus:outline-none">
+        <mat-icon class="mr-5 lg:mr-2 xl:mr-4 2xl:mr-5">local_atm</mat-icon>
+        Pagos
+      </button>
+      <button mat-button style="text-align: left"
+              class="monsetb text-xxs xl:text-sm w-full text-left text-gray-500 mb-1 h-11 focus:outline-none">
+        <mat-icon class="mr-5 lg:mr-2 xl:mr-4 2xl:mr-5">account_balance_wallet</mat-icon>Más Operaciones
+      </button>
+      <!--        <button *ngFor="let profile of profileUI" mat-button class="{{profile.nOrden == 1 ? 'monsetb text-sm w-full text-left text-blue-800 bg-green-200 my-1 py-2 focus:outline-none' : 'monsetb text-sm w-full text-left text-gray-500 my-1 py-2 focus:outline-none'}}">-->
+      <!--            <mat-icon class="mr-5">{{profile.nIcono}}</mat-icon>{{profile.nNombre}}</button>-->
+      <button mat-button style="text-align: left"
+              class="monsetb text-xxs xl:text-sm w-full text-justify text-gray-500 mb-1 h-11 focus:outline-none">
+        <mat-icon class="mr-5 lg:mr-2 xl:mr-4 2xl:mr-5">add_circle</mat-icon>Compra y venta de M.E.
+      </button>
+      <button mat-button style="text-align: left" [ngClass]="{'isActive': productos == true, 'isInactive': productos == false}"
+              class="monsetb text-xxs xl:text-sm w-full text-left mb-1 h-11 focus:outline-none"
+              (click)="clickproducto(); closeSideNav.emit();">
+        <mat-icon class="mr-5 lg:mr-2 xl:mr-4 2xl:mr-5">archive</mat-icon>Productos
+      </button>
+    </div>
+  </div>
+  <div>
+    <div class="mx-2 lg:hidden">
+      <mat-divider></mat-divider>
+      <button mat-menu-item [ngClass]="{'isActive': perfil == true, 'isInactive': perfil == false}" (click)="clickperfil(); closeSideNav.emit();"
+              class="monsetb text-xxs xl:text-sm w-full text-left my-1 h-11 focus:outline-none">
+        <mat-icon [ngClass]="{'isActive': perfil == true, 'isInactive': perfil == false}">account_circle</mat-icon> Mi perfil
+      </button>
+      <button mat-menu-item [ngClass]="{'isActive': configuracion == true, 'isInactive': configuracion == false}" (click)="closeSideNav.emit();clickconfiguracion();redirectConfig()"
+              class="monsetb text-xxs xl:text-sm w-full text-left mb-1 h-11 focus:outline-none">
+        <mat-icon [ngClass]="{'isActive': configuracion == true, 'isInactive': configuracion == false}">settings</mat-icon>Configuración
+      </button>
+      <button mat-menu-item [ngClass]="{'isActive': seguridad == true, 'isInactive': seguridad == false}" (click)="closeSideNav.emit();clickseguridad()"
+              class="monsetb text-xxs xl:text-sm w-full text-left text-gray-500 mb-2 h-11 focus:outline-none focus-visible:bg-green-200">
+        <mat-icon [ngClass]="{'isActive': seguridad == true, 'isInactive': seguridad == false}">verified_user</mat-icon>Seguridad
+      </button>
+      <mat-divider></mat-divider>
+    </div>
+    <button mat-button class="hidden lg:block lg:absolute lg:bottom-5 lg:left-3 focus:outline-none">
+      <mat-icon class="text-base">help_outline</mat-icon>
+      <a href="https://www.cajametropolitana.com.pe/principal" target="_blank"
+         class="pt-1 ml-3 monsetb text-xs xl:text-sm">Ayuda</a>
+    </button>
+    <div
+         class="lg:hidden cursor-pointer lg:absolute bottom-0 left-0 h-16 w-full flex justify-start pl-1">
+      <!-- border-t border-gray-700 -->
+      <button mat-button class="focus:outline-none pb-3">
+        <mat-icon class="text-2xl">power_settings_new</mat-icon>
+      </button>
+      <div class="pt-5 monsetb text-base">Salir</div>
+    </div>
+  </div>
+</div>

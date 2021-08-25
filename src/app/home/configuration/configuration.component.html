@@ -1,0 +1,28 @@
+<div class="mx-auto flex lg:px-3 lg:py-8 monset" style="max-width: 868px">
+  <div class="flex flex-wrap justify-center">
+    <div class="px-4 w-full">
+      <div class="w-full border-b-2 border-[#00AF91] lg:hidden flex justify-between text-[#1A3184] text-center lg:mb-14">
+        <div class="monsetb px-0 lg:px-48 text-[1rem] text-[#1A3184] inline-block leading-tight pb-2">Configuración</div>
+        <div><mat-icon class="text-[#1A3184]">settings</mat-icon></div>
+      </div>
+    </div>
+    <div class="w-full lg:block hidden text-[#1A3184] text-center lg:mb-14">
+      <div><mat-icon class="text-[#1A3184]">settings</mat-icon></div>
+      <div class="monsetb lg:px-48 text-[1.5rem] text-[#1A3184] inline-block border-b-2 border-[#00AF91] leading-tight pb-2">Configuración</div>
+    </div>
+    <div class="lg:flex lg:space-x-4 justify-center w-full px-2">
+      <mat-card class="boxshadow mt-4 cursor-pointer h-[10.625rem] lg:h-[16.188rem] w-full lg:w-[17rem] bg-[#00AF91]">
+        <img class="mx-auto w-[6.063rem] lg:w-[10.813rem] h-[6.313rem] lg:h-[11.313rem]" src="assets/images/configtar.svg">
+        <mat-card-actions>
+          <div class="text-center text-[1rem] text-white monsetb w-full h-auto">Configuración de tarjeta</div>
+        </mat-card-actions>
+      </mat-card>
+      <mat-card (click)="redirectLimitOp()" class="boxshadow mt-4 cursor-pointer h-[10.625rem] lg:h-[16.188rem] w-full lg:w-[17rem] bg-[#00AF91]">
+        <img class="mx-auto pt-3 w-[4.563rem] lg:w-[8.188rem] h-[5.813rem] lg:h-[10.5rem]" src="assets/images/limitOp.svg">
+        <mat-card-actions>
+          <div class="text-center text-[1rem] text-white monsetb mt-3 w-full h-auto">Límites de operaciones</div>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,98 @@
+.btn{
+  border-radius: 12px;
+}
+
+.active{
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.14);
+}
+
+.letra{
+  /* S2 */
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.005em;
+}
+
+//::placeholder{
+//  font-family: Montserrat;
+//  font-style: normal;
+//  font-weight: normal;
+//  font-size: 12px;
+//  line-height: 15px;
+//  display: flex;
+//  align-items: center;
+//  text-align: center;
+//  letter-spacing: 0.005em;
+//}
+
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+::ng-deep.mat-placeholder-required{
+  display: none !important;
+}
+
+input.inpW{
+  /* CAP */
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.005em;
+}
+
+//::placeholder{
+//  /* CAP */
+//  font-family: Montserrat;
+//  font-style: normal;
+//  font-weight: normal;
+//  font-size: 12px;
+//  line-height: 15px;
+//  display: flex;
+//  align-items: center;
+//  text-align: center;
+//  letter-spacing: 0.005em;
+//}
+
+@media (min-width: 1024px) {
+  ::placeholder{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+  input.inpW{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.inputselect {
+  cursor: pointer;
+}
+.inputselect:hover {
+  outline:none;
+  cursor: pointer;
+}
+.inputselect:focus {
+  outline:none;
+  cursor: pointer;
+}
