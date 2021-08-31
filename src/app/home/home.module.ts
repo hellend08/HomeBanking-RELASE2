@@ -15,6 +15,8 @@ import { DialogSuccessComponent } from './limit-operations/dialog-success/dialog
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgxMaskModule} from "ngx-mask";
 import {CurrencyInputDirective} from "./currency.pines";
+import { TransfersDashboardComponent } from './transfers-dashboard/transfers-dashboard.component';
+import {MatRippleModule} from "@angular/material/core";
 
 
 
@@ -23,22 +25,24 @@ import {CurrencyInputDirective} from "./currency.pines";
     LimitOperationsComponent,
     DialogLimitOpComponent,
     DialogSuccessComponent,
-    CurrencyInputDirective
+    CurrencyInputDirective,
+    TransfersDashboardComponent
   ],
-  imports: [
-    CommonModule,
-    HomeRoutingModule,
-    MatIconModule,
-    MatMenuModule,
-    MatCardModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    ReactiveFormsModule,
-    FormsModule,
-    NgxMaskModule.forRoot(),
-  ],
+    imports: [
+        CommonModule,
+        HomeRoutingModule,
+        MatIconModule,
+        MatMenuModule,
+        MatCardModule,
+        MatDialogModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        ReactiveFormsModule,
+        FormsModule,
+        NgxMaskModule.forRoot(),
+        MatRippleModule,
+    ],
   providers: [
     CurrencyPipe
   ]

@@ -13,9 +13,10 @@
               (click)="clickinicio(); closeSideNav.emit();">
         <mat-icon class=" mr-5 lg:mr-2 xl:mr-4 2xl:mr-5">home</mat-icon>Inicio
       </button>
-      <button mat-button style="text-align: left"
-              class="monsetb text-xxs xl:text-sm w-full text-left text-gray-500 mb-1 h-11 focus:outline-none">
-        <mat-icon class="mr-5 lg:mr-2 xl:mr-4 2xl:mr-5">swap_horiz</mat-icon>Transferencias
+      <button mat-button style="text-align: left" [ngClass]="{'isActive': transfer == true, 'isInactive': transfer == false}"
+              class="monsetb text-xxs xl:text-sm w-full text-left mb-1 h-11 focus:outline-none"
+              (click)="clickTransfer(); redirectTransfer(); closeSideNav.emit();">
+        <mat-icon class=" mr-5 lg:mr-2 xl:mr-4 2xl:mr-5">swap_horiz</mat-icon>Transferencias
       </button>
       <button mat-button style="text-align: left"
               class="monsetb text-xxs xl:text-sm w-full text-left text-gray-500 mb-1 h-11 focus:outline-none">

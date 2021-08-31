@@ -1,0 +1,38 @@
+.card-shadow{
+  /* Blank */
+
+  background: #FFFFFF;
+  /* boton 1 */
+
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.14);
+  border-radius: 25px;
+}
+
+.letra-style-h5{
+  /* H5 */
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  /* A1 */
+
+  color: #1A3184;
+}
+
+.letra-style{
+  /* S1 */
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  /* identical to box height */
+
+  text-align: center;
+  letter-spacing: 0.0015em;
+
+  /* A1 */
+
+  color: #1A3184;
+}

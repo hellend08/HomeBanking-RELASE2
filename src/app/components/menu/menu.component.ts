@@ -9,6 +9,7 @@ import {Router} from "@angular/router";
 export class MenuComponent implements OnInit {
   ocultarSaldos = false;
   inicio = false;
+  transfer = false;
   productos = false;
   perfil = false;
   configuracion = false;
@@ -26,6 +27,16 @@ export class MenuComponent implements OnInit {
 
   clickinicio(){
     this.inicio = true;
+    this.transfer = false;
+    this.productos = false;
+    this.perfil = false;
+    this.configuracion = false;
+    this.seguridad = false;
+  }
+
+  clickTransfer(){
+    this.inicio = false;
+    this.transfer = true;
     this.productos = false;
     this.perfil = false;
     this.configuracion = false;
@@ -34,6 +45,10 @@ export class MenuComponent implements OnInit {
 
   public redirectConfig(){
     this.router.navigateByUrl('/home/configuracion')
+  }
+
+  public redirectTransfer(){
+    this.router.navigateByUrl('/home/transferencias')
   }
 
   clickproducto(){
