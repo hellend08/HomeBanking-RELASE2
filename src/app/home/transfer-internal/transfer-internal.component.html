@@ -97,6 +97,7 @@
       <mat-step>
         <form class="mt-2">
           <ng-template matStepLabel>Paso 2</ng-template>
+          <div class="w-full py-4 monset" style="text-align: center">Revisa y confirma los detalles de la transferencia:</div>
           <div class="flex p-2 space-x-2">
             <div class="card px-4 py-4 h-[4.688rem] w-[21.125rem]">
               <p class="monsetb">Cuenta de origen</p>
@@ -154,8 +155,38 @@
       <mat-step>
         <form>
           <ng-template matStepLabel>Paso 3</ng-template>
+          <div class="w-full py-4 monset" style="text-align: center">
+            <img class="mx-auto mb-2" src="assets/images/checked.svg">
+            <p>La transferencia se realizó con éxito</p>
+          </div>
+          <div>
+            <div class="space-x-6 flex justify-between">
+              <div class="card px-4 py-4 h-[4.688rem] w-[21.125rem]">
+                <p class="monsetb">Cuenta de origen</p>
+                <p class="monset">Ahorros Soles 1020520221452214522</p>
+              </div>
+              <div class="card px-4 py-4 h-[4.688rem] w-[21.125rem]">
+                <p class="monsetb">Cuenta destino</p>
+                <p class="monset">Ahorros Dólares 1020520221452214522</p>
+              </div>
+            </div>
+            <div class="space-x-6 mt-6 flex justify-between">
+              <div class="card px-4 py-4 h-[4.688rem] w-[21.125rem]">
+                <p class="monsetb">Número de operación</p>
+                <p class="monsetb">001</p>
+              </div>
+              <div class="card px-4 py-4 h-[4.688rem] w-[21.125rem]">
+                <p class="monsetb text-[1rem]">Monto a transferir</p>
+                <p class="monsetb text-[1.5rem]">$ 100.00</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex space-x-2 text-left mt-6 mx-auto justify-center">
+            <mat-icon class="text-[#1A3184]">email</mat-icon>
+            <div class="w-[17.25rem] text-[0.906rem]">La constancia ha sido remitida a tu correo:
+                ach******@cajametropolitana.com.pe</div>
+          </div>
         </form>
-        <div>hello</div>
       </mat-step>
     </mat-stepper>
   </div>
