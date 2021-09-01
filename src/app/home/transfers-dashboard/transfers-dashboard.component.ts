@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-transfers-dashboard',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransfersDashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
+
+  public redirectTransfer1() {
+    this.router.navigateByUrl('/transferencias/1');
+  }
+
+  public redirectTransfer2() {
+    this.router.navigateByUrl('/transferencias/2');
+  }
 
   ngOnInit(): void {
   }

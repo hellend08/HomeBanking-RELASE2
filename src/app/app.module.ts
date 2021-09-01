@@ -18,6 +18,11 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
 import {MatBadgeModule} from "@angular/material/badge";
 import {MatTooltipModule} from "@angular/material/tooltip";
+import {MatSelectModule} from "@angular/material/select";
+import {MatOptionModule} from "@angular/material/core";
+import {CurrencyPipe} from "@angular/common";
+
+
 
 @NgModule({
   declarations: [
@@ -40,9 +45,11 @@ import {MatTooltipModule} from "@angular/material/tooltip";
     MatButtonModule,
     MatCardModule,
     MatBadgeModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatSelectModule,
+    MatOptionModule
   ],
-  providers: [],
+  providers: [ CurrencyPipe ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

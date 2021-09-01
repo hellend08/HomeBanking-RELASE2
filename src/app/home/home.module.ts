@@ -16,7 +16,12 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgxMaskModule} from "ngx-mask";
 import {CurrencyInputDirective} from "./currency.pines";
 import { TransfersDashboardComponent } from './transfers-dashboard/transfers-dashboard.component';
-import {MatRippleModule} from "@angular/material/core";
+import {MatOptionModule, MatRippleModule} from "@angular/material/core";
+import { TransferInternalComponent } from './transfer-internal/transfer-internal.component';
+import { TransferExternalComponent } from './transfer-external/transfer-external.component';
+import {MatStepperModule} from "@angular/material/stepper";
+import {MatSelectModule} from '@angular/material/select';
+import {MatRadioModule} from "@angular/material/radio";
 
 
 
@@ -26,7 +31,9 @@ import {MatRippleModule} from "@angular/material/core";
     DialogLimitOpComponent,
     DialogSuccessComponent,
     CurrencyInputDirective,
-    TransfersDashboardComponent
+    TransfersDashboardComponent,
+    TransferInternalComponent,
+    TransferExternalComponent
   ],
     imports: [
         CommonModule,
@@ -42,7 +49,13 @@ import {MatRippleModule} from "@angular/material/core";
         FormsModule,
         NgxMaskModule.forRoot(),
         MatRippleModule,
-    ],
+        MatStepperModule,
+        MatSelectModule,
+        MatOptionModule,
+        MatRadioModule
+    ],exports:[
+
+  ],
   providers: [
     CurrencyPipe
   ]

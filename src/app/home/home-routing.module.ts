@@ -5,6 +5,8 @@ import {HomeComponent} from "./home.component";
 import {ConfigurationComponent} from "./configuration/configuration.component";
 import {LimitOperationsComponent} from "./limit-operations/limit-operations.component";
 import {TransfersDashboardComponent} from "./transfers-dashboard/transfers-dashboard.component";
+import {TransferInternalComponent} from "./transfer-internal/transfer-internal.component";
+import {TransferExternalComponent} from "./transfer-external/transfer-external.component";
 
 const routes: Routes = [
   {
@@ -12,7 +14,9 @@ const routes: Routes = [
     children: [
       {path: 'configuracion', component: ConfigurationComponent},
       {path: 'limitOp', component: LimitOperationsComponent},
-      {path: 'transferencias', component: TransfersDashboardComponent}
+      {path: 'transferencias', component: TransfersDashboardComponent},
+      {path: 'transferencias/1', component: TransferInternalComponent},
+      {path: 'transferencias/2', component: TransferExternalComponent}
     ]
   }
 ]
