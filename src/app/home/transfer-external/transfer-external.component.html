@@ -1,1 +1,303 @@
-<p>transfer-external works!</p>
+<div class="w-full mt-4">
+  <div class="monsetb text-[#3D3C3C] text-[1.5rem] flex justify-center">Transferencia a cuentas propias</div>
+  <div class="flex justify-center">
+    <mat-stepper labelPosition="bottom" #stepper class="w-[43.75rem]">
+      <mat-step>
+        <form>
+          <ng-template matStepLabel>Paso 1</ng-template>
+          <div class="flex">
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label class="block uppercase text-[#8F8F8F] text-[1rem] mb-2">
+                Cuenta de origen
+              </label>
+              <mat-select placeholder="Elige tu cuenta de origen" class="appearance-none py-4 block w-full text-gray-700 border border-[#7B7B7B] rounded py-3 px-4 mb-3 leading-tight">
+                <mat-option class="h-auto" value="option1">
+                  <div class="my-2 monset">
+                    <div class="mt-px -mb-4">Cuenta – Ahorros Soles </div>
+                    <div class="-mb-4">10203040506070</div>
+                  </div>
+                </mat-option>
+                <mat-option value="option2">
+                  <div class="my-2 monset">
+                    <div class="mt-px -mb-4">Cuenta – Ahorros Soles </div>
+                    <div class="-mb-4">14567891011121314</div>
+                  </div>
+                </mat-option>
+                <mat-option value="option3">
+                  <div class="my-2 monset">
+                    <div class="mt-px -mb-4">Cuenta – Ahorros dólares </div>
+                    <div class="-mb-4">101547892244472</div>
+                  </div>
+                </mat-option>
+              </mat-select>
+            </div>
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label class="block uppercase text-[#8F8F8F] text-[1rem] mb-2">
+                Cuenta destino
+              </label>
+              <mat-select placeholder="Elige tu cuenta de destino" class="appearance-none py-4 block w-full text-gray-700 border border-[#7B7B7B] rounded py-3 px-4 mb-3 leading-tight">
+                <mat-option class="h-auto" value="option1">
+                  <div class="my-2 monset">
+                    <div class="mt-px -mb-4">Cuenta – Ahorros Soles </div>
+                    <div class="-mb-4">10203040506070</div>
+                  </div>
+                </mat-option>
+                <mat-option value="option2">
+                  <div class="my-2 monset">
+                    <div class="mt-px -mb-4">Cuenta – Ahorros Soles </div>
+                    <div class="-mb-4">14567891011121314</div>
+                  </div>
+                </mat-option>
+                <mat-option value="option3">
+                  <div class="my-2 monset">
+                    <div class="mt-px -mb-4">Cuenta – Ahorros dólares </div>
+                    <div class="-mb-4">101547892244472</div>
+                  </div>
+                </mat-option>
+              </mat-select>
+            </div>
+          </div>
+
+          <div class="flex mt-4">
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label class="block uppercase text-[#8F8F8F] text-[1rem] mb-2">
+                Selecciona la moneda
+              </label>
+              <mat-radio-group class="flex -mx-2">
+                <mat-radio-button checked="true" [color]="" value="PEN" style="max-width: 12rem;" class="bg-white w-full rounded-lg shadow-lg py-4 text-center px-5 mx-2 monsetb text-a1">
+                  Soles
+                </mat-radio-button>
+                <mat-radio-button value="USD" style="max-width: 12rem;"
+                                  class="bg-white w-full rounded-lg shadow-lg py-4 text-center px-5 mx-2 monsetb text-a1">
+                  Dólares
+                </mat-radio-button>
+              </mat-radio-group>
+              <!--              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Jane">-->
+            </div>
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label class="block uppercase text-[#8F8F8F] text-[1rem] mb-2">
+                Monto a transferir
+              </label>
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Ingrese el monto</mat-label>
+                <input matInput currencyInput autocomplete="off" (keypress)="onKeyPress($event)" placeholder="Placeholder">
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="flex mt-4">
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label class="block uppercase text-[#8F8F8F] text-[1rem] mb-2">
+                CCI de la cuenta de destino
+              </label>
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Ingrese el monto</mat-label>
+                <input matInput currencyInput autocomplete="off" (keypress)="onKeyPress($event)" placeholder="Placeholder">
+              </mat-form-field>
+            </div>
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+<!--              <label class="block uppercase text-[#8F8F8F] text-[1rem] mb-2">-->
+<!--                CCI de la cuenta de destino-->
+<!--              </label>-->
+              <mat-radio-group class="example-radio-group" aria-label="Select an option">
+                <mat-radio-button class="example-radio-button text-[0.844rem] text-[#1A3184] monsetb" value="1">A cuenta propia</mat-radio-button>
+                <mat-radio-button class="example-radio-button text-[0.844rem] text-[#1A3184] monsetb" value="2">A cuenta de terceros</mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </div>
+
+          <div class="flex mt-4">
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label class="block uppercase text-[#8F8F8F] text-[1rem] mb-2">
+                Nombres y Apellidos
+              </label>
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Ingresa el nombre y apellido</mat-label>
+                <input matInput autocomplete="off">
+              </mat-form-field>
+            </div>
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label class="block uppercase text-[#8F8F8F] text-[1rem] mb-2">
+                Documento
+              </label>
+              <div class="flex justify-between">
+                <mat-form-field class="monset w-[4.5rem]" appearance="outline">
+                  <mat-select value="DNI">
+                    <mat-option value="DNI">DNI</mat-option>
+                    <mat-option value="CE">CE</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field class="monset w-[14rem]" appearance="outline">
+                  <mat-label>Ingresa el número de DNI</mat-label>
+                  <input matInput autocomplete="off" (keypress)="onKeyPress($event)" placeholder="Placeholder">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex px-10 w-full justify-center monsetb">
+            <div class="text-[#8F8F8F] text-[1rem] text-center">Consulta el <b class="text-[#00AF91]">horario de atención</b> y las <b class="text-[#00AF91]">tarifas y comisiones</b> de los tipos de transferencia.</div>
+          </div>
+        </form>
+        <div class="flex justify-center w-full mt-12">
+          <button class="btn w-[21.125rem] h-[3.75rem]" matStepperNext mat-button>Siguiente</button>
+        </div>
+      </mat-step>
+      <mat-step>
+        <form class="mt-2">
+          <ng-template matStepLabel>Paso 2</ng-template>
+          <div class="w-full py-4 monset" style="text-align: center">Revisa y confirma los detalles de la transferencia:</div>
+          <div class="flex p-2 space-x-2">
+            <div class="card px-4 py-4 h-[4.688rem] w-[21.125rem]">
+              <p class="monsetb">Cuenta de origen</p>
+              <p class="monset">Ahorros Soles 1020520221452214522</p>
+            </div>
+            <mat-icon class="text-[2.029rem] my-auto">keyboard_double_arrow_right</mat-icon>
+            <div class="card px-4 py-4 h-[4.688rem] w-[21.125rem]">
+              <p class="monsetb">Cuenta destino</p>
+              <p class="monset">Ahorros Dólares 1020520221452214522</p>
+            </div>
+          </div>
+          <div class="mt-8 px-4 py-2 card">
+            <div class="flex justify-between">
+              <div class="monsetb">Tipo de transferencia</div>
+              <p>Diferida</p>
+            </div>
+            <div class="flex justify-between">
+              <div class="monsetb">CCI de la cuenta destino</div>
+              <p>1020520221452214522</p>
+            </div>
+            <div class="flex justify-between">
+              <div class="monsetb">Tipo de beneficiario</div>
+              <p>A cuentas de terceros</p>
+            </div>
+            <div class="flex justify-between">
+              <div class="monsetb">Nombres y Apellidos del beneficiario</div>
+              <p>José Aréstegui Vásquez</p>
+            </div>
+            <div class="flex justify-between">
+              <div class="monsetb">Monto</div>
+              <p>S/ 100.00</p>
+            </div>
+            <div class="flex justify-between">
+              <div class="monsetb">Comisión CML</div>
+              <p>S/ 3.00 </p>
+            </div>
+            <div class="flex justify-between">
+              <div class="monsetb">ITF</div>
+              <p>S/ 0.00</p>
+            </div>
+            <div class="flex justify-between">
+              <div class="monsetb">Monto total</div>
+              <p class="monsetb">S/ 103.80</p>
+            </div>
+          </div>
+          <div class="flex mt-4 justify-center">
+            <div style="text-align: center">
+              <mat-checkbox class="text-[1rem] mb-4 text-[#8F8F8F]">He leído y acepto los <b class="text-[#00AF91]">términos y condiciones</b> para procesar esta operación</mat-checkbox>
+              <label class="text-[1rem]">Para confirmar la operación, ingrese el Token Digital </label>
+              <div class="w-full flex justify-center mt-2">
+                <mat-form-field appearance="outline">
+                  <mat-label>Ingresa el Token Digital</mat-label>
+                  <input type="password" (keypress)="onKeyPress($event)" matInput>
+                  <mat-icon matSuffix class="text-[#00AF91]">check_circle</mat-icon>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="flex justify-center space-x-4 w-full mt-8">
+          <button class="btn w-[9.813rem] h-[3.75rem]" matStepperPrevious mat-button>Cancelar</button>
+          <button class="btn w-[9.813rem] h-[3.75rem]" matStepperNext mat-button>Siguiente</button>
+        </div>
+      </mat-step>
+      <mat-step>
+        <form>
+          <ng-template matStepLabel>Paso 3</ng-template>
+          <div class="w-full py-4 monset" style="text-align: center">
+            <img class="mx-auto mb-2" src="assets/images/checked.svg">
+            <p>La transferencia se realizó con éxito</p>
+          </div>
+          <div>
+            <div class="space-x-6 flex justify-between">
+              <div class="card px-4 py-4 h-[4.688rem] w-[21.125rem]">
+                <p class="monsetb">Cuenta de origen</p>
+                <p class="monset">Ahorros Soles 1020520221452214522</p>
+              </div>
+              <div class="card px-4 py-4 h-[4.688rem] w-[21.125rem]">
+                <p class="monsetb">Cuenta destino</p>
+                <p class="monset">Ahorros Dólares 1020520221452214522</p>
+              </div>
+            </div>
+            <div class="mt-8 px-4 py-2 card">
+              <div class="flex justify-between">
+                <div class="monsetb">Número de operación</div>
+                <p>001</p>
+              </div>
+              <div class="flex justify-between">
+                <div class="monsetb">Tipo de transferencia</div>
+                <p>Diferida</p>
+              </div>
+              <div class="flex justify-between">
+                <div class="monsetb">CCI de la cuenta destino</div>
+                <p>1020520221452214522</p>
+              </div>
+              <div class="flex justify-between">
+                <div class="monsetb">Tipo de beneficiario</div>
+                <p>A cuentas de terceros</p>
+              </div>
+              <div class="flex justify-between">
+                <div class="monsetb">Nombres y Apellidos del beneficiario</div>
+                <p>José Aréstegui Vásquez</p>
+              </div>
+              <div class="flex justify-between">
+                <div class="monsetb">Monto</div>
+                <p>S/ 100.00</p>
+              </div>
+              <div class="flex justify-between">
+                <div class="monsetb">Comisión CML</div>
+                <p>S/ 3.00 </p>
+              </div>
+              <div class="flex justify-between">
+                <div class="monsetb">ITF</div>
+                <p>S/ 0.00</p>
+              </div>
+              <div class="flex justify-between">
+                <div class="monsetb">Monto total</div>
+                <p class="monsetb">S/ 103.80</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-between space-x-2 text-left mt-6 mx-auto justify-center">
+            <div class="w-[21.375rem] flex justify-between">
+              <mat-icon class="text-[#1A3184]">email</mat-icon>
+              <div class="w-[17.25rem] text-[0.906rem]">La constancia ha sido remitida a tu correo:
+                ach******@cajametropolitana.com.pe</div>
+            </div>
+            <div class="my-auto">
+              <button class="btn-descarga monsetb flex justify-between px-4 py-2 w-[19rem]">
+                <mat-icon class="my-auto">vertical_align_bottom</mat-icon>
+                <span class="my-auto">Descargar transferencia</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="flex justify-center mt-4 text-sm w-full content-center justify-items-center font-medium monset lg:pr-3">
+            <mat-form-field appearance="outline" class="w-[19rem]">
+              <mat-label class="monset text-xs">Correo destino</mat-label>
+              <input type="text" matInput placeholder="Correo destino">
+            </mat-form-field>
+            <button style="height: 3.1rem;"
+                    class="text-base shadow-lg mt-1 hover:bg-white font-semibold hover:text-green-400 py-2 px-4 hover:border hover:border-green-400 rounded">
+              Enviar
+            </button>
+          </div>
+        </form>
+        <div class="flex justify-center space-x-4 w-full mt-8">
+          <button class="btn w-[9.813rem] h-[3.75rem]" matStepperPrevious mat-button>Cancelar</button>
+          <button class="btn w-[9.813rem] h-[3.75rem]" matStepperNext mat-button>Siguiente</button>
+        </div>
+      </mat-step>
+    </mat-stepper>
+  </div>
+</div>

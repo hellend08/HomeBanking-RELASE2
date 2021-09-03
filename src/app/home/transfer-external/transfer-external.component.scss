@@ -1,0 +1,90 @@
+::ng-deep.mat-horizontal-stepper-header-container{
+  width: 19.125rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: #00AF91!important;   /*inner circle color change*/
+}
+
+::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color:#00AF91!important; /*outer ring color change*/
+}
+
+::ng-deep.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+  background-color: #00AF91 !important; // Override material
+}
+
+::ng-deep.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #7B7B7B;
+}
+/* Font color */
+::ng-deep input.mat-input-element {
+  color: #7B7B7B;
+}
+
+.warning{
+  background: #ECFEFB;
+  border-radius: 12px;
+}
+
+.select{
+  width: 160px;
+  height: 51px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  text-align: center;
+  justify-content: center;
+}
+
+:host::ng-deep .mat-horizontal-stepper-header{
+  pointer-events: none !important;
+}
+
+.btn{
+  /* V1 */
+  color: white;
+  background: #00AF91;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.24);
+  border-radius: 20px;
+}
+
+.btn-descarga{
+  /* V1 */
+  color: #00AF91;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.24);
+  border-radius: 20px;
+}
+
+::ng-deep.mat-option{
+  padding-top: 2px;
+  padding-bottom: 2px;
+  height: auto !important;
+}
+
+.card{
+  background: #FFFFFF;
+  /* card */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+}
+
+.example-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5rem;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-ripple .mat-ripple-element {
+  opacity: 0.03 !important;
+  background-color: #00AF91!important;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: #00AF91;
+}

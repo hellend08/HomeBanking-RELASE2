@@ -25,31 +25,34 @@ import {CurrencyPipe} from "@angular/common";
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    ConfigurationComponent,
-    MenuComponent,
-    ToolbarComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    HomeRoutingModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatDividerModule,
-    MatMenuModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatCardModule,
-    MatBadgeModule,
-    MatTooltipModule,
-    MatSelectModule,
-    MatOptionModule
-  ],
-  providers: [ CurrencyPipe ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        ConfigurationComponent,
+        MenuComponent,
+        ToolbarComponent,
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        HomeRoutingModule,
+        MatSidenavModule,
+        MatIconModule,
+        MatDividerModule,
+        MatMenuModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatCardModule,
+        MatBadgeModule,
+        MatTooltipModule,
+        MatSelectModule,
+        MatOptionModule
+    ],
+    providers: [CurrencyPipe],
+    exports: [
+        ToolbarComponent
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

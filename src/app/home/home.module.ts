@@ -22,6 +22,7 @@ import { TransferExternalComponent } from './transfer-external/transfer-external
 import {MatStepperModule} from "@angular/material/stepper";
 import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from "@angular/material/radio";
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 
 
@@ -52,7 +53,8 @@ import {MatRadioModule} from "@angular/material/radio";
         MatStepperModule,
         MatSelectModule,
         MatOptionModule,
-        MatRadioModule
+        MatRadioModule,
+        MatCheckboxModule
     ],exports:[
 
   ],
