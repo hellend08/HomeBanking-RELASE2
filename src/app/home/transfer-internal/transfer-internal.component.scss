@@ -62,3 +62,33 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
   border-radius: 12px;
 }
+
+//::ng-deep.mat-form-field-label{
+//  font-family: Inter !important;
+//  font-style: normal;
+//  font-weight: normal;
+//  font-size: 14px;
+//  line-height: 20px;
+//}
+
+::ng-deep.mat-select-placeholder,::ng-deep .mat-form-field-label{
+  font-family: Inter !important;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+::ng-deep.mat-step-text-label{
+  /* CAP */
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  /* identical to box height */
+  letter-spacing: 0.005em;
+
+  /* A1 */
+  color: #1A3184;
+}

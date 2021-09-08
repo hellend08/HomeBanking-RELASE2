@@ -1,12 +1,12 @@
 <div class="w-full mt-4">
-  <div class="monsetb text-[#3D3C3C] text-[1.5rem] flex justify-center">Transferencia a cuentas propias</div>
+  <div class="monsetb text-[#3D3C3C] text-[1rem] px-6 text-center lg:text-[1.5rem] flex justify-center">Transferencia a cuentas de otros bancos</div>
   <div class="flex justify-center">
-    <mat-stepper labelPosition="bottom" #stepper class="w-[43.75rem]">
+    <mat-stepper labelPosition="bottom" #stepper class="w-full lg:w-[43.75rem]">
       <mat-step>
         <form>
           <ng-template matStepLabel>Paso 1</ng-template>
-          <div class="flex">
-            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <div class="lg:flex">
+            <div class="w-full md:w-1/2 lg:px-3 mb-6 md:mb-0">
               <label class="block uppercase text-[#8F8F8F] text-[1rem] mb-2">
                 Cuenta de origen
               </label>
@@ -31,7 +31,7 @@
                 </mat-option>
               </mat-select>
             </div>
-            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            <div class="w-full md:w-1/2 lg:px-3 mb-6 md:mb-0">
               <label class="block uppercase text-[#8F8F8F] text-[1rem] mb-2">
                 Cuenta destino
               </label>
@@ -58,7 +58,7 @@
             </div>
           </div>
 
-          <div class="flex mt-4">
+          <div class="lg:flex mt-4">
             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label class="block uppercase text-[#8F8F8F] text-[1rem] mb-2">
                 Selecciona la moneda
@@ -85,7 +85,7 @@
             </div>
           </div>
 
-          <div class="flex mt-4">
+          <div class="lg:flex mt-4">
             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label class="block uppercase text-[#8F8F8F] text-[1rem] mb-2">
                 CCI de la cuenta de destino
@@ -106,7 +106,7 @@
             </div>
           </div>
 
-          <div class="flex mt-4">
+          <div class="lg:flex mt-4">
             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label class="block uppercase text-[#8F8F8F] text-[1rem] mb-2">
                 Nombres y Apellidos
@@ -121,13 +121,13 @@
                 Documento
               </label>
               <div class="flex justify-between">
-                <mat-form-field class="monset w-[4.5rem]" appearance="outline">
+                <mat-form-field class="monset w-[4rem] w-[4.5rem]" appearance="outline">
                   <mat-select value="DNI">
                     <mat-option value="DNI">DNI</mat-option>
                     <mat-option value="CE">CE</mat-option>
                   </mat-select>
                 </mat-form-field>
-                <mat-form-field class="monset w-[14rem]" appearance="outline">
+                <mat-form-field class="monset min-w-[10rem] w-3/4 lg:w-[14rem]" appearance="outline">
                   <mat-label>Ingresa el número de DNI</mat-label>
                   <input matInput autocomplete="off" (keypress)="onKeyPress($event)" placeholder="Placeholder">
                 </mat-form-field>
@@ -135,8 +135,8 @@
             </div>
           </div>
 
-          <div class="flex px-10 w-full justify-center monsetb">
-            <div class="text-[#8F8F8F] text-[1rem] text-center">Consulta el <b class="text-[#00AF91]">horario de atención</b> y las <b class="text-[#00AF91]">tarifas y comisiones</b> de los tipos de transferencia.</div>
+          <div class="flex px-4 lg:px-10 w-full justify-center monsetb">
+            <div class="text-[#8F8F8F] text-[0.75rem] lg:text-[1rem] text-center">Consulta el <b class="text-[#00AF91]">horario de atención</b> y las <b class="text-[#00AF91]">tarifas y comisiones</b> de los tipos de transferencia.</div>
           </div>
         </form>
         <div class="flex justify-center w-full mt-12">
@@ -294,8 +294,8 @@
           </div>
         </form>
         <div class="flex justify-center space-x-4 w-full mt-8">
-          <button class="btn w-[9.813rem] h-[3.75rem]" matStepperPrevious mat-button>Cancelar</button>
-          <button class="btn w-[9.813rem] h-[3.75rem]" matStepperNext mat-button>Siguiente</button>
+          <button class="btn w-[9.813rem] h-[3.75rem]" matStepperPrevious mat-button>Nueva transferencia</button>
+          <button class="btn w-[9.813rem] h-[3.75rem]" (click)="redirectTransfer()" mat-button>Ir al inicio</button>
         </div>
       </mat-step>
     </mat-stepper>

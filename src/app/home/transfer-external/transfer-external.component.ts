@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-transfer-external',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransferExternalComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
+
+  public redirectTransfer(){
+    this.router.navigateByUrl('/home/transferencias')
+  }
 
   onKeyPress(event: any) {
     const regexpNumber = /[0-9]/;

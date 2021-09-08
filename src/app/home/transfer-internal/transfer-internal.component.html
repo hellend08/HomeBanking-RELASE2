@@ -1,20 +1,20 @@
 <div class="w-full mt-4">
-  <div class="monsetb text-[#3D3C3C] text-[1.5rem] flex justify-center">Transferencia a cuentas propias</div>
+  <div class="monsetb text-[#3D3C3C] text-[1rem] lg:text-[1.5rem] flex justify-center">Transferencia a cuentas propias</div>
   <div class="flex justify-center">
-    <mat-stepper labelPosition="bottom" #stepper class="w-[43.75rem]">
+    <mat-stepper labelPosition="bottom" #stepper class="w-full lg:w-[43.75rem]">
       <mat-step>
         <form>
-          <ng-template matStepLabel>Paso 1</ng-template>
-          <div class="flex">
-            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-              <label class="block uppercase text-[#8F8F8F] text-[1rem] mb-2">
+          <ng-template matStepLabel class="monset">Paso 1</ng-template>
+          <div class="lg:flex">
+            <div class="w-full md:w-1/2 lg:px-3 mb-6 md:mb-0">
+              <label class="block text-[#8F8F8F] monset text-[1rem] mb-2">
                 Cuenta de origen
               </label>
               <mat-select placeholder="Elige tu cuenta de origen" class="appearance-none py-4 block w-full text-gray-700 border border-[#7B7B7B] rounded py-3 px-4 mb-3 leading-tight">
                 <mat-option class="h-auto" value="option1">
-                  <div class="my-2 monset">
-                    <div class="mt-px -mb-4">Cuenta – Ahorros Soles </div>
-                    <div class="-mb-4">10203040506070</div>
+                  <div class="my-2">
+                    <div class="mt-px -mb-4 monset">Cuenta – Ahorros Soles </div>
+                    <div class="-mb-4 monset">10203040506070</div>
                   </div>
                 </mat-option>
                 <mat-option value="option2">
@@ -31,8 +31,8 @@
                 </mat-option>
               </mat-select>
             </div>
-            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-              <label class="block uppercase text-[#8F8F8F] text-[1rem] mb-2">
+            <div class="w-full md:w-1/2 lg:px-3 mb-6 md:mb-0">
+              <label class="block text-[#8F8F8F] monset text-[1rem] mb-2">
                 Cuenta destino
               </label>
               <mat-select placeholder="Elige tu cuenta de destino" class="appearance-none py-4 block w-full text-gray-700 border border-[#7B7B7B] rounded py-3 px-4 mb-3 leading-tight">
@@ -58,9 +58,9 @@
             </div>
           </div>
 
-          <div class="flex mt-10">
-            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-              <label class="block uppercase text-[#8F8F8F] text-[1rem] mb-2">
+          <div class="lg:flex mt-10">
+            <div class="w-full md:w-1/2 lg:px-3 mb-6 md:mb-0">
+              <label class="block text-[#8F8F8F] monset text-[1rem] mb-2">
                 Selecciona la moneda
               </label>
               <mat-radio-group class="flex -mx-2">
@@ -74,68 +74,70 @@
               </mat-radio-group>
               <!--              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Jane">-->
             </div>
-            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-              <label class="block uppercase text-[#8F8F8F] text-[1rem] mb-2">
+            <div class="w-full md:w-1/2 lg:px-3 lg:mb-6 md:mb-0">
+              <label class="block text-[#8F8F8F] monset text-[1rem] mb-2">
                 Monto a transferir
               </label>
               <mat-form-field appearance="outline" class="w-full">
                 <mat-label>Ingrese el monto</mat-label>
-                <input matInput currencyInput autocomplete="off" (keypress)="onKeyPress($event)" placeholder="Placeholder">
+                <input matInput currencyInput autocomplete="off" (keypress)="onKeyPress($event)">
               </mat-form-field>
             </div>
           </div>
 
-          <div class="flex mx-auto h-[2.75rem] px-6 monset space-x-4 mt-4 py-2 warning w-[32.125rem]">
-            <div><mat-icon class="text-[#F9B208]">warning</mat-icon></div>
+          <div class="flex mx-auto h-[2.75rem] px-1 lg:px-6 monset space-x-2 lg:space-x-4 lg:mt-4 lg:py-2 warning w-full lg:w-[32.125rem]">
+            <div><mat-icon class="text-[#F9B208] my-2 lg:my-0">warning</mat-icon></div>
             <div class="py-1 text-[#1A3184] text-[0.75rem]">Recuerde que esta operación será afectada al tipo de cambio</div>
           </div>
         </form>
         <div class="flex justify-center w-full mt-12">
-          <button class="btn w-[21.125rem] h-[3.75rem]" matStepperNext mat-button>Siguiente</button>
+          <button class="btn w-[21.125rem] h-[3.75rem] monsetb" matStepperNext mat-button>Siguiente</button>
         </div>
       </mat-step>
       <mat-step>
         <form class="mt-2">
           <ng-template matStepLabel>Paso 2</ng-template>
           <div class="w-full py-4 monset" style="text-align: center">Revisa y confirma los detalles de la transferencia:</div>
-          <div class="flex p-2 space-x-2">
-            <div class="card px-4 py-4 h-[4.688rem] w-[21.125rem]">
-              <p class="monsetb">Cuenta de origen</p>
-              <p class="monset">Ahorros Soles 1020520221452214522</p>
+          <div class="lg:flex lg:p-2 lg:space-x-2">
+            <div class="card px-4 mb-2 py-4 h-[4.688rem] w-full lg:w-[21.125rem]">
+              <p class="monsetb text-[0.688rem] lg:text-[1rem]">Cuenta de origen</p>
+              <p class="monset text-[0.75rem] lg:text-[0.85rem]">Ahorros Soles 1020520221452214522</p>
             </div>
-            <mat-icon class="text-[2.029rem] my-auto">keyboard_double_arrow_right</mat-icon>
-            <div class="card px-4 py-4 h-[4.688rem] w-[21.125rem]">
-              <p class="monsetb">Cuenta destino</p>
-              <p class="monset">Ahorros Dólares 1020520221452214522</p>
+            <div class="lg:block hidden">
+              <mat-icon class="text-[2.029rem] my-auto">keyboard_double_arrow_right</mat-icon>
+            </div>
+            <div class="card px-4 mb-2 py-4 h-[4.688rem] w-full lg:w-[21.125rem]">
+              <p class="monsetb text-[0.688rem] lg:text-[1rem]">Cuenta destino</p>
+              <p class="monset text-[0.75rem] lg:text-[0.85rem]">Ahorros Dólares 1020520221452214522</p>
             </div>
           </div>
-          <div class="flex mt-8 justify-between px-2">
-            <div class="warning px-4 pt-2 -pb-3 w-[19rem]">
-              <div class="text-[1rem] text-[#1A3184] monset">Información de la transferencia</div>
-              <div class="flex justify-between mt-2">
+          <div class="lg:flex mt-8 justify-between lg:px-2">
+            <div class="warning px-4 pt-2 -pb-3 w-full lg:w-[19rem]">
+              <div class="text-[0.688rem] lg:text-[1rem] text-[#1A3184] monsetb">Información de la transferencia</div>
+              <div class="flex justify-between mt-4">
                 <div>
-                  <p class="text-[0.75rem] monset">Tipo de cambio</p>
-                  <p class="text-[1rem] monsetb">S/ 4.179</p>
+                  <div class="text-[0.75rem] monset">Tipo de cambio</div>
+                  <div class="text-[0.688rem] lg:text-[1rem] monsetb">S/ 4.179</div>
                 </div>
                 <div>
-                  <p class="text-[0.75rem] monset">Total al cambio</p>
-                  <p class="text-[1rem] monsetb">$ 100.00</p>
+                  <div class="text-[0.75rem] monset">Total al cambio</div>
+                  <div class="text-[0.688rem] text-right lg:text-[1rem] monsetb">$ 100.00</div>
                 </div>
               </div>
             </div>
-            <div class="w-[18rem]">
-              <label class="mb-2 text-[1rem]">
-                Monto a transferir
+            <div class="w-full lg:block hidden mt-2 lg:w-[18rem]">
+              <label class="mb-2 text-[0.688rem] lg:text-[1rem]">
+                Descripción de la operación (opcional):
               </label>
               <mat-form-field appearance="outline" class="w-full">
-                <mat-label>Ingrese el monto</mat-label>
+                <mat-label>Descripción de la operación</mat-label>
                 <textarea matInput></textarea>
               </mat-form-field>
             </div>
           </div>
           <div class="w-full py-4 px-4 warning mt-4 flex justify-between">
-            <div class="monsetb text-[1rem] text-[#1A3184]">Monto a transferir</div>
-            <div class="monsetb text-[1.5rem]">$ 100.00</div>
+            <div class="monsetb text-[0.688rem] lg:text-[1rem] text-[#1A3184]">Monto a transferir</div>
+            <div class="monsetb text-[1rem] lg:text-[1.5rem]">$ 100.00</div>
           </div>
 
           <div class="flex mt-4 justify-center">
@@ -143,7 +145,7 @@
               <div class="w-[2.625rem] h-[2.438rem] mx-auto bg-[#E8F5FF]" style="border-radius: 12px">
                 <mat-icon class="text-[1.25rem] my-2 text-[#7B7B7B]">stars</mat-icon>
               </div>
-              <p class="monsetb text-[1rem] text-[#8F8F8F]">Agregar a frecuentes</p>
+              <p class="monsetb text-[0.688rem] lg:text-[1rem] text-[#8F8F8F]">Agregar a operaciones frecuentes</p>
             </div>
           </div>
         </form>
@@ -160,24 +162,32 @@
             <p>La transferencia se realizó con éxito</p>
           </div>
           <div>
-            <div class="space-x-6 flex justify-between">
-              <div class="card px-4 py-4 h-[4.688rem] w-[21.125rem]">
-                <p class="monsetb">Cuenta de origen</p>
-                <p class="monset">Ahorros Soles 1020520221452214522</p>
+            <div class="card px-4 py-4 lg:hidden h-[4.688rem] w-full">
+              <p class="monsetb text-[0.688rem]">Número de operación</p>
+              <p class="monset">001</p>
+            </div>
+            <div class="lg:space-x-6 lg:flex justify-between">
+              <div class="card px-2 mt-2 lg:px-4 py-4 h-[4.688rem] w-full lg:w-[21.125rem]">
+                <p class="monsetb text-[0.688rem] lg:text-[1rem]">Cuenta de origen</p>
+                <p class="monset text-[0.75rem] lg:text-[0.85rem]">Ahorros Soles 1020520221452214522</p>
               </div>
-              <div class="card px-4 py-4 h-[4.688rem] w-[21.125rem]">
-                <p class="monsetb">Cuenta destino</p>
-                <p class="monset">Ahorros Dólares 1020520221452214522</p>
+              <div class="card px-2 mt-2 lg:px-4 py-4 h-[4.688rem] w-full lg:w-[21.125rem]">
+                <p class="monsetb text-[0.688rem] lg:text-[1rem]">Cuenta destino</p>
+                <p class="monset text-[0.75rem] lg:text-[0.85rem]">Ahorros Dólares 1020520221452214522</p>
               </div>
             </div>
-            <div class="space-x-6 mt-6 flex justify-between">
-              <div class="card px-4 py-4 h-[4.688rem] w-[21.125rem]">
+            <div class="lg:space-x-6 mt-6 flex justify-between">
+              <div class="card lg:block hidden px-4 py-4 h-[4.688rem] w-[21.125rem]">
                 <p class="monsetb">Número de operación</p>
                 <p class="monsetb">001</p>
               </div>
-              <div class="card px-4 py-4 h-[4.688rem] w-[21.125rem]">
-                <p class="monsetb text-[1rem]">Monto a transferir</p>
-                <p class="monsetb text-[1.5rem]">$ 100.00</p>
+              <div class="w-full lg:hidden py-4 px-4 warning mt-4 flex justify-between">
+                <div class="monsetb text-[0.688rem] lg:text-[1rem] text-[#1A3184]">Monto a transferir</div>
+                <div class="monsetb text-[1rem] lg:text-[1.5rem]">$ 100.00</div>
+              </div>
+              <div class="lg:block hidden card px-2 flex py-4 h-auto lg:h-[4.688rem] w-full lg:w-[21.125rem]">
+                <p class="monsetb text-[0.688rem] lg:text-[1rem] text-[#1A3184] lg:text-black">Monto a transferir</p>
+                <p class="monsetb text-[1rem] lg:text-[1.5rem]">$ 100.00</p>
               </div>
             </div>
           </div>
@@ -186,7 +196,20 @@
             <div class="w-[17.25rem] text-[0.906rem]">La constancia ha sido remitida a tu correo:
                 ach******@cajametropolitana.com.pe</div>
           </div>
+
+          <div class="flex mt-4 justify-center">
+            <div style="text-align: center">
+              <div class="w-[2.625rem] h-[2.438rem] mx-auto bg-[#E8F5FF]" style="border-radius: 12px">
+                <mat-icon class="text-[1.25rem] my-2 text-[#7B7B7B]">stars</mat-icon>
+              </div>
+              <p class="monsetb text-[0.688rem] lg:text-[1rem] text-[#8F8F8F]">Agregar a operaciones frecuentes</p>
+            </div>
+          </div>
         </form>
+        <div class="flex justify-center space-x-4 w-full mt-8">
+          <button class="btn w-[9.813rem] h-[3.75rem]" matStepperPrevious mat-button>Nueva transferencia</button>
+          <button class="btn w-[9.813rem] h-[3.75rem]" (click)="redirectTransfer()" mat-button>Ir al inicio</button>
+        </div>
       </mat-step>
     </mat-stepper>
   </div>

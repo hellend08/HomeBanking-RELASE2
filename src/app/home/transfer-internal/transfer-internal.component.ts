@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-transfer-internal',
@@ -9,7 +10,11 @@ export class TransferInternalComponent implements OnInit {
 
   saldo!: number
 
-  constructor() { }
+  constructor(private router: Router) { }
+
+  public redirectTransfer(){
+    this.router.navigateByUrl('/home/transferencias')
+  }
 
   onKeyPress(event: any) {
     const regexpNumber = /[0-9]/;
