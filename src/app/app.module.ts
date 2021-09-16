@@ -22,6 +22,7 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatOptionModule} from "@angular/material/core";
 import {CurrencyPipe} from "@angular/common";
 import {ReactiveFormsModule} from "@angular/forms";
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 
@@ -49,7 +50,8 @@ import {ReactiveFormsModule} from "@angular/forms";
         MatTooltipModule,
         MatSelectModule,
         MatOptionModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+      MatDialogModule,
     ],
     providers: [CurrencyPipe],
     exports: [

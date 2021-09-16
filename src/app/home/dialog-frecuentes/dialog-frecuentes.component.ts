@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DialogFrecuentesComponent implements OnInit {
 
+  show!: boolean;
+
   constructor() { }
 
   ngOnInit(): void {
