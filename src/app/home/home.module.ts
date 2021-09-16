@@ -23,6 +23,8 @@ import {MatStepperModule} from "@angular/material/stepper";
 import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from "@angular/material/radio";
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import { TransferTercerosComponent } from './transfer-terceros/transfer-terceros.component';
+import { DialogFrecuentesComponent } from './dialog-frecuentes/dialog-frecuentes.component';
 
 
 
@@ -34,7 +36,9 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     CurrencyInputDirective,
     TransfersDashboardComponent,
     TransferInternalComponent,
-    TransferExternalComponent
+    TransferExternalComponent,
+    TransferTercerosComponent,
+    DialogFrecuentesComponent
   ],
     imports: [
         CommonModule,
@@ -46,7 +50,6 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
         MatFormFieldModule,
         MatInputModule,
         MatButtonModule,
-        ReactiveFormsModule,
         FormsModule,
         NgxMaskModule.forRoot(),
         MatRippleModule,
@@ -54,7 +57,8 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
         MatSelectModule,
         MatOptionModule,
         MatRadioModule,
-        MatCheckboxModule
+        MatCheckboxModule,
+        ReactiveFormsModule
     ],exports:[
 
   ],

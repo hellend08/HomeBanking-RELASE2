@@ -7,6 +7,7 @@ import {LimitOperationsComponent} from "./limit-operations/limit-operations.comp
 import {TransfersDashboardComponent} from "./transfers-dashboard/transfers-dashboard.component";
 import {TransferInternalComponent} from "./transfer-internal/transfer-internal.component";
 import {TransferExternalComponent} from "./transfer-external/transfer-external.component";
+import {TransferTercerosComponent} from "./transfer-terceros/transfer-terceros.component";
 
 const routes: Routes = [
   {
@@ -16,7 +17,8 @@ const routes: Routes = [
       {path: 'limitOp', component: LimitOperationsComponent},
       {path: 'transferencias', component: TransfersDashboardComponent},
       {path: 'transferencias/1', component: TransferInternalComponent},
-      {path: 'transferencias/2', component: TransferExternalComponent}
+      {path: 'transferencias/2', component: TransferExternalComponent},
+      {path: 'transferencias/3', component: TransferTercerosComponent}
     ]
   }
 ]

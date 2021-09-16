@@ -21,6 +21,7 @@ import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatSelectModule} from "@angular/material/select";
 import {MatOptionModule} from "@angular/material/core";
 import {CurrencyPipe} from "@angular/common";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 
@@ -47,7 +48,8 @@ import {CurrencyPipe} from "@angular/common";
         MatBadgeModule,
         MatTooltipModule,
         MatSelectModule,
-        MatOptionModule
+        MatOptionModule,
+        ReactiveFormsModule
     ],
     providers: [CurrencyPipe],
     exports: [

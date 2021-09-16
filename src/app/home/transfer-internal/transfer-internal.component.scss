@@ -63,16 +63,8 @@
   border-radius: 12px;
 }
 
-//::ng-deep.mat-form-field-label{
-//  font-family: Inter !important;
-//  font-style: normal;
-//  font-weight: normal;
-//  font-size: 14px;
-//  line-height: 20px;
-//}
-
 ::ng-deep.mat-select-placeholder,::ng-deep .mat-form-field-label{
-  font-family: Inter !important;
+  font-family: Montserrat !important;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -91,4 +83,13 @@
 
   /* A1 */
   color: #1A3184;
+}
+
+.btnMoney{
+  background: #ECFEFB;
+}
+
+.mat-button-disabled.mat-button-disabled{
+  color: white;
+  opacity: 0.2;
 }

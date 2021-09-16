@@ -3,58 +3,56 @@
   <div class="flex justify-center">
     <mat-stepper labelPosition="bottom" #stepper class="w-full lg:w-[43.75rem]">
       <mat-step>
-        <form>
+        <form [formGroup]="groupForm1" novalidate>
           <ng-template matStepLabel class="monset">Paso 1</ng-template>
           <div class="lg:flex">
             <div class="w-full md:w-1/2 lg:px-3 mb-6 md:mb-0">
               <label class="block text-[#8F8F8F] monset text-[1rem] mb-2">
                 Cuenta de origen
               </label>
-              <mat-select placeholder="Elige tu cuenta de origen" class="appearance-none py-4 block w-full text-gray-700 border border-[#7B7B7B] rounded py-3 px-4 mb-3 leading-tight">
-                <mat-option class="h-auto" value="option1">
-                  <div class="my-2">
-                    <div class="mt-px -mb-4 monset">Cuenta – Ahorros Soles </div>
-                    <div class="-mb-4 monset">10203040506070</div>
-                  </div>
-                </mat-option>
-                <mat-option value="option2">
-                  <div class="my-2 monset">
-                    <div class="mt-px -mb-4">Cuenta – Ahorros Soles </div>
-                    <div class="-mb-4">14567891011121314</div>
-                  </div>
-                </mat-option>
-                <mat-option value="option3">
-                  <div class="my-2 monset">
-                    <div class="mt-px -mb-4">Cuenta – Ahorros dólares </div>
-                    <div class="-mb-4">101547892244472</div>
-                  </div>
-                </mat-option>
-              </mat-select>
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-select formControlName="selectorigin" class="appearance-none block text-gray-700 leading-tight" placeholder="Elige tu cuenta de origen">
+                  <mat-option class="h-auto" *ngFor="let select of selectdata" [value]="select.value">
+                    <div class="my-2">
+                      <div class="mt-px -mb-4 monset">Cuenta – {{select.tipo}} </div>
+                      <div class="-mb-4 monset">{{select.cuenta}}</div>
+                    </div>
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="selectorigin.hasError('required')">
+                  Este campo es requerido
+                </mat-error>
+              </mat-form-field>
             </div>
             <div class="w-full md:w-1/2 lg:px-3 mb-6 md:mb-0">
               <label class="block text-[#8F8F8F] monset text-[1rem] mb-2">
                 Cuenta destino
               </label>
-              <mat-select placeholder="Elige tu cuenta de destino" class="appearance-none py-4 block w-full text-gray-700 border border-[#7B7B7B] rounded py-3 px-4 mb-3 leading-tight">
-                <mat-option class="h-auto" value="option1">
-                  <div class="my-2 monset">
-                    <div class="mt-px -mb-4">Cuenta – Ahorros Soles </div>
-                    <div class="-mb-4">10203040506070</div>
-                  </div>
-                </mat-option>
-                <mat-option value="option2">
-                  <div class="my-2 monset">
-                    <div class="mt-px -mb-4">Cuenta – Ahorros Soles </div>
-                    <div class="-mb-4">14567891011121314</div>
-                  </div>
-                </mat-option>
-                <mat-option value="option3">
-                  <div class="my-2 monset">
-                    <div class="mt-px -mb-4">Cuenta – Ahorros dólares </div>
-                    <div class="-mb-4">101547892244472</div>
-                  </div>
-                </mat-option>
-              </mat-select>
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-select formControlName="selectordest" class="appearance-none block text-gray-700 leading-tight" placeholder="Elige tu cuenta de origen">
+                  <mat-option class="h-auto" value="option1">
+                    <div class="my-2">
+                      <div class="mt-px -mb-4 monset">Cuenta – Ahorros Soles </div>
+                      <div class="-mb-4 monset">10203040506070</div>
+                    </div>
+                  </mat-option>
+                  <mat-option value="option2">
+                    <div class="my-2 monset">
+                      <div class="mt-px -mb-4">Cuenta – Ahorros Soles </div>
+                      <div class="-mb-4">14567891011121314</div>
+                    </div>
+                  </mat-option>
+                  <mat-option value="option3">
+                    <div class="my-2 monset">
+                      <div class="mt-px -mb-4">Cuenta – Ahorros dólares </div>
+                      <div class="-mb-4">101547892244472</div>
+                    </div>
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="selectorigin.hasError('required')">
+                  Este campo es requerido
+                </mat-error>
+              </mat-form-field>
             </div>
           </div>
 
@@ -64,10 +62,10 @@
                 Selecciona la moneda
               </label>
               <mat-radio-group class="flex -mx-2">
-                <mat-radio-button checked="true" [color]="" value="PEN" style="max-width: 12rem;" class="bg-white w-full rounded-lg shadow-lg py-4 text-center px-5 mx-2 monsetb text-a1">
+                <mat-radio-button [ngClass]="{btnMoney: sol === true}" (click)="soles()" checked="true" value="PEN" style="max-width: 12rem;" class="w-full rounded-lg shadow-lg py-4 text-center px-5 mx-2 monsetb text-a1">
                   Soles
                 </mat-radio-button>
-                <mat-radio-button value="USD" style="max-width: 12rem;"
+                <mat-radio-button [ngClass]="{btnMoney: dol === true}" (click)="dolar()" value="USD" style="max-width: 12rem;"
                                   class="bg-white w-full rounded-lg shadow-lg py-4 text-center px-5 mx-2 monsetb text-a1">
                   Dólares
                 </mat-radio-button>
@@ -80,7 +78,10 @@
               </label>
               <mat-form-field appearance="outline" class="w-full">
                 <mat-label>Ingrese el monto</mat-label>
-                <input matInput currencyInput autocomplete="off" (keypress)="onKeyPress($event)">
+                <input matInput formControlName="montoT" currencyInput autocomplete="off" (keypress)="onKeyPress($event)">
+                <mat-error *ngIf="montoT.hasError('required')">
+                  El monto a transferir debería ser mayor o igual a uno.
+                </mat-error>
               </mat-form-field>
             </div>
           </div>
@@ -91,7 +92,7 @@
           </div>
         </form>
         <div class="flex justify-center w-full mt-12">
-          <button class="btn w-[21.125rem] h-[3.75rem] monsetb" matStepperNext mat-button>Siguiente</button>
+          <button class="btn w-[21.125rem] h-[3.75rem] monsetb" [disabled]="groupForm1.invalid" matStepperNext mat-button>Siguiente</button>
         </div>
       </mat-step>
       <mat-step>
@@ -101,23 +102,23 @@
           <div class="lg:flex lg:p-2 lg:space-x-2">
             <div class="card px-4 mb-2 py-4 h-[4.688rem] w-full lg:w-[21.125rem]">
               <p class="monsetb text-[0.688rem] lg:text-[1rem]">Cuenta de origen</p>
-              <p class="monset text-[0.75rem] lg:text-[0.85rem]">Ahorros Soles 1020520221452214522</p>
+              <p class="monset text-[0.75rem] lg:text-[0.85rem]">10203040506070</p>
             </div>
-            <div class="lg:block hidden">
-              <mat-icon class="text-[2.029rem] my-auto">keyboard_double_arrow_right</mat-icon>
+            <div class="lg:block flex my-auto hidden">
+              <mat-icon class="text-[2.029rem] text-[#00AF91] my-auto">arrow_forward_ios</mat-icon>
             </div>
             <div class="card px-4 mb-2 py-4 h-[4.688rem] w-full lg:w-[21.125rem]">
               <p class="monsetb text-[0.688rem] lg:text-[1rem]">Cuenta destino</p>
-              <p class="monset text-[0.75rem] lg:text-[0.85rem]">Ahorros Dólares 1020520221452214522</p>
+              <p class="monset text-[0.75rem] lg:text-[0.85rem]">10203040506071</p>
             </div>
           </div>
           <div class="lg:flex mt-8 justify-between lg:px-2">
-            <div class="warning px-4 pt-2 -pb-3 w-full lg:w-[19rem]">
+            <div class="warning max-h-24 px-4 pt-2 -pb-3 w-full lg:w-[19rem]">
               <div class="text-[0.688rem] lg:text-[1rem] text-[#1A3184] monsetb">Información de la transferencia</div>
-              <div class="flex justify-between mt-4">
+              <div class="flex justify-between mt-2">
                 <div>
                   <div class="text-[0.75rem] monset">Tipo de cambio</div>
-                  <div class="text-[0.688rem] lg:text-[1rem] monsetb">S/ 4.179</div>
+                  <div class="text-[0.688rem] lg:text-[1rem] monsetb">S/ {{montoT.value | number: '0.2'}}</div>
                 </div>
                 <div>
                   <div class="text-[0.75rem] monset">Total al cambio</div>

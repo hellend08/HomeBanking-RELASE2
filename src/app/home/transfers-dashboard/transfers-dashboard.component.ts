@@ -18,6 +18,10 @@ export class TransfersDashboardComponent implements OnInit {
     this.router.navigateByUrl('/transferencias/2');
   }
 
+  public redirectTransfer3() {
+    this.router.navigateByUrl('/transferencias/3');
+  }
+
   ngOnInit(): void {
   }
 
