@@ -24,6 +24,7 @@ export class TransferInternalComponent implements OnInit {
   ]
 
 
+  frecuente!: boolean;
   cambio = 0
   saldo!: number;
   islinear = true;
@@ -54,6 +55,7 @@ export class TransferInternalComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`)
+      this.frecuente = result;
     })
   }
 
