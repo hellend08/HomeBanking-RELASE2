@@ -35,7 +35,7 @@ export class TransferTercerosComponent implements OnInit {
   groupForm1!: FormGroup;
   montoT = new FormControl('', [Validators.required]);
   selectorigin = new FormControl('', [Validators.required]);
-  selectordest = new FormControl('', [Validators.required])
+  selectordest = new FormControl('', [Validators.required, Validators.maxLength(15)])
 
   // Paso2
   groupForm2!: FormGroup;
