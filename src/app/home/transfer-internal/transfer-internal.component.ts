@@ -43,7 +43,7 @@ export class TransferInternalComponent implements OnInit {
   constructor(private router: Router, private formBuilder: FormBuilder, public dialog: MatDialog) {
   }
 
-  public redirectTransfer(){
+  public redirectTransfer1(){
     this.router.navigateByUrl('/home/transferencias')
   }
 
@@ -75,6 +75,10 @@ export class TransferInternalComponent implements OnInit {
     if (event.keyCode != 8 && !regexpNumber.test(inputCharacter)) {
       event.preventDefault();
     }
+  }
+
+  public redirectTransferDashboard() {
+    this.router.navigateByUrl('/transferencias');
   }
 
   ngOnInit() {

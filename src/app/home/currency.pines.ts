@@ -30,7 +30,7 @@ export class CurrencyInputDirective implements OnInit {
   }
 
   ngOnInit() {
-    this.el.value = <string>this.currencyPipe.transform(this.el.value, 'USD');
+    this.el.value = <string>this.currencyPipe.transform(this.el.value);
   }
 
   @HostListener("focus", ["$event.target.value"])
@@ -43,7 +43,7 @@ export class CurrencyInputDirective implements OnInit {
   @HostListener("blur", ["$event.target.value"])
   onBlur(value: any) {
     // on blur, add currency formatting
-    this.el.value = <string>this.currencyPipe.transform(value, 'S/ ');
+    this.el.value = <string>this.currencyPipe.transform(value, ' ');
     if (value > 15) {
       // alert('error')
     }
