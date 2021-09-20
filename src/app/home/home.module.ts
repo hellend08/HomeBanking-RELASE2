@@ -25,6 +25,8 @@ import {MatRadioModule} from "@angular/material/radio";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import { TransferTercerosComponent } from './transfer-terceros/transfer-terceros.component';
 import { DialogFrecuentesComponent } from './dialog-frecuentes/dialog-frecuentes.component';
+import { DialogErrorComponent } from './transfers-dashboard/dialog-error/dialog-error.component';
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 
 
@@ -38,7 +40,8 @@ import { DialogFrecuentesComponent } from './dialog-frecuentes/dialog-frecuentes
     TransferInternalComponent,
     TransferExternalComponent,
     TransferTercerosComponent,
-    DialogFrecuentesComponent
+    DialogFrecuentesComponent,
+    DialogErrorComponent
   ],
     imports: [
         CommonModule,
@@ -58,7 +61,8 @@ import { DialogFrecuentesComponent } from './dialog-frecuentes/dialog-frecuentes
         MatOptionModule,
         MatRadioModule,
         MatCheckboxModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        MatTooltipModule
     ],exports:[
 
   ],

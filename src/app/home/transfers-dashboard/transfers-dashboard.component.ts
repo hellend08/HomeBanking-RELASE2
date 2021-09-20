@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {MatDialog} from "@angular/material/dialog";
+import {DialogErrorComponent} from "./dialog-error/dialog-error.component";
 
 @Component({
   selector: 'app-transfers-dashboard',
@@ -8,18 +10,50 @@ import {Router} from "@angular/router";
 })
 export class TransfersDashboardComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  error = true;
+
+  constructor(private router: Router, public dialog: MatDialog) { }
 
   public redirectTransfer1() {
-    this.router.navigateByUrl('/transferencias/1');
+    if (this.error){
+      const dialogRef = this.dialog.open(DialogErrorComponent, {
+        width: '296px',
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        this.error = !result;
+      })
+    }else{
+      this.router.navigateByUrl('/transferencias/1');
+    }
   }
 
   public redirectTransfer2() {
-    this.router.navigateByUrl('/transferencias/2');
+    if (this.error){
+      const dialogRef = this.dialog.open(DialogErrorComponent, {
+        width: '296px',
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        this.error = !result;
+      })
+    }else{
+      this.router.navigateByUrl('/transferencias/2');
+    }
   }
 
   public redirectTransfer3() {
-    this.router.navigateByUrl('/transferencias/3');
+    if (this.error){
+      const dialogRef = this.dialog.open(DialogErrorComponent, {
+        width: '296px',
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        this.error = !result;
+      })
+    }else{
+      this.router.navigateByUrl('/transferencias/3');
+    }
   }
 
   ngOnInit(): void {

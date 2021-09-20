@@ -17,6 +17,8 @@ interface Data{
 })
 export class TransferInternalComponent implements OnInit {
 
+  selectRadioButton!: string;
+
   selectdata: Data[] = [
     {value: '1', tipo: 'Ahorros Soles', cuenta: 10203040506070},
     {value: '1', tipo: 'Ahorros Dolares', cuenta: 10203040506071},
@@ -85,8 +87,10 @@ export class TransferInternalComponent implements OnInit {
     this.groupForm1 = new FormGroup({
       montoT: this.montoT,
       selectorigin: this.selectorigin,
-      selectordest: this.selectordest
-    })
+      selectordest: this.selectordest,
+      'selectRadio': new FormControl()
+    });
+    this.selectRadioButton = 'PEN';
   }
 
 }

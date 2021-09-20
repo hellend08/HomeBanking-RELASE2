@@ -61,7 +61,7 @@
               <label class="block text-[#8F8F8F] monset text-[1rem] mb-2">
                 Selecciona la moneda
               </label>
-              <mat-radio-group class="flex -mx-2">
+              <mat-radio-group class="flex -mx-2" [(ngModel)]="selectRadioButton" formControlName="selectRadio">
                 <mat-radio-button [ngClass]="{btnMoney: sol === true}" (click)="soles()" checked="true" value="PEN" style="max-width: 12rem;" class="w-full rounded-lg shadow-lg py-4 text-center px-5 mx-2 monsetb text-a1">
                   Soles
                 </mat-radio-button>
@@ -118,11 +118,13 @@
               <div class="flex justify-between mt-2">
                 <div>
                   <div class="text-[0.75rem] monset">Tipo de cambio</div>
-                  <div class="text-[0.688rem] lg:text-[1rem] monsetb">S/ 4.00</div>
+                  <div class="text-[0.688rem] lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'PEN'">S/ 4.00</div>
+                  <div class="text-[0.688rem] text-right lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'USD'">$ 25.00</div>
                 </div>
                 <div>
                   <div class="text-[0.75rem] monset">Total al cambio</div>
-                  <div class="text-[0.688rem] text-right lg:text-[1rem] monsetb">$ 25.00</div>
+                  <div class="text-[0.688rem] text-right lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'PEN'">$ 25.00</div>
+                  <div class="text-[0.688rem] lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'USD'">S/ 4.00</div>
                 </div>
               </div>
             </div>
@@ -132,7 +134,7 @@
               </label>
               <mat-form-field appearance="outline" class="w-full">
                 <mat-label>Descripción de la operación</mat-label>
-                <textarea matInput></textarea>
+                <textarea matInput placeholder="Ingresa la descripción de la operación"></textarea>
               </mat-form-field>
             </div>
           </div>

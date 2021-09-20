@@ -8,6 +8,14 @@ import {Router} from "@angular/router";
 })
 export class TransferExternalComponent implements OnInit {
 
+  selectdata: any[] = [
+    {id: '1', nombre: 'BCP'},
+    {id: '1', nombre: 'BBVA'},
+    {id: '1', nombre: 'Interbank'},
+    {id: '1', nombre: 'Scotiabank'},
+    {id: '1', nombre: 'Banco de la Nación'}
+  ]
+
   constructor(private router: Router) { }
 
   public redirectTransfer(){
