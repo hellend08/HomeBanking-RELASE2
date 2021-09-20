@@ -29,31 +29,11 @@ export class TransfersDashboardComponent implements OnInit {
   }
 
   public redirectTransfer2() {
-    if (this.error){
-      const dialogRef = this.dialog.open(DialogErrorComponent, {
-        width: '296px',
-      });
-
-      dialogRef.afterClosed().subscribe(result => {
-        this.error = !result;
-      })
-    }else{
-      this.router.navigateByUrl('/transferencias/2');
-    }
+    this.router.navigateByUrl('/transferencias/2');
   }
 
   public redirectTransfer3() {
-    if (this.error){
-      const dialogRef = this.dialog.open(DialogErrorComponent, {
-        width: '296px',
-      });
-
-      dialogRef.afterClosed().subscribe(result => {
-        this.error = !result;
-      })
-    }else{
-      this.router.navigateByUrl('/transferencias/3');
-    }
+    this.router.navigateByUrl('/transferencias/3');
   }
 
   ngOnInit(): void {

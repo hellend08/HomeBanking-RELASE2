@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {MatDialog} from "@angular/material/dialog";
+import {TerminosCondicionesComponent} from "./terminos-condiciones/terminos-condiciones.component";
 
 @Component({
   selector: 'app-transfer-external',
@@ -16,7 +19,11 @@ export class TransferExternalComponent implements OnInit {
     {id: '1', nombre: 'Banco de la Nación'}
   ]
 
-  constructor(private router: Router) { }
+  //cuentas propias y terceros
+  variable = 'A'
+  groupForm1!: FormGroup;
+
+  constructor(private router: Router, public dialog: MatDialog) { }
 
   public redirectTransfer(){
     this.router.navigateByUrl('/home/transferencias')
@@ -30,7 +37,18 @@ export class TransferExternalComponent implements OnInit {
     }
   }
 
+  openDialog(){
+    const dialogref = this.dialog.open(TerminosCondicionesComponent);
+
+    dialogref.afterClosed().subscribe(result => {
+      console.log(result);
+    })
+  }
+
   ngOnInit(): void {
+    this.groupForm1 = new FormGroup({
+      'variableRa': new FormControl()
+    });
   }
 
 }

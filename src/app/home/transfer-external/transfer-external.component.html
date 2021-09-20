@@ -3,11 +3,11 @@
   <div class="flex justify-center">
     <mat-stepper labelPosition="bottom" #stepper class="w-full lg:w-[43.75rem]">
       <mat-step>
-        <form>
+        <form [formGroup]="groupForm1" novalidate>
           <ng-template matStepLabel>Paso 1</ng-template>
           <div class="lg:flex">
             <div class="w-full md:w-1/2 lg:px-3 mb-6 md:mb-0">
-              <label class="block uppercase text-[#8F8F8F] text-[1rem] mb-2">
+              <label class="block  text-[#8F8F8F] text-[1rem] mb-2">
                 Cuenta de origen
               </label>
               <mat-select placeholder="Elige tu cuenta de origen" class="appearance-none py-4 block w-full text-gray-700 border border-[#7B7B7B] rounded py-3 px-4 mb-3 leading-tight">
@@ -32,8 +32,8 @@
               </mat-select>
             </div>
             <div class="w-full md:w-1/2 lg:px-3 mb-6 md:mb-0">
-              <label class="block uppercase text-[#8F8F8F] text-[1rem] mb-2">
-                Banco destino
+              <label class="block  text-[#8F8F8F] text-[1rem] mb-2">
+                Banco de destino
               </label>
               <mat-select placeholder="Elige tu banco de destino" class="appearance-none py-4 block w-full text-gray-700 border border-[#7B7B7B] rounded py-3 px-4 mb-3 leading-tight">
                 <mat-option *ngFor="let bancos of selectdata" class="h-auto" value="option1">
@@ -45,7 +45,7 @@
 
           <div class="lg:flex mt-4">
             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-              <label class="block uppercase text-[#8F8F8F] text-[1rem] mb-2">
+              <label class="block  text-[#8F8F8F] text-[1rem] mb-2">
                 Selecciona la moneda <mat-icon matTooltip="El monto ingresado debe ser en la misma moneda que la cuenta destino. De lo contrario la transferencia podría ser rechazada." class="text-[#F9B208]">info</mat-icon>
               </label>
               <mat-radio-group class="flex -mx-2">
@@ -60,7 +60,7 @@
               <!--              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Jane">-->
             </div>
             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-              <label class="block uppercase text-[#8F8F8F] text-[1rem] mb-2">
+              <label class="block  text-[#8F8F8F] text-[1rem] mb-2">
                 Monto a transferir
               </label>
               <mat-form-field appearance="outline" class="w-full">
@@ -72,57 +72,68 @@
 
           <div class="lg:flex mt-4">
             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-              <label class="block uppercase text-[#8F8F8F] text-[1rem] mb-2">
+              <label class="block  text-[#8F8F8F] text-[1rem] mb-2">
                 CCI de la cuenta de destino <mat-icon matTooltip="Ingresa el código de cuenta interbancaria de la cuenta destino." class="text-[#F9B208]">info</mat-icon>
               </label>
               <mat-form-field appearance="outline" class="w-full">
-                <mat-label>Ingrese el monto</mat-label>
+                <mat-label>Ingresa el CCI del banco destino</mat-label>
                 <input matInput currencyInput autocomplete="off" (keypress)="onKeyPress($event)" placeholder="Placeholder">
               </mat-form-field>
             </div>
             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-<!--              <label class="block uppercase text-[#8F8F8F] text-[1rem] mb-2">-->
+<!--              <label class="block  text-[#8F8F8F] text-[1rem] mb-2">-->
 <!--                CCI de la cuenta de destino-->
 <!--              </label>-->
-              <mat-radio-group class="example-radio-group" aria-label="Select an option">
-                <mat-radio-button class="example-radio-button text-[0.844rem] text-[#1A3184] monsetb" value="1">A cuenta propia</mat-radio-button>
-                <mat-radio-button class="example-radio-button text-[0.844rem] text-[#1A3184] monsetb" value="2">A cuenta de terceros</mat-radio-button>
+              <mat-radio-group class="example-radio-group" [(ngModel)]="variable" formControlName="variableRa" aria-label="Select an option">
+                <mat-radio-button class="example-radio-button text-[0.844rem] text-[#1A3184] monsetb" value="A">A cuenta propia</mat-radio-button>
+                <mat-radio-button class="example-radio-button text-[0.844rem] text-[#1A3184] monsetb" value="B">A cuenta de terceros</mat-radio-button>
               </mat-radio-group>
             </div>
           </div>
 
           <div class="lg:flex mt-4">
             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-              <div class="border-t-2 border-[#3D3C3C]">
-                <label class="block uppercase mt-2 text-[#8F8F8F] text-[1rem] mb-2">
-                  Nombres y Apellidos
-                </label>
-                <div class="text-[0.875rem] text-[#050505]">José Aréstegui Vásquez</div>
-              </div>
-<!--              <mat-form-field appearance="outline" class="w-full">-->
-<!--                <mat-label>Ingresa el nombre y apellido</mat-label>-->
-<!--                <input matInput autocomplete="off">-->
-<!--              </mat-form-field>-->
-            </div>
-            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-              <div class="border-t-2 border-[#3D3C3C]">
-                <label class="block mt-2 uppercase text-[#8F8F8F] text-[1rem] mb-2">
+              <div *ngIf="variable === 'A'" class="border-t-2 border-[#3D3C3C]">
+                <label class="block mt-2  text-[#8F8F8F] text-[1rem] mb-2">
                   Documento
                 </label>
                 <div class="text-[0.875rem] text-[#050505]">DNI: 52689536 </div>
               </div>
-<!--              <div class="flex justify-between">-->
-<!--                <mat-form-field class="monset w-[4rem] w-[4.5rem]" appearance="outline">-->
-<!--                  <mat-select value="DNI">-->
-<!--                    <mat-option value="DNI">DNI</mat-option>-->
-<!--                    <mat-option value="CE">CE</mat-option>-->
-<!--                  </mat-select>-->
-<!--                </mat-form-field>-->
-<!--                <mat-form-field class="monset min-w-[10rem] w-3/4 lg:w-[14rem]" appearance="outline">-->
-<!--                  <mat-label>Ingresa el número de DNI</mat-label>-->
-<!--                  <input matInput autocomplete="off" (keypress)="onKeyPress($event)" placeholder="Placeholder">-->
-<!--                </mat-form-field>-->
-<!--              </div>-->
+              <div *ngIf="variable === 'B'">
+                <label class="block mt-2  text-[#8F8F8F] text-[1rem] mb-2">
+                  Documento
+                </label>
+                <div class="flex justify-between">
+                  <mat-form-field class="monset w-[4rem] w-[4.5rem]" appearance="outline">
+                    <mat-select value="DNI">
+                      <mat-option value="DNI">DNI</mat-option>
+                      <mat-option value="CE">CE</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <mat-form-field class="monset min-w-[10rem] w-3/4 lg:w-[14rem]" appearance="outline">
+                    <mat-label>Ingresa el número de DNI</mat-label>
+                    <input matInput autocomplete="off" (keypress)="onKeyPress($event)" placeholder="Placeholder">
+                  </mat-form-field>
+                </div>
+              </div>
+
+            </div>
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <div *ngIf="variable === 'A'" class="border-t-2 border-[#3D3C3C]">
+                <label class="block  mt-2 text-[#8F8F8F] text-[1rem] mb-2">
+                  Nombres y Apellidos
+                </label>
+                <div class="text-[0.875rem] text-[#050505]">José Aréstegui Vásquez</div>
+              </div>
+              <div *ngIf="variable === 'B'">
+                <label class="block  mt-2 text-[#8F8F8F] text-[1rem] mb-2">
+                  Nombres y Apellidos
+                </label>
+                <mat-form-field  appearance="outline" class="w-full">
+                  <mat-label>Ingresa los nombres y apellidos</mat-label>
+                  <input matInput autocomplete="off">
+                </mat-form-field>
+              </div>
             </div>
           </div>
 
@@ -143,7 +154,9 @@
               <p class="monsetb">Cuenta de origen</p>
               <p class="monset">Ahorros Soles 1020520221452214522</p>
             </div>
-            <mat-icon class="text-[2.029rem] my-auto">keyboard_double_arrow_right</mat-icon>
+            <div class="lg:block flex my-auto hidden">
+              <mat-icon class="text-[2.029rem] text-[#00AF91] my-auto">arrow_forward_ios</mat-icon>
+            </div>
             <div class="card px-4 py-4 h-[4.688rem] w-[21.125rem]">
               <p class="monsetb">Cuenta destino</p>
               <p class="monset">Ahorros Dólares 1020520221452214522</p>
@@ -185,8 +198,8 @@
           </div>
           <div class="flex mt-4 justify-center">
             <div style="text-align: center">
-              <mat-checkbox class="text-[1rem] mb-4 text-[#8F8F8F]">He leído y acepto los <b class="text-[#00AF91]">términos y condiciones</b> para procesar esta operación</mat-checkbox>
-              <label class="text-[1rem]">Para confirmar la operación, ingrese el Token Digital </label>
+              <mat-checkbox class="text-[1rem] mb-4 text-[#8F8F8F]"><a (keypress)="openDialog()">He leído y acepto los <b class="text-[#00AF91]">términos y condiciones</b> para procesar esta operación.</a></mat-checkbox>
+              <div class="text-[1rem]">Para confirmar la operación, ingrese el Token Digital </div>
               <div class="w-full flex justify-center mt-2">
                 <mat-form-field appearance="outline">
                   <mat-label>Ingresa el Token Digital</mat-label>

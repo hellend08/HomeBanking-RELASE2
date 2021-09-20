@@ -42,6 +42,9 @@ export class TransferTercerosComponent implements OnInit {
   // Paso2
   groupForm2!: FormGroup;
 
+  // Paso3
+  emailFormControl = new FormControl('', [Validators.required, Validators.email])
+
   constructor(private router: Router, private formBuilder: FormBuilder, public dialog: MatDialog) {
   }
 
