@@ -35,7 +35,7 @@
                   Este campo es requerido
                 </mat-error>
               </mat-form-field>
-              <div *ngIf="selectordest.value.length === 15">
+              <div [@childAnimation]="isOpen ? 'open' : 'closed'" *ngIf="selectordest.value.length === 15">
                 <div class="text-[1rem] monsetb">JOSÉ ARESTEGUI VÁSQUEZ</div>
                 <div class="text-[0.75rem] monset">Ahorros dólares</div>
               </div>

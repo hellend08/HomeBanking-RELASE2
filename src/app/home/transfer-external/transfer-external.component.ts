@@ -19,9 +19,24 @@ export class TransferExternalComponent implements OnInit {
     {id: '1', nombre: 'Banco de la Nación'}
   ]
 
+  selectCuentas: any[] = [
+    {value: '1', tipo: 'Ahorros Soles', cuenta: 10203040506070},
+    {value: '1', tipo: 'Ahorros Dolares', cuenta: 10203040506071},
+    {value: '1', tipo: 'Ahorros Soles', cuenta: 10203040506072},
+  ]
+
   //cuentas propias y terceros
   variable = 'A'
+
+  selectRadioButton!: string;
+  selector1!: string;
+  selector2!: string;
+
+  // Paso1
   groupForm1!: FormGroup;
+  montoT = new FormControl('', [Validators.required]);
+  selectorigin = new FormControl('', [Validators.required]);
+  selectordest = new FormControl('', [Validators.required])
 
   constructor(private router: Router, public dialog: MatDialog) { }
 
@@ -47,6 +62,10 @@ export class TransferExternalComponent implements OnInit {
 
   ngOnInit(): void {
     this.groupForm1 = new FormGroup({
+      montoT: this.montoT,
+      selectorigin: this.selectorigin,
+      selectordest: this.selectordest,
+      'selectRadio': new FormControl(),
       'variableRa': new FormControl()
     });
   }

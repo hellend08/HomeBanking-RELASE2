@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
 import {DialogFrecuentesComponent} from "../dialog-frecuentes/dialog-frecuentes.component";
+import {animate, state, style, transition, trigger} from "@angular/animations";
 
 interface Data{
   value: string;
@@ -13,11 +14,26 @@ interface Data{
 @Component({
   selector: 'app-transfer-terceros',
   templateUrl: './transfer-terceros.component.html',
-  styleUrls: ['./transfer-terceros.component.scss']
+  styleUrls: ['./transfer-terceros.component.scss'],
+  animations: [
+    trigger('childAnimation', [
+      // ...
+      state('open', style({
+        opacity: 1,
+      })),
+      state('closed', style({
+        opacity: 0.5,
+      })),
+      transition('* => *', [
+        animate('1s')
+      ]),
+    ]),
+  ],
 })
 export class TransferTercerosComponent implements OnInit {
 
   selectRadioButton!: string;
+  isOpen = false;
 
   selectdata: Data[] = [
     {value: '1', tipo: 'Ahorros Soles', cuenta: 10203040506070},
@@ -82,6 +98,14 @@ export class TransferTercerosComponent implements OnInit {
     }
   }
 
+  animacion(){
+    if (this.selectordest.value.length == 15){
+      this.isOpen = true;
+    }else{
+      this.isOpen = false;
+    }
+  }
+
   public redirectTransferDashboard() {
     this.router.navigateByUrl('/transferencias');
   }
@@ -92,7 +116,10 @@ export class TransferTercerosComponent implements OnInit {
       selectorigin: this.selectorigin,
       selectordest: this.selectordest,
       'selectRadio': new FormControl()
-    })
+    });
+
+    this.animacion();
+    this.selectRadioButton = 'PEN';
   }
 
 }

@@ -10,36 +10,34 @@
               <label class="block  text-[#8F8F8F] text-[1rem] mb-2">
                 Cuenta de origen
               </label>
-              <mat-select placeholder="Elige tu cuenta de origen" class="appearance-none py-4 block w-full text-gray-700 border border-[#7B7B7B] rounded py-3 px-4 mb-3 leading-tight">
-                <mat-option class="h-auto" value="option1">
-                  <div class="my-2 monset">
-                    <div class="mt-px -mb-4">Cuenta – Ahorros Soles </div>
-                    <div class="-mb-4">10203040506070</div>
-                  </div>
-                </mat-option>
-                <mat-option value="option2">
-                  <div class="my-2 monset">
-                    <div class="mt-px -mb-4">Cuenta – Ahorros Soles </div>
-                    <div class="-mb-4">14567891011121314</div>
-                  </div>
-                </mat-option>
-                <mat-option value="option3">
-                  <div class="my-2 monset">
-                    <div class="mt-px -mb-4">Cuenta – Ahorros dólares </div>
-                    <div class="-mb-4">101547892244472</div>
-                  </div>
-                </mat-option>
-              </mat-select>
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-select [(ngModel)]="selector1" formControlName="selectorigin" class="appearance-none block text-gray-700 leading-tight" placeholder="Elige tu cuenta de origen">
+                  <mat-option class="h-auto" *ngFor="let select of selectCuentas" [value]="select.tipo + ' ' + select.cuenta">
+                    <div class="my-2">
+                      <div class="mt-px -mb-4 monset">Cuenta – {{select.tipo}} </div>
+                      <div class="-mb-4 monset">{{select.cuenta}}</div>
+                    </div>
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="selectorigin.hasError('required')">
+                  Este campo es requerido
+                </mat-error>
+              </mat-form-field>
             </div>
             <div class="w-full md:w-1/2 lg:px-3 mb-6 md:mb-0">
               <label class="block  text-[#8F8F8F] text-[1rem] mb-2">
                 Banco de destino
               </label>
-              <mat-select placeholder="Elige tu banco de destino" class="appearance-none py-4 block w-full text-gray-700 border border-[#7B7B7B] rounded py-3 px-4 mb-3 leading-tight">
-                <mat-option *ngFor="let bancos of selectdata" class="h-auto" value="option1">
-                  {{bancos.nombre}}
-                </mat-option>
-              </mat-select>
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-select [(ngModel)]="selector2" formControlName="selectordest" class="appearance-none block text-gray-700 leading-tight" placeholder="Elige tu cuenta de origen">
+                  <mat-option class="h-auto" *ngFor="let select of selectdata" [value]="select.nombre">
+                    {{select.nombre}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="selectordest.hasError('required')">
+                  La cuenta de destino es requerida.
+                </mat-error>
+              </mat-form-field>
             </div>
           </div>
 
@@ -138,7 +136,7 @@
           </div>
 
           <div class="flex px-4 lg:px-10 w-full justify-center monsetb mt-6">
-            <div class="text-[#8F8F8F] text-[0.75rem] lg:text-[1rem] text-center">Consulta el <b class="text-[#00AF91]">horario de atención</b> y las <b class="text-[#00AF91]">tarifas y comisiones</b> de los tipos de transferencia.</div>
+            <div class="text-[#8F8F8F] text-[0.75rem] lg:text-[1rem] text-center">Consulta el <b class="text-[#00AF91] cursor-pointer" (click)="openDialog()">horario de atención</b> y las <b class="text-[#00AF91] cursor-pointer" (click)="openDialog()">tarifas y comisiones</b> de los tipos de transferencia.</div>
           </div>
         </form>
         <div class="flex justify-center w-full mt-12">
