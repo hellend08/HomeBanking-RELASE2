@@ -27,16 +27,22 @@ export class TransferExternalComponent implements OnInit {
 
   //cuentas propias y terceros
   variable = 'A'
+  inputtoken!: number;
 
   selectRadioButton!: string;
   selector1!: string;
   selector2!: string;
+  numCCI!: number;
 
   // Paso1
   groupForm1!: FormGroup;
   montoT = new FormControl('', [Validators.required]);
   selectorigin = new FormControl('', [Validators.required]);
-  selectordest = new FormControl('', [Validators.required])
+  selectordest = new FormControl('', [Validators.required]);
+  CCI = new FormControl('', [Validators.required]);
+  dataper = new FormControl('', [Validators.required]);
+  selecDNIinput = new FormControl('', [Validators.required]);
+  token = new FormControl('', Validators.required)
 
   constructor(private router: Router, public dialog: MatDialog) { }
 
@@ -65,6 +71,10 @@ export class TransferExternalComponent implements OnInit {
       montoT: this.montoT,
       selectorigin: this.selectorigin,
       selectordest: this.selectordest,
+      CCI: this.CCI,
+      selecDNIinput: this.selecDNIinput,
+      dataper: this.dataper,
+      token: this.token,
       'selectRadio': new FormControl(),
       'variableRa': new FormControl()
     });

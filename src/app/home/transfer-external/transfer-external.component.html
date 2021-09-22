@@ -63,7 +63,10 @@
               </label>
               <mat-form-field appearance="outline" class="w-full">
                 <mat-label>Ingrese el monto</mat-label>
-                <input matInput currencyInput autocomplete="off" (keypress)="onKeyPress($event)" placeholder="Placeholder">
+                <input matInput currencyInput autocomplete="off" formControlName="montoT" (keypress)="onKeyPress($event)" placeholder="Placeholder">
+                <mat-error *ngIf="montoT.hasError('required')">
+                  El monto a transferir debería ser mayor o igual a uno.
+                </mat-error>
               </mat-form-field>
             </div>
           </div>
@@ -75,7 +78,10 @@
               </label>
               <mat-form-field appearance="outline" class="w-full">
                 <mat-label>Ingresa el CCI del banco destino</mat-label>
-                <input matInput currencyInput autocomplete="off" (keypress)="onKeyPress($event)" placeholder="Placeholder">
+                <input matInput [(ngModel)]="numCCI" formControlName="CCI" minlength="15" maxlength="15" autocomplete="off" (keypress)="onKeyPress($event)" placeholder="Placeholder">
+                <mat-error *ngIf="CCI.hasError('required')">
+                  El CCI de la cuenta de destino es requerido
+                </mat-error>
               </mat-form-field>
             </div>
             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -110,7 +116,10 @@
                   </mat-form-field>
                   <mat-form-field class="monset min-w-[10rem] w-3/4 lg:w-[14rem]" appearance="outline">
                     <mat-label>Ingresa el número de DNI</mat-label>
-                    <input matInput autocomplete="off" (keypress)="onKeyPress($event)" placeholder="Placeholder">
+                    <input matInput autocomplete="off" formControlName="selecDNIinput" (keypress)="onKeyPress($event)" placeholder="Placeholder">
+                    <mat-error *ngIf="selecDNIinput.hasError('required')">
+                      El número de documento es requerido
+                    </mat-error>
                   </mat-form-field>
                 </div>
               </div>
@@ -129,7 +138,10 @@
                 </label>
                 <mat-form-field  appearance="outline" class="w-full">
                   <mat-label>Ingresa los nombres y apellidos</mat-label>
-                  <input matInput autocomplete="off">
+                  <input matInput formControlName="dataper" autocomplete="off">
+                  <mat-error *ngIf="selecDNIinput.hasError('required')">
+                    Los nombres y apellidos son requeridos
+                  </mat-error>
                 </mat-form-field>
               </div>
             </div>
@@ -144,20 +156,20 @@
         </div>
       </mat-step>
       <mat-step>
-        <form class="mt-2">
+        <form class="mt-2" [formGroup]="groupForm1">
           <ng-template matStepLabel>Paso 2</ng-template>
           <div class="w-full py-4 monset" style="text-align: center">Revisa y confirma los detalles de la transferencia:</div>
           <div class="flex p-2 space-x-2">
             <div class="card px-4 py-4 h-[4.688rem] w-[21.125rem]">
               <p class="monsetb">Cuenta de origen</p>
-              <p class="monset">Ahorros Soles 1020520221452214522</p>
+              <div>{{selector1}}</div>
             </div>
             <div class="lg:block flex my-auto hidden">
               <mat-icon class="text-[2.029rem] text-[#00AF91] my-auto">arrow_forward_ios</mat-icon>
             </div>
             <div class="card px-4 py-4 h-[4.688rem] w-[21.125rem]">
               <p class="monsetb">Cuenta destino</p>
-              <p class="monset">Ahorros Dólares 1020520221452214522</p>
+              <div>{{selector2 + ' ' + numCCI}}</div>
             </div>
           </div>
           <div class="mt-8 px-4 py-2 card">
@@ -165,10 +177,10 @@
               <div class="monsetb">Tipo de transferencia</div>
               <p>Diferida</p>
             </div>
-            <div class="flex justify-between">
-              <div class="monsetb">CCI de la cuenta destino</div>
-              <p>1020520221452214522</p>
-            </div>
+<!--            <div class="flex justify-between">-->
+<!--              <div class="monsetb">CCI de la cuenta destino</div>-->
+<!--              <p>1020520221452214522</p>-->
+<!--            </div>-->
             <div class="flex justify-between">
               <div class="monsetb">Tipo de beneficiario</div>
               <p>A cuentas de terceros</p>
@@ -178,8 +190,8 @@
               <p>José Aréstegui Vásquez</p>
             </div>
             <div class="flex justify-between">
-              <div class="monsetb">Monto</div>
-              <p>S/ 100.00</p>
+              <div class="monsetb">Monto a transferir</div>
+              <div>S/ {{montoT.value | number: '0.2'}}</div>
             </div>
             <div class="flex justify-between">
               <div class="monsetb">Comisión CML</div>
@@ -197,13 +209,26 @@
           <div class="flex mt-4 justify-center">
             <div style="text-align: center">
               <mat-checkbox class="text-[1rem] mb-4 text-[#8F8F8F]"><a (keypress)="openDialog()">He leído y acepto los <b class="text-[#00AF91]">términos y condiciones</b> para procesar esta operación.</a></mat-checkbox>
-              <div class="text-[1rem]">Para confirmar la operación, ingrese el Token Digital </div>
-              <div class="w-full flex justify-center mt-2">
-                <mat-form-field appearance="outline">
-                  <mat-label>Ingresa el Token Digital</mat-label>
-                  <input type="password" (keypress)="onKeyPress($event)" matInput>
-                  <mat-icon matSuffix class="text-[#00AF91]">check_circle</mat-icon>
-                </mat-form-field>
+              <div class="flex justify-between">
+                <div class="px-4">
+                  <div class="text-[0.75rem]">Para confirmar la operación, ingresa el Token Digital </div>
+                  <div class="w-full flex justify-center mt-2">
+                    <mat-form-field appearance="outline" class="w-[17.938rem]">
+                      <mat-label>Ingresa el Token Digital</mat-label>
+                      <input type="password" formControlName="token" [(ngModel)]="inputtoken" maxlength="4" x (keypress)="onKeyPress($event)" matInput>
+                      <mat-icon matSuffix *ngIf="inputtoken == 1234" class="text-[#00AF91]">check_circle</mat-icon>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="px-4">
+                  <div class="text-[0.75rem]">Descripción de la operación (opcional):</div>
+                  <div class="w-full flex justify-center mt-2">
+                    <mat-form-field appearance="outline" class="w-[17.938rem]">
+                      <mat-label>Ingresa el Token Digital</mat-label>
+                      <textarea matInput></textarea>
+                    </mat-form-field>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -224,11 +249,11 @@
             <div class="space-x-6 flex justify-between">
               <div class="card px-4 py-4 h-[4.688rem] w-[21.125rem]">
                 <p class="monsetb">Cuenta de origen</p>
-                <p class="monset">Ahorros Soles 1020520221452214522</p>
+                <div>{{selector1}}</div>
               </div>
               <div class="card px-4 py-4 h-[4.688rem] w-[21.125rem]">
                 <p class="monsetb">Cuenta destino</p>
-                <p class="monset">Ahorros Dólares 1020520221452214522</p>
+                <div>{{selector2 + ' ' + numCCI}}</div>
               </div>
             </div>
             <div class="mt-8 px-4 py-2 card">
@@ -240,10 +265,10 @@
                 <div class="monsetb">Tipo de transferencia</div>
                 <p>Diferida</p>
               </div>
-              <div class="flex justify-between">
-                <div class="monsetb">CCI de la cuenta destino</div>
-                <p>1020520221452214522</p>
-              </div>
+<!--              <div class="flex justify-between">-->
+<!--                <div class="monsetb">CCI de la cuenta destino</div>-->
+<!--                <p>{{numCCI}}</p>-->
+<!--              </div>-->
               <div class="flex justify-between">
                 <div class="monsetb">Tipo de beneficiario</div>
                 <p>A cuentas de terceros</p>
@@ -254,7 +279,7 @@
               </div>
               <div class="flex justify-between">
                 <div class="monsetb">Monto</div>
-                <p>S/ 100.00</p>
+                <p>{{montoT.value}}</p>
               </div>
               <div class="flex justify-between">
                 <div class="monsetb">Comisión CML</div>
@@ -271,13 +296,13 @@
             </div>
           </div>
           <div class="flex justify-between space-x-2 text-left mt-6 mx-auto justify-center">
-            <div class="w-[21.375rem] flex justify-between">
+            <div class="w-[21.375rem] flex justify-between bg-[#ECFEFB] text-[#1A3184] p-2" style="border-radius: 12px;">
               <mat-icon class="text-[#1A3184]">email</mat-icon>
               <div class="w-[17.25rem] text-[0.906rem]">La constancia ha sido remitida a tu correo:
                 ach******@cajametropolitana.com.pe</div>
             </div>
             <div class="my-auto">
-              <button class="btn-descarga monsetb flex justify-between px-4 py-2 w-[19rem]">
+              <button class="btn-descarga monsetb ml-4 space-x-4 flex px-4 py-2 w-[19rem]">
                 <mat-icon class="my-auto">vertical_align_bottom</mat-icon>
                 <span class="my-auto">Descargar transferencia</span>
               </button>
@@ -285,12 +310,12 @@
           </div>
 
           <div class="flex justify-center mt-4 text-sm w-full content-center justify-items-center font-medium monset lg:pr-3">
-            <mat-form-field appearance="outline" class="w-[19rem]">
+            <mat-form-field appearance="outline" class="w-[19rem] px-2">
               <mat-label class="monset text-xs">Correo destino</mat-label>
-              <input type="text" matInput placeholder="Correo destino">
+              <input type="text" autocomplete="false" matInput placeholder="Correo destino">
             </mat-form-field>
             <button style="height: 3.1rem;"
-                    class="text-base shadow-lg mt-1 hover:bg-white font-semibold hover:text-green-400 py-2 px-4 hover:border hover:border-green-400 rounded">
+                    class="text-base bg-[#00AF91] px-2 text-white shadow-lg mt-1 font-semibold  py-2 px-4 rounded">
               Enviar
             </button>
           </div>
