@@ -1,7 +1,7 @@
 <div class="w-full mt-4">
   <div class="monsetb text-[#3D3C3C] text-[1rem] px-6 text-center lg:text-[1.5rem] flex justify-center">Transferencia a cuentas de otros bancos</div>
   <div class="flex justify-center">
-    <mat-stepper labelPosition="bottom" #stepper class="w-full lg:w-[43.75rem]">
+    <mat-stepper labelPosition="bottom" #stepper class="w-full lg:w-[49.75rem]">
       <mat-step>
         <form [formGroup]="groupForm1" novalidate>
           <ng-template matStepLabel>Paso 1</ng-template>
@@ -11,7 +11,7 @@
                 Cuenta de origen
               </label>
               <mat-form-field appearance="outline" class="w-full">
-                <mat-select [(ngModel)]="selector1" formControlName="selectorigin" class="appearance-none block text-gray-700 leading-tight" placeholder="Elige tu cuenta de origen">
+                <mat-select [(ngModel)]="selector1" formControlName="selectorigin" class="appearance-none block text-gray-700 leading-tight text-[0.75rem]" placeholder="Elige tu cuenta de origen">
                   <mat-option class="h-auto" *ngFor="let select of selectCuentas" [value]="select.tipo + ' ' + select.cuenta">
                     <div class="my-2">
                       <div class="mt-px -mb-4 monset">Cuenta – {{select.tipo}} </div>
@@ -67,6 +67,9 @@
                 <mat-error *ngIf="montoT.hasError('required')">
                   El monto a transferir debería ser mayor o igual a uno.
                 </mat-error>
+                <mat-error *ngIf="montoT.hasError('min')">
+                  El monto a transferir debería ser mayor o igual a uno.
+                </mat-error>
               </mat-form-field>
             </div>
           </div>
@@ -78,7 +81,7 @@
               </label>
               <mat-form-field appearance="outline" class="w-full">
                 <mat-label>Ingresa el CCI del banco destino</mat-label>
-                <input matInput [(ngModel)]="numCCI" formControlName="CCI" minlength="15" maxlength="15" autocomplete="off" (keypress)="onKeyPress($event)" placeholder="Placeholder">
+                <input matInput [(ngModel)]="numCCI" formControlName="CCI" minlength="20" maxlength="20" autocomplete="off" (keypress)="onKeyPress($event)" placeholder="Placeholder">
                 <mat-error *ngIf="CCI.hasError('required')">
                   El CCI de la cuenta de destino es requerido
                 </mat-error>
@@ -109,14 +112,16 @@
                 </label>
                 <div class="flex justify-between">
                   <mat-form-field class="monset w-[4rem] w-[4.5rem]" appearance="outline">
-                    <mat-select value="DNI">
-                      <mat-option value="DNI">DNI</mat-option>
-                      <mat-option value="CE">CE</mat-option>
+                    <mat-select value="1">
+                      <mat-option value="1">DNI</mat-option>
+                      <mat-option value="2">CE</mat-option>
+                      <mat-option value="3">RUC</mat-option>
+                      <mat-option value="4">Pasaporte</mat-option>
                     </mat-select>
                   </mat-form-field>
-                  <mat-form-field class="monset min-w-[10rem] w-3/4 lg:w-[14rem]" appearance="outline">
+                  <mat-form-field class="monset min-w-[16rem] w-3/4 lg:w-[14rem]" appearance="outline">
                     <mat-label>Ingresa el número de DNI</mat-label>
-                    <input matInput autocomplete="off" formControlName="selecDNIinput" (keypress)="onKeyPress($event)" placeholder="Placeholder">
+                    <input matInput autocomplete="off" maxlength="8" formControlName="selecDNIinput" (keypress)="onKeyPress($event)" placeholder="Placeholder">
                     <mat-error *ngIf="selecDNIinput.hasError('required')">
                       El número de documento es requerido
                     </mat-error>
@@ -138,7 +143,7 @@
                 </label>
                 <mat-form-field  appearance="outline" class="w-full">
                   <mat-label>Ingresa los nombres y apellidos</mat-label>
-                  <input matInput formControlName="dataper" autocomplete="off">
+                  <input matInput formControlName="dataper" maxlength="100" autocomplete="off">
                   <mat-error *ngIf="selecDNIinput.hasError('required')">
                     Los nombres y apellidos son requeridos
                   </mat-error>
@@ -152,11 +157,11 @@
           </div>
         </form>
         <div class="flex justify-center w-full mt-12">
-          <button class="btn w-[21.125rem] h-[3.75rem]" matStepperNext mat-button>Siguiente</button>
+          <button [disabled]="groupForm1.invalid" class="btn w-[21.125rem] h-[3.75rem]" matStepperNext mat-button>Siguiente</button>
         </div>
       </mat-step>
       <mat-step>
-        <form class="mt-2" [formGroup]="groupForm1">
+        <form class="mt-2" [formGroup]="groupForm2">
           <ng-template matStepLabel>Paso 2</ng-template>
           <div class="w-full py-4 monset" style="text-align: center">Revisa y confirma los detalles de la transferencia:</div>
           <div class="flex p-2 space-x-2">
@@ -211,35 +216,46 @@
               <mat-checkbox class="text-[1rem] mb-4 text-[#8F8F8F]"><a (keypress)="openDialog()">He leído y acepto los <b class="text-[#00AF91]">términos y condiciones</b> para procesar esta operación.</a></mat-checkbox>
               <div class="flex justify-between">
                 <div class="px-4">
-                  <div class="text-[0.75rem]">Para confirmar la operación, ingresa el Token Digital </div>
+                  <div class="text-[0.75rem]">Descripción de la operación (opcional):</div>
                   <div class="w-full flex justify-center mt-2">
                     <mat-form-field appearance="outline" class="w-[17.938rem]">
-                      <mat-label>Ingresa el Token Digital</mat-label>
-                      <input type="password" formControlName="token" [(ngModel)]="inputtoken" maxlength="4" x (keypress)="onKeyPress($event)" matInput>
-                      <mat-icon matSuffix *ngIf="inputtoken == 1234" class="text-[#00AF91]">check_circle</mat-icon>
+                      <mat-label>Ingresa la descripción de la operación</mat-label>
+                      <textarea matInput></textarea>
                     </mat-form-field>
                   </div>
                 </div>
                 <div class="px-4">
                   <div class="text-[0.75rem]">Descripción de la operación (opcional):</div>
-                  <div class="w-full flex justify-center mt-2">
-                    <mat-form-field appearance="outline" class="w-[17.938rem]">
-                      <mat-label>Ingresa el Token Digital</mat-label>
-                      <textarea matInput></textarea>
-                    </mat-form-field>
+                  <div class="flex mt-4 justify-center" >
+                    <div style="text-align: center">
+                      <div (click)="openDialogo()" class="w-[2.625rem] cursor-pointer h-[2.438rem] mx-auto bg-[#E8F5FF]" style="border-radius: 12px">
+                        <mat-icon [ngClass]="{'icon-frecuentes': frecuente}" class="text-[1.25rem] my-2 text-[#7B7B7B]">stars</mat-icon>
+                      </div>
+                      <p class="monsetb text-[0.688rem] lg:text-[1rem] text-[#8F8F8F]">Agregar a operaciones frecuentes</p>
+                    </div>
                   </div>
+                </div>
+              </div>
+              <div class="px-4">
+                <div class="text-[0.75rem]">Para confirmar la operación, ingresa el Token Digital </div>
+                <div class="w-full flex justify-center mt-2">
+                  <mat-form-field appearance="outline" class="w-[17.938rem]">
+                    <mat-label>Ingresa el Token Digital</mat-label>
+                    <input type="password" formControlName="token" [(ngModel)]="inputtoken" maxlength="4" x (keypress)="onKeyPress($event)" matInput>
+                    <mat-icon matSuffix *ngIf="inputtoken == 1234" class="text-[#00AF91]">check_circle</mat-icon>
+                  </mat-form-field>
                 </div>
               </div>
             </div>
           </div>
         </form>
         <div class="flex justify-center space-x-4 w-full mt-8">
-          <button class="btn w-[9.813rem] h-[3.75rem]" matStepperPrevious mat-button>Cancelar</button>
-          <button class="btn w-[9.813rem] h-[3.75rem]" matStepperNext mat-button>Siguiente</button>
+          <button class="btn w-[9.813rem] h-[3.75rem]" (click)="redirectTransfer()" mat-button>Cancelar</button>
+          <button [disabled]="groupForm2.invalid" class="btn w-[9.813rem] h-[3.75rem]" matStepperNext mat-button>Confirmar</button>
         </div>
       </mat-step>
       <mat-step>
-        <form>
+        <form [formGroup]="groupForm3">
           <ng-template matStepLabel>Paso 3</ng-template>
           <div class="w-full py-4 monset" style="text-align: center">
             <img class="mx-auto mb-2" src="assets/images/checked.svg">
@@ -308,21 +324,27 @@
               </button>
             </div>
           </div>
-
-          <div class="flex justify-center mt-4 text-sm w-full content-center justify-items-center font-medium monset lg:pr-3">
-            <mat-form-field appearance="outline" class="w-[19rem] px-2">
-              <mat-label class="monset text-xs">Correo destino</mat-label>
-              <input type="text" autocomplete="false" matInput placeholder="Correo destino">
-            </mat-form-field>
-            <button style="height: 3.1rem;"
-                    class="text-base bg-[#00AF91] px-2 text-white shadow-lg mt-1 font-semibold  py-2 px-4 rounded">
-              Enviar
-            </button>
+          <div class="flex justify-center">
+            <div class="mt-4 text-sm font-medium monset lg:pr-3">
+              <label class="mb-2 px-2 text-[0.688rem] monsetb">
+                Descripción de la operación (opcional):
+              </label>
+              <div class="flex mt-2 content-center justify-items-center">
+                <mat-form-field appearance="outline" class="w-[19rem] px-2">
+                  <mat-label class="monset text-xs">Correo destino</mat-label>
+                  <input formControlName="email" type="text" autocomplete="false" matInput placeholder="Correo destino">
+                </mat-form-field>
+                <button style="height: 3.1rem;"
+                        class="text-base bg-[#00AF91] px-2 text-white shadow-lg mt-1 font-semibold  py-2 px-4 rounded">
+                  Enviar
+                </button>
+              </div>
+            </div>
           </div>
         </form>
         <div class="flex justify-center space-x-4 w-full mt-8">
-          <button class="btn w-[9.813rem] h-[3.75rem]" matStepperPrevious mat-button>Nueva transferencia</button>
-          <button class="btn w-[9.813rem] h-[3.75rem]" (click)="redirectTransfer()" mat-button>Ir al inicio</button>
+          <button class="btn w-[9.813rem] h-[3.75rem]" (click)="redirectTransfer()" mat-button>Nueva transferencia</button>
+          <button class="btn w-[9.813rem] h-[3.75rem]" (click)="redirectConfig()" mat-button>Ir al inicio</button>
         </div>
       </mat-step>
     </mat-stepper>
