@@ -46,7 +46,7 @@ export class TransferInternalComponent implements OnInit {
 
   // Paso1
   groupForm1!: FormGroup;
-  montoT = new FormControl('', [Validators.required]);
+  montoT = new FormControl('', [Validators.required, Validators.min(1)]);
   selectorigin = new FormControl('', [Validators.required]);
   selectordest = new FormControl('', [Validators.required])
 

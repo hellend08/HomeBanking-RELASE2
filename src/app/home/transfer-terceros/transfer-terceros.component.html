@@ -68,6 +68,9 @@
                 <mat-error *ngIf="montoT.hasError('required')">
                   El monto a transferir debería ser mayor o igual a uno.
                 </mat-error>
+                <mat-error *ngIf="montoT.hasError('min')">
+                  El monto a transferir debería ser mayor o igual a uno.
+                </mat-error>
               </mat-form-field>
             </div>
           </div>

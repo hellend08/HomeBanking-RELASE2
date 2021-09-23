@@ -1,7 +1,7 @@
 <div class="w-full mt-4">
   <div class="monsetb text-[#3D3C3C] text-[1rem] lg:text-[1.5rem] flex justify-center">Transferencia a cuentas propias</div>
   <div class="flex justify-center">
-    <mat-stepper labelPosition="bottom" #stepper class="w-full lg:w-[43.75rem]">
+    <mat-stepper labelPosition="bottom" #stepper class="w-full lg:w-[49.75rem]">
       <mat-step>
         <form [formGroup]="groupForm1" novalidate>
           <ng-template matStepLabel class="monset">Paso 1</ng-template>
@@ -11,7 +11,7 @@
                 Cuenta de origen
               </label>
               <mat-form-field appearance="outline" class="w-full">
-                <mat-select [(ngModel)]="selector1" formControlName="selectorigin" class="appearance-none block text-gray-700 leading-tight" placeholder="Elige tu cuenta de origen">
+                <mat-select [(ngModel)]="selector1" formControlName="selectorigin" class="appearance-none block text-gray-700 leading-tight text-[0.75rem]" placeholder="Elige tu cuenta de origen">
                   <mat-option class="h-auto" *ngFor="let select of selectdata" [value]="select.tipo + ' ' + select.cuenta">
                     <div class="my-2">
                       <div class="mt-px -mb-4 monset">Cuenta – {{select.tipo}} </div>
@@ -29,7 +29,7 @@
                 Cuenta de destino
               </label>
               <mat-form-field appearance="outline" class="w-full">
-                <mat-select [(ngModel)]="selector2" formControlName="selectordest" class="appearance-none block text-gray-700 leading-tight" placeholder="Elige tu cuenta de origen">
+                <mat-select [(ngModel)]="selector2" formControlName="selectordest" class="appearance-none block text-gray-700 leading-tight text-[0.75rem]" placeholder="Elige tu cuenta de origen">
                   <mat-option *ngFor="let select of selectdata" class="h-auto" [value]="select.tipo + ' ' + select.cuenta">
                     <div class="my-2">
                       <div class="mt-px -mb-4 monset">Cuenta – {{select.tipo}} </div>
@@ -68,6 +68,9 @@
                 <mat-label>Ingrese el monto</mat-label>
                 <input matInput formControlName="montoT" currencyInput autocomplete="off" (keypress)="onKeyPress($event)">
                 <mat-error *ngIf="montoT.hasError('required')">
+                  El monto a transferir debería ser mayor o igual a uno.
+                </mat-error>
+                <mat-error *ngIf="montoT.hasError('min')">
                   El monto a transferir debería ser mayor o igual a uno.
                 </mat-error>
               </mat-form-field>
