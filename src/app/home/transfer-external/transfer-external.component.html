@@ -1,8 +1,8 @@
 <div class="w-full mt-4">
   <div class="monsetb text-[#3D3C3C] text-[1rem] px-6 text-center lg:text-[1.5rem] flex justify-center">Transferencia a cuentas de otros bancos</div>
   <div class="flex justify-center">
-    <mat-stepper labelPosition="bottom" #stepper class="w-full lg:w-[49.75rem]">
-      <mat-step>
+    <mat-stepper labelPosition="bottom" linear #stepper class="w-full lg:w-[49.75rem]">
+      <mat-step [editable]="false" state="done">
         <form [formGroup]="groupForm1" novalidate>
           <ng-template matStepLabel>Paso 1</ng-template>
           <div class="lg:flex">
@@ -160,7 +160,7 @@
           <button [disabled]="groupForm1.invalid" class="btn w-[21.125rem] h-[3.75rem]" matStepperNext mat-button>Siguiente</button>
         </div>
       </mat-step>
-      <mat-step>
+      <mat-step [editable]="false" state="done">
         <form class="mt-2" [formGroup]="groupForm2">
           <ng-template matStepLabel>Paso 2</ng-template>
           <div class="w-full py-4 monset" style="text-align: center">Revisa y confirma los detalles de la transferencia:</div>
@@ -254,7 +254,7 @@
           <button [disabled]="groupForm2.invalid" class="btn w-[9.813rem] h-[3.75rem]" matStepperNext mat-button>Confirmar</button>
         </div>
       </mat-step>
-      <mat-step>
+      <mat-step [editable]="false" state="done">
         <form [formGroup]="groupForm3">
           <ng-template matStepLabel>Paso 3</ng-template>
           <div class="w-full py-4 monset" style="text-align: center">
@@ -347,6 +347,10 @@
           <button class="btn w-[9.813rem] h-[3.75rem]" (click)="redirectConfig()" mat-button>Ir al inicio</button>
         </div>
       </mat-step>
+
+      <ng-template matStepperIcon="done" let-index="index">
+        {{index + 1}}
+      </ng-template>
     </mat-stepper>
   </div>
 </div>
