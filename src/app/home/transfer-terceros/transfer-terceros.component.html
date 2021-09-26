@@ -24,7 +24,7 @@
                 </mat-error>
               </mat-form-field>
             </div>
-            <div class="w-full md:w-1/2 lg:px-3 mb-6 md:mb-0">
+            <div class="w-full -mt-6 lg:-mt-0 md:w-1/2 lg:px-3 mb-6 md:mb-0">
               <label class="block text-[#8F8F8F] monset text-[1rem] mb-2">
                 Cuenta de destino
               </label>
@@ -42,7 +42,7 @@
             </div>
           </div>
 
-          <div class="lg:flex mt-10">
+          <div class="lg:flex -mt-6 lg:mt-10">
             <div class="w-full md:w-1/2 lg:px-3 mb-6 md:mb-0">
               <label class="block text-[#8F8F8F] monset text-[1rem] mb-2">
                 Selecciona la moneda
@@ -121,7 +121,7 @@
               </div>
             </div>
 
-            <div class="mb-2 py-2 h-[4.688rem] w-full lg:w-[21.125rem]">
+            <div class="mb-2 lg:block hidden py-2 h-[4.688rem] w-full lg:w-[21.125rem]">
               <label class="mb-2 text-[0.688rem] lg:text-[1rem]">
                 Descripción de la operación (opcional):
               </label>
@@ -137,10 +137,20 @@
             <div class="monsetb text-[1rem] lg:text-[1.5rem]">S/ {{montoT.value | number: '0.2'}}</div>
           </div>
 
-          <div class="flex justify-center mt-6">
+          <div class="mb-2 py-2 h-[4.688rem] w-full lg:w-[21.125rem]">
+            <label class="mb-2 text-[0.688rem] lg:text-[1rem]">
+              Descripción de la operación (opcional):
+            </label>
+            <mat-form-field appearance="outline" class="w-full flex justify-center">
+              <mat-label>Descripción de la operación</mat-label>
+              <textarea placeholder="Ingrese la descripción de la operación" matInput></textarea>
+            </mat-form-field>
+          </div>
+
+          <div class="flex justify-center mt-10 lg:mt-6">
             <div style="text-align: center">
-              <div class="text-[1rem] monset">Para confirmar la operación, ingresa el Token Digital</div>
-              <mat-form-field appearance="outline" class="w-[17.938rem] mt-2">
+              <div class="text-[0.65rem] lg:text-[1rem] monset">Para confirmar la operación, ingresa el Token Digital</div>
+              <mat-form-field appearance="outline" class="w-full lg:w-[17.938rem] mt-2">
                 <mat-label>Ingresa el Token Digital</mat-label>
                 <input formControlName="token" matInput maxlength="4" type="password">
               </mat-form-field>
@@ -214,7 +224,7 @@
               </div>
               <div class="flex rounded-xl text-[#1A3184] bg-[#E8F5FF] justify-between px-2 mt-2 lg:px-4 py-4 h-[4.688rem] w-full lg:w-[21.125rem]">
                 <div class="py-4- mr-6"><mat-icon>mail</mat-icon></div>
-                <div class="text-[0.75rem]">La constancia ha sido remitida a tu correo:
+                <div class="text-[0.65rem] lg:text-[0.75rem]">La constancia ha sido remitida a tu correo:
                   ach**********@cajametropolitana.com.pe
                 </div>
               </div>
@@ -222,8 +232,8 @@
           </div>
 
           <div class="flex mt-10 justify-center">
-            <button class="py-2 w-[21.125rem] px-4 rounded inline-flex items-center" style="box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);border-radius: 12px;">
-              <mat-icon class="fill-current text-[#00AF91] w-4 h-4 mr-10">download</mat-icon>
+            <button class="py-2 w-full lg:w-[21.125rem] px-4 rounded inline-flex items-center" style="box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);border-radius: 12px;">
+              <mat-icon class="fill-current text-[#00AF91] w-4 h-4 lg:mr-10">download</mat-icon>
               <span class="monsetb text-[#8F8F8F]">Descargar transferencia</span>
             </button>
           </div>
@@ -233,11 +243,11 @@
                 Enviar constancia a otro correo
               </label>
               <div class="flex justify-between">
-                <mat-form-field appearance="outline" class="w-[19rem] mr-4">
+                <mat-form-field appearance="outline" class="w-[70%] lg:w-[19rem] mr-4">
                   <mat-label>Correo destino</mat-label>
                   <input  matInput type="email" [formControl]="emailFormControl" autocomplete="false">
                 </mat-form-field>
-                <button class="text-white h-[3.3rem] w-[6.375rem]" style="background: #00AF91;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.24);border-radius: 5px;">Enviar</button>
+                <button class="text-white h-[3.3rem] w-[30%] lg:w-[6.375rem]" style="background: #00AF91;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.24);border-radius: 5px;">Enviar</button>
               </div>
             </div>
           </div>

@@ -1,7 +1,7 @@
 <div class="w-full mt-4">
   <div class="monsetb text-[#3D3C3C] text-[1rem] px-6 text-center lg:text-[1.5rem] flex justify-center">Transferencia a cuentas de otros bancos</div>
   <div class="flex justify-center">
-    <mat-stepper labelPosition="bottom" linear #stepper class="w-full lg:w-[49.75rem]">
+    <mat-stepper labelPosition="bottom" linear #stepper class="px-0 w-full lg:w-[49.75rem]">
       <mat-step [editable]="false" state="done">
         <form [formGroup]="groupForm1" novalidate>
           <ng-template matStepLabel>Paso 1</ng-template>
@@ -24,7 +24,7 @@
                 </mat-error>
               </mat-form-field>
             </div>
-            <div class="w-full md:w-1/2 lg:px-3 mb-6 md:mb-0">
+            <div class="w-full -mt-6 lg:-mt-0 md:w-1/2 lg:px-3 mb-6 md:mb-0">
               <label class="block  text-[#8F8F8F] text-[1rem] mb-2">
                 Banco de destino
               </label>
@@ -41,7 +41,7 @@
             </div>
           </div>
 
-          <div class="lg:flex mt-4">
+          <div class="lg:flex -mt-6 lg:mt-4">
             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label class="block  text-[#8F8F8F] text-[1rem] mb-2">
                 Selecciona la moneda <mat-icon matTooltip="El monto ingresado debe ser en la misma moneda que la cuenta de destino. De lo contrario la transferencia podría ser rechazada." class="text-[#F9B208]">info</mat-icon>
@@ -74,7 +74,7 @@
             </div>
           </div>
 
-          <div class="lg:flex mt-4">
+          <div class="lg:flex -mt-6 lg:mt-4">
             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label class="block  text-[#8F8F8F] text-[1rem] mb-2">
                 CCI de la cuenta de destino <mat-icon matTooltip="Ingresa el código de cuenta interbancaria de la cuenta de destino." class="text-[#F9B208]">info</mat-icon>
@@ -87,7 +87,7 @@
                 </mat-error>
               </mat-form-field>
             </div>
-            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            <div class="w-full -mt-6 lg:-mt-0 md:w-1/2 px-3 mb-6 md:mb-0">
 <!--              <label class="block  text-[#8F8F8F] text-[1rem] mb-2">-->
 <!--                CCI de la cuenta de destino-->
 <!--              </label>-->
@@ -110,8 +110,8 @@
                 <label class="block mt-2  text-[#8F8F8F] text-[1rem] mb-2">
                   Documento
                 </label>
-                <div class="flex justify-between">
-                  <mat-form-field class="monset w-[4rem] w-[4.5rem]" appearance="outline">
+                <div class="flex space-x-2 justify-between">
+                  <mat-form-field class="monset w-[30%] lg:w-[4.5rem]" appearance="outline">
                     <mat-select value="1">
                       <mat-option value="1">DNI</mat-option>
                       <mat-option value="2">CE</mat-option>
@@ -119,7 +119,7 @@
                       <mat-option value="4">Pasaporte</mat-option>
                     </mat-select>
                   </mat-form-field>
-                  <mat-form-field class="monset min-w-[16rem] w-3/4 lg:w-[14rem]" appearance="outline">
+                  <mat-form-field class="monset w-[70%] lg:w-[14rem]" appearance="outline">
                     <mat-label>Ingresa el número de DNI</mat-label>
                     <input matInput autocomplete="off" maxlength="8" formControlName="selecDNIinput" (keypress)="onKeyPress($event)" placeholder="Placeholder">
                     <mat-error *ngIf="selecDNIinput.hasError('required')">
@@ -157,22 +157,22 @@
           </div>
         </form>
         <div class="flex justify-center w-full mt-12">
-          <button [disabled]="groupForm1.invalid" class="btn w-[21.125rem] h-[3.75rem]" matStepperNext mat-button>Siguiente</button>
+          <button class="btn w-[21.125rem] h-[3.75rem]" matStepperNext mat-button>Siguiente</button>
         </div>
       </mat-step>
       <mat-step [editable]="false" state="done">
         <form class="mt-2" [formGroup]="groupForm2">
           <ng-template matStepLabel>Paso 2</ng-template>
           <div class="w-full py-4 monset" style="text-align: center">Revisa y confirma los detalles de la transferencia:</div>
-          <div class="flex p-2 space-x-2">
-            <div class="card px-4 py-4 h-[4.688rem] w-[21.125rem]">
+          <div class="lg:flex lg:p-2 lg:space-x-2">
+            <div class="card px-1 lg:px-4 py-4 h-[4.688rem] w-full lg:w-[21.125rem]">
               <p class="monsetb">Cuenta de origen</p>
               <div>{{selector1}}</div>
             </div>
             <div class="lg:block flex my-auto hidden">
               <mat-icon class="text-[2.029rem] text-[#00AF91] my-auto">arrow_forward_ios</mat-icon>
             </div>
-            <div class="card px-4 py-4 h-[4.688rem] w-[21.125rem]">
+            <div class="card px-1 lg:px-4 py-4 h-[4.688rem] mt-4 lg:mt-0 w-full lg:w-[21.125rem]">
               <p class="monsetb">Cuenta de destino</p>
               <div>{{selector2 + ' ' + numCCI}}</div>
             </div>
@@ -211,21 +211,21 @@
               <p class="monsetb">S/ 103.80</p>
             </div>
           </div>
-          <div class="flex mt-4 justify-center">
-            <div style="text-align: center">
-              <mat-checkbox class="text-[1rem] mb-4 text-[#8F8F8F]"><a (keypress)="openDialog()">He leído y acepto los <b class="text-[#00AF91]">términos y condiciones</b> para procesar esta operación.</a></mat-checkbox>
-              <div class="flex justify-between">
+          <div class="lg:flex mt-4 justify-center">
+            <div>
+              <mat-checkbox class="text-[1rem] w-full mb-4 text-[#8F8F8F]"><a (keypress)="openDialog()">He leído y acepto los <b class="text-[#00AF91]">términos y condiciones</b> para procesar esta operación.</a></mat-checkbox>
+              <div class="lg:flex justify-between">
                 <div class="px-4">
                   <div class="text-[0.75rem]">Descripción de la operación (opcional):</div>
-                  <div class="w-full flex justify-center mt-2">
-                    <mat-form-field appearance="outline" class="w-[17.938rem]">
+                  <div class="flex justify-center mt-2">
+                    <mat-form-field appearance="outline" class="w-full lg:w-[17.938rem]">
                       <mat-label>Ingresa la descripción de la operación</mat-label>
                       <textarea matInput></textarea>
                     </mat-form-field>
                   </div>
                 </div>
-                <div class="px-4">
-                  <div class="text-[0.75rem]">Descripción de la operación (opcional):</div>
+                <div class="px-4 lg:block hidden">
+<!--                  <div class="text-[0.75rem]">Descripción de la operación (opcional):</div>-->
                   <div class="flex mt-4 justify-center" >
                     <div style="text-align: center">
                       <div (click)="openDialogo()" class="w-[2.625rem] cursor-pointer h-[2.438rem] mx-auto bg-[#E8F5FF]" style="border-radius: 12px">
@@ -239,7 +239,7 @@
               <div class="px-4">
                 <div class="text-[0.75rem]">Para confirmar la operación, ingresa el Token Digital </div>
                 <div class="w-full flex justify-center mt-2">
-                  <mat-form-field appearance="outline" class="w-[17.938rem]">
+                  <mat-form-field appearance="outline" class="w-full lg:w-[17.938rem]">
                     <mat-label>Ingresa el Token Digital</mat-label>
                     <input type="password" formControlName="token" [(ngModel)]="inputtoken" maxlength="4" x (keypress)="onKeyPress($event)" matInput>
                     <mat-icon matSuffix *ngIf="inputtoken == 1234" class="text-[#00AF91]">check_circle</mat-icon>
@@ -262,16 +262,22 @@
             <p>La transferencia se realizó con éxito</p>
           </div>
           <div>
-            <div class="space-x-6 flex justify-between">
-              <div class="card px-4 py-4 h-[4.688rem] w-[21.125rem]">
+            <div class="lg:space-x-6 mt-4 lg:mt-0 lg:flex justify-between">
+              <div class="card px-4 py-4 h-[4.688rem] w-full lg:w-[21.125rem]">
                 <p class="monsetb">Cuenta de origen</p>
                 <div>{{selector1}}</div>
               </div>
-              <div class="card px-4 py-4 h-[4.688rem] w-[21.125rem]">
+              <div class="card px-4 mt-4 lg:mt-0 py-4 h-[4.688rem] w-full lg:w-[21.125rem]">
                 <p class="monsetb">Cuenta de destino</p>
                 <div>{{selector2 + ' ' + numCCI}}</div>
               </div>
             </div>
+
+            <div class="cardMonto lg:hidden mt-4 bg-[#E8F5FF] px-2 flex justify-between py-4 h-auto lg:h-[4.688rem] w-full lg:w-[21.125rem]">
+              <div class="monsetb text-[0.688rem] lg:text-[1rem] text-[#1A3184] lg:text-black">Monto a transferir</div>
+              <div class="monsetb text-[1rem] lg:text-[1.5rem]">$ 100.00</div>
+            </div>
+
             <div class="mt-8 px-4 py-2 card">
               <div class="flex justify-between">
                 <div class="monsetb">Número de operación</div>
@@ -330,7 +336,7 @@
                 Descripción de la operación (opcional):
               </label>
               <div class="flex mt-2 content-center justify-items-center">
-                <mat-form-field appearance="outline" class="w-[19rem] px-2">
+                <mat-form-field appearance="outline" class="w-[80%] lg:w-[19rem] px-2">
                   <mat-label class="monset text-xs">Correo destino</mat-label>
                   <input formControlName="email" type="text" autocomplete="false" matInput placeholder="Correo destino">
                 </mat-form-field>
