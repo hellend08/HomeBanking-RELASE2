@@ -85,10 +85,10 @@
         </div>
       </mat-step>
       <mat-step>
-        <form class="mt-2">
+        <form class="mt-2" [formGroup]="groupForm2">
           <ng-template matStepLabel>Paso 2</ng-template>
           <div class="w-full py-4 monset" style="text-align: center">Revisa y confirma los detalles de la transferencia:</div>
-          <div class="lg:flex lg:p-2 lg:space-x-2">
+          <div class="lg:flex justify-between lg:p-2 lg:space-x-2">
             <div class="card px-4 mb-2 py-2 h-[4.688rem] w-full lg:w-[21.125rem]">
               <p class="monsetb text-[0.688rem] lg:text-[1rem]">Cuenta de origen</p>
               <p class="monset text-[0.75rem] lg:text-[0.85rem]">Ahorros Soles 10203040506070</p>
@@ -102,8 +102,10 @@
               <div>Titular de la cuenta: José Aréstegui</div>
             </div>
           </div>
-          <div class="lg:flex mt-8 justify-between lg:px-2">
-            <div class="warning max-h-24 px-4 pt-2 -pb-3 w-full lg:w-[19rem]">
+
+
+          <div class="lg:flex justify-between lg:p-2 lg:space-x-2">
+            <div class="warning px-4 mt-2 mb-2 py-2 h-[4.888rem] w-full lg:w-[21.125rem]">
               <div class="text-[0.688rem] lg:text-[1rem] text-[#1A3184] monsetb">Información de la transferencia</div>
               <div class="flex justify-between mt-2">
                 <div>
@@ -118,16 +120,18 @@
                 </div>
               </div>
             </div>
-            <div class="w-full lg:block hidden mt-2 lg:w-[18rem]">
+
+            <div class="mb-2 py-2 h-[4.688rem] w-full lg:w-[21.125rem]">
               <label class="mb-2 text-[0.688rem] lg:text-[1rem]">
                 Descripción de la operación (opcional):
               </label>
-              <mat-form-field appearance="outline" class="w-full">
+              <mat-form-field appearance="outline" class="w-full flex justify-center">
                 <mat-label>Descripción de la operación</mat-label>
                 <textarea placeholder="Ingrese la descripción de la operación" matInput></textarea>
               </mat-form-field>
             </div>
           </div>
+
           <div class="w-full py-4 px-4 warning mt-4 flex justify-between">
             <div class="monsetb text-[0.688rem] lg:text-[1rem] text-[#1A3184]">Monto a transferir</div>
             <div class="monsetb text-[1rem] lg:text-[1.5rem]">S/ {{montoT.value | number: '0.2'}}</div>
@@ -138,7 +142,7 @@
               <div class="text-[1rem] monset">Para confirmar la operación, ingresa el Token Digital</div>
               <mat-form-field appearance="outline" class="w-[17.938rem] mt-2">
                 <mat-label>Ingresa el Token Digital</mat-label>
-                <input matInput maxlength="4" type="password">
+                <input formControlName="token" matInput maxlength="4" type="password">
               </mat-form-field>
             </div>
           </div>
@@ -153,8 +157,8 @@
           </div>
         </form>
         <div class="flex justify-center space-x-4 w-full mt-8">
-          <button class="btn bg-[#00AF91] text-white w-[9.813rem] h-[3.75rem]" matStepperPrevious mat-button>Cancelar</button>
-          <button class="btn bg-[#00AF91] text-white w-[9.813rem] h-[3.75rem]" matStepperNext mat-button>Siguiente</button>
+          <button class="btn bg-[#00AF91] text-white w-[9.813rem] h-[3.75rem]" (click)="redirectTransfer1()" matStepperPrevious mat-button>Cancelar</button>
+          <button [disabled]="groupForm2.invalid" class="btn bg-[#00AF91] text-white w-[9.813rem] h-[3.75rem]" matStepperNext mat-button>Siguiente</button>
         </div>
       </mat-step>
       <mat-step>
@@ -225,7 +229,7 @@
           </div>
           <div class="flex justify-center mt-4">
             <div>
-              <label class="block text-[#8F8F8F] monset text-[0.688rem]">
+              <label class="block text-[#8F8F8F] monsetb text-[1rem]">
                 Enviar constancia a otro correo
               </label>
               <div class="flex justify-between">
@@ -240,7 +244,7 @@
         </form>
         <div class="flex justify-center space-x-4 w-full mt-8">
           <button class="btn bg-[#00AF91] text-white w-[9.813rem] h-[3.75rem]" (click)="redirectTransfer1()" mat-button>Nueva transferencia</button>
-          <button class="btn bg-[#00AF91] text-white w-[9.813rem] h-[3.75rem]" mat-button>Ir al inicio</button>
+          <button class="btn bg-[#00AF91] text-white w-[9.813rem] h-[3.75rem]" (click)="redirectConfig()" mat-button>Ir al inicio</button>
         </div>
       </mat-step>
     </mat-stepper>

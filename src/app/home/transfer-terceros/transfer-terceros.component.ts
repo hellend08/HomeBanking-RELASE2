@@ -53,10 +53,11 @@ export class TransferTercerosComponent implements OnInit {
   groupForm1!: FormGroup;
   montoT = new FormControl('', [Validators.required, Validators.min(1)]);
   selectorigin = new FormControl('', [Validators.required]);
-  selectordest = new FormControl('', [Validators.required, Validators.maxLength(15)])
+  selectordest = new FormControl('', [Validators.required, Validators.maxLength(18)])
 
   // Paso2
   groupForm2!: FormGroup;
+  token = new FormControl('', [Validators.required]);
 
   // Paso3
   emailFormControl = new FormControl('', [Validators.required, Validators.email])
@@ -64,8 +65,14 @@ export class TransferTercerosComponent implements OnInit {
   constructor(private router: Router, private formBuilder: FormBuilder, public dialog: MatDialog) {
   }
 
+
+
   public redirectTransfer1(){
-    this.router.navigateByUrl('/home/transferencias')
+    this.router.navigateByUrl('/home/transferencias/3')
+  }
+
+  public redirectConfig(){
+    this.router.navigateByUrl('/home/configuracion')
   }
 
   openDialog(){
@@ -117,6 +124,10 @@ export class TransferTercerosComponent implements OnInit {
       selectordest: this.selectordest,
       'selectRadio': new FormControl()
     });
+
+    this.groupForm2 = new FormGroup({
+      token: this.token
+    })
 
     this.animacion();
     this.selectRadioButton = 'PEN';
