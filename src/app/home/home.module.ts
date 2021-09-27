@@ -28,6 +28,7 @@ import { DialogFrecuentesComponent } from './dialog-frecuentes/dialog-frecuentes
 import { DialogErrorComponent } from './transfers-dashboard/dialog-error/dialog-error.component';
 import {MatTooltipModule} from "@angular/material/tooltip";
 import { TerminosCondicionesComponent } from './transfer-external/terminos-condiciones/terminos-condiciones.component';
+import {IMaskDirectiveModule, IMaskModule} from "angular-imask";
 
 
 
@@ -45,27 +46,28 @@ import { TerminosCondicionesComponent } from './transfer-external/terminos-condi
     DialogErrorComponent,
     TerminosCondicionesComponent
   ],
-    imports: [
-        CommonModule,
-        HomeRoutingModule,
-        MatIconModule,
-        MatMenuModule,
-        MatCardModule,
-        MatDialogModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatButtonModule,
-        FormsModule,
-        NgxMaskModule.forRoot(),
-        MatRippleModule,
-        MatStepperModule,
-        MatSelectModule,
-        MatOptionModule,
-        MatRadioModule,
-        MatCheckboxModule,
-        ReactiveFormsModule,
-        MatTooltipModule
-    ],exports:[
+  imports: [
+    CommonModule,
+    HomeRoutingModule,
+    MatIconModule,
+    MatMenuModule,
+    MatCardModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    FormsModule,
+    NgxMaskModule.forRoot(),
+    MatRippleModule,
+    MatStepperModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatRadioModule,
+    MatCheckboxModule,
+    ReactiveFormsModule,
+    MatTooltipModule,
+    IMaskModule
+  ],exports:[
 
   ],
   providers: [

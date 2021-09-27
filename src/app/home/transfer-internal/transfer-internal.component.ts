@@ -26,6 +26,64 @@ interface Data{
 })
 export class TransferInternalComponent implements OnInit {
 
+  maskProps = {
+    mask: Number,
+    thousandsSeparator: ",",
+    scale: 2, // digits after decimal
+    signed: false, // allow negative
+    normalizeZeros: true, // appends or removes zeros at ends
+    radix: ".", // fractional delimiter
+    padFractionalZeros: true // if true, then pads zeros at end to the length of scale
+  };
+
+  maskProps2 = {
+    mask: Number,
+    startsWith: "-",
+    thousandsSeparator: ",",
+    scale: 2, // digits after decimal
+    signed: false, // allow negative
+    normalizeZeros: true, // appends or removes zeros at ends
+    radix: ".", // fractional delimiter
+    padFractionalZeros: true // if true, then pads zeros at end to the length of scale
+  };
+
+  currencyMask = {
+    mask: [
+      {
+        mask: "" // To hide $ if field is empty
+      },
+      {
+        mask: "S/num",
+        blocks: {
+          num: this.maskProps
+        }
+      },
+      {
+        mask: "-S/num",
+        blocks: {
+          num: this.maskProps2
+        }
+      }
+    ],
+    dispatch: (
+      appended: string,
+      dynamicMasked: IMask.MaskedDynamic,
+      flags: any
+    ) => {
+      // determine which mask to apply
+      // if ( !flags?.input ) { return dynamicMasked.compiledMasks[2]; }
+      let index = /^-/.test(dynamicMasked.value + appended) ? 2 : 1;
+      if (dynamicMasked.value + appended === "") {
+        index = 0;
+      }
+      // if ( appended === '-' ) {
+      //   index = 2;
+      // }
+      console.log("D", index, dynamicMasked.value, appended, flags);
+      return dynamicMasked.compiledMasks[index];
+    }
+  };
+
   selectRadioButton!: string;
   selector1!: string;
   selector2!: string;
@@ -88,6 +146,14 @@ export class TransferInternalComponent implements OnInit {
 
   onKeyPress(event: any) {
     const regexpNumber = /[0-9]/;
+    let inputCharacter = String.fromCharCode(event.charCode);
+    if (event.keyCode != 8 && !regexpNumber.test(inputCharacter)) {
+      event.preventDefault();
+    }
+  }
+
+  onKeyPressMonto(event: any) {
+    const regexpNumber = /[0-9\.]/;
     let inputCharacter = String.fromCharCode(event.charCode);
     if (event.keyCode != 8 && !regexpNumber.test(inputCharacter)) {
       event.preventDefault();

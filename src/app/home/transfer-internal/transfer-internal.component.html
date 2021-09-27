@@ -66,7 +66,7 @@
               </label>
               <mat-form-field appearance="outline" class="w-full">
                 <mat-label>Ingrese el monto</mat-label>
-                <input matInput formControlName="montoT" currencyInput autocomplete="off" (keypress)="onKeyPress($event)">
+                <input matInput formControlName="montoT" [imask]="currencyMask" [unmask]="true" autocomplete="off" (keypress)="onKeyPressMonto($event)">
                 <mat-error *ngIf="montoT.hasError('required')">
                   El monto a transferir debería ser mayor o igual a uno.
                 </mat-error>

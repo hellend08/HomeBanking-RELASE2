@@ -23,6 +23,7 @@ import {MatOptionModule} from "@angular/material/core";
 import {CurrencyPipe} from "@angular/common";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatDialogModule} from "@angular/material/dialog";
+import {IMaskModule} from "angular-imask";
 
 
 
@@ -51,7 +52,8 @@ import {MatDialogModule} from "@angular/material/dialog";
         MatSelectModule,
         MatOptionModule,
         ReactiveFormsModule,
-      MatDialogModule,
+        MatDialogModule,
+        IMaskModule
     ],
     providers: [CurrencyPipe],
     exports: [
