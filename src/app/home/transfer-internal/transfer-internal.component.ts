@@ -89,9 +89,9 @@ export class TransferInternalComponent implements OnInit {
   selector2!: string;
 
   selectdata: Data[] = [
-    {value: '1', tipo: 'Ahorros Soles', cuenta: 10203040506070},
-    {value: '1', tipo: 'Ahorros Dolares', cuenta: 10203040506071},
-    {value: '1', tipo: 'Ahorros Soles', cuenta: 10203040506072},
+    {value: '1', tipo: 'Ahorros Soles', cuenta: 102030405060701234},
+    {value: '2', tipo: 'Ahorros Dolares', cuenta: 202030405060711234},
+    {value: '3', tipo: 'Ahorros Soles', cuenta: 302030405060721234},
   ]
 
 

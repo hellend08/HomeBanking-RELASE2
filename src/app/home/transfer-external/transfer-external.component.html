@@ -111,17 +111,17 @@
                   Documento
                 </label>
                 <div class="flex space-x-2 justify-between">
-                  <mat-form-field class="monset w-[30%] lg:w-[4.5rem]" appearance="outline">
-                    <mat-select value="1">
-                      <mat-option value="1">DNI</mat-option>
-                      <mat-option value="2">CE</mat-option>
-                      <mat-option value="3">RUC</mat-option>
-                      <mat-option value="4">Pasaporte</mat-option>
+                  <mat-form-field class="monset w-[30%] lg:w-[6.5rem]" appearance="outline">
+                    <mat-select [(value)]="selected">
+                      <mat-option value="8">DNI</mat-option>
+                      <mat-option value="9">CE</mat-option>
+                      <mat-option value="11">RUC</mat-option>
+                      <mat-option value="11">Pasaporte</mat-option>
                     </mat-select>
                   </mat-form-field>
                   <mat-form-field class="monset w-[70%] lg:w-[14rem]" appearance="outline">
                     <mat-label>Ingresa el número de DNI</mat-label>
-                    <input matInput autocomplete="off" maxlength="8" formControlName="selecDNIinput" (keypress)="onKeyPress($event)" placeholder="Ingresa el número de DNI">
+                    <input matInput autocomplete="off"  maxlength="{{selected}}"  minlength="{{selected}}" formControlName="selecDNIinput" (keypress)="onKeyPress($event)" placeholder="Ingresa el número de DNI">
                     <mat-error *ngIf="selecDNIinput.hasError('required')">
                       El número de documento es requerido
                     </mat-error>
@@ -138,8 +138,11 @@
                 <div class="text-[0.875rem] text-[#050505]">José Aréstegui Vásquez</div>
               </div>
               <div *ngIf="variable === 'B'">
-                <label class="block  mt-2 text-[#8F8F8F] text-[1rem] mb-2">
+                <label *ngIf="selected !== '11'" class="block  mt-2 text-[#8F8F8F] text-[1rem] mb-2">
                   Nombres y Apellidos
+                </label>
+                <label *ngIf="selected === '11'" class="block  mt-2 text-[#8F8F8F] text-[1rem] mb-2">
+                  Razon Social
                 </label>
                 <mat-form-field  appearance="outline" class="w-full">
                   <mat-label>Ingresa los nombres y apellidos</mat-label>

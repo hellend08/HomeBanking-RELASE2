@@ -103,23 +103,27 @@
               <div class="monset text-[0.75rem] lg:text-[0.85rem]">{{selector2}}</div>
             </div>
           </div>
+
+
           <div class="lg:flex mt-8 justify-between lg:px-2">
-            <div class="warning max-h-24 px-4 pt-2 -pb-3 w-full lg:w-[19rem]">
-              <div class="text-[0.688rem] lg:text-[1rem] text-[#1A3184] monsetb">Información de la transferencia</div>
-              <div class="flex justify-between mt-2">
-                <div>
-                  <div class="text-[0.75rem] monset">Tipo de cambio</div>
-                  <div class="text-[0.688rem] lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'PEN'">S/ 4.00</div>
-                  <div class="text-[0.688rem] text-right lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'USD'">$ 25.00</div>
-                </div>
-                <div>
-                  <div class="text-[0.75rem] monset">Total al cambio</div>
-                  <div class="text-[0.688rem] text-right lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'PEN'">$ 25.00</div>
-                  <div class="text-[0.688rem] lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'USD'">S/ 4.00</div>
+            <div class="flex justify-start max-h-24  pt-2 -pb-3 w-full lg:w-[50%]">
+              <div class="warning w-[90%] px-4">
+                <div class="text-[0.688rem] lg:text-[1rem] text-[#1A3184] monsetb">Información de la transferencia</div>
+                <div class="flex justify-between mt-2">
+                  <div>
+                    <div class="text-[0.75rem] monset">Tipo de cambio</div>
+                    <div class="text-[0.688rem] lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'PEN'">S/ 4.00</div>
+                    <div class="text-[0.688rem] text-right lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'USD'">$ 25.00</div>
+                  </div>
+                  <div>
+                    <div class="text-[0.75rem] monset">Total al cambio</div>
+                    <div class="text-[0.688rem] text-right lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'PEN'">$ 25.00</div>
+                    <div class="text-[0.688rem] lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'USD'">S/ 4.00</div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="w-full lg:block hidden mt-2 lg:w-[18rem]">
+            <div class="w-full flex justify-start lg:block px-4 hidden mt-2 lg:w-[50%]">
               <label class="mb-2 text-[0.688rem] lg:text-[1rem]">
                 Descripción de la operación (opcional):
               </label>
@@ -130,7 +134,7 @@
             </div>
           </div>
           <div class="w-full py-4 px-4 warning mt-4 flex justify-between">
-            <div class="monsetb text-[0.688rem] lg:text-[1rem] text-[#1A3184]">Monto total transferido</div>
+            <div class="monsetb text-[0.688rem] lg:text-[1rem] text-[#1A3184]">Monto a transferir</div>
             <div class="monsetb text-[1rem] lg:text-[1.5rem]">S/ {{montoT.value | number: '0.2'}}</div>
           </div>
 
