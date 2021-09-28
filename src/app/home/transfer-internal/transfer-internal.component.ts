@@ -115,7 +115,7 @@ export class TransferInternalComponent implements OnInit {
   }
 
   public redirectTransfer1(){
-    this.router.navigateByUrl('/home/transferencias/1')
+    this.router.navigateByUrl('/home/transferencias')
   }
 
   public redirectConfig(){

@@ -1,8 +1,8 @@
 <div class="w-full mt-4">
   <div class="monsetb text-[#3D3C3C] text-[1rem] lg:text-[1.5rem] flex justify-center">Transferencia a cuentas de terceros</div>
   <div class="flex justify-center">
-    <mat-stepper labelPosition="bottom" #stepper class="w-full lg:w-[49.75rem]">
-      <mat-step [editable]="false" state="done">
+    <mat-stepper labelPosition="bottom" linear #stepper class="w-full lg:w-[49.75rem]">
+      <mat-step [stepControl]="groupForm1" [editable]="false" state="done">
         <form [formGroup]="groupForm1" novalidate>
           <ng-template matStepLabel class="monset">Paso 1</ng-template>
           <div class="lg:flex">
@@ -29,7 +29,7 @@
                 Cuenta de destino
               </label>
               <mat-form-field appearance="outline" class="w-full">
-                <mat-label>Ingresa la cuenta de destino</mat-label>
+                <mat-label>Ingresa la cuenta de destino&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
                 <input matInput formControlName="selectordest" maxlength="18" autocomplete="off" (keypress)="onKeyPress($event)">
                 <mat-error *ngIf="selectordest.hasError('required')">
                   La cuenta de destino es requerida.
@@ -63,7 +63,7 @@
                 Monto a transferir
               </label>
               <mat-form-field appearance="outline" class="w-full">
-                <mat-label>Ingrese el monto</mat-label>
+                <mat-label>Ingrese el monto&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
                 <input matInput formControlName="montoT" [imask]="currencyMask" [unmask]="true" autocomplete="off" (keypress)="onKeyPressMonto($event)">
                 <mat-error *ngIf="montoT.hasError('required')">
                   El monto a transferir debería ser mayor o igual a uno.
@@ -81,10 +81,10 @@
           </div>
         </form>
         <div class="flex justify-center w-full mt-12">
-          <button (click)="cambio = montoT.value * 4" class="btn bg-[#00AF91] text-white w-[21.125rem] h-[3.75rem] monsetb" [disabled]="groupForm1.invalid" matStepperNext mat-button>Confirmar</button>
+          <button (click)="cambio = montoT.value * 4" class="btn bg-[#00AF91] text-white w-[21.125rem] h-[3.75rem] monsetb" [disabled]="groupForm1.invalid" matStepperNext mat-button>Siguiente</button>
         </div>
       </mat-step>
-      <mat-step [editable]="false" state="done">
+      <mat-step [stepControl]="groupForm2" [editable]="false" state="done">
         <form class="mt-2" [formGroup]="groupForm2">
           <ng-template matStepLabel>Paso 2</ng-template>
           <div class="w-full py-4 monset" style="text-align: center">Revisa y confirma los detalles de la transferencia:</div>
@@ -105,7 +105,7 @@
 
 
           <div class="lg:flex justify-between lg:p-2 lg:space-x-2">
-            <div class="warning px-4 mt-2 mb-2 py-2 h-[4.888rem] w-full lg:w-[21.125rem]">
+            <div class="warning px-4 lg:mt-6 mb-2 py-2 h-[4.888rem] w-full lg:w-[21.125rem]">
               <div class="text-[0.688rem] lg:text-[1rem] text-[#1A3184] monsetb">Información de la transferencia</div>
               <div class="flex justify-between mt-2">
                 <div>
@@ -126,7 +126,7 @@
                 Descripción de la operación (opcional):
               </label>
               <mat-form-field appearance="outline" class="w-full flex justify-center">
-                <mat-label>Descripción de la operación</mat-label>
+                <mat-label>Descripción de la operación&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
                 <textarea placeholder="Ingrese la descripción de la operación" matInput></textarea>
               </mat-form-field>
             </div>
@@ -137,12 +137,12 @@
             <div class="monsetb text-[1rem] lg:text-[1.5rem]">S/ {{montoT.value | number: '0.2'}}</div>
           </div>
 
-          <div class="mb-2 py-2 h-[4.688rem] w-full lg:w-[21.125rem]">
-            <label class="mb-2 text-[0.688rem] lg:text-[1rem]">
+          <div class="mb-2 py-2 h-[4.688rem] w-full lg:w-[21.125rem] block lg:hidden">
+            <label class="mb-2 text-[0.688rem] lg:text-[1rem] monset">
               Descripción de la operación (opcional):
             </label>
             <mat-form-field appearance="outline" class="w-full flex justify-center">
-              <mat-label>Descripción de la operación</mat-label>
+              <mat-label>Descripción de la operación&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
               <textarea placeholder="Ingrese la descripción de la operación" matInput></textarea>
             </mat-form-field>
           </div>
@@ -151,7 +151,7 @@
             <div style="text-align: center">
               <div class="text-[0.65rem] lg:text-[1rem] monset">Para confirmar la operación, ingresa el Token Digital</div>
               <mat-form-field appearance="outline" class="w-full lg:w-[17.938rem] mt-2">
-                <mat-label>Ingresa el Token Digital</mat-label>
+                <mat-label>Ingresa el Token Digital&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
                 <input formControlName="token" matInput maxlength="4" type="password">
               </mat-form-field>
             </div>
@@ -168,7 +168,7 @@
         </form>
         <div class="flex justify-center space-x-4 w-full mt-8">
           <button class="btn bg-[#00AF91] text-white w-[9.813rem] h-[3.75rem]" (click)="redirectTransfer1()" matStepperPrevious mat-button>Cancelar</button>
-          <button [disabled]="groupForm2.invalid" class="btn bg-[#00AF91] text-white w-[9.813rem] h-[3.75rem]" matStepperNext mat-button>Siguiente</button>
+          <button [disabled]="groupForm2.invalid" class="btn bg-[#00AF91] text-white w-[9.813rem] h-[3.75rem]" matStepperNext mat-button>Confirmar</button>
         </div>
       </mat-step>
       <mat-step [editable]="false" state="done">
@@ -239,15 +239,15 @@
           </div>
           <div class="flex justify-center mt-4">
             <div>
-              <label class="block text-[#8F8F8F] monsetb text-[1rem]">
+              <label class="block text-[#8F8F8F] font-medium monsetb text-[1rem]">
                 Enviar constancia a otro correo
               </label>
               <div class="flex justify-between">
-                <mat-form-field appearance="outline" class="w-[70%] lg:w-[19rem] mr-4">
-                  <mat-label>Correo destino</mat-label>
+                <mat-form-field appearance="outline" class="w-[70%] lg:w-[19rem] mr-1">
+                  <mat-label>Correo destino&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
                   <input  matInput type="email" [formControl]="emailFormControl" autocomplete="false">
                 </mat-form-field>
-                <button class="text-white h-[3.3rem] w-[30%] lg:w-[6.375rem]" style="background: #00AF91;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.24);border-radius: 5px;">Enviar</button>
+                <button class="text-white mt-0.5 h-[3.3rem] w-[30%] lg:w-[6.375rem]" style="background: #00AF91;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.24);border-radius: 5px;">Enviar</button>
               </div>
             </div>
           </div>

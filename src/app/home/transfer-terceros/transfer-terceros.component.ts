@@ -120,13 +120,13 @@ export class TransferTercerosComponent implements OnInit {
   // Paso3
   emailFormControl = new FormControl('', [Validators.required, Validators.email])
 
-  constructor(private router: Router, private formBuilder: FormBuilder, public dialog: MatDialog) {
+  constructor(private router: Router, private _formBuilder: FormBuilder, public dialog: MatDialog) {
   }
 
 
 
   public redirectTransfer1(){
-    this.router.navigateByUrl('/home/transferencias/3')
+    this.router.navigateByUrl('/home/transferencias')
   }
 
   public redirectConfig(){
@@ -184,14 +184,14 @@ export class TransferTercerosComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.groupForm1 = new FormGroup({
+    this.groupForm1 = this._formBuilder.group({
       montoT: this.montoT,
       selectorigin: this.selectorigin,
       selectordest: this.selectordest,
       'selectRadio': new FormControl()
     });
 
-    this.groupForm2 = new FormGroup({
+    this.groupForm2 = this._formBuilder.group({
       token: this.token
     })
 
