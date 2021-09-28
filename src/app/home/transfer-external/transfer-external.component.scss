@@ -118,3 +118,13 @@
 .icon-frecuentes{
   color: #00AF91;
 }
+
+:host ::ng-deep.mat-horizontal-content-container {
+  padding: 0 14px 24px;
+}
+
+@media (min-width: 1024px) {
+  :host ::ng-deep.mat-horizontal-content-container {
+    padding: 0 24px 24px;
+  }
+}

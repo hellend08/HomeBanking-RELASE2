@@ -40,7 +40,6 @@
               </mat-form-field>
             </div>
           </div>
-
           <div class="lg:flex -mt-6 lg:mt-4">
             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label class="block  text-[#8F8F8F] text-[1rem] mb-2">
@@ -55,7 +54,6 @@
                   Dólares
                 </mat-radio-button>
               </mat-radio-group>
-              <!--              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Jane">-->
             </div>
             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label class="block  text-[#8F8F8F] text-[1rem] mb-2">
@@ -88,9 +86,6 @@
               </mat-form-field>
             </div>
             <div class="w-full -mt-6 lg:-mt-0 md:w-1/2 px-3 mb-6 md:mb-0">
-<!--              <label class="block  text-[#8F8F8F] text-[1rem] mb-2">-->
-<!--                CCI de la cuenta de destino-->
-<!--              </label>-->
               <mat-radio-group class="example-radio-group" [(ngModel)]="variable" formControlName="variableRa" aria-label="Select an option">
                 <mat-radio-button class="example-radio-button text-[0.844rem] text-[#1A3184] monsetb" value="A">A cuenta propia</mat-radio-button>
                 <mat-radio-button class="example-radio-button text-[0.844rem] text-[#1A3184] monsetb" value="B">A cuenta de terceros</mat-radio-button>
@@ -100,11 +95,11 @@
 
           <div class="lg:flex mt-4">
             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-              <div *ngIf="variable === 'A'" class="border-t-2 border-[#3D3C3C]">
-                <label class="block mt-2  text-[#8F8F8F] text-[1rem] mb-2">
+              <div *ngIf="variable === 'A'" class="lg:border-t-2 lg:border-[#3D3C3C]">
+                <label class="block mt-2 monsetb text-[#8F8F8F] text-[1rem] mb-2">
                   Documento
                 </label>
-                <div class="text-[0.875rem] text-[#050505]">DNI: 52689536 </div>
+                <div class="text-[0.875rem] text-[#050505] monset">DNI: 52689536 </div>
               </div>
               <div *ngIf="variable === 'B'">
                 <label class="block mt-2  text-[#8F8F8F] text-[1rem] mb-2">
@@ -131,11 +126,11 @@
 
             </div>
             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-              <div *ngIf="variable === 'A'" class="border-t-2 border-[#3D3C3C]">
-                <label class="block  mt-2 text-[#8F8F8F] text-[1rem] mb-2">
+              <div *ngIf="variable === 'A'" class="lg:border-t-2 lg:border-[#3D3C3C]">
+                <label class="block monsetb mt-2 text-[#8F8F8F] text-[1rem] mb-2">
                   Nombres y Apellidos
                 </label>
-                <div class="text-[0.875rem] text-[#050505]">José Aréstegui Vásquez</div>
+                <div class="text-[0.875rem] text-[#050505] monset">José Aréstegui Vásquez</div>
               </div>
               <div *ngIf="variable === 'B'">
                 <label class="block  mt-2 text-[#8F8F8F] text-[1rem] mb-2">
@@ -182,10 +177,6 @@
               <div class="monsetb">Tipo de transferencia</div>
               <p>Diferida</p>
             </div>
-<!--            <div class="flex justify-between">-->
-<!--              <div class="monsetb">CCI de la cuenta destino</div>-->
-<!--              <p>1020520221452214522</p>-->
-<!--            </div>-->
             <div class="flex justify-between">
               <div class="monsetb">Tipo de beneficiario</div>
               <p>A cuentas de terceros</p>
@@ -213,7 +204,7 @@
           </div>
           <div class="lg:flex mt-4 justify-center">
             <div>
-              <mat-checkbox class="text-[1rem] w-full mb-4 text-[#8F8F8F]"><a (keypress)="openDialog()">He leído y acepto los <b class="text-[#00AF91]">términos y condiciones</b> para procesar esta operación.</a></mat-checkbox>
+              <mat-checkbox class="text-[1rem] w-full mb-4 text-[#8F8F8F] "><a class="whitespace-pre-wrap lg:whitespace-normal" (keypress)="openDialog()">He leído y acepto los <b class="text-[#00AF91]">términos y condiciones</b> para procesar esta operación.</a></mat-checkbox>
               <div class="lg:flex justify-between">
                 <div class="px-4">
                   <div class="text-[0.9rem] monset">Descripción de la operación (opcional):</div>
