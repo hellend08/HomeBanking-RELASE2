@@ -222,6 +222,11 @@
             </div>
           </div>
 
+          <div class="w-full lg:hidden py-4 px-4 warning mt-4 flex justify-between">
+            <div class="monsetb text-[0.688rem] lg:text-[1rem] text-[#1A3184]">Monto a transferir</div>
+            <div class="monsetb text-[1rem] lg:text-[1.5rem]"><a *ngIf="selectRadioButton == 'PEN'">S/</a><a *ngIf="selectRadioButton == 'USD'">$</a> {{montoT.value | number: '0.2'}}</div>
+          </div>
+
 <!--          <div style="border-radius: 12px;" class="w-full monset bg-[#E8F5FF] px-4 w-full lg:w-[45rem] mt-2 py-4">-->
 <!--            <div class="title text-[1rem] text-[#1A3184]">Información de la transferencia</div>-->
 <!--            <div class="flex justify-between mt-2">-->
@@ -235,8 +240,8 @@
 <!--              </div>-->
 <!--            </div>-->
 <!--          </div>-->
-          <div class="card bg-[#ECFEFB] px-2 mt-2 lg:px-4 py-2 h-auto w-full lg:w-[21.125rem]">
-            <p class="monsetb mt-10 text-[0.688rem] lg:text-[1rem]">Información de la transferencia</p>
+          <div class="card bg-[#ECFEFB] lg:block hidden px-2 mt-2 lg:px-4 py-2 h-auto w-full lg:w-[21.125rem]">
+            <p class="monsetb mt-10 text-[0.688rem] text-[#1A3184] lg:text-[1rem]">Información de la transferencia</p>
             <div class="flex justify-between ">
               <div>
                 <div>Tipo de cambio</div>
