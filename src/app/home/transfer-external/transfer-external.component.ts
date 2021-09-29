@@ -166,7 +166,8 @@ export class TransferExternalComponent implements OnInit {
       selecDNIinput: this.selecDNIinput,
       dataper: this.dataper,
       // 'selectRadio': new FormControl(),
-      'variableRa': new FormControl()
+      'variableRa': new FormControl(),
+      'selectRadio': new FormControl()
     });
     this.groupForm2 = new FormGroup({
       token: this.token

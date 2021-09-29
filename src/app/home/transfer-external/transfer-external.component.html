@@ -53,7 +53,7 @@
                   matTooltip="El monto ingresado debe ser en la misma moneda que la cuenta de destino. De lo contrario la transferencia podría ser rechazada."
                   class="text-[#F9B208]">info</mat-icon>
               </label>
-              <mat-radio-group class="flex -mx-2">
+              <mat-radio-group class="flex -mx-2" [(ngModel)]="selectRadioButton" formControlName="selectRadio">
                 <mat-radio-button checked="true" [color]="" value="PEN" style="max-width: 12rem;"
                   class="bg-white w-full rounded-lg shadow-lg py-4 text-center px-5 mx-2 monsetb text-a1">
                   Soles
@@ -155,7 +155,7 @@
                 <label *ngIf="selected !== '11'" class="block monsetb mt-2 text-[#8F8F8F] text-[1rem] mb-2">
                   Nombres y Apellidos
                 </label>
-                <label *ngIf="selected === '11'" class="block  mt-2 text-[#8F8F8F] text-[1rem] mb-2">
+                <label *ngIf="selected === '11'" class="block monsetb mt-2 text-[#8F8F8F] text-[1rem] mb-2">
                   Razon Social
                 </label>
                 <mat-form-field appearance="outline" class="w-full monset">
@@ -170,6 +170,10 @@
             </div>
           </div>
 
+          <div *ngIf="selectRadioButton === 'USD'" [@changeState] class="flex mx-auto h-[2.75rem] px-1 lg:px-6 monset space-x-2 lg:space-x-4 lg:mt-4 lg:py-2 warning w-full lg:w-[32.125rem]">
+            <div><mat-icon class="text-[#F9B208] my-2 lg:my-0">warning</mat-icon></div>
+            <div class="py-1 text-[#1A3184] text-[0.75rem]">Recuerda que esta operación será afectada al tipo de cambio</div>
+          </div>
           <!-- <div class="flex px-4 lg:px-10 w-full justify-center monsetb mt-6 pb-5 lg:pb-0"> -->
             <!-- <div class="text-[#8F8F8F] text-[11px] lg:text-[1rem] text-center">Consulta el <b
                 class="text-[#00AF91] cursor-pointer" (click)="openDialog()">horario de atención</b> y las <b
@@ -202,14 +206,30 @@
               <div class="monset text-xs lg:text-[15px] lg:-mt-1">{{selector2 + ' ' + numCCI}}</div>
             </div>
           </div>
-          <div class="mt-8 px-4 py-3 card">
+
+          <div style="border-radius: 12px;" class="w-full monset bg-[#E8F5FF] px-4 w-full lg:w-[45rem] mt-2 py-4">
+            <div class="title text-[1rem] text-[#1A3184]">Información de la transferencia</div>
+            <div class="flex justify-between mt-2">
+              <div class="flex justify-between w-[35%]">
+                <span class="text-[1rem] text-[#050505]">Tipo de cambio</span>
+                <span class="text-[1rem] text-[#050505]">S/ 4.00</span>
+              </div>
+              <div class="flex justify-between mr-20 w-[35%]">
+                <span class="text-[1rem] text-[#050505]">Monto al cambio</span>
+                <span class="text-[1rem] text-[#050505]">$ 25.00</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 px-4 py-3 card w-full lg:w-[45rem]">
             <div class="flex flex-col lg:flex-row justify-between">
               <div class="monsetb">Tipo de transferencia</div>
               <p>Diferida</p>
             </div>
             <div class="flex flex-col lg:flex-row justify-between">
               <div class="monsetb">Tipo de beneficiario</div>
-              <p>A cuentas de terceros</p>
+              <p *ngIf="variable === 'A'">A cuentas propias</p>
+              <p *ngIf="variable === 'B'">A cuentas de terceros</p>
             </div>
             <div class="flex flex-col lg:flex-row justify-between">
               <div class="monsetb">Nombres y Apellidos del beneficiario</div>
@@ -328,7 +348,8 @@
               <!--              </div>-->
               <div class="flex justify-between">
                 <div class="monsetb">Tipo de beneficiario</div>
-                <p>A cuentas de terceros</p>
+                <p *ngIf="variable === 'A'">A cuentas propias</p>
+                <p *ngIf="variable === 'B'">A cuentas de terceros</p>
               </div>
               <div class="flex justify-between">
                 <div class="monsetb">Nombres y Apellidos del beneficiario</div>

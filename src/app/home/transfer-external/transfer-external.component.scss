@@ -65,7 +65,7 @@
     bottom: 10px;
     right: 20px;
   }
-  
+
 }
 
 .btn-descarga{
@@ -79,6 +79,14 @@
   padding-top: 2px;
   padding-bottom: 2px;
   height: auto !important;
+}
+
+.title{
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.005em;
 }
 
 .cardMonto{
@@ -157,7 +165,7 @@
       // bottom: 10px;
       // left: 10px;
     }
-  
+
     &.second2 {
       position: inherit;
       // bottom: 10px;
