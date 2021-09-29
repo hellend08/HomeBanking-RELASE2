@@ -54,12 +54,11 @@
                   class="text-[#F9B208]">info</mat-icon>
               </label>
               <mat-radio-group class="flex -mx-2" [(ngModel)]="selectRadioButton" formControlName="selectRadio">
-                <mat-radio-button [checked]="true" [color]="" value="PEN" style="max-width: 12rem;"
-                  class="bg-white w-full rounded-lg shadow-lg py-4 text-center px-5 mx-2 monsetb text-a1">
+                <mat-radio-button [ngClass]="{btnMoney: sol === true}" (click)="soles()" checked="true" value="PEN" style="max-width: 12rem;" class="w-full rounded-lg shadow-lg py-4 text-center px-5 mx-2 monsetb text-a1">
                   Soles
                 </mat-radio-button>
-                <mat-radio-button value="USD" style="max-width: 12rem;"
-                  class="bg-white w-full rounded-lg shadow-lg py-4 text-center px-5 mx-2 monsetb text-a1">
+                <mat-radio-button [ngClass]="{btnMoney: dol === true}" (click)="dolar()" value="USD" style="max-width: 12rem;"
+                                  class="bg-white w-full rounded-lg shadow-lg py-4 text-center px-5 mx-2 monsetb text-a1">
                   Dólares
                 </mat-radio-button>
               </mat-radio-group>
@@ -68,10 +67,9 @@
               <label class="block monsetb text-[#8F8F8F] text-[1rem] mb-2">
                 Monto a transferir
               </label>
-              <mat-form-field appearance="outline" class="w-full monset text-sm">
+              <mat-form-field appearance="outline" class="w-full">
                 <mat-label>Ingrese el monto</mat-label>
-                <input matInput autocomplete="off" [imask]="currencyMask" [unmask]="true" formControlName="montoT"
-                  (keypress)="onKeyPressMonto($event)" placeholder="Ingresa el monto">
+                <input matInput formControlName="montoT" [imask]="currencyMask" [unmask]="true" autocomplete="off" (keypress)="onKeyPressMonto($event)">
                 <span class="text-[1rem]" *ngIf="selectRadioButton == 'USD'" matPrefix>$</span>
                 <span class="text-[1rem]" *ngIf="selectRadioButton == 'PEN'" matPrefix>S/</span>
                 <a matPrefix style="color: transparent">--</a>
@@ -82,6 +80,20 @@
                   El monto a transferir debería ser mayor o igual a uno.
                 </mat-error>
               </mat-form-field>
+<!--              <mat-form-field appearance="outline" class="w-full monset text-sm">-->
+<!--                <mat-label>Ingrese el monto</mat-label>-->
+<!--                <input matInput autocomplete="off" [imask]="currencyMask" [unmask]="true" formControlName="montoT"-->
+<!--                  (keypress)="onKeyPressMonto($event)" placeholder="Ingresa el monto">-->
+<!--                <span class="text-[1rem]" *ngIf="selectRadioButton == 'USD'" matPrefix>$</span>-->
+<!--                <span class="text-[1rem]" *ngIf="selectRadioButton == 'PEN'" matPrefix>S/</span>-->
+<!--                <a matPrefix style="color: transparent">&#45;&#45;</a>-->
+<!--                <mat-error *ngIf="montoT.hasError('required')">-->
+<!--                  El monto a transferir debería ser mayor o igual a uno.-->
+<!--                </mat-error>-->
+<!--                <mat-error *ngIf="montoT.hasError('min')">-->
+<!--                  El monto a transferir debería ser mayor o igual a uno.-->
+<!--                </mat-error>-->
+<!--              </mat-form-field>-->
             </div>
           </div>
 
@@ -312,7 +324,7 @@
                     <mat-label>Ingresa el Token Digital</mat-label>
                     <input type="password" formControlName="token" [(ngModel)]="inputtoken" maxlength="6" x
                       (keypress)="onKeyPress($event)" matInput>
-                    <mat-icon matSuffix *ngIf="inputtoken == 1234" class="text-[#00AF91]">check_circle</mat-icon>
+                    <mat-icon matSuffix *ngIf="inputtoken == 123456" class="text-[#00AF91]">check_circle</mat-icon>
                   </mat-form-field>
                 </div>
               </div>

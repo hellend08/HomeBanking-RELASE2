@@ -117,7 +117,7 @@ export class TransferTercerosComponent implements OnInit {
 
   // Paso2
   groupForm2!: FormGroup;
-  token = new FormControl('', [Validators.required]);
+  token = new FormControl('', [Validators.required, Validators.minLength(6)]);
 
   // Paso3
   emailFormControl = new FormControl('', [Validators.required, Validators.email])

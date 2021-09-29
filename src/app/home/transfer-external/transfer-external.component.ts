@@ -13,6 +13,9 @@ import {min} from "rxjs/operators";
 })
 export class TransferExternalComponent implements OnInit {
 
+  sol = true;
+  dol = false;
+  
   maskProps = {
     mask: Number,
     thousandsSeparator: ",",
@@ -158,6 +161,16 @@ export class TransferExternalComponent implements OnInit {
       console.log(`Dialog result: ${result}`)
       this.frecuente = result;
     })
+  }
+
+  soles(){
+    this.sol = true;
+    this.dol = false;
+  }
+
+  dolar(){
+    this.sol = false;
+    this.dol = true;
   }
 
   ngOnInit(): void {
