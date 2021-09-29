@@ -117,8 +117,8 @@
                 </div>
                 <div>
                   <div class="text-[0.75rem] monset">Total al cambio</div>
-                  <div class="text-[0.688rem] text-right lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'PEN'">$ 25.00</div>
-                  <div class="text-[0.688rem] lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'USD'">S/ 4.00</div>
+                  <div class="text-[0.688rem] text-right lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'PEN'">$ {{montoT.value / 4 | number: '0.2'}}</div>
+                  <div class="text-[0.688rem] lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'USD'">S/ {{montoT.value * 4 | number: '0.2'}}</div>
                 </div>
               </div>
             </div>
@@ -207,7 +207,7 @@
               </div>
               <div class="lg:block hidden card px-2 flex py-4 h-auto lg:h-[4.688rem] w-full lg:w-[21.125rem]">
                 <p class="monsetb text-[0.688rem] lg:text-[1rem] text-[#1A3184] lg:text-black">Monto total transferido</p>
-                <p class="monsetb text-[1rem] lg:text-[1rem]">$ 100.00</p>
+                <p class="monsetb text-[1rem] lg:text-[1rem]"><a *ngIf="selectRadioButton == 'PEN'">S/</a><a *ngIf="selectRadioButton == 'USD'">$</a> {{montoT.value | number: '0.2'}}</p>
               </div>
             </div>
             <div class="lg:space-x-6 mt-4 lg:flex justify-between">
@@ -216,11 +216,13 @@
                 <div class="flex justify-between -mt-2">
                   <div>
                     <div>Tipo de cambio</div>
-                    <div class="monsetb text-[1rem]">S/ 4.00</div>
+                    <div class="text-[0.688rem] lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'USD'">S/ 4.00</div>
+                    <div class="text-[0.688rem] text-right lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'PEN'">$ 25.00</div>
                   </div>
                   <div>
                     <div>Monto al cambio</div>
-                    <div class="monsetb text-[1rem]">$ 25.00</div>
+                    <div class="text-[0.688rem] text-right lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'PEN'">$ {{montoT.value / 4 | number: '0.2'}}</div>
+                    <div class="text-[0.688rem] lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'USD'">S/ {{montoT.value * 4 | number: '0.2'}}</div>
                   </div>
                 </div>
               </div>
