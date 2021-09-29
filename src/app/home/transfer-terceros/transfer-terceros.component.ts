@@ -31,6 +31,7 @@ interface Data{
   ],
 })
 export class TransferTercerosComponent implements OnInit {
+  inputtoken!: number;
 
   maskProps = {
     mask: Number,
