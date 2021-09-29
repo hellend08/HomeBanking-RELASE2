@@ -4,6 +4,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {MatDialog} from "@angular/material/dialog";
 import {TerminosCondicionesComponent} from "./terminos-condiciones/terminos-condiciones.component";
 import {DialogFrecuentesComponent} from "../dialog-frecuentes/dialog-frecuentes.component";
+import {min} from "rxjs/operators";
 
 @Component({
   selector: 'app-transfer-external',
@@ -39,13 +40,13 @@ export class TransferExternalComponent implements OnInit {
         mask: "" // To hide $ if field is empty
       },
       {
-        mask: "S/num",
+        mask: "num",
         blocks: {
           num: this.maskProps
         }
       },
       {
-        mask: "-S/num",
+        mask: "-num",
         blocks: {
           num: this.maskProps2
         }
@@ -107,9 +108,11 @@ export class TransferExternalComponent implements OnInit {
   CCI = new FormControl('', [Validators.required]);
   dataper = new FormControl('', [Validators.required]);
   selecDNIinput = new FormControl('', [Validators.required, Validators.minLength(8),]);
-  token = new FormControl('', Validators.required);
+  token = new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(6)] );
   // email = new FormControl('', Validators.email)
   email = new FormControl('', [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')])
+
+  check = new FormControl('', Validators.required)
 
   constructor(private router: Router, public dialog: MatDialog) { }
 
@@ -170,7 +173,8 @@ export class TransferExternalComponent implements OnInit {
       'selectRadio': new FormControl()
     });
     this.groupForm2 = new FormGroup({
-      token: this.token
+      token: this.token,
+      check: this.check
     });
     this.groupForm3 = new FormGroup({
       email: this.email
