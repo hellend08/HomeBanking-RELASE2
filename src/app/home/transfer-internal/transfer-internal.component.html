@@ -115,8 +115,8 @@
                 <div class="flex justify-between mt-2">
                   <div>
                     <div class="text-[0.75rem] monset">Tipo de cambio</div>
-                    <div class="text-[0.688rem] lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'USD'">S/ 4.00</div>
-                    <div class="text-[0.688rem] text-right lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'PEN'">$ 25.00</div>
+                    <div class="text-[0.688rem] lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'USD'">$ 25.00</div>
+                    <div class="text-[0.688rem] text-right lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'PEN'">S/ 4.00</div>
                   </div>
                   <div>
                     <div class="text-[0.75rem] monset">Total al cambio</div>
@@ -209,11 +209,13 @@
                 <div class="flex justify-between -mt-2">
                   <div>
                     <div>Tipo de cambio</div>
-                    <div class="monsetb text-[1rem]">S/ 4.00</div>
+                    <div class="text-[0.688rem] lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'USD'">$ 25.00</div>
+                    <div class="text-[0.688rem] text-right lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'PEN'">S/ 4.00</div>
                   </div>
                   <div>
                     <div>Monto al cambio</div>
-                    <div class="monsetb text-[1rem]">$ 25.00</div>
+                    <div class="text-[0.688rem] text-right lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'PEN'">$ {{montoT.value / 4 | number: '0.2'}}</div>
+                    <div class="text-[0.688rem] lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'USD'">S/ {{montoT.value * 4 | number: '0.2'}}</div>
                   </div>
                 </div>
               </div>
