@@ -184,8 +184,8 @@
             <div class="text-[#8F8F8F] text-[11px] lg:text-[1rem] text-center">Consulta el <a class="text-[#00AF91] font-semibold cursor-pointer" href="https://www.google.com.mx/" target="_blank">horario de atención</a> y las <a class="text-[#00AF91] font-semibold cursor-pointer" href="https://www.google.com.mx/" target="_blank">tarifas y comisiones</a> de los tipos de transferencia.</div>
           </div>
         </form>
-        <div class="flex justify-center w-full mt-12">
-          <button class="btn first w-[21.125rem] h-[53px] lg:h-[3.75rem]" matStepperNext mat-button>Siguiente</button>
+        <div class="flex justify-center w-full mt-12 bg-[#F6F6F6] lg:bg-white">
+          <button class="btn first w-[18.625rem] lg:w-[21.125rem] h-[53px] lg:h-[3.75rem]" matStepperNext mat-button>Siguiente</button>
         </div>
       </mat-step>
       <mat-step [editable]="false" state="done">
@@ -207,16 +207,31 @@
             </div>
           </div>
 
-          <div style="border-radius: 12px;" class="w-full monset bg-[#E8F5FF] px-4 w-full lg:w-[45rem] mt-2 py-4">
-            <div class="title text-[1rem] text-[#1A3184]">Información de la transferencia</div>
-            <div class="flex justify-between mt-2">
-              <div class="flex justify-between w-[35%]">
-                <span class="text-[1rem] text-[#050505]">Tipo de cambio</span>
-                <span class="text-[1rem] text-[#050505]">S/ 4.00</span>
+<!--          <div style="border-radius: 12px;" class="w-full monset bg-[#E8F5FF] px-4 w-full lg:w-[45rem] mt-2 py-4">-->
+<!--            <div class="title text-[1rem] text-[#1A3184]">Información de la transferencia</div>-->
+<!--            <div class="flex justify-between mt-2">-->
+<!--              <div class="flex justify-between w-[35%]">-->
+<!--                <span class="text-[1rem] text-[#050505]">Tipo de cambio</span>-->
+<!--                <span class="text-[1rem] text-[#050505]">S/ 4.00</span>-->
+<!--              </div>-->
+<!--              <div class="flex justify-between mr-20 w-[35%]">-->
+<!--                <span class="text-[1rem] text-[#050505]">Monto al cambio</span>-->
+<!--                <span class="text-[1rem] text-[#050505]">$ 25.00</span>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+          <div class="card bg-[#ECFEFB] px-2 mt-2 lg:px-4 py-2 h-auto w-full lg:w-[21.125rem]">
+            <p class="monsetb mt-10 text-[0.688rem] lg:text-[1rem]">Información de la transferencia</p>
+            <div class="flex justify-between ">
+              <div>
+                <div>Tipo de cambio</div>
+                <div class="text-[0.688rem] lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'USD'">S/ 4.00</div>
+                <div class="text-[0.688rem] text-right lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'PEN'">S/ 4.00</div>
               </div>
-              <div class="flex justify-between mr-20 w-[35%]">
-                <span class="text-[1rem] text-[#050505]">Monto al cambio</span>
-                <span class="text-[1rem] text-[#050505]">$ 25.00</span>
+              <div>
+                <div>Monto al cambio</div>
+                <div class="text-[0.688rem] text-right lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'PEN'">$ {{montoT.value / 4 | number: '0.2'}}</div>
+                <div class="text-[0.688rem] lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'USD'">S/ {{montoT.value * 4 | number: '0.2'}}</div>
               </div>
             </div>
           </div>
@@ -302,8 +317,8 @@
           </div>
         </form>
         <div class="flex justify-center space-x-4 w-full mt-8">
-          <button class="btn second w-[9.813rem] h-[3.75rem]" (click)="redirectTransfer()" mat-button>Cancelar</button>
-          <button [disabled]="groupForm2.invalid" class="btn second2 w-[9.813rem] h-[3.75rem]" matStepperNext
+          <button class="btn second w-[8.963rem] lg:w-[9.813rem] h-[3.75rem]" (click)="redirectTransfer()" mat-button>Cancelar</button>
+          <button [disabled]="groupForm2.invalid" class="btn second2 w-[8.963rem] lg:w-[9.813rem] h-[3.75rem]" matStepperNext
             mat-button>Confirmar</button>
         </div>
       </mat-step>
@@ -334,11 +349,11 @@
             </div>
 
             <div class="mt-8 px-4 py-2 card">
-              <div class="flex justify-between">
+              <div class="lg:flex justify-between">
                 <div class="monsetb">Número de operación</div>
                 <p>001</p>
               </div>
-              <div class="flex justify-between">
+              <div class="lg:flex justify-between">
                 <div class="monsetb">Tipo de transferencia</div>
                 <p>Diferida</p>
               </div>
@@ -346,28 +361,28 @@
               <!--                <div class="monsetb">CCI de la cuenta destino</div>-->
               <!--                <p>{{numCCI}}</p>-->
               <!--              </div>-->
-              <div class="flex justify-between">
+              <div class="lg:flex justify-between">
                 <div class="monsetb">Tipo de beneficiario</div>
                 <p *ngIf="variable === 'A'">A cuentas propias</p>
                 <p *ngIf="variable === 'B'">A cuentas de terceros</p>
               </div>
-              <div class="flex justify-between">
+              <div class="lg:flex justify-between">
                 <div class="monsetb">Nombres y Apellidos del beneficiario</div>
                 <p>José Aréstegui Vásquez</p>
               </div>
-              <div class="flex justify-between">
+              <div class="lg:flex justify-between">
                 <div class="monsetb">Monto</div>
                 <p>{{montoT.value}}</p>
               </div>
-              <div class="flex justify-between">
+              <div class="lg:flex justify-between">
                 <div class="monsetb">Comisión CML</div>
                 <p>S/ 3.00 </p>
               </div>
-              <div class="flex justify-between">
+              <div class="lg:flex justify-between">
                 <div class="monsetb">ITF</div>
                 <p>S/ 0.00</p>
               </div>
-              <div class="flex justify-between">
+              <div class="lg:flex justify-between">
                 <div class="monsetb">Monto total</div>
                 <p class="monsetb">S/ 103.80</p>
               </div>
@@ -406,8 +421,9 @@
           </div>
         </form>
         <div class="flex justify-center space-x-4 w-full mt-8">
-          <button class="btn w-[9.813rem] h-[3.75rem]" (click)="redirectTransfer()" mat-button>Nueva
-            transferencia</button>
+          <button style="text-align: center" class="btn w-[9.813rem] lg:w-[9.813rem] text-[0.844rem] h-[3.75rem] px-4" (click)="redirectTransfer()" mat-button>
+            <span style="margin-left: -8px;">Nueva transferencia</span>
+          </button>
           <button class="btn w-[9.813rem] h-[3.75rem]" (click)="redirectConfig()" mat-button>Ir al inicio</button>
         </div>
       </mat-step>
