@@ -15,7 +15,7 @@ export class TransferExternalComponent implements OnInit {
 
   sol = true;
   dol = false;
-  
+
   maskProps = {
     mask: Number,
     thousandsSeparator: ",",
@@ -115,6 +115,7 @@ export class TransferExternalComponent implements OnInit {
   // email = new FormControl('', Validators.email)
   email = new FormControl('', [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')])
 
+  emailFormControl = new FormControl('', [Validators.required, Validators.email])
   check = new FormControl('', Validators.required)
 
   constructor(private router: Router, public dialog: MatDialog) { }

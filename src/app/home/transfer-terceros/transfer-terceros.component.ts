@@ -120,7 +120,7 @@ export class TransferTercerosComponent implements OnInit {
   token = new FormControl('', [Validators.required, Validators.minLength(6)]);
 
   // Paso3
-  emailFormControl = new FormControl('', [Validators.required, Validators.email])
+  emailFormControl = new FormControl('', [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')])
 
   constructor(private router: Router, private _formBuilder: FormBuilder, public dialog: MatDialog) {
   }
