@@ -65,6 +65,8 @@
               <mat-form-field appearance="outline" class="w-full">
                 <mat-label>Ingrese el monto&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
                 <input matInput formControlName="montoT" [imask]="currencyMask" [unmask]="true" autocomplete="off" (keypress)="onKeyPressMonto($event)">
+                <span class="text-[1rem]" *ngIf="selectRadioButton == 'USD'" matPrefix>$</span>
+                <span class="text-[1rem]" *ngIf="selectRadioButton == 'PEN'" matPrefix>S/</span>
                 <mat-error *ngIf="montoT.hasError('required')">
                   El monto a transferir debería ser mayor o igual a uno.
                 </mat-error>
@@ -134,7 +136,7 @@
 
           <div class="w-full py-4 px-4 warning mt-4 flex justify-between">
             <div class="monsetb text-[0.688rem] lg:text-[1rem] text-[#1A3184]">Monto a transferir</div>
-            <div class="monsetb text-[1rem] lg:text-[1.5rem]">S/ {{montoT.value | number: '0.2'}}</div>
+            <div class="monsetb text-[1rem] lg:text-[1.5rem]"><a *ngIf="selectRadioButton == 'PEN'">S/</a><a *ngIf="selectRadioButton == 'USD'">$</a> {{montoT.value | number: '0.2'}}</div>
           </div>
 
           <div class="mb-2 py-2 h-[4.688rem] w-full lg:w-[21.125rem] block lg:hidden">
@@ -201,7 +203,7 @@
               </div>
               <div class="w-full lg:hidden py-4 px-4 warning mt-4 flex justify-between">
                 <div class="monsetb text-[0.688rem] lg:text-[1rem] text-[#1A3184]">Monto total transferido</div>
-                <div class="monsetb text-[1rem] lg:text-[1rem]">$ 100.00</div>
+                <div class="monsetb text-[1rem] lg:text-[1rem]"><a *ngIf="selectRadioButton == 'PEN'">S/</a><a *ngIf="selectRadioButton == 'USD'">$</a> {{montoT.value | number: '0.2'}}</div>
               </div>
               <div class="lg:block hidden card px-2 flex py-4 h-auto lg:h-[4.688rem] w-full lg:w-[21.125rem]">
                 <p class="monsetb text-[0.688rem] lg:text-[1rem] text-[#1A3184] lg:text-black">Monto total transferido</p>
