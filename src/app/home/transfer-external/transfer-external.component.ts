@@ -113,7 +113,7 @@ export class TransferExternalComponent implements OnInit {
   selecDNIinput = new FormControl('', [Validators.required, Validators.minLength(8),]);
   token = new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(6)] );
   // email = new FormControl('', Validators.email)
-  email = new FormControl('', [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')])
+  email = new FormControl('', [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+\\A-Z]+@[a-z0-9.-\\A-Z]+\\.[a-z]{2,4}$')])
 
   emailFormControl = new FormControl('', [Validators.required, Validators.email])
   check = new FormControl('', Validators.required)
