@@ -53,13 +53,13 @@ export class TransferInternalComponent implements OnInit {
         mask: "" // To hide $ if field is empty
       },
       {
-        mask: "S/num",
+        mask: "num",
         blocks: {
           num: this.maskProps
         }
       },
       {
-        mask: "-S/num",
+        mask: "-num",
         blocks: {
           num: this.maskProps2
         }
