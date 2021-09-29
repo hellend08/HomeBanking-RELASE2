@@ -283,7 +283,7 @@
 
             <div class="cardMonto lg:hidden mt-4 bg-[#E8F5FF] px-2 flex justify-between py-4 h-auto lg:h-[4.688rem] w-full lg:w-[21.125rem]">
               <div class="monsetb text-[0.688rem] lg:text-[1rem] text-[#1A3184] lg:text-black">Monto total transferido</div>
-              <div class="monsetb text-[1rem] lg:text-[1.5rem]">$ 100.00</div>
+              <div class="monsetb text-[1rem] lg:text-[1.5rem]"><a *ngIf="selectRadioButton == 'PEN'">S/</a><a *ngIf="selectRadioButton == 'USD'">$</a> {{montoT.value | number: '0.2'}}</div>
             </div>
 
             <div class="mt-8 px-4 py-2 card">
