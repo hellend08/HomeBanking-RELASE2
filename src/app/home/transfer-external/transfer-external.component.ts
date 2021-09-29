@@ -72,17 +72,20 @@ export class TransferExternalComponent implements OnInit {
 
   selectdata: any[] = [
     {id: '1', nombre: 'BCP'},
-    {id: '1', nombre: 'BBVA'},
-    {id: '1', nombre: 'Interbank'},
-    {id: '1', nombre: 'Scotiabank'},
-    {id: '1', nombre: 'Banco de la Nación'}
+    {id: '2', nombre: 'BBVA'},
+    {id: '3', nombre: 'Interbank'},
+    {id: '4', nombre: 'Scotiabank'},
+    {id: '5', nombre: 'Banco de la Nación'}
   ]
 
   selectCuentas: any[] = [
     {value: '1', tipo: 'Ahorros Soles', cuenta: 102030405060701234},
-    {value: '1', tipo: 'Ahorros Dolares', cuenta: 202030405060711234},
-    {value: '1', tipo: 'Ahorros Soles', cuenta: 302030405060721234},
+    {value: '2', tipo: 'Ahorros Dolares', cuenta: 202030405060711234},
+    {value: '3', tipo: 'Ahorros Soles', cuenta: 302030405060721234},
   ]
+
+  selected = '8';
+  valordocument = "8";
 
   //cuentas propias y terceros
   frecuente!: boolean;
@@ -105,7 +108,8 @@ export class TransferExternalComponent implements OnInit {
   dataper = new FormControl('', [Validators.required]);
   selecDNIinput = new FormControl('', [Validators.required, Validators.minLength(8),]);
   token = new FormControl('', Validators.required);
-  email = new FormControl('', Validators.email)
+  // email = new FormControl('', Validators.email)
+  email = new FormControl('', [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')])
 
   constructor(private router: Router, public dialog: MatDialog) { }
 
@@ -171,5 +175,7 @@ export class TransferExternalComponent implements OnInit {
       email: this.email
     })
   }
+
+
 
 }
