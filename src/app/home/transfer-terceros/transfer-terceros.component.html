@@ -113,8 +113,8 @@
               <div class="flex justify-between mt-2">
                 <div>
                   <div class="text-[0.75rem] monset">Tipo de cambio</div>
-                  <div class="text-[0.688rem] lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'USD'">$ 25.00</div>
-                  <div class="text-[0.688rem] text-right lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'PEN'">S/ 4.00</div>
+                  <div class="text-[0.688rem] lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'USD'">S/ 4.00</div>
+                  <div class="text-[0.688rem] text-right lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'PEN'">$ 25.00</div>
                 </div>
                 <div>
                   <div class="text-[0.75rem] monset">Monto al cambio</div>
@@ -214,12 +214,12 @@
             </div>
             <div class="lg:space-x-6 mt-4 lg:flex justify-between">
               <div class="card px-2 mt-2 lg:px-4 py-2 h-auto w-full lg:w-[21.125rem]">
-                <p class="monsetb text-[0.688rem] lg:text-[1rem]">Información de la transferencia</p>
-                <div class="flex justify-between -mt-2">
+                <p class="monsetb mt-10 text-[0.688rem] lg:text-[1rem]">Información de la transferencia</p>
+                <div class="flex justify-between ">
                   <div>
                     <div>Tipo de cambio</div>
-                    <div class="text-[0.688rem] lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'USD'">$ 25.00</div>
-                    <div class="text-[0.688rem] text-right lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'PEN'">S/ 4.00</div>
+                    <div class="text-[0.688rem] lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'USD'">S/ 4.00</div>
+                    <div class="text-[0.688rem] text-right lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'PEN'">$ 25.00</div>
                   </div>
                   <div>
                     <div>Monto al cambio</div>
@@ -236,7 +236,7 @@
 <!--              </div>-->
 
               <div class="flex rounded-xl text-[#F34E4E] bg-[#E8F5FF] justify-between px-2 mt-2 lg:px-4 py-4 min-h-[4.688rem] w-full lg:w-[21.125rem]">
-                <div class="py-4 mr-6"><mat-icon class="my-auto">warning</mat-icon></div>
+                <div class="py-2 mr-2"><mat-icon class="my-auto">warning</mat-icon></div>
                 <div class="text-[0.65rem] lg:text-[0.75rem]">No se pudo enviar la constancia de tu operación debido a que no cuentas con
                   un correo registrado. Acércate a la agencia
                   más cercana para actualizar tus datos.
