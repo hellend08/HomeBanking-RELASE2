@@ -48,6 +48,24 @@
   background: #00AF91;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.24);
   border-radius: 20px;
+
+  &.first {
+    position: fixed;
+    bottom: 10px;
+  }
+
+  &.second {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+  }
+
+  &.second2 {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+  }
+  
 }
 
 .btn-descarga{
@@ -117,4 +135,33 @@
 
 .icon-frecuentes{
   color: #00AF91;
+}
+
+:host ::ng-deep.mat-horizontal-content-container {
+  padding: 0 14px 24px;
+}
+
+@media (min-width: 1024px) {
+  :host ::ng-deep.mat-horizontal-content-container {
+    padding: 0 24px 24px;
+  }
+
+  .btn {
+
+    &.first {
+      position: inherit;
+    }
+
+    &.second {
+      position: inherit;
+      // bottom: 10px;
+      // left: 10px;
+    }
+  
+    &.second2 {
+      position: inherit;
+      // bottom: 10px;
+      // right: 10px;
+    }
+  }
 }
