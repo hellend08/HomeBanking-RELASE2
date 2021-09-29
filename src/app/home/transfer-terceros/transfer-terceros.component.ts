@@ -59,13 +59,13 @@ export class TransferTercerosComponent implements OnInit {
         mask: "" // To hide $ if field is empty
       },
       {
-        mask: "S/num",
+        mask: "num",
         blocks: {
           num: this.maskProps
         }
       },
       {
-        mask: "-S/num",
+        mask: "-num",
         blocks: {
           num: this.maskProps2
         }
@@ -95,7 +95,7 @@ export class TransferTercerosComponent implements OnInit {
 
   selectdata: Data[] = [
     {value: '1', tipo: 'Ahorros Soles', cuenta: 102030405060701234},
-    {value: '2', tipo: 'Ahorros Dolares', cuenta: 202030405060711234},
+    {value: '2', tipo: 'Ahorros Dólares', cuenta: 202030405060711234},
     {value: '3', tipo: 'Ahorros Soles', cuenta: 302030405060721234},
   ]
 

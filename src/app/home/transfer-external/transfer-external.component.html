@@ -170,11 +170,14 @@
             </div>
           </div>
 
-          <div class="flex px-4 lg:px-10 w-full justify-center monsetb mt-6 pb-5 lg:pb-0">
-            <div class="text-[#8F8F8F] text-[11px] lg:text-[1rem] text-center">Consulta el <b
+          <!-- <div class="flex px-4 lg:px-10 w-full justify-center monsetb mt-6 pb-5 lg:pb-0"> -->
+            <!-- <div class="text-[#8F8F8F] text-[11px] lg:text-[1rem] text-center">Consulta el <b
                 class="text-[#00AF91] cursor-pointer" (click)="openDialog()">horario de atención</b> y las <b
                 class="text-[#00AF91] cursor-pointer" (click)="openDialog()">tarifas y comisiones</b> de los tipos de
-              transferencia.</div>
+              transferencia.</div> -->
+
+          <div class="flex px-4 lg:px-10 w-full justify-center monsetb mt-6 pb-5 lg:pb-0">
+            <div class="text-[#8F8F8F] text-[11px] lg:text-[1rem] text-center">Consulta el <a class="text-[#00AF91] font-semibold cursor-pointer" href="https://www.google.com.mx/" target="_blank">horario de atención</a> y las <a class="text-[#00AF91] font-semibold cursor-pointer" href="https://www.google.com.mx/" target="_blank">tarifas y comisiones</a> de los tipos de transferencia.</div>
           </div>
         </form>
         <div class="flex justify-center w-full mt-12">
@@ -231,9 +234,15 @@
           </div>
           <div class="lg:flex mt-4 justify-center">
             <div>
-              <mat-checkbox style="display: flex !important;" class="text-xs monset font-bold lg:font-medium lg:text-[1rem] w-11/12 lg:w-full mx-auto my-5 lg:my-4 text-[#8F8F8F]"><a
-                  class="whitespace-pre-wrap lg:whitespace-normal" (keypress)="openDialog()">He leído y acepto los <b
-                    class="text-[#00AF91]">términos y condiciones</b> para procesar esta operación.</a></mat-checkbox>
+              <mat-checkbox style="display: flex !important;" class="text-xs monset font-bold lg:font-medium lg:text-[1rem] w-11/12 lg:w-full mx-auto my-5 lg:my-4 text-[#8F8F8F]">
+                <span class="whitespace-pre-wrap lg:whitespace-normal"> He leído y acepto los <a href="https://www.google.com.mx/" target="_blank" class="font-semibold text-[#00AF91]">términos y condiciones</a>
+                  para procesar esta operación.</span></mat-checkbox>
+              <!-- <mat-checkbox class="text-[1rem] w-full mb-4 text-[#8F8F8F]">
+                <span>He leído y acepto los     class="whitespace-pre-wrap lg:whitespace-normal"
+                  <a  class="font-semibold text-[#00AF91]">términos y condiciones</a> para procesar esta operación.
+                </span>
+              </mat-checkbox> -->
+
               <div class="lg:flex justify-between">
                 <div class="lg:px-4">
                   <div class="text-[0.9rem] monset font-bold lg:font-medium">Descripción de la operación (opcional):</div>
