@@ -1,20 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {MatDialog} from "@angular/material/dialog";
-import {TerminosCondicionesComponent} from "./terminos-condiciones/terminos-condiciones.component";
-import {DialogFrecuentesComponent} from "../dialog-frecuentes/dialog-frecuentes.component";
-import {min} from "rxjs/operators";
+import { Router } from "@angular/router";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { MatDialog } from "@angular/material/dialog";
+import { TerminosCondicionesComponent } from "./terminos-condiciones/terminos-condiciones.component";
+import { DialogFrecuentesComponent } from "../dialog-frecuentes/dialog-frecuentes.component";
+import { min } from "rxjs/operators";
+import { trigger, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-transfer-external',
   templateUrl: './transfer-external.component.html',
-  styleUrls: ['./transfer-external.component.scss']
+  styleUrls: ['./transfer-external.component.scss'],
+  animations: [
+    trigger('changeState', [
+      transition('USD => PEN', [
+        animate('1s')
+      ]),
+  ])
+  ]
+
 })
 export class TransferExternalComponent implements OnInit {
 
   sol = true;
   dol = false;
+
+  default: boolean = true;
 
   maskProps = {
     mask: Number,

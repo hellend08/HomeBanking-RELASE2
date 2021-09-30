@@ -54,7 +54,7 @@
                   class="text-[#F9B208]">info</mat-icon>
               </label>
               <mat-radio-group class="flex -mx-2" [(ngModel)]="selectRadioButton" formControlName="selectRadio">
-                <mat-radio-button [ngClass]="{btnMoney: sol === true}" (click)="soles()" checked="true" value="PEN" style="max-width: 12rem;" class="w-full rounded-lg shadow-lg py-4 text-center px-5 mx-2 monsetb text-a1">
+                <mat-radio-button [ngClass]="{btnMoney: sol === true}" (click)="soles()" [checked]="default" value="PEN" style="max-width: 12rem;" class="w-full rounded-lg shadow-lg py-4 text-center px-5 mx-2 monsetb text-a1">
                   Soles
                 </mat-radio-button>
                 <mat-radio-button [ngClass]="{btnMoney: dol === true}" (click)="dolar()" value="USD" style="max-width: 12rem;"
