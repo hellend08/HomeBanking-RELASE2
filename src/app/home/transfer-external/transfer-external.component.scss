@@ -65,7 +65,7 @@
     bottom: 10px;
     right: 20px;
   }
-  
+
 }
 
 .btn-descarga{
@@ -81,6 +81,14 @@
   height: auto !important;
 }
 
+.title{
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.005em;
+}
+
 .cardMonto{
   background: #E8F5FF;
   /* card */
@@ -89,7 +97,7 @@
 }
 
 .card{
-  background: #FFFFFF;
+  //background: #FFFFFF;
   /* card */
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
   border-radius: 12px;
@@ -128,13 +136,8 @@
   letter-spacing: 0.005em;
 }
 
-.mat-button-disabled.mat-button-disabled{
-  color: white;
-  opacity: 0.2;
-}
-
 .icon-frecuentes{
-  color: #00AF91;
+  color: #1A3184;
 }
 
 :host ::ng-deep.mat-horizontal-content-container {
@@ -157,11 +160,18 @@
       // bottom: 10px;
       // left: 10px;
     }
-  
+
     &.second2 {
       position: inherit;
       // bottom: 10px;
       // right: 10px;
     }
   }
+}
+
+
+.mat-button-disabled.mat-button-disabled{
+  background: #BBEEE5;
+  //opacity: 0.2;
+  color: white;
 }

@@ -53,13 +53,12 @@
                   matTooltip="El monto ingresado debe ser en la misma moneda que la cuenta de destino. De lo contrario la transferencia podría ser rechazada."
                   class="text-[#F9B208]">info</mat-icon>
               </label>
-              <mat-radio-group class="flex -mx-2">
-                <mat-radio-button checked="true" [color]="" value="PEN" style="max-width: 12rem;"
-                  class="bg-white w-full rounded-lg shadow-lg py-4 text-center px-5 mx-2 monsetb text-a1">
+              <mat-radio-group class="flex -mx-2" [(ngModel)]="selectRadioButton" formControlName="selectRadio">
+                <mat-radio-button [ngClass]="{btnMoney: sol === true}" (click)="soles()" checked="true" value="PEN" style="max-width: 12rem;" class="w-full rounded-lg shadow-lg py-4 text-center px-5 mx-2 monsetb text-a1">
                   Soles
                 </mat-radio-button>
-                <mat-radio-button value="USD" style="max-width: 12rem;"
-                  class="bg-white w-full rounded-lg shadow-lg py-4 text-center px-5 mx-2 monsetb text-a1">
+                <mat-radio-button [ngClass]="{btnMoney: dol === true}" (click)="dolar()" value="USD" style="max-width: 12rem;"
+                                  class="bg-white w-full rounded-lg shadow-lg py-4 text-center px-5 mx-2 monsetb text-a1">
                   Dólares
                 </mat-radio-button>
               </mat-radio-group>
@@ -68,10 +67,12 @@
               <label class="block monsetb text-[#8F8F8F] text-[1rem] mb-2">
                 Monto a transferir
               </label>
-              <mat-form-field appearance="outline" class="w-full monset text-sm">
+              <mat-form-field appearance="outline" class="w-full">
                 <mat-label>Ingrese el monto</mat-label>
-                <input matInput autocomplete="off" [imask]="currencyMask" [unmask]="true" formControlName="montoT"
-                  (keypress)="onKeyPressMonto($event)" placeholder="Ingresa el monto">
+                <input matInput formControlName="montoT" [imask]="currencyMask" [unmask]="true" autocomplete="off" (keypress)="onKeyPressMonto($event)">
+                <span class="text-[1rem]" *ngIf="selectRadioButton == 'USD'" matPrefix>$</span>
+                <span class="text-[1rem]" *ngIf="selectRadioButton == 'PEN'" matPrefix>S/</span>
+                <a matPrefix style="color: transparent">--</a>
                 <mat-error *ngIf="montoT.hasError('required')">
                   El monto a transferir debería ser mayor o igual a uno.
                 </mat-error>
@@ -79,6 +80,20 @@
                   El monto a transferir debería ser mayor o igual a uno.
                 </mat-error>
               </mat-form-field>
+<!--              <mat-form-field appearance="outline" class="w-full monset text-sm">-->
+<!--                <mat-label>Ingrese el monto</mat-label>-->
+<!--                <input matInput autocomplete="off" [imask]="currencyMask" [unmask]="true" formControlName="montoT"-->
+<!--                  (keypress)="onKeyPressMonto($event)" placeholder="Ingresa el monto">-->
+<!--                <span class="text-[1rem]" *ngIf="selectRadioButton == 'USD'" matPrefix>$</span>-->
+<!--                <span class="text-[1rem]" *ngIf="selectRadioButton == 'PEN'" matPrefix>S/</span>-->
+<!--                <a matPrefix style="color: transparent">&#45;&#45;</a>-->
+<!--                <mat-error *ngIf="montoT.hasError('required')">-->
+<!--                  El monto a transferir debería ser mayor o igual a uno.-->
+<!--                </mat-error>-->
+<!--                <mat-error *ngIf="montoT.hasError('min')">-->
+<!--                  El monto a transferir debería ser mayor o igual a uno.-->
+<!--                </mat-error>-->
+<!--              </mat-form-field>-->
             </div>
           </div>
 
@@ -155,7 +170,7 @@
                 <label *ngIf="selected !== '11'" class="block monsetb mt-2 text-[#8F8F8F] text-[1rem] mb-2">
                   Nombres y Apellidos
                 </label>
-                <label *ngIf="selected === '11'" class="block  mt-2 text-[#8F8F8F] text-[1rem] mb-2">
+                <label *ngIf="selected === '11'" class="block monsetb mt-2 text-[#8F8F8F] text-[1rem] mb-2">
                   Razon Social
                 </label>
                 <mat-form-field appearance="outline" class="w-full monset">
@@ -170,6 +185,10 @@
             </div>
           </div>
 
+          <div *ngIf="selectRadioButton === 'USD'" [@changeState] class="flex mx-auto h-[2.75rem] px-1 lg:px-6 monset space-x-2 lg:space-x-4 lg:mt-4 lg:py-2 warning w-full lg:w-[32.125rem]">
+            <div><mat-icon class="text-[#F9B208] my-2 lg:my-0">warning</mat-icon></div>
+            <div class="py-1 text-[#1A3184] text-[0.75rem]">Recuerda que esta operación será afectada al tipo de cambio</div>
+          </div>
           <!-- <div class="flex px-4 lg:px-10 w-full justify-center monsetb mt-6 pb-5 lg:pb-0"> -->
             <!-- <div class="text-[#8F8F8F] text-[11px] lg:text-[1rem] text-center">Consulta el <b
                 class="text-[#00AF91] cursor-pointer" (click)="openDialog()">horario de atención</b> y las <b
@@ -180,8 +199,8 @@
             <div class="text-[#8F8F8F] text-[11px] lg:text-[1rem] text-center">Consulta el <a class="text-[#00AF91] font-semibold cursor-pointer" href="https://www.google.com.mx/" target="_blank">horario de atención</a> y las <a class="text-[#00AF91] font-semibold cursor-pointer" href="https://www.google.com.mx/" target="_blank">tarifas y comisiones</a> de los tipos de transferencia.</div>
           </div>
         </form>
-        <div class="flex justify-center w-full mt-12">
-          <button class="btn first w-[21.125rem] h-[53px] lg:h-[3.75rem]" matStepperNext mat-button>Siguiente</button>
+        <div class="flex justify-center w-full mt-12 bg-[#F6F6F6] lg:bg-white">
+          <button [disabled]="groupForm1.invalid" class="btn first w-[18.625rem] lg:w-[21.125rem] h-[53px] lg:h-[3.75rem]" matStepperNext mat-button>Siguiente</button>
         </div>
       </mat-step>
       <mat-step [editable]="false" state="done">
@@ -202,14 +221,50 @@
               <div class="monset text-xs lg:text-[15px] lg:-mt-1">{{selector2 + ' ' + numCCI}}</div>
             </div>
           </div>
-          <div class="mt-8 px-4 py-3 card">
+
+          <div class="w-full lg:hidden py-4 px-4 warning mt-4 flex justify-between">
+            <div class="monsetb text-[0.688rem] lg:text-[1rem] text-[#1A3184]">Monto a transferir</div>
+            <div class="monsetb text-[1rem] lg:text-[1.5rem]"><a *ngIf="selectRadioButton == 'PEN'">S/</a><a *ngIf="selectRadioButton == 'USD'">$</a> {{montoT.value | number: '0.2'}}</div>
+          </div>
+
+<!--          <div style="border-radius: 12px;" class="w-full monset bg-[#E8F5FF] px-4 w-full lg:w-[45rem] mt-2 py-4">-->
+<!--            <div class="title text-[1rem] text-[#1A3184]">Información de la transferencia</div>-->
+<!--            <div class="flex justify-between mt-2">-->
+<!--              <div class="flex justify-between w-[35%]">-->
+<!--                <span class="text-[1rem] text-[#050505]">Tipo de cambio</span>-->
+<!--                <span class="text-[1rem] text-[#050505]">S/ 4.00</span>-->
+<!--              </div>-->
+<!--              <div class="flex justify-between mr-20 w-[35%]">-->
+<!--                <span class="text-[1rem] text-[#050505]">Monto al cambio</span>-->
+<!--                <span class="text-[1rem] text-[#050505]">$ 25.00</span>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+          <div class="card bg-[#ECFEFB] lg:block hidden px-2 mt-2 lg:px-4 py-2 h-auto w-full lg:w-[21.125rem]">
+            <p class="monsetb mt-10 text-[0.688rem] text-[#1A3184] lg:text-[1rem]">Información de la transferencia</p>
+            <div class="flex justify-between ">
+              <div>
+                <div>Tipo de cambio</div>
+                <div class="text-[0.688rem] lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'USD'">S/ 4.00</div>
+                <div class="text-[0.688rem] text-right lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'PEN'">S/ 4.00</div>
+              </div>
+              <div>
+                <div>Monto al cambio</div>
+                <div class="text-[0.688rem] text-right lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'PEN'">$ {{montoT.value / 4 | number: '0.2'}}</div>
+                <div class="text-[0.688rem] lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'USD'">S/ {{montoT.value * 4 | number: '0.2'}}</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 px-4 py-3 card w-full lg:w-[45rem]">
             <div class="flex flex-col lg:flex-row justify-between">
               <div class="monsetb">Tipo de transferencia</div>
               <p>Diferida</p>
             </div>
             <div class="flex flex-col lg:flex-row justify-between">
               <div class="monsetb">Tipo de beneficiario</div>
-              <p>A cuentas de terceros</p>
+              <p *ngIf="variable === 'A'">A cuentas propias</p>
+              <p *ngIf="variable === 'B'">A cuentas de terceros</p>
             </div>
             <div class="flex flex-col lg:flex-row justify-between">
               <div class="monsetb">Nombres y Apellidos del beneficiario</div>
@@ -234,7 +289,7 @@
           </div>
           <div class="lg:flex mt-4 justify-center">
             <div>
-              <mat-checkbox style="display: flex !important;" class="text-xs monset font-bold lg:font-medium lg:text-[1rem] w-11/12 lg:w-full mx-auto my-5 lg:my-4 text-[#8F8F8F]">
+              <mat-checkbox formControlName="check" style="display: flex !important;" class="text-xs monset font-bold lg:font-medium lg:text-[1rem] w-11/12 lg:w-full mx-auto my-5 lg:my-4 text-[#8F8F8F]">
                 <span class="whitespace-pre-wrap lg:whitespace-normal"> He leído y acepto los <a href="https://www.google.com.mx/" target="_blank" class="font-semibold text-[#00AF91]">términos y condiciones</a>
                   para procesar esta operación.</span></mat-checkbox>
               <!-- <mat-checkbox class="text-[1rem] w-full mb-4 text-[#8F8F8F]">
@@ -272,9 +327,9 @@
                 <div class="w-full flex justify-center mt-2">
                   <mat-form-field appearance="outline" class="w-full monset text-sm lg:w-[17.938rem]">
                     <mat-label>Ingresa el Token Digital</mat-label>
-                    <input type="password" formControlName="token" [(ngModel)]="inputtoken" maxlength="4" x
+                    <input type="password" formControlName="token" [(ngModel)]="inputtoken" maxlength="6" x
                       (keypress)="onKeyPress($event)" matInput>
-                    <mat-icon matSuffix *ngIf="inputtoken == 1234" class="text-[#00AF91]">check_circle</mat-icon>
+                    <mat-icon matSuffix *ngIf="inputtoken == 123456" class="text-[#00AF91]">check_circle</mat-icon>
                   </mat-form-field>
                 </div>
               </div>
@@ -282,8 +337,8 @@
           </div>
         </form>
         <div class="flex justify-center space-x-4 w-full mt-8">
-          <button class="btn second w-[9.813rem] h-[3.75rem]" (click)="redirectTransfer()" mat-button>Cancelar</button>
-          <button [disabled]="groupForm2.invalid" class="btn second2 w-[9.813rem] h-[3.75rem]" matStepperNext
+          <button class="btn second w-[8.963rem] lg:w-[9.813rem] h-[3.75rem]" (click)="redirectTransfer()" mat-button>Cancelar</button>
+          <button [disabled]="groupForm2.invalid" class="btn second2 w-[8.963rem] lg:w-[9.813rem] h-[3.75rem]" matStepperNext
             mat-button>Confirmar</button>
         </div>
       </mat-step>
@@ -300,6 +355,9 @@
                 <p class="monsetb">Cuenta de origen</p>
                 <div>{{selector1}}</div>
               </div>
+              <div class="lg:block flex my-auto hidden">
+                <mat-icon class="text-[2.029rem] text-[#00AF91] my-auto">arrow_forward_ios</mat-icon>
+              </div>
               <div class="card px-4 mt-4 lg:mt-0 py-4 h-[4.688rem] w-full lg:w-[21.125rem]">
                 <p class="monsetb">Cuenta de destino</p>
                 <div>{{selector2 + ' ' + numCCI}}</div>
@@ -314,11 +372,11 @@
             </div>
 
             <div class="mt-8 px-4 py-2 card">
-              <div class="flex justify-between">
+              <div class="lg:flex justify-between">
                 <div class="monsetb">Número de operación</div>
                 <p>001</p>
               </div>
-              <div class="flex justify-between">
+              <div class="lg:flex justify-between">
                 <div class="monsetb">Tipo de transferencia</div>
                 <p>Diferida</p>
               </div>
@@ -326,27 +384,28 @@
               <!--                <div class="monsetb">CCI de la cuenta destino</div>-->
               <!--                <p>{{numCCI}}</p>-->
               <!--              </div>-->
-              <div class="flex justify-between">
+              <div class="lg:flex justify-between">
                 <div class="monsetb">Tipo de beneficiario</div>
-                <p>A cuentas de terceros</p>
+                <p *ngIf="variable === 'A'">A cuentas propias</p>
+                <p *ngIf="variable === 'B'">A cuentas de terceros</p>
               </div>
-              <div class="flex justify-between">
+              <div class="lg:flex justify-between">
                 <div class="monsetb">Nombres y Apellidos del beneficiario</div>
                 <p>José Aréstegui Vásquez</p>
               </div>
-              <div class="flex justify-between">
+              <div class="lg:flex justify-between">
                 <div class="monsetb">Monto</div>
                 <p>{{montoT.value}}</p>
               </div>
-              <div class="flex justify-between">
+              <div class="lg:flex justify-between">
                 <div class="monsetb">Comisión CML</div>
                 <p>S/ 3.00 </p>
               </div>
-              <div class="flex justify-between">
+              <div class="lg:flex justify-between">
                 <div class="monsetb">ITF</div>
                 <p>S/ 0.00</p>
               </div>
-              <div class="flex justify-between">
+              <div class="lg:flex justify-between">
                 <div class="monsetb">Monto total</div>
                 <p class="monsetb">S/ 103.80</p>
               </div>
@@ -375,6 +434,12 @@
                 <mat-form-field appearance="outline" class="w-[80%] lg:w-[19rem] px-2">
                   <mat-label class="monset text-xs">Correo destino</mat-label>
                   <input formControlName="email" type="text" autocomplete="false" matInput placeholder="Correo destino">
+                  <mat-error *ngIf="email.hasError('required')">
+                    Este campo es requerido
+                  </mat-error>
+                  <mat-error *ngIf="email.hasError('email')">
+                    Ingresa un correo electrónico válido
+                  </mat-error>
                 </mat-form-field>
                 <button style="height: 3.1rem;"
                   class="text-base bg-[#00AF91] px-2 text-white shadow-lg mt-1 font-semibold  py-2 px-4 rounded">
@@ -385,8 +450,9 @@
           </div>
         </form>
         <div class="flex justify-center space-x-4 w-full mt-8">
-          <button class="btn w-[9.813rem] h-[3.75rem]" (click)="redirectTransfer()" mat-button>Nueva
-            transferencia</button>
+          <button style="text-align: center" class="btn w-[9.813rem] lg:w-[9.813rem] text-[0.844rem] h-[3.75rem] px-4" (click)="redirectTransfer()" mat-button>
+            <span style="margin-left: -8px;">Nueva transferencia</span>
+          </button>
           <button class="btn w-[9.813rem] h-[3.75rem]" (click)="redirectConfig()" mat-button>Ir al inicio</button>
         </div>
       </mat-step>

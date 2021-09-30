@@ -31,6 +31,8 @@ interface Data{
   ],
 })
 export class TransferTercerosComponent implements OnInit {
+  inputtoken!: number;
+  selector1!: string;
 
   maskProps = {
     mask: Number,
@@ -115,10 +117,10 @@ export class TransferTercerosComponent implements OnInit {
 
   // Paso2
   groupForm2!: FormGroup;
-  token = new FormControl('', [Validators.required]);
+  token = new FormControl('', [Validators.required, Validators.minLength(6)]);
 
   // Paso3
-  emailFormControl = new FormControl('', [Validators.required, Validators.email])
+  emailFormControl = new FormControl('', [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')])
 
   constructor(private router: Router, private _formBuilder: FormBuilder, public dialog: MatDialog) {
   }

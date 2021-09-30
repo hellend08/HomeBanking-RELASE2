@@ -183,6 +183,9 @@
                 <div class="monset text-[0.75rem] lg:text-[0.85rem]">{{selector1}}</div>
 <!--                <p class="monset text-[0.75rem] lg:text-[0.85rem]">Ahorros Soles 1020520221452214522</p>-->
               </div>
+              <div class="lg:block flex my-auto hidden">
+                <mat-icon class="text-[2.029rem] text-[#00AF91] my-auto">arrow_forward_ios</mat-icon>
+              </div>
               <div class="card px-2 mt-2 lg:px-4 py-4 h-[4.688rem] w-full lg:w-[21.125rem]">
                 <p class="monsetb text-[0.688rem] lg:text-[1rem]">Cuenta de destino</p>
                 <div class="monset text-[0.75rem] lg:text-[0.85rem]">{{selector2}}</div>
@@ -209,8 +212,8 @@
                 <div class="flex justify-between -mt-2">
                   <div>
                     <div>Tipo de cambio</div>
-                    <div class="text-[0.688rem] lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'USD'">$ 25.00</div>
-                    <div class="text-[0.688rem] text-right lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'PEN'">S/ 4.00</div>
+                    <div class="text-[0.688rem] lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'USD'">S/ 4.00</div>
+                    <div class="text-[0.688rem] text-right lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'PEN'">$ 25.00</div>
                   </div>
                   <div>
                     <div>Monto al cambio</div>

@@ -4,6 +4,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {MatDialog} from "@angular/material/dialog";
 import {TerminosCondicionesComponent} from "./terminos-condiciones/terminos-condiciones.component";
 import {DialogFrecuentesComponent} from "../dialog-frecuentes/dialog-frecuentes.component";
+import {min} from "rxjs/operators";
 
 @Component({
   selector: 'app-transfer-external',
@@ -11,6 +12,9 @@ import {DialogFrecuentesComponent} from "../dialog-frecuentes/dialog-frecuentes.
   styleUrls: ['./transfer-external.component.scss']
 })
 export class TransferExternalComponent implements OnInit {
+
+  sol = true;
+  dol = false;
 
   maskProps = {
     mask: Number,
@@ -39,13 +43,13 @@ export class TransferExternalComponent implements OnInit {
         mask: "" // To hide $ if field is empty
       },
       {
-        mask: "S/num",
+        mask: "num",
         blocks: {
           num: this.maskProps
         }
       },
       {
-        mask: "-S/num",
+        mask: "-num",
         blocks: {
           num: this.maskProps2
         }
@@ -107,9 +111,12 @@ export class TransferExternalComponent implements OnInit {
   CCI = new FormControl('', [Validators.required]);
   dataper = new FormControl('', [Validators.required]);
   selecDNIinput = new FormControl('', [Validators.required, Validators.minLength(8),]);
-  token = new FormControl('', Validators.required);
+  token = new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(6)] );
   // email = new FormControl('', Validators.email)
-  email = new FormControl('', [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')])
+  email = new FormControl('', [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+\\A-Z]+@[a-z0-9.-\\A-Z]+\\.[a-z]{2,4}$')])
+
+  emailFormControl = new FormControl('', [Validators.required, Validators.email])
+  check = new FormControl('', Validators.required)
 
   constructor(private router: Router, public dialog: MatDialog) { }
 
@@ -157,6 +164,16 @@ export class TransferExternalComponent implements OnInit {
     })
   }
 
+  soles(){
+    this.sol = true;
+    this.dol = false;
+  }
+
+  dolar(){
+    this.sol = false;
+    this.dol = true;
+  }
+
   ngOnInit(): void {
     this.groupForm1 = new FormGroup({
       montoT: this.montoT,
@@ -166,10 +183,12 @@ export class TransferExternalComponent implements OnInit {
       selecDNIinput: this.selecDNIinput,
       dataper: this.dataper,
       // 'selectRadio': new FormControl(),
-      'variableRa': new FormControl()
+      'variableRa': new FormControl(),
+      'selectRadio': new FormControl()
     });
     this.groupForm2 = new FormGroup({
-      token: this.token
+      token: this.token,
+      check: this.check
     });
     this.groupForm3 = new FormGroup({
       email: this.email
