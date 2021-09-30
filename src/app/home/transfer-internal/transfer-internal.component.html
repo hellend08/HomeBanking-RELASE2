@@ -3,14 +3,14 @@
   <div class="flex justify-center">
     <mat-stepper labelPosition="bottom" #stepper class="w-full lg:w-[49.75rem]">
       <mat-step [editable]="false" state="done">
-        <form [formGroup]="groupForm1" novalidate>
+        <form [formGroup]="groupForm1" novalidate class="pb-4 lg:pb-0">
           <ng-template matStepLabel class="monset">Paso 1</ng-template>
           <div class="lg:flex">
             <div class="w-full md:w-1/2 lg:px-3 mb-6 md:mb-0">
-              <label class="block text-[#8F8F8F] monset text-[1rem] mb-2">
+              <label class="block text-[#8F8F8F] monsetb text-[1rem] mb-2">
                 Cuenta de origen
               </label>
-              <mat-form-field appearance="outline" class="w-full">
+              <mat-form-field appearance="outline" class="w-full monset">
                 <mat-select [(ngModel)]="selector1" formControlName="selectorigin" class="appearance-none block text-gray-700 leading-tight text-[0.75rem]" placeholder="Elige tu cuenta de origen">
                   <mat-option class="h-auto" *ngFor="let select of selectdata" [value]="select.tipo + ' ' + select.cuenta">
                     <div class="my-2">
@@ -25,10 +25,10 @@
               </mat-form-field>
             </div>
             <div class="w-full md:w-1/2 lg:px-3 -mt-6 lg:mt-0 mb-6 md:mb-0">
-              <label class="block text-[#8F8F8F] monset text-[1rem] mb-2">
+              <label class="block text-[#8F8F8F] monsetb text-[1rem] mb-2">
                 Cuenta de destino
               </label>
-              <mat-form-field appearance="outline" class="w-full">
+              <mat-form-field appearance="outline" class="w-full monset">
                 <mat-select [(ngModel)]="selector2" formControlName="selectordest" class="appearance-none block text-gray-700 leading-tight text-[0.75rem]" placeholder="Elige tu cuenta de destino">
                   <mat-option *ngFor="let select of selectdata" class="h-auto" [value]="select.tipo + ' ' + select.cuenta">
                     <div class="my-2">
@@ -44,9 +44,9 @@
             </div>
           </div>
 
-          <div class="lg:flex mt-10">
-            <div class="w-full md:w-1/2 -mt-6 lg:-mt-0 lg:px-3 mb-6 md:mb-0">
-              <label class="block text-[#8F8F8F] monset text-[1rem] mb-2">
+          <div class="lg:flex mt-5">
+            <div class="w-full md:w-1/2 -mt-6 lg:mt-0 lg:px-3 mb-6 md:mb-0">
+              <label class="block text-[#8F8F8F] monsetb text-[1rem] mb-2.5">
                 Selecciona la moneda
               </label>
               <mat-radio-group class="flex -mx-2" [(ngModel)]="selectRadioButton" formControlName="selectRadio">
@@ -61,11 +61,11 @@
               <!--              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Jane">-->
             </div>
             <div class="w-full md:w-1/2 lg:px-3 lg:mb-6 md:mb-0">
-              <label class="block text-[#8F8F8F] monset text-[1rem] mb-2">
+              <label class="block text-[#8F8F8F] monsetb text-[1rem] mb-2">
                 Monto a transferir
               </label>
               <mat-form-field appearance="outline" class="w-full">
-                <mat-label>Ingrese el monto</mat-label>
+                <mat-label>Ingrese el monto&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
                 <input matInput formControlName="montoT" [imask]="currencyMask" [unmask]="true" autocomplete="off" (keypress)="onKeyPressMonto($event)">
                 <span class="text-[1rem]" *ngIf="selectRadioButton == 'USD'" matPrefix>$</span>
                 <span class="text-[1rem]" *ngIf="selectRadioButton == 'PEN'" matPrefix>S/</span>
@@ -80,167 +80,187 @@
             </div>
           </div>
 
-          <div *ngIf="selectorigin.valid && selectordest.valid" [@changeState] class="flex mx-auto h-[2.75rem] px-1 lg:px-6 monset space-x-2 lg:space-x-4 lg:mt-4 lg:py-2 warning w-full lg:w-[32.125rem]">
-            <div><mat-icon class="text-[#F9B208] my-2 lg:my-0">warning</mat-icon></div>
+          <div *ngIf="selectorigin.valid && selectordest.valid" [@changeState] class="flex mx-auto h-[2.75rem] px-3 lg:px-6 monset space-x-2 lg:space-x-4 mt-4 lg:py-2 warning w-full lg:w-[32.125rem]">
+            <div><mat-icon class="text-[#F9B208] my-2 lg:my-0 lg:mr-3">warning</mat-icon></div>
             <div class="py-1 text-[#1A3184] text-[0.75rem]">Recuerda que esta operación será afectada al tipo de cambio</div>
           </div>
         </form>
         <div class="flex justify-center w-full mt-12">
-          <button class="btn bg-[#00AF91] text-white w-[21.125rem] h-[3.75rem] monsetb" [disabled]="groupForm1.invalid" matStepperNext mat-button>Siguiente</button>
+          <button class="btn first bg-[#00AF91] text-white w-[21.125rem] h-[53px] lg:h-[3.75rem] monsetb" [disabled]="groupForm1.invalid" matStepperNext mat-button>Siguiente</button>
         </div>
       </mat-step>
       <mat-step [editable]="false" state="done">
-        <form class="mt-2">
+        <form class="mt-2 pb-4 lg:pb-0">
           <ng-template matStepLabel>Paso 2</ng-template>
-          <div class="w-full py-4 monset" style="text-align: center">Revisa y confirma los detalles de la transferencia:</div>
+          <div class="w-full py-4 monset font-bold text-[14.5px]" style="text-align: center">Revisa y confirma los detalles de la transferencia:</div>
           <div class="lg:flex lg:p-2 lg:space-x-2">
-            <div class="card px-4 mb-2 py-4 h-[4.688rem] w-full lg:w-[21.125rem]">
-              <p class="monsetb text-[0.688rem] lg:text-[1rem]">Cuenta de origen</p>
+            <div class="card px-4 mb-2 h-[4.688rem] w-full lg:w-[21.125rem] flex flex-col justify-center">
+              <p class="monset font-bold text-[0.688rem] lg:text-[1rem]">Cuenta de origen</p>
               <div class="monset text-[0.75rem] lg:text-[0.85rem]">{{selector1}}</div>
             </div>
             <div class="lg:block flex my-auto hidden">
               <mat-icon class="text-[2.029rem] text-[#00AF91] my-auto">arrow_forward_ios</mat-icon>
             </div>
-            <div class="card px-4 mb-2 py-4 h-[4.688rem] w-full lg:w-[21.125rem]">
-              <p class="monsetb text-[0.688rem] lg:text-[1rem]">Cuenta de destino</p>
+            <div class="card px-4 mb-2 h-[4.688rem] w-full lg:w-[21.125rem] flex flex-col justify-center">
+              <!-- py-4  -->
+              <p class="monset font-bold text-[0.688rem] lg:text-[1rem]">Cuenta de destino</p>
               <div class="monset text-[0.75rem] lg:text-[0.85rem]">{{selector2}}</div>
             </div>
           </div>
 
-
-          <div class="lg:flex mt-8 justify-between lg:px-2">
-            <div class="flex justify-start max-h-24  pt-2 -pb-3 w-full lg:w-[50%]">
-              <div class="warning w-full lg:w-[90%] px-4">
-                <div class="text-[0.688rem] lg:text-[1rem] text-[#1A3184] monsetb">Información de la transferencia</div>
+          <div class="lg:flex items-center mt-4 lg:mt-5 space-x-10 lg:px-2">
+            <!-- justify-between -->
+            <div class="flex justify-start h-[85px]">
+              <!-- pt-2 -pb-3  max-h-24 lg:w-[50%]  mt-2 w-full-->
+              <div class="warning w-full lg:w-[21.125rem] px-4 flex flex-col justify-center">
+                <!-- lg:w-[90%] -->
+                <div class="text-[0.688rem] lg:text-[1rem] text-[#1A3184] monset font-bold">Información de la transferencia</div>
                 <div class="flex justify-between mt-2">
-                  <div>
-                    <div class="text-[0.75rem] monset">Tipo de cambio</div>
-                    <div class="text-[0.688rem] lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'USD'">$ 25.00</div>
-                    <div class="text-[0.688rem] text-right lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'PEN'">S/ 4.00</div>
+                  <div class="flex flex-col justify-center">
+                    <div class="text-xs monset">Tipo de cambio</div>
+                    <div class="text-[0.688rem] lg:text-base monsetb" *ngIf="selectRadioButton === 'USD'">$ 25.00</div>
+                    <div class="text-[0.688rem] text-left lg:text-base monsetb" *ngIf="selectRadioButton === 'PEN'">S/ 4.00</div>
                   </div>
-                  <div>
-                    <div class="text-[0.75rem] monset">Monto al cambio</div>
-                    <div class="text-[0.688rem] text-right lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'PEN'">$ {{montoT.value / 4 | number: '0.2'}}</div>
-                    <div class="text-[0.688rem] lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'USD'">S/ {{montoT.value * 4 | number: '0.2'}}</div>
+                  <div class="flex flex-col justify-center">
+                    <div class="text-xs monset">Monto al cambio</div>
+                    <div class="text-[0.688rem] text-left lg:text-base monsetb" *ngIf="selectRadioButton === 'PEN'">$ {{montoT.value / 4 | number: '0.2'}}</div>
+                    <div class="text-[0.688rem] lg:text-base monsetb" *ngIf="selectRadioButton === 'USD'">S/ {{montoT.value * 4 | number: '0.2'}}</div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="w-full flex justify-start lg:block px-4 hidden mt-2 lg:w-[50%]">
-              <label class="mb-2 text-[0.688rem] lg:text-[1rem]">
+            <div class="w-full lg:flex flex-col justify-start hidden lg:w-[21.125rem]">
+              <!-- lg:w-[50%] px-4 -->
+              <!-- mt-2 -->
+              <label class="mb-2 text-[0.688rem] monset font-bold lg:text-base text-[#050505]">
                 Descripción de la operación (opcional):
               </label>
               <mat-form-field appearance="outline" class="w-full">
-                <mat-label>Descripción de la operación</mat-label>
+                <mat-label>Descripción de la operación &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
                 <textarea matInput placeholder="Ingresa la descripción de la operación"></textarea>
               </mat-form-field>
             </div>
           </div>
-          <div class="w-full py-4 px-4 warning mt-4 flex justify-between">
-            <div class="monsetb text-[0.688rem] lg:text-[1rem] text-[#1A3184]">Monto a transferir</div>
-            <div class="monsetb text-[1rem] lg:text-[1.5rem]"><a *ngIf="selectRadioButton == 'PEN'">S/</a><a *ngIf="selectRadioButton == 'USD'">$</a> {{montoT.value | number: '0.2'}}</div>
+          <div class="w-full px-4 h-[57px] bg-[#E8F5FF] radius-12 mt-4 flex items-center justify-between">
+            <div class="monsetb text-[0.688rem] lg:text-base text-[#1A3184]">Monto a transferir</div>
+            <div class="monsetb text-[1rem] lg:text-2xl"><a *ngIf="selectRadioButton == 'PEN'">S/</a><a *ngIf="selectRadioButton == 'USD'">$</a> {{montoT.value | number: '0.2'}}</div>
           </div>
 
           <div class="w-full lg:hidden mt-2 lg:w-[18rem]">
-            <label class="mb-2 text-[0.688rem] lg:text-[1rem]">
+            <label class="mb-2 text-[0.688rem] monset font-bold lg:text-base text-[#050505]">
               Descripción de la operación (opcional):
             </label>
             <mat-form-field appearance="outline" class="w-full">
-              <mat-label>Descripción de la operación</mat-label>
+              <mat-label>Descripción de la operación&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
               <textarea matInput placeholder="Ingresa la descripción de la operación"></textarea>
             </mat-form-field>
           </div>
 
-          <div class="flex mt-4 justify-center" >
+          <div class="flex lg:mt-8 justify-center" >
             <div style="text-align: center">
               <div (click)="openDialog()" class="w-[2.625rem] cursor-pointer h-[2.438rem] mx-auto bg-[#E8F5FF]" style="border-radius: 12px">
                 <mat-icon [ngClass]="{'icon-frecuentes': frecuente}" class="text-[1.25rem] my-2 text-[#7B7B7B]">stars</mat-icon>
               </div>
-              <p class="monsetb text-[0.688rem] lg:text-[1rem] text-[#8F8F8F]">Agregar a operaciones frecuentes</p>
+              <p class="monsetb text-[0.688rem] lg:text-base text-[#8F8F8F]">Agregar a operaciones frecuentes</p>
             </div>
           </div>
         </form>
         <div class="flex justify-center space-x-4 w-full mt-8">
-          <button class="btn bg-[#00AF91] text-white w-[9.813rem] h-[3.75rem]" (click)="redirectTransfer1()" matStepperPrevious mat-button>Cancelar</button>
-          <button class="btn bg-[#00AF91] text-white w-[9.813rem] h-[3.75rem]" matStepperNext mat-button>Confirmar</button>
+          <button class="btn second bg-[#00AF91] text-white w-[9.813rem] h-[53px] lg:h-[3.75rem]" (click)="redirectTransfer1()" matStepperPrevious mat-button>Cancelar</button>
+          <button class="btn second2 bg-[#00AF91] text-white w-[9.813rem] h-[53px] lg:h-[3.75rem]" matStepperNext mat-button>Confirmar</button>
         </div>
       </mat-step>
       <mat-step [editable]="false" state="done">
-        <form>
+        <form class="pb-4 lg:pb-0">
           <ng-template matStepLabel>Paso 3</ng-template>
           <div class="w-full py-4 monset" style="text-align: center">
             <img class="mx-auto mb-2" src="assets/images/checked.svg">
             <p class="monsetb text-[1rem] text-[#3D3C3C]">La transferencia se realizó con éxito</p>
+            <!-- text-[14.5px] monsetb monset font-bold -->
           </div>
           <div>
-            <div class="card px-4 py-4 lg:hidden h-[4.688rem] w-full">
-              <p class="monsetb text-[0.688rem]">Número de operación</p>
+            <div class="card px-4 lg:hidden h-[4.688rem] w-full flex flex-col justify-center">
+              <!-- py-4 -->
+              <p class="monset font-bold text-[0.688rem]">Número de operación</p>
               <p class="monset">001</p>
             </div>
-            <div class="lg:space-x-6 lg:flex justify-between">
-              <div class="card px-2 mt-2 lg:px-4 py-4 h-[4.688rem] w-full lg:w-[21.125rem]">
-                <p class="monsetb text-[0.688rem] lg:text-[1rem]">Cuenta de origen</p>
+            <div class="lg:space-x-2 lg:flex ">
+              <!-- justify-between -->
+              <div class="card mt-2 px-4 h-[4.688rem] w-full lg:w-[21.125rem] flex flex-col justify-center">
+                <p class="monset font-bold text-[0.688rem] lg:text-base">Cuenta de origen</p>
                 <div class="monset text-[0.75rem] lg:text-[0.85rem]">{{selector1}}</div>
-<!--                <p class="monset text-[0.75rem] lg:text-[0.85rem]">Ahorros Soles 1020520221452214522</p>-->
+              <!--        py-4        <p class="monset text-[0.75rem] lg:text-[0.85rem]">Ahorros Soles 1020520221452214522</p>-->
               </div>
               <div class="lg:block flex my-auto hidden">
                 <mat-icon class="text-[2.029rem] text-[#00AF91] my-auto">arrow_forward_ios</mat-icon>
               </div>
-              <div class="card px-2 mt-2 lg:px-4 py-4 h-[4.688rem] w-full lg:w-[21.125rem]">
-                <p class="monsetb text-[0.688rem] lg:text-[1rem]">Cuenta de destino</p>
+              <div class="card mt-2 px-4 h-[4.688rem] w-full lg:w-[21.125rem] flex flex-col justify-center">
+                <p class="monset font-bold text-[0.688rem] lg:text-base">Cuenta de destino</p>
                 <div class="monset text-[0.75rem] lg:text-[0.85rem]">{{selector2}}</div>
-<!--                <p class="monset text-[0.75rem] lg:text-[0.85rem]">Ahorros Dólares 1020520221452214522</p>-->
+              <!--  py-4 <p class="monset text-[0.75rem] lg:text-[0.85rem]">Ahorros Dólares 1020520221452214522</p>-->
               </div>
             </div>
-            <div class="lg:space-x-6 mt-6 flex justify-between">
-              <div class="card lg:block hidden px-4 py-4 h-[4.688rem] w-[21.125rem]">
-                <p class="monsetb">Número de operación</p>
-                <p class="monsetb">001</p>
+            <div class="lg:space-x-10 mt-6 lg:flex hidden">
+              <!-- justify-between -->
+              <div class="card  px-4 h-[4.688rem] w-[21.125rem] flex flex-col justify-center">
+                <!-- py-4 -->
+                <p class="monset font-bold text-base">Número de operación</p>
+                <div class="monsetb">001</div>
               </div>
-              <div class="w-full lg:hidden py-4 px-4 warning mt-4 flex justify-between">
-                <div class="monsetb text-[0.688rem] lg:text-[1rem] text-[#1A3184]">Monto total transferido</div>
-                <div class="monsetb text-[1rem] lg:text-[1.5rem]"><a *ngIf="selectRadioButton == 'PEN'">S/</a><a *ngIf="selectRadioButton == 'USD'">$</a> {{montoT.value | number: '0.2'}}</div>
-              </div>
-              <div class="lg:block hidden card px-2 flex py-4 h-auto lg:h-[4.688rem] w-full lg:w-[21.125rem]">
-                <p class="monsetb text-[0.688rem] lg:text-[1rem] text-[#1A3184] lg:text-black">Monto total transferido</p>
-                <p class="monsetb text-[1rem] lg:text-[1.5rem]"><a *ngIf="selectRadioButton == 'PEN'">S/</a><a *ngIf="selectRadioButton == 'USD'">$</a> {{montoT.value | number: '0.2'}}</p>
+              
+              <div class="hidden card px-4 h-[4.688rem] w-full lg:w-[21.125rem] lg:flex flex-col justify-center">
+                <!-- py-4 -->
+                <div class="monset font-bold text-[0.688rem] lg:text-base text-[#1A3184] lg:text-[#050505]">Monto total transferido</div>
+                <div class="monsetb text-base lg:text-2xl mt-1"><a *ngIf="selectRadioButton == 'PEN'">S/</a><a *ngIf="selectRadioButton == 'USD'">$</a> {{montoT.value | number: '0.2'}}</div>
               </div>
             </div>
-            <div class="lg:space-x-6 mt-4 lg:flex justify-between">
-              <div class="card px-2 mt-2 lg:px-4 py-2 h-auto w-full lg:w-[21.125rem]">
-                <p class="monsetb text-[0.688rem] lg:text-[1rem]">Información de la transferencia</p>
+            <div class="lg:space-x-10 mt-4 lg:flex ">
+              <!-- justify-between -->
+              <div class="radius-12 shadow-card lg:mt-2 bg-[#ECFEFB] lg:bg-white px-4 h-[4.688rem] w-full lg:w-[21.125rem] flex flex-col justify-center">
+                <p class="monset font-bold text-[0.688rem] lg:text-base">Información de la transferencia</p>
                 <div class="flex justify-between -mt-2">
-                  <div>
-                    <div>Tipo de cambio</div>
-                    <div class="text-[0.688rem] lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'USD'">S/ 4.00</div>
-                    <div class="text-[0.688rem] text-right lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'PEN'">$ 25.00</div>
+                  <div class="flex flex-col justify-center">
+                    <div class="text-xs monset">Tipo de cambio</div>
+                    <div class="text-[0.688rem] lg:text-base monsetb" *ngIf="selectRadioButton === 'USD'">S/ 4.00</div>
+                    <div class="text-[0.688rem] text-left lg:text-base monsetb" *ngIf="selectRadioButton === 'PEN'">$ 25.00</div>
                   </div>
-                  <div>
-                    <div>Monto al cambio</div>
-                    <div class="text-[0.688rem] text-right lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'PEN'">$ {{montoT.value / 4 | number: '0.2'}}</div>
-                    <div class="text-[0.688rem] lg:text-[1rem] monsetb" *ngIf="selectRadioButton === 'USD'">S/ {{montoT.value * 4 | number: '0.2'}}</div>
+                  <div class="flex flex-col justify-center">
+                    <div class="text-xs monset">Monto al cambio</div>
+                    <div class="text-[0.688rem] text-left lg:text-base monsetb" *ngIf="selectRadioButton === 'PEN'">$ {{montoT.value / 4 | number: '0.2'}}</div>
+                    <div class="text-[0.688rem] lg:text-base monsetb" *ngIf="selectRadioButton === 'USD'">S/ {{montoT.value * 4 | number: '0.2'}}</div>
                   </div>
                 </div>
               </div>
-              <div class="flex rounded-xl text-[#1A3184] bg-[#E8F5FF] justify-between px-2 mt-2 lg:px-4 py-4 h-[4.688rem] w-full lg:w-[21.125rem]">
-                <div class="py-4- mr-2 lg:mr-6"><mat-icon>mail</mat-icon></div>
+              <div class="w-full lg:hidden p-4 bg-[#E8F5FF] radius-12 mt-4 flex items-center justify-between">
+                <div class="monset font-bold text-[0.688rem] lg:text-base text-[#1A3184]">Monto total transferido</div>
+                <div class="monsetb text-base lg:text-2xl"><a *ngIf="selectRadioButton == 'PEN'">S/</a><a *ngIf="selectRadioButton == 'USD'">$</a> {{montoT.value | number: '0.2'}}</div>
+              </div>
+              <div class="hidden lg:flex rounded-xl text-[#1A3184] bg-[#ECFEFB] items-center justify-between px-2 mt-4 lg:mt-2 lg:px-4 h-[4.688rem] w-full lg:w-[21.125rem]">
+                <div class="mr-2 lg:mr-6"><mat-icon>mail</mat-icon></div>
                 <div class="text-[0.65rem] lg:text-[0.75rem]">La constancia ha sido remitida a tu correo:
                   ach**********@cajametropolitana.com.pe
+                </div>
+              </div>
+              <div class="lg:hidden flex rounded-xl text-[#F34E4E] bg-[#ECFEFB] items-center justify-between px-2 mt-4 lg:mt-2 lg:px-4 h-[4.688rem] w-full lg:w-[21.125rem]">
+                <div class="mr-2 lg:mr-6"><mat-icon>warning</mat-icon></div>
+                <div class="text-[0.65rem] lg:text-xs">No se pudo enviar la constancia de tu operación debido a que no cuentas con
+                  un correo registrado. Acércate a la agencia
+                  más cercana para actualizar tus datos.
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="flex mt-10 justify-center">
+          <div class="flex mt-6 lg:mt-10 justify-center">
             <button class="py-2 w-full lg:w-[21.125rem] px-4 rounded inline-flex items-center" style="box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);border-radius: 12px;">
-              <mat-icon class="fill-current text-[#00AF91] w-4 h-4 mr-5 lg:mr-10">download</mat-icon>
-              <span class="monsetb text-[#8F8F8F]">Descargar transferencia</span>
+              <mat-icon class="fill-current text-[#00AF91] w-4 h-4 mr-5 lg:mr-12">download</mat-icon>
+              <span class="monsetb text-[#8F8F8F] text-xs">Descargar transferencia</span>
             </button>
           </div>
         </form>
         <div class="flex justify-center space-x-4 w-full mt-8">
-          <button class="btn bg-[#00AF91] text-sm text-white w-[9.813rem] h-[3.75rem]" (click)="redirectTransfer1()" mat-button>Nueva transferencia</button>
-          <button class="btn bg-[#00AF91] text-white w-[9.813rem] h-[3.75rem]" (click)="redirectConfig()" mat-button>Ir al inicio</button>
+          <button class="btn second bg-[#00AF91] text-sm text-white w-[145px] lg:w-[169px] h-[53px] lg:h-[3.75rem]" (click)="redirectTransfer1()" mat-button>Nueva transferencia</button>
+          <button class="btn second2 bg-[#00AF91] text-white w-[145px] lg:w-[163px] h-[53px] lg:h-[3.75rem]" (click)="redirectConfig()" mat-button>Ir al inicio</button>
         </div>
       </mat-step>
 

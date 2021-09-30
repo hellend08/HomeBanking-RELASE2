@@ -151,7 +151,7 @@
                     <mat-label>Ingresa el número de documento</mat-label>
                     <input matInput autocomplete="off" maxlength="{{selected}}" minlength="{{selected}}"
                       formControlName="selecDNIinput" (keypress)="onKeyPress($event)" 
-                      placeholder="Ingresa el número de DNI">
+                      placeholder="Ingresa el número de documento">
                     <mat-error *ngIf="selecDNIinput.hasError('required')">
                       El número de documento es requerido
                     </mat-error>
@@ -186,7 +186,7 @@
             </div>
           </div>
 
-          <div *ngIf="selectRadioButton === 'USD'" [@changeState] class="flex mx-auto h-[2.75rem] px-3 lg:px-6 monset space-x-2 lg:space-x-4 lg:mt-4 lg:py-2 warning w-full lg:w-[32.125rem]">
+          <div *ngIf="selectRadioButton === 'USD'" [@changeState] class="flex mx-auto h-[2.75rem] px-3 lg:px-6 monset space-x-2 lg:space-x-4 mt-4 lg:py-2 warning w-full lg:w-[32.125rem]">
             <div><mat-icon class="text-[#F9B208] my-2 lg:my-0 lg:mr-3">warning</mat-icon></div>
             <div class="py-1 text-[#1A3184] text-[0.75rem]">Recuerda que esta operación será afectada al tipo de cambio</div>
           </div>
