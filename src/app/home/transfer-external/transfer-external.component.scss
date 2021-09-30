@@ -144,6 +144,10 @@
   padding: 0 14px 24px;
 }
 
+:host ::ng-deep.mat-form-field-appearance-outline .mat-form-field-prefix, .mat-form-field-appearance-outline .mat-form-field-suffix {
+  top: 0px !important;
+}
+
 @media (min-width: 1024px) {
   :host ::ng-deep.mat-horizontal-content-container {
     padding: 0 24px 24px;
