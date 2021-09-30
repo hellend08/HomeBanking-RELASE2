@@ -204,6 +204,8 @@ export class TransferExternalComponent implements OnInit {
     this.groupForm3 = new FormGroup({
       email: this.email
     })
+
+    this.selectRadioButton = 'PEN';
   }
 
 
