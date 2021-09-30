@@ -149,8 +149,8 @@
                   <mat-form-field class="w-[70%] lg:w-[14rem] monset" appearance="outline">
                     <mat-label>Ingresa el número de documento</mat-label>
                     <input matInput autocomplete="off" maxlength="{{selected}}" minlength="{{selected}}"
-                      formControlName="selecDNIinput" (keypress)="onKeyPress($event)"
-                      placeholder="Ingresa el número de DNI">
+                      formControlName="selecDNIinput" (keypress)="onKeyPressInput($event)"
+                      placeholder="Ingresa el número de documento">
                     <mat-error *ngIf="selecDNIinput.hasError('required')">
                       El número de documento es requerido
                     </mat-error>

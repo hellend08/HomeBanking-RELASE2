@@ -175,6 +175,23 @@ export class TransferExternalComponent implements OnInit {
     })
   }
 
+  onKeyPressInput(event: any) {
+    if (this.selected == '8') {
+      const regexpNumber = /[0-9]/;
+      let inputCharacter = String.fromCharCode(event.charCode);
+      if (event.keyCode != 8 && !regexpNumber.test(inputCharacter)) {
+        event.preventDefault();
+      }
+    }
+    else {
+      const regexpNumber = /[0-9\a-z\A-Z]/;
+      let inputCharacter = String.fromCharCode(event.charCode);
+      if (event.keyCode != 9 && !regexpNumber.test(inputCharacter)) {
+        event.preventDefault();
+      }
+    }
+  }
+
   soles(){
     this.sol = true;
     this.dol = false;
