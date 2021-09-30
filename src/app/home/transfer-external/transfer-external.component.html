@@ -185,8 +185,8 @@
             </div>
           </div>
 
-          <div *ngIf="selectRadioButton === 'USD'" [@changeState] class="flex mx-auto h-[2.75rem] px-1 lg:px-6 monset space-x-2 lg:space-x-4 lg:mt-4 lg:py-2 warning w-full lg:w-[32.125rem]">
-            <div><mat-icon class="text-[#F9B208] my-2 lg:my-0">warning</mat-icon></div>
+          <div *ngIf="selectRadioButton === 'USD'" [@changeState] class="flex mx-auto h-[2.75rem] px-3 lg:px-6 monset space-x-2 lg:space-x-4 lg:mt-4 lg:py-2 warning w-full lg:w-[32.125rem]">
+            <div><mat-icon class="text-[#F9B208] my-2 lg:my-0 lg:mr-3">warning</mat-icon></div>
             <div class="py-1 text-[#1A3184] text-[0.75rem]">Recuerda que esta operación será afectada al tipo de cambio</div>
           </div>
           <!-- <div class="flex px-4 lg:px-10 w-full justify-center monsetb mt-6 pb-5 lg:pb-0"> -->
@@ -222,7 +222,7 @@
             </div>
           </div>
 
-          <div class="w-full lg:hidden py-4 px-4 warning mt-4 flex justify-between">
+          <div class="w-full lg:hidden bg-[#E8F5FF] py-4 px-4 radius-12 mt-4 flex justify-between">
             <div class="monsetb text-[0.688rem] lg:text-[1rem] text-[#1A3184]">Monto a transferir</div>
             <div class="monsetb text-[1rem] lg:text-[1.5rem]"><a *ngIf="selectRadioButton == 'PEN'">S/</a><a *ngIf="selectRadioButton == 'USD'">$</a> {{montoT.value | number: '0.2'}}</div>
           </div>
@@ -256,7 +256,7 @@
             </div>
           </div>
 
-          <div class="mt-8 px-4 py-3 card w-full lg:w-[45rem]">
+          <div class="mt-5 lg:mt-8 px-4 py-3 card w-full lg:w-[45rem]">
             <div class="flex flex-col lg:flex-row justify-between">
               <div class="monsetb">Tipo de transferencia</div>
               <p>Diferida</p>
@@ -308,7 +308,7 @@
                     </mat-form-field>
                   </div>
                 </div>
-                <div class="lg:px-4 lg:block ">
+                <div class="lg:px-4 lg:block hidden">
                   <div class="flex mt-8 justify-center">
                     <div style="text-align: center">
                       <div (click)="openDialogo()" class="w-[2.625rem] cursor-pointer h-[2.438rem] mx-auto bg-[#E8F5FF]"
@@ -332,13 +332,26 @@
                     <mat-icon matSuffix *ngIf="inputtoken == 123456" class="text-[#00AF91]">check_circle</mat-icon>
                   </mat-form-field>
                 </div>
+                <div class="lg:px-4 lg:hidden">
+                  <div class="flex pb-5 pt-1 justify-center">
+                    <div style="text-align: center">
+                      <div (click)="openDialogo()" class="w-[2.625rem] cursor-pointer h-[2.438rem] mx-auto bg-[#E8F5FF]"
+                        style="border-radius: 12px">
+                        <mat-icon [ngClass]="{'icon-frecuentes': frecuente}" class="text-[1.25rem] my-2 text-[#7B7B7B]">
+                          stars</mat-icon>
+                      </div>
+                      <p class="monsetb text-[1rem] text-[#8F8F8F]">Agregar a operaciones frecuentes</p>
+                      <!-- text-[0.688rem] lg: -->
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </form>
         <div class="flex justify-center space-x-4 w-full mt-8">
-          <button class="btn second w-[8.963rem] lg:w-[9.813rem] h-[3.75rem]" (click)="redirectTransfer()" mat-button>Cancelar</button>
-          <button [disabled]="groupForm2.invalid" class="btn second2 w-[8.963rem] lg:w-[9.813rem] h-[3.75rem]" matStepperNext
+          <button class="btn second w-[8.8rem] lg:w-[9.813rem] h-[53px] lg:h-[3.75rem]" (click)="redirectTransfer()" mat-button>Cancelar</button>
+          <button [disabled]="groupForm2.invalid" class="btn second2 w-[8.8rem] lg:w-[9.813rem] h-[53px] lg:h-[3.75rem]" matStepperNext
             mat-button>Confirmar</button>
         </div>
       </mat-step>
