@@ -140,6 +140,7 @@
                 <div class="flex space-x-2 justify-between items-center">
                   <mat-form-field class="monset w-[30%] lg:w-[6.5rem]" appearance="outline">
                     <mat-select [(value)]="selected">
+                      <!-- [(ngModel)]="doc_type" -->
                       <mat-option value="8">DNI</mat-option>
                       <mat-option value="9">CE</mat-option>
                       <mat-option value="11">RUC</mat-option>
@@ -149,7 +150,7 @@
                   <mat-form-field class="w-[70%] lg:w-[14rem] monset" appearance="outline">
                     <mat-label>Ingresa el número de documento</mat-label>
                     <input matInput autocomplete="off" maxlength="{{selected}}" minlength="{{selected}}"
-                      formControlName="selecDNIinput" (keypress)="onKeyPress($event)"
+                      formControlName="selecDNIinput" (keypress)="onKeyPress($event)" 
                       placeholder="Ingresa el número de DNI">
                     <mat-error *ngIf="selecDNIinput.hasError('required')">
                       El número de documento es requerido
@@ -240,7 +241,7 @@
 <!--              </div>-->
 <!--            </div>-->
 <!--          </div>-->
-          <div class="card bg-[#ECFEFB] lg:block hidden px-2 mt-2 lg:px-4 py-2 h-auto w-full lg:w-[21.125rem]">
+          <div class="card bg-[#ECFEFB] lg:block hidden px-2 mt-2 lg:px-4 py-2 h-auto w-full lg:w-[45rem]">
             <p class="monsetb mt-10 text-[0.688rem] text-[#1A3184] lg:text-[1rem]">Información de la transferencia</p>
             <div class="flex justify-between ">
               <div>
@@ -425,9 +426,9 @@
             </div>
           </div>
           <div class="flex justify-between space-x-2 text-left mt-6 mx-auto justify-center">
-            <div class="w-[21.375rem] flex justify-between bg-[#ECFEFB] text-[#1A3184] p-2"
+            <div class="w-[21.375rem] flex items-center justify-between bg-[#ECFEFB] text-[#1A3184] p-2"
               style="border-radius: 12px;">
-              <mat-icon class="text-[#1A3184]">email</mat-icon>
+              <mat-icon class="text-[#1A3184] mr-3">email</mat-icon>
               <div class="w-[17.25rem] text-[0.906rem]">La constancia ha sido remitida a tu correo:
                 ach******@cajametropolitana.com.pe</div>
             </div>
@@ -463,10 +464,10 @@
           </div>
         </form>
         <div class="flex justify-center space-x-4 w-full mt-8">
-          <button style="text-align: center" class="btn w-[9.813rem] lg:w-[9.813rem] text-[0.844rem] h-[3.75rem] px-4" (click)="redirectTransfer()" mat-button>
+          <button style="text-align: center" class="btn second w-[9.813rem] lg:w-[9.813rem] text-[0.844rem] h-[53px] lg:h-[3.75rem] px-4" (click)="redirectTransfer()" mat-button>
             <span style="margin-left: -8px;">Nueva transferencia</span>
           </button>
-          <button class="btn w-[9.813rem] h-[3.75rem]" (click)="redirectConfig()" mat-button>Ir al inicio</button>
+          <button class="btn second2 w-[9.813rem] h-[53px] lg:h-[3.75rem]" (click)="redirectConfig()" mat-button>Ir al inicio</button>
         </div>
       </mat-step>
 
