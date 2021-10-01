@@ -2,7 +2,7 @@
   <div class="monsetb text-[#3D3C3C] text-[1rem] px-6 text-center lg:text-[1.5rem] flex justify-center">Transferencia a
     cuentas de otros bancos</div>
   <div class="flex justify-center">
-    <mat-stepper labelPosition="bottom" linear #stepper class="px-0 w-full lg:w-[49.75rem]">
+    <mat-stepper labelPosition="bottom" #stepper class="px-0 w-full lg:w-[49.75rem]">
       <mat-step [editable]="false" state="done">
         <form [formGroup]="groupForm1" novalidate>
           <ng-template matStepLabel>Paso 1</ng-template>
@@ -28,6 +28,7 @@
                 </mat-error>
               </mat-form-field>
             </div>
+
             <div class="w-full -mt-6 lg:-mt-0 md:w-1/2 lg:px-3 mb-6 md:mb-0">
               <label class="block monsetb text-[#8F8F8F] text-[1rem] mb-2">
                 Banco de destino
@@ -45,6 +46,7 @@
               </mat-form-field>
             </div>
           </div>
+
           <div class="lg:flex -mt-6 lg:mt-4">
             <div class="w-full md:w-1/2 lg:px-3 mb-6 md:mb-0">
               <label class="block monsetb text-[#8F8F8F] text-[1rem] mb-2 flex items-center space-x-2">
@@ -63,6 +65,7 @@
                 </mat-radio-button>
               </mat-radio-group>
             </div>
+
             <div class="w-full md:w-1/2 lg:px-3 mb-6 md:mb-0">
               <label class="block monsetb text-[#8F8F8F] text-[1rem] mb-2">
                 Monto a transferir
@@ -80,20 +83,6 @@
                   El monto a transferir debería ser mayor o igual a uno.
                 </mat-error>
               </mat-form-field>
-              <!--              <mat-form-field appearance="outline" class="w-full monset text-sm">-->
-              <!--                <mat-label>Ingrese el monto</mat-label>-->
-              <!--                <input matInput autocomplete="off" [imask]="currencyMask" [unmask]="true" formControlName="montoT"-->
-              <!--                  (keypress)="onKeyPressMonto($event)" placeholder="Ingresa el monto">-->
-              <!--                <span class="text-[1rem]" *ngIf="selectRadioButton == 'USD'" matPrefix>$</span>-->
-              <!--                <span class="text-[1rem]" *ngIf="selectRadioButton == 'PEN'" matPrefix>S/</span>-->
-              <!--                <a matPrefix style="color: transparent">&#45;&#45;</a>-->
-              <!--                <mat-error *ngIf="montoT.hasError('required')">-->
-              <!--                  El monto a transferir debería ser mayor o igual a uno.-->
-              <!--                </mat-error>-->
-              <!--                <mat-error *ngIf="montoT.hasError('min')">-->
-              <!--                  El monto a transferir debería ser mayor o igual a uno.-->
-              <!--                </mat-error>-->
-              <!--              </mat-form-field>-->
             </div>
           </div>
 
@@ -106,7 +95,7 @@
                   class="text-[#F9B208]">info</mat-icon>
               </label>
               <mat-form-field appearance="outline" class="w-full monset text-sm">
-                <mat-label>Ingresa el CCI del banco destino</mat-label>
+                <mat-label>Ingresa el CCI del banco destino&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;&nbsp;&nbsp;</mat-label>
                 <input matInput [(ngModel)]="numCCI" formControlName="CCI" minlength="20" maxlength="20"
                   autocomplete="off" (keypress)="onKeyPress($event)" placeholder="Ingresa el CCI del banco destino">
                 <mat-error *ngIf="CCI.hasError('required')">
@@ -114,6 +103,7 @@
                 </mat-error>
               </mat-form-field>
             </div>
+
             <div class="w-full -mt-6 lg:-mt-0 md:w-1/2 lg:px-3 mb-6 md:mb-0">
               <mat-radio-group class="example-radio-group" [(ngModel)]="variable" formControlName="variableRa"
                 aria-label="Select an option">
@@ -133,6 +123,7 @@
                 </label>
                 <div class="text-[0.875rem] text-[#050505] monset">DNI: 52689536 </div>
               </div>
+
               <div *ngIf="variable === 'B'">
                 <label class="block mt-2 monsetb text-[#8F8F8F] text-[1rem] mb-2">
                   Documento
@@ -140,7 +131,6 @@
                 <div class="flex space-x-2 justify-between items-center">
                   <mat-form-field class="monset w-[30%] lg:w-[6.5rem]" appearance="outline">
                     <mat-select [(value)]="selected">
-                      <!-- [(ngModel)]="doc_type" -->
                       <mat-option value="8">DNI</mat-option>
                       <mat-option value="9">CE</mat-option>
                       <mat-option value="11">RUC</mat-option>
@@ -158,8 +148,8 @@
                   </mat-form-field>
                 </div>
               </div>
-
             </div>
+
             <div class="w-full md:w-1/2 px-2 lg:px-3 mb-2 lg:mb-6 md:mb-0">
               <div *ngIf="variable === 'A'" class="lg:border-t-2 lg:border-[#3D3C3C]">
                 <label class="block monsetb mt-2 text-[#8F8F8F] text-[1rem] mb-2">
@@ -167,6 +157,7 @@
                 </label>
                 <div class="text-[0.875rem] text-[#050505] monset">José Aréstegui Vásquez</div>
               </div>
+
               <div *ngIf="variable === 'B'">
                 <label *ngIf="selected !== '11'" class="block monsetb mt-2 text-[#8F8F8F] text-[1rem] mb-2">
                   Nombres y Apellidos
@@ -190,11 +181,6 @@
             <div><mat-icon class="text-[#F9B208] my-2 lg:my-0 lg:mr-3">warning</mat-icon></div>
             <div class="py-1 text-[#1A3184] text-[0.75rem]">Recuerda que esta operación será afectada al tipo de cambio</div>
           </div>
-          <!-- <div class="flex px-4 lg:px-10 w-full justify-center monsetb mt-6 pb-5 lg:pb-0"> -->
-            <!-- <div class="text-[#8F8F8F] text-[11px] lg:text-[1rem] text-center">Consulta el <b
-                class="text-[#00AF91] cursor-pointer" (click)="openDialog()">horario de atención</b> y las <b
-                class="text-[#00AF91] cursor-pointer" (click)="openDialog()">tarifas y comisiones</b> de los tipos de
-              transferencia.</div> -->
 
           <div class="flex px-4 lg:px-10 w-full justify-center monsetb mt-6 pb-5 lg:pb-0">
             <div class="text-[#8F8F8F] text-[11px] lg:text-[1rem] text-center">Consulta el <a class="text-[#00AF91] font-semibold cursor-pointer" href="https://www.google.com.mx/" target="_blank">horario de atención</a> y las <a class="text-[#00AF91] font-semibold cursor-pointer" href="https://www.google.com.mx/" target="_blank">tarifas y comisiones</a> de los tipos de transferencia.</div>
@@ -205,110 +191,100 @@
         </div>
       </mat-step>
       <mat-step [editable]="false" state="done">
-        <form class="mt-2" [formGroup]="groupForm2">
+        <form class="mt-2 lg:flex lg:flex-col items-center" [formGroup]="groupForm2">
           <ng-template matStepLabel>Paso 2</ng-template>
-          <div class="w-full py-4 monset font-bold text-[14.5px]" style="text-align: center">Revisa y confirma los detalles de la transferencia:
+          <div class="w-full py-4 monsetb text-sm lg:text-base text-center">Revisa y confirma los detalles de la transferencia:
           </div>
-          <div class="lg:flex lg:p-2 lg:space-x-2">
-            <div class="card px-3 lg:px-4 py-4 h-[4.888rem] w-full lg:w-[21.125rem]">
-              <p class="monset font-bold text-xs lg:text-base">Cuenta de origen</p>
-              <div class="monset text-xs lg:text-[15px] lg:-mt-1">{{selector1}}</div>
+          <div class="lg:flex lg:p-2 lg:space-x-2 w-full">
+            <div class="card px-3 lg:px-4 h-[4.888rem] w-full lg:w-[21.125rem] flex flex-col justify-center">
+              <p class="montse-responsive lg:font-bold text-[11px] lg:text-base">Cuenta de origen</p>
+              <div class="monset text-xs lg:text-base lg:-mt-1">{{selector1}}</div>
             </div>
             <div class="lg:block flex my-auto hidden">
               <mat-icon class="text-[2.029rem] text-[#00AF91] my-auto">arrow_forward_ios</mat-icon>
             </div>
-            <div class="card px-3 lg:px-4 py-4 h-[4.888rem] mt-4 lg:mt-0 w-full lg:w-[21.125rem]">
-              <p class="monset font-bold text-xs lg:text-base">Cuenta de destino</p>
-              <div class="monset text-xs lg:text-[15px] lg:-mt-1">{{selector2 + ' ' + numCCI}}</div>
+            <div class="card px-3 lg:px-4 h-[4.888rem] mt-4 lg:mt-0 w-full lg:w-[21.125rem] flex flex-col justify-center">
+              <p class="montse-responsive lg:font-bold text-[11px] lg:text-base">Cuenta de destino</p>
+              <div class="monset text-xs lg:text-base lg:-mt-1">{{selector2 + ' ' + numCCI}}</div>
             </div>
           </div>
-              <!--          <div style="border-radius: 12px;" class="w-full monset bg-[#E8F5FF] px-4 w-full lg:w-[45rem] mt-2 py-4">-->
-              <!--            <div class="title text-[1rem] text-[#1A3184]">Información de la transferencia</div>-->
-              <!--            <div class="flex justify-between mt-2">-->
-              <!--              <div class="flex justify-between w-[35%]">-->
-              <!--                <span class="text-[1rem] text-[#050505]">Tipo de cambio</span>-->
-              <!--                <span class="text-[1rem] text-[#050505]">S/ 4.00</span>-->
-              <!--              </div>-->
-              <!--              <div class="flex justify-between mr-20 w-[35%]">-->
-              <!--                <span class="text-[1rem] text-[#050505]">Monto al cambio</span>-->
-              <!--                <span class="text-[1rem] text-[#050505]">$ 25.00</span>-->
-              <!--              </div>-->
-              <!--            </div>-->
-              <!--          </div>-->
-          <div class="radius-12 bg-[#ECFEFB] lg:ml-2 flex flex-col justify-center px-2 mt-2 lg:px-4 py-2 h-[78px] w-full lg:w-[720px]">
-            <p class="monset font-bold mt-10 text-[0.688rem] text-[#1A3184] lg:text-[1rem]">Información de la transferencia</p>
+             
+          <div class="radius-12 bg-[#ECFEFB] lg:ml-2 flex flex-col justify-center mt-4 lg:mt-2 px-4 py-2 h-[78px] w-full lg:w-[720px]">
+            <p class="montse-responsive lg:font-bold mt-10 text-[0.688rem] text-[#1A3184] lg:text-base">Información de la transferencia</p>
             <div class="flex justify-between ">
               <div class="flex flex-col lg:flex-row lg:items-center">
                 <div class="monset lg:font-bold lg:mr-5 text-xs lg:text-base">Tipo de cambio</div>
-                <div class="text-[0.688rem] lg:text-[1rem] monset" *ngIf="selectRadioButton === 'USD'">S/ 4.00</div>
-                <div class="text-[0.688rem] text-left lg:text-[1rem] monset" *ngIf="selectRadioButton === 'PEN'">S/ 4.00</div>
+                <div class="text-[0.688rem] lg:text-[1rem] montse-responsive" *ngIf="selectRadioButton === 'USD'">S/ 4.00</div>
+                <div class="text-[0.688rem] text-left lg:text-[1rem] montse-responsive" *ngIf="selectRadioButton === 'PEN'">S/ 4.00</div>
               </div>
               <div class="flex flex-col lg:flex-row lg:items-center">
                 <div class="monset lg:font-bold lg:mr-5 text-xs lg:text-base">Monto al cambio</div>
-                <div class="text-[0.688rem] text-left lg:text-[1rem] monset" *ngIf="selectRadioButton === 'PEN'">$ {{montoT.value / 4 | number: '0.2'}}</div>
-                <div class="text-[0.688rem] lg:text-[1rem] monset" *ngIf="selectRadioButton === 'USD'">S/ {{montoT.value * 4 | number: '0.2'}}</div>
+                <div class="text-[0.688rem] text-left lg:text-[1rem] montse-responsive" *ngIf="selectRadioButton === 'PEN'">$ {{montoT.value / 4 | number: '0.2'}}</div>
+                <div class="text-[0.688rem] lg:text-[1rem] montse-responsive" *ngIf="selectRadioButton === 'USD'">S/ {{montoT.value * 4 | number: '0.2'}}</div>
               </div>
             </div>
           </div>
-          <div class="w-full lg:hidden bg-[#E8F5FF] py-4 px-4 radius-12 mt-4 flex justify-between">
+          
+          <div class="w-full lg:hidden bg-[#E8F5FF] py-4 px-4 radius-12 mt-4 flex items-center justify-between">
             <div class="monsetb text-[0.688rem] lg:text-[1rem] text-[#1A3184]">Monto a transferir</div>
-            <div class="monsetb text-[1rem] lg:text-[1.5rem]"><a *ngIf="selectRadioButton == 'PEN'">S/</a><a *ngIf="selectRadioButton == 'USD'">$</a> {{montoT.value | number: '0.2'}}</div>
+            <div class="monsetb text-base lg:text-[1.5rem]"><a *ngIf="selectRadioButton == 'PEN'">S/</a><a *ngIf="selectRadioButton == 'USD'">$</a> {{montoT.value | number: '0.2'}}</div>
           </div>
 
-          <div class="lg:ml-2 mt-4 px-4 py-3 card w-full lg:w-[720px]">
+          <div class="lg:ml-2 mt-4 p-4 card w-full lg:w-[720px] flex flex-col justify-center">
             <div class="flex flex-col lg:flex-row justify-between">
-              <div class="monsetb">Tipo de transferencia</div>
-              <p>Diferida</p>
+              <div class="montse-responsive lg:font-bold text-[11px] lg:text-base">Tipo de transferencia</div>
+              <p class="monset text-[11px] lg:text-base">Diferida</p>
             </div>
             <div class="flex flex-col lg:flex-row justify-between">
-              <div class="monsetb">Tipo de beneficiario</div>
-              <p *ngIf="variable === 'A'">A cuentas propias</p>
-              <p *ngIf="variable === 'B'">A cuentas de terceros</p>
+              <div class="montse-responsive lg:font-bold text-[11px] lg:text-base">Tipo de beneficiario</div>
+              <p class="monset text-[11px] lg:text-base" *ngIf="variable === 'A'">A cuentas propias</p>
+              <p class="monset text-[11px] lg:text-base" *ngIf="variable === 'B'">A cuentas de terceros</p>
             </div>
             <div class="flex flex-col lg:flex-row justify-between">
-              <div class="monsetb">Nombres y Apellidos del beneficiario</div>
-              <p>José Aréstegui Vásquez</p>
+              <div class="montse-responsive lg:font-bold text-[11px] lg:text-base">Nombres y Apellidos del beneficiario</div>
+              <p class="monset text-[11px] lg:text-base">José Aréstegui Vásquez</p>
             </div>
             <div class="flex flex-col lg:flex-row justify-between">
-              <div class="monsetb">Monto a transferir</div>
-              <p>S/ {{montoT.value | number: '0.2'}}</p>
+              <div class="montse-responsive lg:font-bold text-[11px] lg:text-base">Monto a transferir</div>
+              <p class="monset text-[11px] lg:text-base">S/ {{montoT.value | number: '0.2'}}</p>
             </div>
             <div class="flex flex-col lg:flex-row justify-between">
-              <div class="monsetb">Comisión CML</div>
-              <p>S/ 3.00 </p>
+              <div class="montse-responsive lg:font-bold text-[11px] lg:text-base">Comisión CML</div>
+              <p class="monset text-[11px] lg:text-base">S/ 3.00 </p>
             </div>
             <div class="flex flex-col lg:flex-row justify-between">
-              <div class="monsetb">ITF</div>
-              <p>S/ 0.00</p>
+              <div class="montse-responsive lg:font-bold text-[11px] lg:text-base">ITF</div>
+              <p class="monset text-[11px] lg:text-base">S/ 0.00</p>
             </div>
             <div class="flex flex-col lg:flex-row justify-between">
-              <div class="monsetb">Monto total</div>
+              <div class="montse-responsive lg:font-bold text-[11px] lg:text-base">Monto total</div>
               <p class="monsetb">S/ 103.80</p>
             </div>
           </div>
+
           <div class="lg:flex mt-4 justify-center">
             <div>
-              <mat-checkbox formControlName="check" style="display: flex !important;" class="text-xs monset font-bold lg:font-medium lg:text-[1rem] w-11/12 lg:w-full mx-auto my-5 lg:my-4 text-[#8F8F8F]">
-                <span class="whitespace-pre-wrap lg:whitespace-normal"> He leído y acepto los <a href="https://www.google.com.mx/" target="_blank" class="font-semibold text-[#00AF91]">términos y condiciones</a>
-                  para procesar esta operación.</span></mat-checkbox>
-              <!-- <mat-checkbox class="text-[1rem] w-full mb-4 text-[#8F8F8F]">
-                <span>He leído y acepto los     class="whitespace-pre-wrap lg:whitespace-normal"
-                  <a  class="font-semibold text-[#00AF91]">términos y condiciones</a> para procesar esta operación.
-                </span>
-              </mat-checkbox> -->
+              <mat-checkbox formControlName="check" style="display: flex !important;" class="text-xs monset font-bold lg:font-medium text-[11px] lg:text-[1rem] w-11/12 lg:w-full mx-auto my-5 lg:my-4 text-[#8F8F8F]">
+                <span class="whitespace-pre-wrap lg:whitespace-normal"> He leído y acepto los <a href="https://www.google.com.mx/" target="_blank" class="monsetb text-[#00AF91]">términos y condiciones</a>
+                  para procesar esta operación.</span>
+              </mat-checkbox>
 
-              <div class="lg:flex justify-between">
-                <div class="lg:px-4">
-                  <div class="text-[0.9rem] monset font-bold lg:font-medium">Descripción de la operación (opcional):</div>
-                  <div class="flex justify-center mt-2">
-                    <mat-form-field appearance="outline" class="w-full monset text-sm lg:w-[17.938rem]">
-                      <mat-label>Ingresa la descripción de la operación</mat-label>
+              <div class="lg:flex items-center justify-between">
+                <div class="lg:pr-4">
+                  <div class="text-[11px] lg:text-base monset font-bold">Descripción de la operación (opcional):</div>
+                  <div class="mt-2">
+                    <!--flex  justify-center -->
+                    <mat-form-field appearance="outline" class="w-full monset text-sm">
+                      <!-- lg:w-[17.938rem] -->
+                      <mat-label>Ingresa la descripción de la operación &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
                       <textarea matInput></textarea>
                     </mat-form-field>
                   </div>
                 </div>
-                <div class="lg:px-4 lg:block hidden">
-                  <div class="flex mt-8 justify-center">
+
+                <div class="lg:px-4 lg:flex hidden">
+                  <div class="flex justify-center">
+                    <!-- mt-8 -->
                     <div style="text-align: center">
                       <div (click)="openDialogo()" class="w-[2.625rem] cursor-pointer h-[2.438rem] mx-auto bg-[#E8F5FF]"
                         style="border-radius: 12px">
@@ -321,16 +297,18 @@
                   </div>
                 </div>
               </div>
+
               <div class="lg:px-4">
-                <div class="text-center monset font-bold lg:font-medium text-xs lg:text-sm">Para confirmar la operación, ingresa el Token Digital </div>
+                <div class="text-center monset font-bold lg:font-medium text-[11px] lg:text-sm">Para confirmar la operación, ingresa el Token Digital </div>
                 <div class="w-full flex justify-center mt-2">
                   <mat-form-field appearance="outline" class="w-full monset text-sm lg:w-[17.938rem]">
-                    <mat-label>Ingresa el Token Digital</mat-label>
+                    <mat-label>Ingresa el Token Digital&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
                     <input type="password" formControlName="token" [(ngModel)]="inputtoken" maxlength="6" x
                       (keypress)="onKeyPress($event)" matInput>
                     <mat-icon matSuffix *ngIf="inputtoken == 123456" class="text-[#00AF91]">check_circle</mat-icon>
                   </mat-form-field>
                 </div>
+
                 <div class="lg:px-4 lg:hidden">
                   <div class="flex pb-5 pt-1 justify-center">
                     <div style="text-align: center">
@@ -339,7 +317,7 @@
                         <mat-icon [ngClass]="{'icon-frecuentes': frecuente}" class="text-[1.25rem] my-2 text-[#7B7B7B]">
                           stars</mat-icon>
                       </div>
-                      <p class="monsetb text-[1rem] text-[#8F8F8F]">Agregar a operaciones frecuentes</p>
+                      <p class="monsetb text-base text-[#8F8F8F]">Agregar a operaciones frecuentes</p>
                       <!-- text-[0.688rem] lg: -->
                     </div>
                   </div>
@@ -348,6 +326,7 @@
             </div>
           </div>
         </form>
+
         <div class="flex justify-center space-x-4 w-full mt-8">
           <button class="btn second w-[8.8rem] lg:w-[9.813rem] h-[53px] lg:h-[3.75rem]" (click)="redirectTransfer()" mat-button>Cancelar</button>
           <button [disabled]="groupForm2.invalid" class="btn second2 w-[8.8rem] lg:w-[9.813rem] h-[53px] lg:h-[3.75rem]" matStepperNext
@@ -355,97 +334,94 @@
         </div>
       </mat-step>
       <mat-step [editable]="false" state="done">
-        <form [formGroup]="groupForm3">
+        <form [formGroup]="groupForm3" class="lg:flex lg:flex-col lg:items-center pb-4 lg:pb-0">
           <ng-template matStepLabel>Paso 3</ng-template>
-          <div class="w-full py-4 monset" style="text-align: center">
+          <div class="w-full py-3 lg:py-4 monset" style="text-align: center">
             <img class="mx-auto mb-2" src="assets/images/checked.svg">
-            <p>La transferencia se realizó con éxito</p>
+            <p class="monsetb text-sm lg:text-base">La transferencia se realizó con éxito</p>
           </div>
+
           <div>
             <div class="lg:space-x-2 mt-4 lg:mt-0 lg:flex">
-              <!-- justify-between -->
-              <div class="card px-4 py-4 h-[4.688rem] w-full lg:w-[21.125rem]">
-                <p class="monsetb">Cuenta de origen</p>
-                <div>{{selector1}}</div>
+              <div class="card px-4 h-[4.688rem] w-full lg:w-[21.125rem] flex flex-col justify-center">
+                <p class="montse-responsive lg:font-bold text-[11px] lg:text-base">Cuenta de origen</p>
+                <div class="monset text-sm lg:text-base">{{selector1}}</div>
               </div>
               <div class="lg:block flex my-auto hidden">
                 <mat-icon class="text-[2.029rem] text-[#00AF91] my-auto">arrow_forward_ios</mat-icon>
               </div>
-              <div class="card px-4 mt-4 lg:mt-0 py-4 h-[4.688rem] w-full lg:w-[21.125rem]">
-                <p class="monsetb">Cuenta de destino</p>
-                <div>{{selector2 + ' ' + numCCI}}</div>
+              <div class="card px-4 mt-4 lg:mt-0 h-[4.688rem] w-full lg:w-[21.125rem] flex flex-col justify-center">
+                <p class="montse-responsive lg:font-bold text-[11px] lg:text-base">Cuenta de destino</p>
+                <div class="monset text-sm lg:text-base">{{selector2 + ' ' + numCCI}}</div>
               </div>
             </div>
-            <div class="radius-12 bg-[#ECFEFB] flex flex-col justify-center  px-2 mt-4 lg:px-4 py-2 h-[78px] w-full lg:w-[720px]">
+
+            <div class="radius-12 bg-[#ECFEFB] flex flex-col justify-center mt-4 lg:mt-2 px-4 py-2 h-[78px] w-full lg:w-[720px]">
               <!-- lg:ml-2 hidden-->
-              <p class="monset font-bold mt-10 text-[0.688rem] text-[#1A3184] lg:text-[1rem]">Información de la transferencia</p>
+              <p class="montse-responsive lg:font-bold text-[11px] lg:text-base mt-10 text-[#1A3184]">Información de la transferencia</p>
               <div class="flex justify-between ">
                 <div class="flex flex-col lg:flex-row lg:items-center">
                   <div class="monset lg:font-bold lg:mr-5 text-xs lg:text-base">Tipo de cambio</div>
-                  <div class="text-[0.688rem] lg:text-[1rem] monset" *ngIf="selectRadioButton === 'USD'">S/ 4.00</div>
-                  <div class="text-[0.688rem] text-left lg:text-[1rem] monset" *ngIf="selectRadioButton === 'PEN'">S/ 4.00</div>
+                  <div class="text-[0.688rem] lg:text-[1rem] montse-responsive" *ngIf="selectRadioButton === 'USD'">S/ 4.00</div>
+                  <div class="text-[0.688rem] text-left lg:text-[1rem] montse-responsive" *ngIf="selectRadioButton === 'PEN'">S/ 4.00</div>
                 </div>
                 <div class="flex flex-col lg:flex-row lg:items-center">
                   <div class="monset lg:font-bold lg:mr-5 text-xs lg:text-base">Monto al cambio</div>
-                  <div class="text-[0.688rem] text-left lg:text-[1rem] monset" *ngIf="selectRadioButton === 'PEN'">$ {{montoT.value / 4 | number: '0.2'}}</div>
-                  <div class="text-[0.688rem] lg:text-[1rem] monset" *ngIf="selectRadioButton === 'USD'">S/ {{montoT.value * 4 | number: '0.2'}}</div>
+                  <div class="text-[0.688rem] text-left lg:text-[1rem] montse-responsive" *ngIf="selectRadioButton === 'PEN'">$ {{montoT.value / 4 | number: '0.2'}}</div>
+                  <div class="text-[0.688rem] lg:text-[1rem] montse-responsive" *ngIf="selectRadioButton === 'USD'">S/ {{montoT.value * 4 | number: '0.2'}}</div>
                 </div>
               </div>
             </div>
 
             <div
-              class="cardMonto lg:hidden mt-4 bg-[#E8F5FF] px-2 flex justify-between py-4 h-auto lg:h-[4.688rem] w-full lg:w-[21.125rem]">
-              <div class="monsetb text-[0.688rem] lg:text-[1rem] text-[#1A3184] lg:text-black">Monto total transferido
+              class="cardMonto lg:hidden mt-4 bg-[#E8F5FF] px-4 flex items-center justify-between py-4 h-[57px] w-full">
+              <div class="monsetb text-[0.688rem] text-[#1A3184] lg:text-black">Monto total transferido
               </div>
-              <div class="monsetb text-[1rem] lg:text-[1.5rem]">$ 100.00</div>
+              <div class="monsetb text-[1rem]">$ 100.00</div>
             </div>
 
-            <div class="mt-4 px-4 py-2 card w-full lg:w-[720px]">
+            <div class="mt-4 p-4 card w-full lg:w-[720px] flex flex-col justify-center">
               <div class="lg:flex justify-between">
-                <div class="monsetb">Número de operación</div>
-                <p>001</p>
+                <div class="montse-responsive lg:font-bold text-[11px] lg:text-base">Número de operación</div>
+                <p class="monset text-sm lg:text-base">001</p>
               </div>
               <div class="lg:flex justify-between">
-                <div class="monsetb">Tipo de transferencia</div>
-                <p>Diferida</p>
-              </div>
-              <!--              <div class="flex justify-between">-->
-              <!--                <div class="monsetb">CCI de la cuenta destino</div>-->
-              <!--                <p>{{numCCI}}</p>-->
-              <!--              </div>-->
-              <div class="lg:flex justify-between">
-                <div class="monsetb">Tipo de beneficiario</div>
-                <p *ngIf="variable === 'A'">A cuentas propias</p>
-                <p *ngIf="variable === 'B'">A cuentas de terceros</p>
+                <div class="montse-responsive lg:font-bold text-[11px] lg:text-base">Tipo de transferencia</div>
+                <p class="monset text-sm lg:text-base">Diferida</p>
               </div>
               <div class="lg:flex justify-between">
-                <div class="monsetb">Nombres y Apellidos del beneficiario</div>
-                <p>José Aréstegui Vásquez</p>
+                <div class="montse-responsive lg:font-bold text-[11px] lg:text-base">Tipo de beneficiario</div>
+                <p class="monset text-sm lg:text-base" *ngIf="variable === 'A'">A cuentas propias</p>
+                <p class="monset text-sm lg:text-base" *ngIf="variable === 'B'">A cuentas de terceros</p>
               </div>
               <div class="lg:flex justify-between">
-                <div class="monsetb">Monto</div>
-                <p>{{montoT.value}}</p>
+                <div class="montse-responsive lg:font-bold text-[11px] lg:text-base">Nombres y Apellidos del beneficiario</div>
+                <p class="monset text-sm lg:text-base">José Aréstegui Vásquez</p>
               </div>
               <div class="lg:flex justify-between">
-                <div class="monsetb">Comisión CML</div>
-                <p>S/ 3.00 </p>
+                <div class="montse-responsive lg:font-bold text-[11px] lg:text-base">Monto</div>
+                <p class="monset text-sm lg:text-base">{{montoT.value}}</p>
               </div>
               <div class="lg:flex justify-between">
-                <div class="monsetb">ITF</div>
-                <p>S/ 0.00</p>
+                <div class="montse-responsive lg:font-bold text-[11px] lg:text-base">Comisión CML</div>
+                <p class="monset text-sm lg:text-base">S/ 3.00 </p>
               </div>
               <div class="lg:flex justify-between">
-                <div class="monsetb">Monto total</div>
+                <div class="montse-responsive lg:font-bold text-[11px] lg:text-base">ITF</div>
+                <p class="monset text-sm lg:text-base">S/ 0.00</p>
+              </div>
+              <div class="lg:flex justify-between">
+                <div class="montse-responsive lg:font-bold text-[11px] lg:text-base">Monto total</div>
                 <p class="monsetb">S/ 103.80</p>
               </div>
             </div>
           </div>
-          <div class="flex flex-col lg:flex-row text-left mt-6 space-y-5 lg:space-y-0 lg:space-x-8">
-            <!-- justify-center justify-between  mx-auto-->
-            <div class="w-full lg:w-[21.375rem] flex items-center justify-between bg-[#ECFEFB] text-[#1A3184] p-2"
-              style="border-radius: 12px;">
+
+          <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mt-6 space-y-5 lg:space-y-0 w-full lg:w-[720px]">
+            <!-- justify-center justify-between text-left mx-auto-->
+            <div class="w-full lg:w-[21.375rem] radius-12 flex items-center justify-between bg-[#ECFEFB] text-[#1A3184] px-4 py-2">
               <mat-icon class="text-[#1A3184] mr-3">email</mat-icon>
-              <div class="w-[17.25rem] text-[0.906rem]">La constancia ha sido remitida a tu correo:
+              <div class="w-[17.25rem] monset font-bold lg:font-normal text-[11px] lg:text-xs">La constancia ha sido remitida a tu correo:
                 ach******@cajametropolitana.com.pe</div>
             </div>
             <div class="my-auto">
@@ -455,14 +431,15 @@
               </button>
             </div>
           </div>
-          <div class="flex justify-center">
+
+          <div class="lg:flex lg:justify-center">
             <div class="mt-4 text-sm font-medium monset lg:pr-3">
-              <label class="mb-2 px-2 text-[0.688rem] text-[#8F8F8F] monsetb">
+              <label class="mb-2 px-2 text-[0.688rem] lg:text-xs text-[#8F8F8F] monsetb">
                 Enviar constancia a otro correo
               </label>
               <div class="flex mt-2 content-center justify-items-center">
-                <mat-form-field appearance="outline" class="w-[80%] lg:w-[19rem] px-2">
-                  <mat-label class="monset text-xs">Correo destino</mat-label>
+                <mat-form-field appearance="outline" class="w-full lg:w-[80%] lg:w-[19rem] px-2 monset">
+                  <mat-label class="monset text-xs">Correo destino&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
                   <input formControlName="email" type="text" autocomplete="false" matInput placeholder="Correo destino">
                   <mat-error *ngIf="email.hasError('required')">
                     Este campo es requerido
@@ -479,6 +456,7 @@
             </div>
           </div>
         </form>
+
         <div class="flex justify-center space-x-4 w-full mt-8">
           <button style="text-align: center" class="btn second w-[9.813rem] lg:w-[9.813rem] text-[0.844rem] h-[53px] lg:h-[3.75rem] px-4" (click)="redirectTransfer()" mat-button>
             <span style="margin-left: -8px;">Nueva transferencia</span>
@@ -493,3 +471,44 @@
     </mat-stepper>
   </div>
 </div>
+<!--              <mat-form-field appearance="outline" class="w-full monset text-sm">-->
+              <!--                <mat-label>Ingrese el monto</mat-label>-->
+              <!--                <input matInput autocomplete="off" [imask]="currencyMask" [unmask]="true" formControlName="montoT"-->
+              <!--                  (keypress)="onKeyPressMonto($event)" placeholder="Ingresa el monto">-->
+              <!--                <span class="text-[1rem]" *ngIf="selectRadioButton == 'USD'" matPrefix>$</span>-->
+              <!--                <span class="text-[1rem]" *ngIf="selectRadioButton == 'PEN'" matPrefix>S/</span>-->
+              <!--                <a matPrefix style="color: transparent">&#45;&#45;</a>-->
+              <!--                <mat-error *ngIf="montoT.hasError('required')">-->
+              <!--                  El monto a transferir debería ser mayor o igual a uno.-->
+              <!--                </mat-error>-->
+              <!--                <mat-error *ngIf="montoT.hasError('min')">-->
+              <!--                  El monto a transferir debería ser mayor o igual a uno.-->
+              <!--                </mat-error>-->
+              <!--              </mat-form-field>-->
+  <!-- <div class="flex px-4 lg:px-10 w-full justify-center monsetb mt-6 pb-5 lg:pb-0"> -->
+            <!-- <div class="text-[#8F8F8F] text-[11px] lg:text-[1rem] text-center">Consulta el <b
+                class="text-[#00AF91] cursor-pointer" (click)="openDialog()">horario de atención</b> y las <b
+                class="text-[#00AF91] cursor-pointer" (click)="openDialog()">tarifas y comisiones</b> de los tipos de
+              transferencia.</div> -->
+               <!--          <div style="border-radius: 12px;" class="w-full monset bg-[#E8F5FF] px-4 w-full lg:w-[45rem] mt-2 py-4">-->
+              <!--            <div class="title text-[1rem] text-[#1A3184]">Información de la transferencia</div>-->
+              <!--            <div class="flex justify-between mt-2">-->
+              <!--              <div class="flex justify-between w-[35%]">-->
+              <!--                <span class="text-[1rem] text-[#050505]">Tipo de cambio</span>-->
+              <!--                <span class="text-[1rem] text-[#050505]">S/ 4.00</span>-->
+              <!--              </div>-->
+              <!--              <div class="flex justify-between mr-20 w-[35%]">-->
+              <!--                <span class="text-[1rem] text-[#050505]">Monto al cambio</span>-->
+              <!--                <span class="text-[1rem] text-[#050505]">$ 25.00</span>-->
+              <!--              </div>-->
+              <!--            </div>-->
+              <!--          </div>-->
+                <!-- <mat-checkbox class="text-[1rem] w-full mb-4 text-[#8F8F8F]">
+                <span>He leído y acepto los     class="whitespace-pre-wrap lg:whitespace-normal"
+                  <a  class="font-semibold text-[#00AF91]">términos y condiciones</a> para procesar esta operación.
+                </span>
+              </mat-checkbox> -->
+               <!--              <div class="flex justify-between">-->
+              <!--                <div class="monsetb">CCI de la cuenta destino</div>-->
+              <!--                <p>{{numCCI}}</p>-->
+              <!--              </div>-->
