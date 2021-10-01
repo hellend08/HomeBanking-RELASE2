@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {DialogData} from "../../limit-operations/dialog-limit-op/dialog-limit-op.component";
 
 @Component({
   selector: 'app-dialog-error',
@@ -7,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DialogErrorComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+  ) { }
 
   ngOnInit(): void {
   }

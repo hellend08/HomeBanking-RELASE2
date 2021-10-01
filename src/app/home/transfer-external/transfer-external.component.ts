@@ -6,6 +6,8 @@ import { TerminosCondicionesComponent } from "./terminos-condiciones/terminos-co
 import { DialogFrecuentesComponent } from "../dialog-frecuentes/dialog-frecuentes.component";
 import { min } from "rxjs/operators";
 import { trigger, animate, transition } from '@angular/animations';
+import {MatStepper} from "@angular/material/stepper";
+import {DialogErrorExtComponent} from "./dialog-error-ext/dialog-error-ext.component";
 
 @Component({
   selector: 'app-transfer-external',
@@ -24,6 +26,7 @@ export class TransferExternalComponent implements OnInit {
 
   sol = true;
   dol = false;
+  error = true;
 
   default: boolean = true;
 
@@ -139,17 +142,34 @@ export class TransferExternalComponent implements OnInit {
   public redirectConfig(){
     this.router.navigateByUrl('/home/configuracion')
   }
+
+
+
+  public nexdialog(stepper: MatStepper) {
+    if (this.error){
+      const dialogRef = this.dialog.open(DialogErrorExtComponent, {
+        width: '296px',
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        this.error = !result;
+      })
+    }else{
+      stepper.next();
+    }
+  }
+
   prueba: any;
 
   onKeyPress(event: any) {
     const regexpNumber = /[0-9\.]/;
-    
+
     if (this.selected == '8') {
       let inputCharacter = String.fromCharCode(event.charCode);
       if (event.keyCode !== 8 && !regexpNumber.test(inputCharacter)) {
       event.preventDefault();
       // console.log("entro");
-      } 
+      }
     }
   }
 
