@@ -10,9 +10,13 @@ export class ToolbarComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  public redirectTransfer(){
-    this.router.navigateByUrl('/home/transferencias')
+  public redirectConfig(){
+    this.router.navigateByUrl('/home/configuracion')
   }
+
+  // public redirectTransfer(){
+  //   this.router.navigateByUrl('/home/transferencias')
+  // }
 
 
   ngOnInit(): void {
