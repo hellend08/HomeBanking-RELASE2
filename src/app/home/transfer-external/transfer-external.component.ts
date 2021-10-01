@@ -101,6 +101,7 @@ export class TransferExternalComponent implements OnInit {
 
   selected = '8';
   valordocument = "8";
+  doc_type!: string;
 
   //cuentas propias y terceros
   frecuente!: boolean;
@@ -121,7 +122,7 @@ export class TransferExternalComponent implements OnInit {
   selectordest = new FormControl('', [Validators.required]);
   CCI = new FormControl('', [Validators.required]);
   dataper = new FormControl('', [Validators.required]);
-  selecDNIinput = new FormControl('', [Validators.required, Validators.minLength(8),]);
+  selecDNIinput = new FormControl('', [Validators.required, Validators.minLength(8), Validators.pattern('^[a-zA-Z0-9]*$')]);
   token = new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(6)] );
   // email = new FormControl('', Validators.email)
   email = new FormControl('', [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+\\A-Z]+@[a-z0-9.-\\A-Z]+\\.[a-z]{2,4}$')])
@@ -138,12 +139,17 @@ export class TransferExternalComponent implements OnInit {
   public redirectConfig(){
     this.router.navigateByUrl('/home/configuracion')
   }
+  prueba: any;
 
   onKeyPress(event: any) {
-    const regexpNumber = /[0-9]/;
-    let inputCharacter = String.fromCharCode(event.charCode);
-    if (event.keyCode !== 8 && !regexpNumber.test(inputCharacter)) {
+    const regexpNumber = /[0-9\.]/;
+    
+    if (this.selected == '8') {
+      let inputCharacter = String.fromCharCode(event.charCode);
+      if (event.keyCode !== 8 && !regexpNumber.test(inputCharacter)) {
       event.preventDefault();
+      // console.log("entro");
+      } 
     }
   }
 
@@ -221,10 +227,7 @@ export class TransferExternalComponent implements OnInit {
     this.groupForm3 = new FormGroup({
       email: this.email
     })
-
     this.selectRadioButton = 'PEN';
   }
-
-
 
 }

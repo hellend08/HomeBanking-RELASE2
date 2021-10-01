@@ -29,6 +29,10 @@
   border-radius: 12px;
 }
 
+.radius-12 {
+  border-radius: 12px;
+}
+
 .select{
   width: 160px;
   height: 51px;
@@ -57,13 +61,13 @@
   &.second {
     position: fixed;
     bottom: 10px;
-    left: 10px;
+    left: 14px;
   }
 
   &.second2 {
     position: fixed;
     bottom: 10px;
-    right: 20px;
+    right: 22px;
   }
 
 }
@@ -161,20 +165,16 @@
 
     &.second {
       position: inherit;
-      // bottom: 10px;
-      // left: 10px;
     }
 
     &.second2 {
       position: inherit;
-      // bottom: 10px;
-      // right: 10px;
     }
   }
 }
 
 
-.mat-button-disabled.mat-button-disabled{
+:host .mat-button-disabled.mat-button-disabled{
   background: #BBEEE5;
   //opacity: 0.2;
   color: white;
