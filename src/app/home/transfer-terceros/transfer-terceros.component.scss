@@ -24,9 +24,31 @@
   color: #7B7B7B;
 }
 
+:host ::ng-deep.mat-horizontal-content-container {
+  padding: 0 14px 24px;
+}
+
+:host ::ng-deep.mat-form-field-appearance-outline .mat-form-field-prefix, .mat-form-field-appearance-outline .mat-form-field-suffix {
+  top: 0px !important;
+}
+
+:host .mat-button-disabled.mat-button-disabled{
+  background: #BBEEE5;
+  //opacity: 0.2;
+  color: white;
+}
+
 .warning{
   background: #ECFEFB;
   border-radius: 12px;
+}
+
+.radius-12 {
+  border-radius: 12px;
+}
+
+.shadow-card {
+  box-shadow: inherit;
 }
 
 .select{
@@ -48,6 +70,23 @@
   //background: #00AF91;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.24);
   border-radius: 20px;
+
+  &.first {
+    position: fixed;
+    bottom: 10px;
+  }
+
+  &.second {
+    position: fixed;
+    bottom: 10px;
+    left: 14px;
+  }
+
+  &.second2 {
+    position: fixed;
+    bottom: 10px;
+    right: 22px;
+  }
 }
 
 ::ng-deep.mat-option{
@@ -89,12 +128,45 @@
   background: #ECFEFB;
 }
 
-.mat-button-disabled{
-  color: white;
-  background-color: #00AF91;
-  opacity: 0.2;
-}
+// .mat-button-disabled{
+//   color: white;
+//   background-color: #00AF91;
+//   opacity: 0.2;
+// }
 
 .icon-frecuentes{
   color: #1A3184;
+}
+
+.montse-responsive {
+  font-family: MontserratBold;
+}
+
+@media (min-width: 1024px) {
+  :host ::ng-deep.mat-horizontal-content-container {
+    padding: 0 24px 24px;
+  }
+
+  .btn {
+
+    &.first {
+      position: inherit;
+    }
+
+    &.second {
+      position: inherit;
+    }
+
+    &.second2 {
+      position: inherit;
+    }
+  }
+
+  .shadow-card {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  }
+
+  .montse-responsive {
+    font-family: Montserrat;
+  }
 }

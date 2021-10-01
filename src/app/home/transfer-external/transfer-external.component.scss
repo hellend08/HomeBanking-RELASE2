@@ -24,6 +24,12 @@
   color: #7B7B7B;
 }
 
+:host .mat-button-disabled.mat-button-disabled{
+  background: #BBEEE5;
+  //opacity: 0.2;
+  color: white;
+}
+
 .warning{
   background: #ECFEFB;
   border-radius: 12px;
@@ -152,6 +158,10 @@
   top: 0px !important;
 }
 
+.montse-responsive {
+  font-family: MontserratBold;
+}
+
 @media (min-width: 1024px) {
   :host ::ng-deep.mat-horizontal-content-container {
     padding: 0 24px 24px;
@@ -171,11 +181,8 @@
       position: inherit;
     }
   }
-}
 
-
-:host .mat-button-disabled.mat-button-disabled{
-  background: #BBEEE5;
-  //opacity: 0.2;
-  color: white;
+  .montse-responsive {
+    font-family: Montserrat;
+  }
 }
