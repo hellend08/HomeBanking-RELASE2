@@ -103,7 +103,7 @@ export class TransferExternalComponent implements OnInit {
   ]
 
   selected = '8';
-  valordocument = "8";
+  valordocument!: number;
   doc_type!: string;
 
   //cuentas propias y terceros
@@ -128,12 +128,20 @@ export class TransferExternalComponent implements OnInit {
   selecDNIinput = new FormControl('', [Validators.required, Validators.minLength(8), Validators.pattern('^[a-zA-Z0-9]*$')]);
   token = new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(6)] );
   // email = new FormControl('', Validators.email)
-  email = new FormControl('', [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+\\A-Z]+@[a-z0-9.-\\A-Z]+\\.[a-z]{2,4}$')])
+  email = new FormControl('', [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+-\\\\A-Z]+@[a-z0-9.-\\\\A-Z]+\\.[a-z\\\\A-Z]{2,4}$')])
 
   emailFormControl = new FormControl('', [Validators.required, Validators.email])
-  check = new FormControl('', Validators.required)
+  check = new FormControl('')
+  checked = false;
 
-  constructor(private router: Router, public dialog: MatDialog) { }
+  constructor(private router: Router, public dialog: MatDialog) {
+  }
+
+  valores: any[] = [
+    {nombre:  'DNI', input: 8},
+    {nombre: 'CE', input: 11},
+    {nombre: 'RUC', input: 11},
+  ]
 
   public redirectTransfer(){
     this.router.navigateByUrl('/home/transferencias')
@@ -143,7 +151,23 @@ export class TransferExternalComponent implements OnInit {
     this.router.navigateByUrl('/home/configuracion')
   }
 
-
+  selecciondoc(){
+    if(this.selected === 'DNI'){
+      this.valordocument = 8
+    }else{
+      if (this.selected === 'CE'){
+        this.valordocument = 11
+      }else{
+        if (this.selected === 'RUC'){
+          this.valordocument = 11
+        }else{
+          if (this.selected === 'Pasaporte'){
+            this.valordocument = 11
+          }
+        }
+      }
+    }
+  }
 
   public nexdialog(stepper: MatStepper) {
     if (this.error){
