@@ -307,8 +307,8 @@
                   <mat-form-field appearance="outline" class="w-full monset text-sm lg:w-[17.938rem]">
                     <mat-label>Ingresa el Token Digital&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
                     <input type="password" formControlName="token" [(ngModel)]="inputtoken" maxlength="6" x
-                      (keypress)="onKeyPress($event)" matInput>
-                    <mat-icon matSuffix *ngIf="inputtoken == 123456" class="text-[#00AF91]">check_circle</mat-icon>
+                      (keypress)="onKeyPress($event)" style="text-align: center !important;" matInput>
+                    <mat-icon matSuffix *ngIf="inputtoken == 123456" class="text-[#00AF91] -ml-6">check_circle</mat-icon>
                   </mat-form-field>
                 </div>
 
