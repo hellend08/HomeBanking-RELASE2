@@ -29,6 +29,7 @@ import { DialogErrorComponent } from './transfers-dashboard/dialog-error/dialog-
 import {MatTooltipModule} from "@angular/material/tooltip";
 import { TerminosCondicionesComponent } from './transfer-external/terminos-condiciones/terminos-condiciones.component';
 import {IMaskDirectiveModule, IMaskModule} from "angular-imask";
+import {DialogErrorExtComponent} from "./transfer-external/dialog-error-ext/dialog-error-ext.component";
 
 
 
@@ -44,7 +45,8 @@ import {IMaskDirectiveModule, IMaskModule} from "angular-imask";
     TransferTercerosComponent,
     DialogFrecuentesComponent,
     DialogErrorComponent,
-    TerminosCondicionesComponent
+    DialogErrorExtComponent,
+    TerminosCondicionesComponent,
   ],
   imports: [
     CommonModule,

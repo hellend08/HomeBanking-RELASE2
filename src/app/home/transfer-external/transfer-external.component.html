@@ -35,13 +35,13 @@
               </label>
               <mat-form-field appearance="outline" class="w-full">
                 <mat-select [(ngModel)]="selector2" formControlName="selectordest"
-                  class="appearance-none block text-gray-700 monset leading-tight text-[14px]" placeholder="Elige tu cuenta de destino">
+                  class="appearance-none block text-gray-700 monset leading-tight text-[14px]" placeholder="Elige tu banco de destino">
                   <mat-option class="h-auto" *ngFor="let select of selectdata" [value]="select.nombre">
                     {{select.nombre}}
                   </mat-option>
                 </mat-select>
                 <mat-error *ngIf="selectordest.hasError('required')">
-                  La cuenta de destino es requerida.
+                  El banco de destino es requerida.
                 </mat-error>
               </mat-form-field>
             </div>
@@ -132,7 +132,7 @@
                   <mat-form-field class="monset w-[30%] lg:w-[6.5rem]" appearance="outline">
                     <mat-select [(value)]="selected">
                       <mat-option value="8">DNI</mat-option>
-                      <mat-option value="9">CE</mat-option>
+                      <mat-option value="11">CE</mat-option>
                       <mat-option value="11">RUC</mat-option>
                       <mat-option value="11">Pasaporte</mat-option>
                     </mat-select>
@@ -140,7 +140,7 @@
                   <mat-form-field class="w-[70%] lg:w-[14rem] monset" appearance="outline">
                     <mat-label>Ingresa el número de documento</mat-label>
                     <input matInput autocomplete="off" maxlength="{{selected}}" minlength="{{selected}}"
-                      formControlName="selecDNIinput" (keypress)="onKeyPress($event)" 
+                      formControlName="selecDNIinput" (keypress)="onKeyPress($event)"
                       placeholder="Ingresa el número de documento">
                     <mat-error *ngIf="selecDNIinput.hasError('required')">
                       El número de documento es requerido
@@ -159,10 +159,10 @@
               </div>
 
               <div *ngIf="variable === 'B'">
-                <label *ngIf="selected !== '11'" class="block monsetb mt-2 text-[#8F8F8F] text-[1rem] mb-2">
+                <label *ngIf="selected !== 'RUC'" class="block monsetb mt-2 text-[#8F8F8F] text-[1rem] mb-2">
                   Nombres y Apellidos
                 </label>
-                <label *ngIf="selected === '11'" class="block monsetb mt-2 text-[#8F8F8F] text-[1rem] mb-2">
+                <label *ngIf="selected === 'RUC'" class="block monsetb mt-2 text-[#8F8F8F] text-[1rem] mb-2">
                   Razon Social
                 </label>
                 <mat-form-field appearance="outline" class="w-full monset">
@@ -187,7 +187,7 @@
           </div>
         </form>
         <div class="flex justify-center w-full mt-12 bg-[#F6F6F6] lg:bg-white">
-          <button [disabled]="groupForm1.invalid" class="btn first w-[18.625rem] lg:w-[21.125rem] h-[53px] lg:h-[3.75rem]" matStepperNext mat-button>Siguiente</button>
+          <button [disabled]="groupForm1.invalid" class="btn first w-[18.625rem] lg:w-[21.125rem] h-[53px] lg:h-[3.75rem]" (click)="nexdialog(stepper)" mat-button>Siguiente</button>
         </div>
       </mat-step>
       <mat-step [editable]="false" state="done">
@@ -209,7 +209,7 @@
               <div class="monset text-xs lg:text-base lg:-mt-1">{{selector2 + ' ' + numCCI}}</div>
             </div>
           </div>
-             
+
           <div class="radius-12 bg-[#ECFEFB] flex flex-col justify-center mt-4 lg:mt-2 px-4 py-2 h-[78px] w-full lg:w-[720px]">
             <!-- lg:ml-2  -->
             <p class="montse-responsive lg:font-bold mt-10 text-[0.688rem] text-[#1A3184] lg:text-base">Información de la transferencia</p>
@@ -226,7 +226,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="w-full lg:hidden bg-[#E8F5FF] py-4 px-4 radius-12 mt-4 flex items-center justify-between">
             <div class="monsetb text-[0.688rem] lg:text-[1rem] text-[#1A3184]">Monto a transferir</div>
             <div class="monsetb text-base lg:text-[1.5rem]"><a *ngIf="selectRadioButton == 'PEN'">S/</a><a *ngIf="selectRadioButton == 'USD'">$</a> {{montoT.value | number: '0.2'}}</div>
@@ -248,7 +248,7 @@
               <p class="monset text-[11px] lg:text-base">José Aréstegui Vásquez</p>
             </div>
             <div class="flex flex-col lg:flex-row justify-between">
-              <div class="montse-responsive lg:font-bold text-[11px] lg:text-base">Monto a transferir</div>
+              <div class="montse-responsive lg:block hidden lg:font-bold text-[11px] lg:text-base">Monto a transferir</div>
               <p class="monset text-[11px] lg:text-base">S/ {{montoT.value | number: '0.2'}}</p>
             </div>
             <div class="flex flex-col lg:flex-row justify-between">
@@ -267,12 +267,12 @@
 
           <div class="lg:flex mt-4 justify-center">
             <div>
-              <mat-checkbox formControlName="check" style="display: flex !important;" class="text-xs monset font-bold lg:font-medium text-[11px] lg:text-[1rem] w-11/12 lg:w-full mx-auto my-5 lg:my-4 text-[#8F8F8F]">
+              <mat-checkbox [(ngModel)]="checked" formControlName="check" style="display: flex !important;" class="text-xs monset font-bold lg:font-medium text-[11px] lg:text-[1rem] w-11/12 lg:w-full mx-auto my-5 lg:my-4 text-[#8F8F8F]">
                 <span class="whitespace-pre-wrap lg:whitespace-normal"> He leído y acepto los <a href="https://www.google.com.mx/" target="_blank" class="monsetb text-[#00AF91]">términos y condiciones</a>
                   para procesar esta operación.</span>
               </mat-checkbox>
 
-              <div class="lg:flex items-center justify-between">
+              <div class="items-center justify-between">
                 <div class="lg:pr-4">
                   <div class="text-[11px] lg:text-base monset font-bold">Descripción de la operación (opcional):</div>
                   <div class="mt-2">
@@ -285,7 +285,7 @@
                   </div>
                 </div>
 
-                <div class="lg:px-4 lg:flex hidden">
+                <div style="text-align: center" class="lg:px-4 lg:flex justify-center hidden mx-auto">
                   <div class="flex justify-center">
                     <!-- mt-8 -->
                     <div style="text-align: center">
@@ -301,7 +301,7 @@
                 </div>
               </div>
 
-              <div class="lg:px-4">
+              <div class="lg:px-4 lg:mt-4">
                 <div class="text-center monset font-bold lg:font-medium text-[11px] lg:text-sm">Para confirmar la operación, ingresa el Token Digital </div>
                 <div class="w-full flex justify-center mt-2">
                   <mat-form-field appearance="outline" class="w-full monset text-sm lg:w-[17.938rem]">
@@ -332,7 +332,7 @@
 
         <div class="flex justify-center space-x-4 w-full mt-8">
           <button class="btn second w-[8.8rem] lg:w-[9.813rem] h-[53px] lg:h-[3.75rem]" (click)="redirectTransfer()" mat-button>Cancelar</button>
-          <button [disabled]="groupForm2.invalid" class="btn second2 w-[8.8rem] lg:w-[9.813rem] h-[53px] lg:h-[3.75rem]" matStepperNext
+          <button [disabled]="groupForm2.invalid || !checked" class="btn second2 w-[8.8rem] lg:w-[9.813rem] h-[53px] lg:h-[3.75rem]" matStepperNext
             mat-button>Confirmar</button>
         </div>
       </mat-step>
@@ -403,7 +403,8 @@
               </div>
               <div class="lg:flex justify-between">
                 <div class="montse-responsive lg:font-bold text-[11px] lg:text-base">Monto</div>
-                <p class="monset text-sm lg:text-base">{{montoT.value}}</p>
+                <p class="monset text-sm lg:text-base" *ngIf="selectRadioButton === 'PEN'">S/ {{montoT.value}}</p>
+                <p class="monset text-sm lg:text-base" *ngIf="selectRadioButton === 'USD'">$ {{montoT.value}}</p>
               </div>
               <div class="lg:flex justify-between">
                 <div class="montse-responsive lg:font-bold text-[11px] lg:text-base">Comisión CML</div>

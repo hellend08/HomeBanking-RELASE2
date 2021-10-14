@@ -30,7 +30,7 @@
                 Cuenta de destino
               </label>
               <mat-form-field appearance="outline" class="w-full monset">
-                <mat-select [(ngModel)]="selector2" formControlName="selectordest" class="appearance-none block text-gray-700 leading-tight text-[0.75rem]" placeholder="Elige tu cuenta de destino">
+                <mat-select [(ngModel)]="selector2" formControlName="selectordest" class="appearance-none block text-gray-700 leading-tight text-[0.75rem]" placeholder="Elige tu banco destino">
                   <mat-option *ngFor="let select of selectdata" class="h-auto" [value]="select.tipo + ' ' + select.cuenta">
                     <div class="my-2">
                       <div class="mt-px -mb-4 monset">Cuenta – {{select.tipo}} </div>
@@ -61,7 +61,7 @@
               </mat-radio-group>
               <!--              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Jane">-->
             </div>
-            
+
             <div class="w-full md:w-1/2 lg:px-3 lg:mb-6 md:mb-0">
               <label class="block text-[#8F8F8F] monsetb text-[1rem] mb-2">
                 Monto a transferir
@@ -112,10 +112,10 @@
           </div>
 
           <div class="lg:flex items-center mt-4 lg:mt-5 space-x-10 lg:px-2">
-            <div class="flex justify-start h-[85px]">
-              <div class="warning w-full lg:w-[21.125rem] px-4 flex flex-col justify-center">
+            <div class="flex justify-start -mt-4 h-[95px]">
+              <div class="warning w-full lg:w-[21.125rem] px-6 flex flex-col justify-center">
                 <div class="text-[0.688rem] lg:text-base text-[#1A3184] montse-responsive lg:font-bold">Información de la transferencia</div>
-                <div class="flex justify-between mt-2">
+                <div class="flex justify-between mt-4">
                   <div class="flex flex-col justify-center">
                     <div class="text-xs monset">Tipo de cambio</div>
                     <div class="text-[0.688rem] lg:text-base monsetb" *ngIf="selectRadioButton === 'USD'">$ 25.00</div>
@@ -205,7 +205,7 @@
                 <p class="monset font-bold text-base">Número de operación</p>
                 <div class="monsetb">001</div>
               </div>
-              
+
               <div class="hidden card px-4 h-[4.688rem] w-full lg:w-[21.125rem] lg:flex flex-col justify-center">
                 <div class="monset font-bold text-[0.688rem] lg:text-base text-[#1A3184] lg:text-[#050505]">Monto total transferido</div>
                 <div class="monsetb text-base lg:text-2xl mt-1"><a *ngIf="selectRadioButton == 'PEN'">S/</a><a *ngIf="selectRadioButton == 'USD'">$</a> {{montoT.value | number: '0.2'}}</div>

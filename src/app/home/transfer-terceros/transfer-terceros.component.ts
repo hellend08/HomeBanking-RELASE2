@@ -121,8 +121,8 @@ export class TransferTercerosComponent implements OnInit {
 
   // Paso3
   groupForm3!: FormGroup;
-  email = new FormControl('', [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+\\A-Z]+@[a-z0-9.-\\A-Z]+\\.[a-z]{2,4}$')]);
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+  email = new FormControl('', [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+\\A-Z]+@[a-z0-9.-\\A-Z]+\\.[a-z]{2,4}$')])
+  emailFormControl = new FormControl('', [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+\\A-Z]+@[a-z0-9.-\\A-Z]+\\.[a-z]{2,4}$')])
 
   constructor(private router: Router, private _formBuilder: FormBuilder, public dialog: MatDialog) {
   }
