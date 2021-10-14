@@ -51,6 +51,10 @@ export class TransferExternalComponent implements OnInit {
     padFractionalZeros: true // if true, then pads zeros at end to the length of scale
   };
 
+  length = 0;
+  tipo = 'dni';
+  placeholderdoc= ''
+
   currencyMask = {
     mask: [
       {
@@ -102,7 +106,7 @@ export class TransferExternalComponent implements OnInit {
     {value: '3', tipo: 'Ahorros Soles', cuenta: 302030405060721234},
   ]
 
-  selected = '8';
+  selected = 'dni';
   valordocument!: number;
   doc_type!: string;
 
@@ -134,14 +138,33 @@ export class TransferExternalComponent implements OnInit {
   check = new FormControl('')
   checked = false;
 
+
   constructor(private router: Router, public dialog: MatDialog) {
   }
 
   valores: any[] = [
-    {nombre:  'DNI', input: 8},
-    {nombre: 'CE', input: 11},
-    {nombre: 'RUC', input: 11},
+    {nombre:  'DNI'},
+    {nombre: 'CE'},
+    {nombre: 'RUC'},
   ]
+
+  docTypes = [
+    { id: 1, value: 'dni', label: 'DNI', maxLength: 8 },
+    { id: 2, value: 'ce', label: 'CE', maxLength: 11 },
+    { id: 3, value: 'ruc', label: 'RUC', maxLength: 11 },
+    { id: 4, value: 'pasaporte', label: 'PASAPORTE', maxLength: 11 }
+  ]
+
+  seleccionado(e: any){
+    console.log(e);
+
+    this.length = e.maxLength;
+    this.tipo = e.value;
+    this.placeholderdoc = e.label;
+  }
+  compareFn(option: any, value: any): boolean {
+    return option.id === value.id;
+  }
 
   public redirectTransfer(){
     this.router.navigateByUrl('/home/transferencias')
@@ -151,23 +174,23 @@ export class TransferExternalComponent implements OnInit {
     this.router.navigateByUrl('/home/configuracion')
   }
 
-  selecciondoc(){
-    if(this.selected === 'DNI'){
-      this.valordocument = 8
-    }else{
-      if (this.selected === 'CE'){
-        this.valordocument = 11
-      }else{
-        if (this.selected === 'RUC'){
-          this.valordocument = 11
-        }else{
-          if (this.selected === 'Pasaporte'){
-            this.valordocument = 11
-          }
-        }
-      }
-    }
-  }
+  // selecciondoc(){
+  //   if(this.selected === 'DNI'){
+  //     this.valordocument = 8
+  //   }else{
+  //     if (this.selected === 'CE'){
+  //       this.valordocument = 11
+  //     }else{
+  //       if (this.selected === 'RUC'){
+  //         this.valordocument = 11
+  //       }else{
+  //         if (this.selected === 'Pasaporte'){
+  //           this.valordocument = 11
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 
   public nexdialog(stepper: MatStepper) {
     if (this.error){
@@ -188,13 +211,13 @@ export class TransferExternalComponent implements OnInit {
   onKeyPress(event: any) {
     const regexpNumber = /[0-9\.]/;
 
-    if (this.selected == '8') {
-      let inputCharacter = String.fromCharCode(event.charCode);
-      if (event.keyCode !== 8 && !regexpNumber.test(inputCharacter)) {
-      event.preventDefault();
-      // console.log("entro");
-      }
-    }
+    // if (this.selected == '8') {
+    //   let inputCharacter = String.fromCharCode(event.charCode);
+    //   if (event.keyCode !== 8 && !regexpNumber.test(inputCharacter)) {
+    //   event.preventDefault();
+    //   // console.log("entro");
+    //   }
+    // }
   }
 
   onKeyPressMonto(event: any) {
@@ -204,6 +227,8 @@ export class TransferExternalComponent implements OnInit {
       event.preventDefault();
     }
   }
+
+
 
   openDialog(){
     const dialogref = this.dialog.open(TerminosCondicionesComponent);
@@ -226,20 +251,20 @@ export class TransferExternalComponent implements OnInit {
   }
 
   onKeyPressInput(event: any) {
-    if (this.selected == '8') {
-      const regexpNumber = /[0-9]/;
-      let inputCharacter = String.fromCharCode(event.charCode);
-      if (event.keyCode != 8 && !regexpNumber.test(inputCharacter)) {
-        event.preventDefault();
-      }
-    }
-    else {
-      const regexpNumber = /[0-9\a-z\A-Z]/;
-      let inputCharacter = String.fromCharCode(event.charCode);
-      if (event.keyCode != 9 && !regexpNumber.test(inputCharacter)) {
-        event.preventDefault();
-      }
-    }
+    // if (this.selected == '8') {
+    //   const regexpNumber = /[0-9]/;
+    //   let inputCharacter = String.fromCharCode(event.charCode);
+    //   if (event.keyCode != 8 && !regexpNumber.test(inputCharacter)) {
+    //     event.preventDefault();
+    //   }
+    // }
+    // else {
+    //   const regexpNumber = /[0-9\a-z\A-Z]/;
+    //   let inputCharacter = String.fromCharCode(event.charCode);
+    //   if (event.keyCode != 9 && !regexpNumber.test(inputCharacter)) {
+    //     event.preventDefault();
+    //   }
+    // }
   }
 
   soles(){
@@ -251,6 +276,8 @@ export class TransferExternalComponent implements OnInit {
     this.sol = false;
     this.dol = true;
   }
+
+  // demo = this.docTypes.find(e => e.value === this.selected)
 
   ngOnInit(): void {
     this.groupForm1 = new FormGroup({

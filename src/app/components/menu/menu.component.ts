@@ -93,7 +93,7 @@ export class MenuComponent implements OnInit {
   }
 
   public redirectPerfil() {
-    this.router.navigateByUrl('/dashboard/perfil');
+    this.router.navigateByUrl('/home/perfil');
   }
 
   public redirectCreateAccount() {

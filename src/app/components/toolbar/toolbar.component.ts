@@ -14,6 +14,10 @@ export class ToolbarComponent implements OnInit {
     this.router.navigateByUrl('/home/configuracion')
   }
 
+  public redirectPerfil(){
+    this.router.navigateByUrl('/home/perfil')
+  }
+
   // public redirectTransfer(){
   //   this.router.navigateByUrl('/home/transferencias')
   // }

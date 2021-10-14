@@ -30,6 +30,11 @@ import {MatTooltipModule} from "@angular/material/tooltip";
 import { TerminosCondicionesComponent } from './transfer-external/terminos-condiciones/terminos-condiciones.component';
 import {IMaskDirectiveModule, IMaskModule} from "angular-imask";
 import {DialogErrorExtComponent} from "./transfer-external/dialog-error-ext/dialog-error-ext.component";
+import { ActTokenComponent } from './act-token/act-token.component';
+import {MatListModule} from "@angular/material/list";
+import { PerfilDashboardComponent } from './perfil-dashboard/perfil-dashboard.component';
+import { AdvertenciaComponent } from './perfil-dashboard/advertencia/advertencia.component';
+import { DialogPerfilComponent } from './perfil-dashboard/dialog-perfil/dialog-perfil.component';
 
 
 
@@ -47,29 +52,34 @@ import {DialogErrorExtComponent} from "./transfer-external/dialog-error-ext/dial
     DialogErrorComponent,
     DialogErrorExtComponent,
     TerminosCondicionesComponent,
+    ActTokenComponent,
+    PerfilDashboardComponent,
+    AdvertenciaComponent,
+    DialogPerfilComponent,
   ],
-  imports: [
-    CommonModule,
-    HomeRoutingModule,
-    MatIconModule,
-    MatMenuModule,
-    MatCardModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    FormsModule,
-    NgxMaskModule.forRoot(),
-    MatRippleModule,
-    MatStepperModule,
-    MatSelectModule,
-    MatOptionModule,
-    MatRadioModule,
-    MatCheckboxModule,
-    ReactiveFormsModule,
-    MatTooltipModule,
-    IMaskModule
-  ],exports:[
+    imports: [
+        CommonModule,
+        HomeRoutingModule,
+        MatIconModule,
+        MatMenuModule,
+        MatCardModule,
+        MatDialogModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        FormsModule,
+        NgxMaskModule.forRoot(),
+        MatRippleModule,
+        MatStepperModule,
+        MatSelectModule,
+        MatOptionModule,
+        MatRadioModule,
+        MatCheckboxModule,
+        ReactiveFormsModule,
+        MatTooltipModule,
+        IMaskModule,
+        MatListModule
+    ],exports:[
 
   ],
   providers: [

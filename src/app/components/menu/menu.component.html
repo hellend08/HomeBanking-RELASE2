@@ -43,7 +43,7 @@
   <div>
     <div class="mx-2 lg:hidden">
       <mat-divider></mat-divider>
-      <button mat-menu-item [ngClass]="{'isActive': perfil == true, 'isInactive': perfil == false}" (click)="clickperfil(); closeSideNav.emit();"
+      <button mat-menu-item [ngClass]="{'isActive': perfil == true, 'isInactive': perfil == false}" (click)="clickperfil(); redirectPerfil(); closeSideNav.emit();"
               class="monsetb text-xxs xl:text-sm w-full text-left my-1 h-11 focus:outline-none">
         <mat-icon [ngClass]="{'isActive': perfil == true, 'isInactive': perfil == false}">account_circle</mat-icon> Mi perfil
       </button>

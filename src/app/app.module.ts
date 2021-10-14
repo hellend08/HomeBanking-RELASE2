@@ -24,7 +24,6 @@ import {CurrencyPipe} from "@angular/common";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatDialogModule} from "@angular/material/dialog";
 import {IMaskModule} from "angular-imask";
-import { PasswordFieldComponent } from './components/password-field/password-field.component';
 
 
 
@@ -35,7 +34,6 @@ import { PasswordFieldComponent } from './components/password-field/password-fie
         ConfigurationComponent,
         MenuComponent,
         ToolbarComponent,
-        PasswordFieldComponent,
     ],
     imports: [
         BrowserModule,
@@ -55,7 +53,9 @@ import { PasswordFieldComponent } from './components/password-field/password-fie
         MatOptionModule,
         ReactiveFormsModule,
         MatDialogModule,
-        IMaskModule
+        IMaskModule,
+
+      BrowserModule
     ],
     providers: [CurrencyPipe],
     exports: [

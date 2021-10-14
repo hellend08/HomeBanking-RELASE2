@@ -1,0 +1,95 @@
+$duration: .6s;
+
+.example-margin {
+  margin: 0 10px;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-ripple .mat-ripple-element {
+  opacity: 0.03 !important;
+  background-color: #00AF91!important;
+}
+
+:host::ng-deep .mat-horizontal-stepper-header{
+  pointer-events: none !important;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: #00AF91;
+}
+
+@media (min-width: 1920px){
+  .maxscreenimg2 {
+    left: 32rem;
+  }
+
+  .maxscreenimg1 {
+    right: 28rem;
+  }
+}
+
+
+@media (min-width: 1720px){
+  .maxscreenimg2 {
+    left: 26rem;
+  }
+
+  .maxscreenimg1 {
+    right: 22rem;
+  }
+}
+
+.ph-center::-webkit-input-placeholder {
+  text-align: center;
+}
+
+::ng-deep.mat-horizontal-stepper-header-container{
+  width: 19.125rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+:host .mat-button-disabled.mat-button-disabled{
+  background: #BBEEE5;
+  //opacity: 0.2;
+  color: white;
+}
+
+// Animaciones
+
+@keyframes textanimation {
+  from{
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.textanimation{
+  animation-name: textanimation;
+  animation-duration: 3s;
+  //animation-fill-mode: both;
+}
+
+@keyframes imganimation {
+  from{
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to{
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.imganimation{
+  animation-name: imganimation;
+  animation-duration: 3s;
+  //animation-fill-mode: both;
+}
+
+hr.solid {
+  border-top: 1px solid #1A3184;
+}
