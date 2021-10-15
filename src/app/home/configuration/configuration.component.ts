@@ -14,6 +14,10 @@ export class ConfigurationComponent implements OnInit {
     this.router.navigateByUrl('/home/limitOp')
   }
 
+  public redirectactToken(){
+    this.router.navigateByUrl('/home/Activar-Token')
+  }
+
   ngOnInit(): void {
   }
 

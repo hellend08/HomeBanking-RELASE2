@@ -53,7 +53,9 @@ import {IMaskModule} from "angular-imask";
         MatOptionModule,
         ReactiveFormsModule,
         MatDialogModule,
-        IMaskModule
+        IMaskModule,
+
+      BrowserModule
     ],
     providers: [CurrencyPipe],
     exports: [

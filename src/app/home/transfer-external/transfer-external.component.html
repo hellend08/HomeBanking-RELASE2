@@ -130,18 +130,22 @@
                 </label>
                 <div class="flex space-x-2 justify-between items-center">
                   <mat-form-field class="monset w-[30%] lg:w-[6.5rem]" appearance="outline">
-                    <mat-select [(value)]="selected">
-                      <mat-option value="8">DNI</mat-option>
-                      <mat-option value="11">CE</mat-option>
-                      <mat-option value="11">RUC</mat-option>
-                      <mat-option value="11">Pasaporte</mat-option>
+                    <mat-select (valueChange)="seleccionado($event)" [compareWith]="compareFn" [(value)]="selected">
+                      <mat-option *ngFor="let select of docTypes" [value]="select">
+                        {{select.label}}
+                      </mat-option>
+<!--                      <mat-option value="dni">DNI</mat-option>-->
+<!--                      <mat-option value="ce">CE</mat-option>-->
+<!--                      <mat-option value="ruc">RUC</mat-option>-->
+<!--                      <mat-option value="pasaporte">Pasaporte</mat-option>-->
                     </mat-select>
                   </mat-form-field>
+                  <span></span>
                   <mat-form-field class="w-[70%] lg:w-[14rem] monset" appearance="outline">
                     <mat-label>Ingresa el número de documento</mat-label>
-                    <input matInput autocomplete="off" maxlength="{{selected}}" minlength="{{selected}}"
+                    <input matInput autocomplete="off" [maxLength]="length"
                       formControlName="selecDNIinput" (keypress)="onKeyPress($event)"
-                      placeholder="Ingresa el número de documento">
+                      placeholder="Ingrese numero de {{placeholderdoc}}">
                     <mat-error *ngIf="selecDNIinput.hasError('required')">
                       El número de documento es requerido
                     </mat-error>
@@ -159,16 +163,19 @@
               </div>
 
               <div *ngIf="variable === 'B'">
-                <label *ngIf="selected !== 'RUC'" class="block monsetb mt-2 text-[#8F8F8F] text-[1rem] mb-2">
-                  Nombres y Apellidos
+                <label [ngSwitch]="tipo" class="block monsetb mt-2 text-[#8F8F8F] text-[1rem] mb-2">
+                  <span *ngSwitchCase="'ruc'">Razon Social</span>
+                  <span *ngSwitchDefault>Nombres y Apellidos</span>
                 </label>
-                <label *ngIf="selected === 'RUC'" class="block monsetb mt-2 text-[#8F8F8F] text-[1rem] mb-2">
-                  Razon Social
-                </label>
+<!--                <label *ngIf="tipo === 'ruc'" class="block monsetb mt-2 text-[#8F8F8F] text-[1rem] mb-2">-->
+<!--                  Razon Social-->
+<!--                </label>-->
                 <mat-form-field appearance="outline" class="w-full monset">
                   <mat-label>Ingresa los nombres y apellidos</mat-label>
-                  <input matInput formControlName="dataper" maxlength="100" autocomplete="off"
+                  <input *ngIf="tipo !== 'ruc'" matInput formControlName="dataper" maxlength="100" autocomplete="off"
                     placeholder="Ingresa los nombres y apellidos">
+                  <input *ngIf="tipo === 'ruc'" matInput formControlName="dataper" maxlength="100" autocomplete="off"
+                         placeholder="Ingrese la razon social">
                   <mat-error *ngIf="selecDNIinput.hasError('required')">
                     Los nombres y apellidos son requeridos
                   </mat-error>

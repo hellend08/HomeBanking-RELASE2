@@ -65,3 +65,21 @@
   </article>
 </section>
 
+<div *ngIf="show === true">
+  <div class="flex -mt-4 -mr-4 justify-end w-full">
+    <div mat-dialog-close style="margin-right: -23px;" class="py-2 rounded cursor-pointer inline-flex items-center">
+      <span class="monsetb">Cerrar</span>
+      <mat-icon class="fill-current text-[4rem] mr-2">close</mat-icon>
+    </div>
+  </div>
+
+  <div style="text-align: center" class="mb-14 mt-16 w-full mt-4">
+    <div class="w-full px-4">
+      <img class="mx-auto" src="assets/images/checked.svg">
+    </div>
+    <div class="monset text-[1rem] mb-4 mt-2 text-[#3D3C3C] tracking-tighter">Se agregó nueva operación frecuente con éxito.</div>
+  </div>
+  <mat-dialog-actions align="center">
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial class="btn text-white h-[2.5rem] w-[17.25rem]">Confirmar</button>
+  </mat-dialog-actions>
+</div>

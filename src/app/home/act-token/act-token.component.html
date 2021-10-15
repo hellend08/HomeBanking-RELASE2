@@ -1,0 +1,182 @@
+<div class="lg:flex block justify-center bg-white px-2 lg:px-0">
+  <div class="monset items-center lg:ml-4 lg:w-3/5 xl:w-4/6 h-full">
+    <div class="lg:mt-4 flex justify-end">
+      <div class="w-full block h-auto monset space-x-4 flex">
+        <div class="w-full flex justify-center">
+          <div class="lg:hidden container flex flex-wrap content-center w-full mx-auto">
+            <div class="w-full">
+              <div class="flex justify-center mx-auto">
+                <div class="bg-[#E8F5FF] flex flex-wrap content-center w-[17.5rem] container h-[15.063rem] px-6"
+                  style="border-radius: 44px;">
+                  <div class="w-[8.75rem] space-y-5">
+                    <div style="line-height: 13px; letter-spacing: 0.0015em;"
+                      class="monsetb text-[0.688rem] text-[#1A3184]">1. Abre tu APP</div>
+                    <div style="line-height: 13px; letter-spacing: 0.0015em;"
+                      class="monsetb text-[0.688rem] text-[#1A3184]">2. Click en la opción “Token Digital”</div>
+                    <div style="line-height: 13px; letter-spacing: 0.0015em;"
+                      class="monsetb text-[0.688rem] text-[#1A3184]">3. Ingresa tu clave de Internet de 6 dígitos</div>
+                  </div>
+                </div>
+                <div><img
+                    class="absolute maxscreenimg1 top-[5.313rem] right-[0.2rem] md:right-[14.2rem] sm:right-[10.2rem] w-[8.938rem] h-[17.313rem]"
+                    src="assets/images/cell-token-paso-1.svg"></div>
+              </div>
+
+              <div class="mt-6 mx-auto">
+                <div class="text-center mx-auto text-[1rem] monsetb w-[11.375rem] ">Descarga tu aplicación mòvil</div>
+                <div class="flex justify-center mt-4 space-x-6">
+                  <div><img class="w-[7.479rem] h-[2.5rem]" src="assets/images/AppStore.svg"></div>
+                  <div><img class="w-[8.438rem] h-[2.5rem]" src="assets/images/GooglePlay.svg"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="lg:block hidden">
+            <div class="text-lg flex justify-center font-semibold w-full lg:mb-7">
+              <div class="mr-3 lg:pb-3 monsetb lg:text-xl text-[0.775rem] text-center mt-4  lg:px-14">Token Digital
+              </div>
+            </div>
+            <mat-stepper class="" labelPosition="bottom" linear #stepper>
+              <mat-step editable="false" state="done">
+                <form [formGroup]="groupForm1">
+                  <ng-template matStepLabel>Paso 1</ng-template>
+                  <div class="flex justify-center mt-10">
+                    <div class="w-[25.188rem] container h-[25.875rem] mr-14 flex justify-center px-6 py-4 bg-[#E8F5FF]"
+                      style="border-radius: 44px;">
+                      <div class="space-y-20  w-[95%] py-4 flex flex-col justify-center">
+                        <div style="line-height: 29px;" class="monsetb textanimation text-[1.5rem] text-[#1A3184]">1.
+                          Abre tu APP</div>
+                        <div style="line-height: 29px;" class="monsetb textanimation text-[1.5rem] text-[#1A3184]">2.
+                          Click en la opción “Token Digital”</div>
+                        <div style="line-height: 29px;" class="monsetb textanimation text-[1.5rem] text-[#1A3184]">3.
+                          Ingresa tu clave de Internet de 6 dígitos</div>
+                      </div>
+                      <img
+                        class="absolute imganimation maxscreenimg1 lg:right-[7rem] xl:right-52 2xl:right-80 w-[14.563rem] top-[18.313rem] h-[28.625rem]"
+                        src="assets/images/cell-token-paso-1.svg">
+                    </div>
+                  </div>
+                  <div class="mt-16">
+                    <mat-checkbox formControlName="check" class="example-margin monset text-[1rem]">He leído y acepto
+                      los <a href="https://www.google.com.mx/" target="_blank"
+                        class="font-semibold monsetb text-[#00AF91]">términos y condiciones</a> de uso del Token
+                      Digital.</mat-checkbox>
+                  </div>
+                </form>
+                <div class="mt-6 text-white w-full flex justify-center">
+                  <button mat-button matStepperNext [disabled]="groupForm1.invalid"
+                    style="box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.24); border-radius: 20px;"
+                    class="bg-[#00AF91] monsetb w-[15.688rem] h-[3.75rem]">Siguiente</button>
+                </div>
+              </mat-step>
+              <mat-step editable="false" state="done">
+                <form>
+                  <ng-template matStepLabel>Paso 2</ng-template>
+                  <div class="flex justify-end mt-10">
+                    <div
+                      class="w-[25.188rem] container h-[25.875rem] mr-14 flex flex-wrap content-center justify-end px-6 py-4 bg-[#E8F5FF]"
+                      style="border-radius: 44px;">
+                      <div class="space-y-20 text-left w-[70%] py-4">
+                        <div style="line-height: 29px;" class="monsetb text-[1.5rem] text-[#1A3184]">Para vincular el
+                          dispositivo tienes que dar click en el APP al botón “Vincular dispositivo”</div>
+                      </div>
+                      <img
+                        class="absolute imganimation maxscreenimg2 left-20 lg:left-40 xl:left-64 2xl:left-96 w-[14.563rem] top-[18.313rem] h-[28.625rem]"
+                        src="assets/images/cell-token-paso-2.svg">
+                    </div>
+                  </div>
+                </form>
+                <div class="mt-10">
+                  <!--                    <mat-checkbox class="example-margin monset text-[1rem]">He leído y acepto los <a class="font-semibold monsetb text-[#00AF91]">términos y condiciones</a> de uso del Token Digital.</mat-checkbox>-->
+                </div>
+                <div class="mt-6 text-white space-x-4 w-full flex justify-center flex">
+                  <button matStepperPrevious style="box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.24); border-radius: 20px;"
+                    class="bg-white text-[#1A3184] monsetb w-[15.688rem] h-[3.75rem]">Volver</button>
+                  <button matStepperNext style="box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.24); border-radius: 20px;"
+                    class="bg-[#00AF91] monsetb w-[15.688rem] h-[3.75rem]">Siguiente</button>
+                </div>
+              </mat-step>
+              <mat-step editable="false" state="done">
+                <form>
+                  <ng-template matStepLabel>Paso 3</ng-template>
+                  <div class="flex justify-center mt-10">
+                    <div *ngIf="qrScan" (click)="qrAutenticacion = true; qrScan = false"
+                      class="w-[25.188rem] h-[25.875rem] flex justify-center px-6 py-4 bg-[#E8F5FF]"
+                      style="border-radius: 44px;">
+                      <div class="text-center py-4">
+                        <div class="mb-4">
+                          <mat-icon class="text-[#00AF91] text-[2rem]">smartphone</mat-icon>
+                        </div>
+                        <div style="letter-spacing: 0.0015em;" class="monsetb text-[1rem] text-[#1A3184]">Cuando la
+                          cámara se encuentre habilitada, apunta tu teléfono hacia esta pantalla para escanear el código
+                          QR.</div>
+                        <div class="flex justify-center mt-10">
+                          <div *ngIf="spinner">
+                          <mat-spinner></mat-spinner>
+                        </div>
+                          <img *ngIf="!spinner" class="w-[11.875rem] h-[12.563rem]" (click)="showSpinner()" src="assets/images/qrcode_3199469_.png">
+                        </div>
+                      </div>
+                    </div>
+                    <div *ngIf="qrAutenticacion"
+                      class="w-[25.188rem] h-[25.875rem] flex justify-center px-6 py-4 bg-[#E8F5FF]"
+                      style="border-radius: 44px;">
+                      <div class="text-center py-4">
+                        <div class="mb-4">
+                          <mat-icon class="text-[#00AF91] text-[4rem] -ml-8">smartphone</mat-icon>
+                        </div>
+                        <div style="letter-spacing: 0.0015em;" class="monsetb text-[1rem] text-[#1A3184]">Ingresa el
+                          código brindado por el APP como medio alternativo para efectuar la activación del token
+                          Digital</div>
+                        <div class="flex justify-center mt-10">
+                          <mat-form-field appearance="outline">
+                            <input class="ph-center" max="6" maxlength="6" minlength="6" min="6" matInput
+                              placeholder="Ingresa el código aquí">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                    </div>
+                    <div *ngIf="qrActive" class="w-[25.188rem] h-[25.875rem] flex justify-center px-6 py-4 bg-[#E8F5FF]"
+                      style="border-radius: 44px;">
+                      <div class="text-center py-4">
+                        <div class="mb-4">
+                          <mat-icon class="text-[#00AF91] text-[4rem]">vpn_key</mat-icon>
+                        </div>
+                        <div style="letter-spacing: -0.005em;line-height: 59px;"
+                          class="text-[4rem] text-[#1A3184] monsetb">
+                          Token activado
+                          <p class="text-[1rem] monset">Tu Token Digital fue activado con éxito</p>
+                        </div>
+                        <hr class="solid">
+                        <div class="mt-6 px-4">
+                          <span style="line-height: 20px; letter-spacing: 0.0015em;"
+                            class="text-[1rem] text-[#1A3184] monsetb">Recuerda que para utilizarlo tienes que hacerlo
+                            en el APP CML. </span>
+                        </div>
+                        <!--                        <p>Tu Token Digital fue activado con éxito</p>-->
+                        <!--                        <div style="letter-spacing: 0.0015em;" class="monsetb text-[1rem] text-[#1A3184]">Cuando la cámara se encuentre habilitada, apunta tu teléfono hacia esta pantalla para escanear el código QR.</div>-->
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <div class="mt-10">
+                  <!--                    <mat-checkbox class="example-margin monset text-[1rem]">He leído y acepto los <a class="font-semibold monsetb text-[#00AF91]">términos y condiciones</a> de uso del Token Digital.</mat-checkbox>-->
+                </div>
+                <div class="mt-6 text-white w-full flex justify-center">
+                  <!--                  <button style="box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.24); border-radius: 20px;" (click)="qrActive = true; qrAutenticacion = false; qrScan = false" class="bg-[#00AF91] monsetb w-[15.688rem] h-[3.75rem]">Finalizar</button>-->
+                  <button style="box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.24); border-radius: 20px;"
+                    (click)="clickFinalizar()" class="bg-[#00AF91] monsetb w-[15.688rem] h-[3.75rem]">Finalizar</button>
+                </div>
+              </mat-step>
+              <ng-template matStepperIcon="done" let-index="index">
+                {{index + 1}}
+              </ng-template>
+            </mat-stepper>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

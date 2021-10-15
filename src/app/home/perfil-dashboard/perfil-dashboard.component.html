@@ -1,0 +1,87 @@
+
+<div
+  class="profile-portrait flex flex-col items-center justify-center pt-20 md:pt-4 pb-8 bg-cover"
+  style="background-image: url('assets/images/default-profile-portrait-bg.jpg')"
+>
+  <span class="block monsetb font-semibold md:text-xl lg:text-2xl mb-4 text-white">Mi perfil</span>
+  <img src="assets/images/account_circle.svg" class="w-11 h-11 md:w-20 md:h-20 rounded-full object-cover" alt="Imagen de perfil">
+</div>
+
+<div class="mx-auto px-3 -mt-6" style="max-width: 868px">
+  <div class="flex flex-wrap">
+    <div class="w-full px-2 mb-4">
+      <div class="bg-white py-8 px-6 md:py-10 md:px-24 rounded-xl shadow-lg">
+        <p class="text-center monset leading-tight text-sm md:text-base">Verifica tus datos personales a fin de que se encuentren actualizados en todos nuestros canales(Web, App, Res de agencias)</p>
+      </div>
+    </div>
+    <div class="w-full md:w-1/2 px-2 mb-4">
+      <div class="bg-white p-6 rounded-xl shadow-lg h-full">
+        <h4 class="monsetb mb-4">Datos Generales</h4>
+        <ul class="text-sm monset">
+          <li class="mb-2">
+            Nombre: Guevara ********, *******
+          </li>
+          <li class="mb-2">
+            DNI: ******850
+          </li>
+          <li class="mb-2">
+            Dirección: Av. La paz ***** - ********
+          </li>
+          <li class="mb-2">
+            Celular: *******235
+          </li>
+          <li class="mb-2">
+            Teléfono: ****563
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="w-full md:w-1/2 px-2 mb-4">
+      <div class="bg-white p-6 rounded-xl shadow-lg h-full flex flex-col">
+        <h4 class="monsetb mb-4">Correo electrónico</h4>
+        <p *ngIf="userEmail === ''" class="monset text-sm">
+          Registra un correo electrónico en nuestras oficinas a nivel nacional para enviarte todas las comunicaciones tales como: Estado de cuenta, constancias, etc.
+        </p>
+        <p *ngIf="userEmail !== ''" class="monset text-sm mb-4">Todas las comunicaciones serán enviadas automaticamente a tu correo registrado:</p>
+        <div  class="flex items-center pr-3" *ngIf="userEmail !== ''">
+          <mat-icon aria-hidden="false" class="text-[#00AF91] mr-2">email</mat-icon>
+          <span class="monset text-[0.85rem] lg:text-[1rem]">
+                {{ userEmail }}
+              </span>
+        </div>
+        <div class="mt-auto">
+          <button (click)="openDialog()"
+            *ngIf="userEmail === ''"
+            mat-button
+            mat-raised-button
+            color="white"
+            class="text-black monsetb">
+            <mat-icon aria-hidden="false" class="text-[#00AF91] mr-1">email</mat-icon>
+            Registrar correo
+          </button>
+          <button (click)="openDialog()" *ngIf="userEmail !== ''"
+                  mat-button mat-raised-button
+                  color="white" class="text-black monsetb">
+            <mat-icon aria-hidden="false" class="text-[#00AF91] mr-1">edit</mat-icon>
+            Editar correo
+          </button>
+<!--          <div *ngIf="userEmail !== ''" class="flex items-center justify-between">-->
+<!--            <div class="flex items-center pr-3">-->
+<!--              <mat-icon aria-hidden="false" class="text-v1 mr-2">email</mat-icon>-->
+<!--              <span class="monset">-->
+<!--                {{ userEmail }}-->
+<!--              </span>-->
+<!--            </div>-->
+<!--            <button-->
+<!--              mat-button (click)="openDialog()"-->
+<!--              color="white"-->
+<!--              class="text-black monsetb">-->
+<!--              Editar-->
+<!--              <mat-icon aria-hidden="false" class="ml-1">edit</mat-icon>-->
+<!--            </button>-->
+<!--          </div>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,68 @@
+<div class="monsetb text-[1rem] flex justify-center mb-2">Registrar correo electrónico</div>
+<mat-stepper labelPosition="bottom" #stepper>
+  <mat-step [editable]="false" style="text-align: center" state="done">
+    <form class="-mx-6" [formGroup]="groupForm1">
+      <ng-template matStepLabel>Correo</ng-template>
+      <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Correo</mat-label>
+        <input matInput [(ngModel)]="correo" formControlName="email" autocomplete="false">
+<!--        <mat-error *ngIf="email.hasError('required')">Error</mat-error>-->
+      </mat-form-field>
+      <mat-form-field class="w-full -mt-2" appearance="outline">
+        <mat-label>Confirmar correo</mat-label>
+        <input matInput [(ngModel)]="correoconf" formControlName="emailconf" autocomplete="false">
+<!--        <mat-error *ngIf="emailconf.hasError('result') || email.value != correoconf">Error</mat-error>-->
+      </mat-form-field>
+    </form>
+<!--    <div class="flex justify-between space-x-6">-->
+<!--      <button mat-button class="btn w-[8.625rem] text-[#00AF91]">Cancelar</button>-->
+<!--      <button mat-button class="btn w-[8.625rem] text-[#00AF91]">Siguiente</button>-->
+<!--    </div>-->
+    <div class="mt-2 -mb-4 space-x-4 w-full -mx-6 centrado flex justify-between flex">
+      <button mat-button mat-dialog-close class="text-[#00AF91] w-[7.833rem] lg:w-[8.625rem] btn monsetb ">Cancelar</button>
+      <button mat-button [disabled]="groupForm1.invalid" matStepperNext class="text-[#00AF91] w-[7.833rem] lg:w-[8.625rem] monsetb btn">Siguiente</button>
+    </div>
+  </mat-step>
+  <mat-step [editable]="false" state="done">
+    <form [formGroup]="groupForm2" class="mt-4">
+      <ng-template matStepLabel>Token</ng-template>
+      <div class="text-center mx-auto text-[#8F8F8F]">Ingresa tu Token Digital</div>
+      <div class="w-full flex justify-center">
+        <mat-form-field appearance="outline" class="w-full">
+          <input matInput formControlName="token" type="password" autocomplete="false">
+          <mat-icon class="text-[#00AF91]" *ngIf="token.value === '123456'" matSuffix>check_circle</mat-icon>
+        </mat-form-field>
+      </div>
+    </form>
+    <div class="mt-6 w-full space-x-4 -mx-6 centrado flex justify-between flex">
+      <button mat-button mat-dialog-close class="text-[#00AF91] w-[7.833rem] lg:w-[8.625rem] btn monsetb ">Cancelar</button>
+      <button mat-button [disabled]="groupForm2.invalid" matStepperNext class="text-[#00AF91] w-[7.833rem] lg:w-[8.625rem] monsetb btn">Confirmar</button>
+    </div>
+  </mat-step>
+  <mat-step [editable]="false" state="done">
+    <form>
+      <ng-template matStepLabel>Confirmación</ng-template>
+      <div class="flex justify-center">
+        <div>
+          <div class="flex justify-center mb-2.5"><mat-icon class="text-[2rem] text-[#00AF91]">done_outline</mat-icon></div>
+          <div class="text-[1rem] text-center monset">Correo electrónico registrado</div>
+          <p class="text-center text-[0.75rem] monset text-[#8F8F8F]">Todas las comunicaciones serán enviadas automaticamente a tu correo registrado</p>
+          <div class="flex justify-center">
+            <div class="inline-flex mx-auto text-[1rem] monset text-center flex justify-center">
+              <mat-icon class="text-[#00AF91] text-[1rem]">mail</mat-icon>
+              {{this.emailconf.value}}
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </form>
+    <div class="mt-4 -mb-4 w-full space-x-4 -mx-6 centrado flex justify-between flex">
+      <button mat-button mat-dialog-close class="text-[#00AF91] w-[7.833rem] lg:w-[8.625rem] btn monsetb ">Volver</button>
+      <button mat-button [mat-dialog-close]="emailconf.value" class="text-[#00AF91] w-[7.833rem] lg:w-[8.625rem] monsetb btn">Finalizar</button>
+    </div>
+  </mat-step>
+  <ng-template matStepperIcon="done" let-index="index">
+    {{index + 1}}
+  </ng-template>
+</mat-stepper>

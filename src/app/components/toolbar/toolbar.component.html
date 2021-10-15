@@ -14,7 +14,7 @@
           <mat-icon>keyboard_arrow_down</mat-icon>
         </button>
         <mat-menu #beforeMenu="matMenu" xPosition="before">
-          <button mat-menu-item><mat-icon class="text-blue-900">account_circle</mat-icon> Mi perfil</button>
+          <button mat-menu-item (click)="redirectPerfil()"><mat-icon class="text-blue-900">account_circle</mat-icon> Mi perfil</button>
           <button mat-menu-item (click)="redirectConfig()"><mat-icon class="text-blue-900">settings</mat-icon>Configuración</button>
           <button mat-menu-item><mat-icon class="text-blue-900">verified_user</mat-icon>Seguridad</button>
           <mat-divider></mat-divider>
